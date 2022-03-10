@@ -82,7 +82,8 @@ local mappings = {
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
     ["s"] = { "<cmd>call SaveFormat()<CR>", "Format then save" },
     ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
-    ["/"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+    ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
+    ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
     ["Y"] = { 'gg"y+yG', "Yank whole file to clipboard" },
 
     p = {
