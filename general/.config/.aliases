@@ -1,0 +1,96 @@
+# SKETCHY --------------------------------------------------------------
+# (If there's a problem look here first)
+alias sudo='doas --'
+alias grep='rg'
+alias cat='bat'
+alias ls='exa -1la --icons --color=always --group-directories-first'
+
+alias cp='cp -vi'
+alias mv='mv -vi'
+alias df='df -h'
+alias yeet='rm -vrf'
+alias rm='rm -v'
+
+alias python="python3"
+alias pip="python3 -m pip"
+
+alias code="vscodium"
+
+# NAVIGATION ------------------------------------------------------------
+alias ..='cd ..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+
+# GIT -------------------------------------------------------------------
+alias gits='git status'
+alias gita='git add'
+alias gitrm='git rm'
+alias gitr='git restore'
+alias gitc='git commit -m'
+alias gitamend='git commit --amend --no-edit'
+alias gitp='git push'
+alias gitpl='git pull'
+alias gitd='git diff'
+alias gitl='git log --graph --decorate --oneline'
+alias gitlast='git log -1 HEAD --stat'
+alias gitl-pretty='gitk --all --date-order $(git log -g --pretty=%H)'
+alias gitcheck='git checkout'
+# One liner for updating all repos in a directory, found under a comment under one of 
+# the answers here: https://stackoverflow.com/q/3497123/14316282
+alias gitupdate='find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;'
+
+# FUNCTIONS -------------------------------------------------------------
+
+# CUSTOM CD:
+#   1. Perform normal builtin cd command
+#   2. Check if directory is a git repo and if so run onefetch (also won't
+#      run on same repo twice consecutively)
+#   3. Run ls command (which is aliased above under SKETCHY)
+cd() {
+    builtin cd "$@" || return
+    
+    git rev-parse 2>/dev/null
+
+    # shellcheck disable=SC2181
+    if [ $? -eq 0 ]; then
+
+        CURRENT_REPO="$(basename "$(git rev-parse --show-toplevel)")" 
+        if [ "$LAST_REPO" != "$CURRENT_REPO" ]; then
+            onefetch --no-palette --show-logo never --text-colors 2 3 2 3 3 4 --disable-fields Authors
+            printf "\n"
+
+
+            LAST_REPO="$CURRENT_REPO"
+        fi
+    fi
+
+    ls
+}
+
+# EXTRACT ARCHIVE
+# Usage: ex <filename>
+ex ()
+{
+  if [ -f "$1" ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf "$1"   ;;
+      *.tar.gz)    tar xzf "$1"   ;;
+      *.bz2)       bunzip2 "$1"   ;;
+      *.rar)       unrar x "$1"   ;;
+      *.gz)        gunzip "$1"    ;;
+      *.tar)       tar xf "$1"    ;;
+      *.tbz2)      tar xjf "$1"   ;;
+      *.tgz)       tar xzf "$1"   ;;
+      *.zip)       unzip "$1"     ;;
+      *.Z)         uncompress "$1";;
+      *.7z)        7z x "$1"      ;;
+      *.deb)       ar x "$1"      ;;
+      *.tar.xz)    tar xf "$1"    ;;
+      *.tar.zst)   unzstd "$1"    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}

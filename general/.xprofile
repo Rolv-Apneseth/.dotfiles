@@ -1,0 +1,50 @@
+# Append to PATH
+ADDITIONAL_PATHS=(
+    ".local/bin"
+    "work/tools"
+    "work/logins"
+)
+for additional_path in "${ADDITIONAL_PATHS[@]}"; do
+    export PATH="${PATH:+${PATH}:}$HOME/$additional_path"
+done;
+
+# Set default programs and other defaults through environment variables
+# These are used by, for example, my Qtile config to know what program I use
+export MY_BACKUP_FONT="Hack Nerd Font"
+export MY_EDITOR="vscodium"
+export MY_EMAIL_CLIENT="thunderbird"
+export MY_EXPLORER="thunar"
+export MY_FONT="Inconsolata Nerd Font"
+export MY_LAUNCHER="rofi -show run"
+export MY_SCREENSHOT="flameshot gui"
+export MY_SYSTEM_MONITOR="psensor"
+export MY_TERMINAL_FONT="RobotoMono Nerd Font Mono"
+export MY_VOLUME_MANAGER="pavucontrol"
+export MY_WORK_COMMUNICATION="skypeforlinux"
+
+export EDITOR="nvim"
+export TERMINAL="kitty"
+export BROWSER="firefox"
+
+# Stowed dotfiles directory
+export DOTFILES="$HOME/.dotfiles"
+
+# For QT Themes
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# ZSH config file
+export ZDOTDIR="$HOME/.config/zsh"
+
+# Set keyboard layout
+setxkbmap -layout gb
+
+# Start compositor
+picom &
+
+# Start wallpaper manager
+variety &
+
+# Turn sleep off
+xset s off
+xset s 0 0
+xset -dpms

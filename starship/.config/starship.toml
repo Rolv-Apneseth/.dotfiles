@@ -1,0 +1,85 @@
+# This config was modified from: https://gist.github.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593
+
+
+scan_timeout = 0
+command_timeout = 0
+add_newline = true
+
+[character]
+success_symbol = "[>](bold green) "
+error_symbol = "[>](bold red) "
+vicmd_symbol="[>](bold green) "
+
+[status]
+style = "italic red"
+symbol = "🔴"
+format = '[$symbol]($style) '
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
+
+[directory]
+truncation_length = 5
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = "[$symbol$branch]($style)(:[$remote]($style)) "
+symbol = ' '
+style = "bold yellow"
+truncation_symbol = '…'
+always_show_remote = false
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = "🏳 "
+ahead = "↑×${count} "
+behind = "↓×${count} "
+diverged = "🔱 ↑×${ahead_count} ↓×${behind_count} "
+untracked = "🤷‍ ×${count} "
+stashed = "📦 "
+modified = "📝×${count} "
+staged = "🗃️ ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️ ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold dimmed white"
+disabled = false
+
+[python]
+format = "[$symbol$version]($style) [\\($virtualenv\\)](yellow bold)"
+style = "bold green"
+version_format = "$major.$minor"
+
+[rust]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[nodejs]
+format = "[$symbol$version](green) "
+
+# [time]
+# time_format = "%T"
+# format = "🕙[$time]($style) "
+# style = "bold green"
+# disabled = false

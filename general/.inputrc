@@ -1,0 +1,18 @@
+# Use vim style keybindings
+set editing-mode vi
+set keymap vi
+
+# Many of these settings taken from: https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/
+
+# Load system-wide configuration to user configuration
+$include  /etc/inputrc
+
+# Make Ctrl + Backspace delete a whole word
+"\C-h": backward-kill-word
+
+# Allows tab completion to display different colours
+set colored-stats On
+
+# 2 settings which allow tab completion suggestions to be displayed immediately
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
