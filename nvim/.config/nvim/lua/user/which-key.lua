@@ -80,7 +80,8 @@ local opts = {
 
 local mappings = {
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-    ["s"] = { "<cmd>call SaveFormat()<CR>", "Format then save" },
+    ["s"] = { "<cmd>w<CR>", "Format then save" },
+    ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
     ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
     ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
     ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },

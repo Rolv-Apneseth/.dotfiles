@@ -1,13 +1,4 @@
-vim.cmd([[
-    function! SaveFormat()
-        execute ':Format'
-        redraw
-        " Hack to make it work, run command twice (perhaps format is asynchronous)
-        execute ':w'
-        execute ':w'
-    endfunction
-
-
+    vim.cmd([[
     " source: https://stackoverflow.com/a/6171215/14316282
     " Escape special characters in a string for exact matching.
     " This is useful to copying strings from the file to the search tool
