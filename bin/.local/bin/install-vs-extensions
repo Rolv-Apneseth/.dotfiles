@@ -1,0 +1,26 @@
+#!/bin/bash
+# ------------------------------------------------------------------
+# Description:
+#   A short script to install my chosen VS Code extensions. The array
+#   defined at the top of the script contains the id of all the 
+#   extensions to be installed.
+# ------------------------------------------------------------------
+
+EXTENSIONS=(
+    bungcip.better-toml
+    dsznajder.es7-react-js-snippets
+    xabikos.JavaScriptSnippets
+    glenn2223.live-sass
+    esbenp.prettier-vscode
+    ms-python.python
+    njpwerner.autodocstring
+    timonwong.shellcheck
+    travis.simple-dark
+    asvetliakov.vscode-neovim
+    vscode-icons-team.vscode-icons
+    jaspernorth.vscode-pigments
+)
+
+for e in "${EXTENSIONS[@]}"; do
+  code --install-extension "$e"
+done

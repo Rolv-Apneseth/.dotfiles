@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+# ------------------------------------------------------------------
+# Author: Rolv Apneseth
+# Description:
+#   A quick command line tool used for calculating yearly salary from hourly rate, hours
+#   per day, days per week and weeks of unpaid leave
+# ------------------------------------------------------------------
+
+from math import floor
+from argparse import ArgumentParser
+
+WEEKS_IN_A_YEAR = 52.143
+
+# ARGUMENTS -----------------------------------------------------------------------------
+parser = ArgumentParser(
+    description="A quick Python script used for calculating yearly salary"
+)
+
+parser.add_argument(
+    "hourly_rate", help="Amount earned per hour, or yearly salary if in reversed mode"
+)
+parser.add_argument("hours_per_day", type=float, help="Hours worked per day")
+parser.add_argument("days_per_week", type=float, help="Days worked per week")
+parser.add_argument(
+    "weeks_of_unpaid_leave",
+    type=float,
+    help="Weeks of unpaid leave per year",
+)
+parser.add_argument(
+    "-r",
+    "--reversed",
+    action="store_true",
+    help="changes script function to calculating hourly rate from a yearly salary",
+)
+
+args = parser.parse_args()
+
+# CALCULATIONS -------------------------------------------------------------------------
+hours_worked_per_week = float(args.hours_per_day) * float(args.days_per_week)
+
+weekly_wage = hours_worked_per_week * float(args.hourly_rate)
+
+weeks_to_be_paid_for = WEEKS_IN_A_YEAR - float(args.weeks_of_unpaid_leave)
+
+# used for reverse mode only, where hourly_rate is actually yearly salary
+flagged_reversed_hourly_rate = (
+    float(args.hourly_rate) / weeks_to_be_paid_for
+) / hours_worked_per_week
+
+# OUTPUT --------------------------------------------------------------------------------
+if not args.reversed:
+    # Yearly salary from hourly rate
+    print(floor(weekly_wage * weeks_to_be_paid_for))
+else:
+    # Hourly rate from yearly salary
+    print(flagged_reversed_hourly_rate)
