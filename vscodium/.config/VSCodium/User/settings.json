@@ -1,0 +1,45 @@
+{
+  "window.zoomLevel": 3,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "python.pythonPath": "/usr/bin/python3",
+  "python.formatting.provider": "black",
+  "python.linting.flake8Args": ["--max-line-length=89"],
+  "python.linting.flake8Enabled": true,
+  "editor.wordWrap": "bounded",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  },
+  "editor.wordWrapColumn": 89,
+  "editor.linkedEditing": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": null
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+  "explorer.confirmDelete": false,
+  "shellcheck.customArgs": ["-x"],
+  "liveSassCompile.settings.showOutputWindowOn": "Error",
+  "editor.fontFamily": "'RobotoMono Nerd Font', 'Inconsolata Nerd Font', 'MesloLGLDZ Nerd Font Mono', 'Hack Nerd Font', monsopace",
+  "editor.inlineHints.fontFamily": "'Inconsolata Nerd Font', 'MesloLGLDZ Nerd Font Mono', 'Hack Nerd Font', monsopace",
+  "editor.mouseWheelZoom": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 8,
+  "workbench.activityBar.visible": false,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": true,
+  "python.linting.mypyEnabled": true,
+  "shellcheck.executablePath": "shellcheck",
+  "python.sortImports.path": "isort"
+}
