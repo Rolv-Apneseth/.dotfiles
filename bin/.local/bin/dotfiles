@@ -87,13 +87,12 @@ function check_dotfiles(){
 # HELP
 function help(){
     echo
-    echo "usage: dotfiles [-h] [install/uninstall]"
+    echo "usage: dotfiles [-h] [-d]"
     echo
     echo "A command line tool used for managing dotfile configuration with the use of GNU Stow"
     echo
     echo "options:"
     echo "   -h, --help     show this help message and exit"
-    echo
 }
 ########################################################################################
 # ARGUMENTS
