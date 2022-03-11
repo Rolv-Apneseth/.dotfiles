@@ -1,33 +1,45 @@
-from libqtile import widget, qtile
-
+from libqtile import qtile, widget
 from qtile_modules.colours import COLOURS
 from qtile_modules.programs import PROGRAMS
 
-
-WIDGET_PADDING = 3
-FONT_SIZE = 20
-FONT_SIZE_WORKSPACE_ICONS = 15
-FONT_AWESOME_FONTSIZE = FONT_SIZE - 2
-DEFAULT_FONT = "SF Pro Display"
-FONT_AWESOME_FONT = "Font Awesome 5 Free"
+# CONSTANTS
+WIDGET_PADDING = 4
+FONT_SIZE = 19
+FONT_SIZE_WORKSPACE_ICONS = 24
+ICON_FONTSIZE = 28
+DEFAULT_FONT = "SF Pro Display Bold"
+ICON_FONT = "RobotoMono Nerd Font Mono"
 
 FOREGROUND_COLOUR = COLOURS["white"]
+BACKGROUND_COLOUR = COLOURS["transparent"]
 ICON_COLOURS = COLOURS["purple_light"]
 
+ICONS = dict(
+    weather="",
+    systray="",
+    monitoring="",
+    volume="",
+    calendar="",
+    clock="",
+)
 
-def separator():
-    return widget.Spacer(length=10)
 
-
+# DEFAULT STYLES
 DEFAULT_WIDGET_STYLE = dict(
     font=DEFAULT_FONT,
     fontsize=FONT_SIZE,
     padding=WIDGET_PADDING,
-    background=COLOURS["transparent"],
+    background=BACKGROUND_COLOUR,
     foreground=FOREGROUND_COLOUR,
 )
 
-GRAPH_OPTIONS = dict(
+DEFAULT_ICON_WIDGET_STYLE = dict(
+    font=ICON_FONT,
+    fontsize=ICON_FONTSIZE,
+    foreground=ICON_COLOURS,
+)
+
+DEFAULT_GRAPH_WIDGET_STYLE = dict(
     mouse_callbacks={
         "Button1": lambda: qtile.cmd_spawn(
             PROGRAMS["system_monitor"],
@@ -42,41 +54,58 @@ GRAPH_OPTIONS = dict(
     frequency=2,
 )
 
+
+# WIDGETS
+def separator(length=15):
+    """For convenience, returns a spacer widget"""
+    return widget.Spacer(length=length)
+
+
 WIDGETS = [
     separator(),
-    # LAYOUT
-    widget.CurrentLayoutIcon(
-        scale=0.6,
+    # ARCH LOGO
+    widget.TextBox(
+        " ",
+        fontsize=55,
     ),
     separator(),
-    # RUN
+    # PROMPT
     widget.Prompt(
-        prompt="run: ",
-        background=COLOURS["black"],
+        prompt="Run: ",
+        background=COLOURS["purple"],
         padding=20,
         ignore_dups_history=True,
     ),
     # WORKSPACES
     widget.Spacer(),
     widget.GroupBox(
-        font=DEFAULT_FONT,
+        font=ICON_FONT,
         fontsize=FONT_SIZE_WORKSPACE_ICONS,
         highlight_method="block",
         active=FOREGROUND_COLOUR,
+        spacing=7,
     ),
     widget.Spacer(),
-    # OUTSIDE TEMP
+    # VOLUME
+    widget.TextBox(
+        **DEFAULT_ICON_WIDGET_STYLE,
+        text=ICONS["volume"],
+        mouse_callbacks={
+            "Button1": lambda: qtile.cmd_spawn(PROGRAMS["volume_manager"]),
+            "Button3": lambda: qtile.cmd_spawn(PROGRAMS["volume_toggle"]),
+        },
+    ),
+    separator(),
+    # WEATHER
     widget.WidgetBox(
-        font=FONT_AWESOME_FONT,
-        fontsize=FONT_AWESOME_FONTSIZE,
-        foreground=ICON_COLOURS,
-        text_closed="",
-        text_open="",
+        **DEFAULT_ICON_WIDGET_STYLE,
+        text_closed=ICONS["weather"],
+        text_open=ICONS["weather"],
         widgets=[
-            separator(),
+            separator(length=10),
             widget.OpenWeather(
                 location="Dublin, IE",
-                format=" {icon}   {temp:.0f}°{units_temperature}   "
+                format="{icon}   {temp:.0f}°{units_temperature}   "
                 "{main_feels_like:.0f}°{units_temperature}   "
                 "{wind_speed} {units_wind_speed} ",
             ),
@@ -85,61 +114,54 @@ WIDGETS = [
     separator(),
     # MONITORING
     widget.WidgetBox(
-        font=FONT_AWESOME_FONT,
-        fontsize=FONT_AWESOME_FONTSIZE,
-        foreground=ICON_COLOURS,
-        text_closed="",
-        text_open="",
+        **DEFAULT_ICON_WIDGET_STYLE,
+        text_closed=ICONS["monitoring"],
+        text_open=ICONS["monitoring"],
         widgets=[
-            separator(),
+            separator(length=10),
             widget.ThermalSensor(
                 tag_sensor="Tctl",
             ),
-            separator(),
+            separator(length=10),
             widget.NvidiaSensors(),
-            separator(),
-            widget.CPUGraph(core="all", **GRAPH_OPTIONS),
-            widget.MemoryGraph(**GRAPH_OPTIONS),
+            separator(length=10),
+            widget.CPUGraph(core="all", **DEFAULT_GRAPH_WIDGET_STYLE),
+            widget.MemoryGraph(**DEFAULT_GRAPH_WIDGET_STYLE),
             widget.Net(
                 format="{down}↓↑{up}",
                 update_interval=2.0,
             ),
         ],
     ),
-    separator(),
-    # VOLUME
-    widget.TextBox(
-        font=FONT_AWESOME_FONT,
-        fontsize=FONT_AWESOME_FONTSIZE,
-        foreground=ICON_COLOURS,
-        text="",
-        mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn(PROGRAMS["volume_manager"]),
-            "Button3": lambda: qtile.cmd_spawn(PROGRAMS["volume_toggle"]),
-        },
+    separator(length=14),
+    # SYSTRAY
+    widget.WidgetBox(
+        **DEFAULT_ICON_WIDGET_STYLE,
+        text_closed=ICONS["systray"],
+        text_open=ICONS["systray"],
+        widgets=[
+            separator(length=10),
+            widget.Systray(icon_size=20, padding=7),
+        ],
     ),
     separator(),
     # DATE
     widget.WidgetBox(
-        font=FONT_AWESOME_FONT,
-        fontsize=FONT_AWESOME_FONTSIZE,
-        foreground=ICON_COLOURS,
-        text_closed="",
-        text_open="",
+        **DEFAULT_ICON_WIDGET_STYLE,
+        text_closed=ICONS["calendar"],
+        text_open=ICONS["calendar"],
         widgets=[
-            separator(),
+            separator(length=10),
             widget.Clock(
-                format="%a, %d %m %y",
+                format="%a, %d/%m/%y",
             ),
         ],
     ),
     separator(),
     # TIME
     widget.TextBox(
-        text="",
-        font=FONT_AWESOME_FONT,
-        fontsize=FONT_AWESOME_FONTSIZE,
-        foreground=ICON_COLOURS,
+        **DEFAULT_ICON_WIDGET_STYLE,
+        text=ICONS["clock"],
     ),
     widget.Clock(
         format="%H:%M",
