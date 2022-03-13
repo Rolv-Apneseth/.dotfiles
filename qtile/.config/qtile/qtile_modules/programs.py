@@ -44,6 +44,7 @@ WEBSITES = dict(
     github=get_site("https://github.com/Rolv-Apneseth"),
     youtube=get_site("https://www.youtube.com/"),
     netflix=get_site("https://www.netflix.com/"),
+    arch_wiki=get_site("https://wiki.archlinux.org/"),
 )
 
 if __name__ == "__main__":

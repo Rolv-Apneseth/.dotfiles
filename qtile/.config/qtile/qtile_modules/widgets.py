@@ -1,6 +1,6 @@
 from libqtile import qtile, widget
 from qtile_modules.colours import COLOURS
-from qtile_modules.programs import PROGRAMS
+from qtile_modules.programs import PROGRAMS, WEBSITES
 
 # CONSTANTS
 WIDGET_PADDING = 4
@@ -67,6 +67,11 @@ WIDGETS = [
     widget.TextBox(
         " ",
         fontsize=55,
+        mouse_callbacks={
+            "Button1": lambda: qtile.cmd_spawn(
+                WEBSITES["arch_wiki"],
+            )
+        },
     ),
     separator(),
     # PROMPT
