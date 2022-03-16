@@ -38,11 +38,13 @@ export ZDOTDIR="$HOME/.config/zsh"
 # Set keyboard layout
 setxkbmap -layout gb
 
-# Start compositor
+# START
+# Compositor
 picom &
-
-# Start wallpaper manager
+# Wallpaper manager
 variety &
+# Polkit authenticator
+lxqt-policykit-agent &
 
 # Turn sleep off
 xset s off
