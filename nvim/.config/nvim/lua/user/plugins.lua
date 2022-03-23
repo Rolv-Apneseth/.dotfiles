@@ -77,8 +77,8 @@ return packer.startup(function(use)
     use("nvim-lualine/lualine.nvim")
 
     -- Convenience
-    use("numToStr/Comment.nvim")
-    use("windwp/nvim-autopairs")
+    use("numToStr/Comment.nvim") -- comment out lines
+    use("windwp/nvim-autopairs") -- auto pair brackets, quotations etc.
     use({
         "iamcco/markdown-preview.nvim",
         run = "cd app && yarn install",
@@ -96,6 +96,7 @@ return packer.startup(function(use)
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("p00f/nvim-ts-rainbow")
+    use("windwp/nvim-ts-autotag")
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
