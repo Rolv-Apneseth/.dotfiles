@@ -51,9 +51,6 @@ return packer.startup(function(use)
     -- Dependency (icons)
     use("kyazdani42/nvim-web-devicons")
 
-    -- Colorscheme
-    use("Rolv-Apneseth/onedarker.nvim")
-
     -- Autocompletion (cmp)
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
@@ -72,6 +69,12 @@ return packer.startup(function(use)
     use("williamboman/nvim-lsp-installer") -- language server installer
     use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+
+    -- Aesthetics
+    use("Rolv-Apneseth/onedarker.nvim") -- colorscheme
+    use("akinsho/bufferline.nvim")
+    use("karb94/neoscroll.nvim")
+    use("nvim-lualine/lualine.nvim")
 
     -- Convenience
     use("numToStr/Comment.nvim")
@@ -99,12 +102,6 @@ return packer.startup(function(use)
 
     -- Git
     use("lewis6991/gitsigns.nvim")
-
-    -- Bufferline
-    use("akinsho/bufferline.nvim")
-
-    --Status line
-    use("nvim-lualine/lualine.nvim")
 
     -- Greeter
     use({
