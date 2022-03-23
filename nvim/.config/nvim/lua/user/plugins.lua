@@ -83,7 +83,7 @@ return packer.startup(function(use)
     })
     use("moll/vim-bbye") -- proper bdelete command which never closes nvim
     use("folke/which-key.nvim") -- for showing shortcuts
-    use("justinmk/vim-sneak") -- for easier navigation around a file
+    use("ggandor/lightspeed.nvim") -- for easier navigation around a file
     use("lukas-reineke/indent-blankline.nvim") -- for showing lines at different indentation levels
 
     -- Nvimtree
