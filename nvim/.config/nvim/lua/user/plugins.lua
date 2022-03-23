@@ -83,7 +83,7 @@ return packer.startup(function(use)
     })
     use("moll/vim-bbye") -- proper bdelete command which never closes nvim
     use("folke/which-key.nvim") -- for showing shortcuts
-    use("justinmk/vim-sneak")  -- for easier navigation around a file
+    use("justinmk/vim-sneak") -- for easier navigation around a file
 
     -- Nvimtree
     use("kyazdani42/nvim-tree.lua")
@@ -101,6 +101,9 @@ return packer.startup(function(use)
 
     -- Bufferline
     use("akinsho/bufferline.nvim")
+
+    --Status line
+    use("nvim-lualine/lualine.nvim")
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
