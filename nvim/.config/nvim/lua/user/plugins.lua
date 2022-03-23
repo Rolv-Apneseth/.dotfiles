@@ -113,6 +113,9 @@ return packer.startup(function(use)
         end,
     })
 
+    -- Speed up loading Lua modules and files
+    use("lewis6991/impatient.nvim")
+
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
