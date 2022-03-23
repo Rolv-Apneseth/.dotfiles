@@ -105,6 +105,14 @@ return packer.startup(function(use)
     --Status line
     use("nvim-lualine/lualine.nvim")
 
+    -- Greeter
+    use({
+        "goolord/alpha-nvim",
+        config = function()
+            require("alpha").setup(require("alpha.themes.dashboard").config)
+        end,
+    })
+
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
