@@ -105,12 +105,7 @@ return packer.startup(function(use)
     use("lewis6991/gitsigns.nvim")
 
     -- Greeter
-    use({
-        "goolord/alpha-nvim",
-        config = function()
-            require("alpha").setup(require("alpha.themes.dashboard").config)
-        end,
-    })
+    use("goolord/alpha-nvim")
 
     -- Speed up loading Lua modules and files
     use("lewis6991/impatient.nvim")
