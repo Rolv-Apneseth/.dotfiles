@@ -46,11 +46,13 @@ bindkey -v '^?' backward-delete-char
 
 # HISTORY
 HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
-HISTFILE="$HOME/.cache/zsh/history"
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE="$HOME/.cache/.zsh_history"
+setopt SHARE_HISTORY
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
+# 
 
 
 # ZSH FUNCTIONS
