@@ -88,6 +88,7 @@ return packer.startup(function(use)
     use("folke/which-key.nvim") -- for showing shortcuts
     use("ggandor/lightspeed.nvim") -- for easier navigation around a file
     use("lukas-reineke/indent-blankline.nvim") -- for showing lines at different indentation levels
+    use("tpope/vim-surround") -- for surrounding text with quotes, parentheses etc.
 
     -- Nvimtree
     use("kyazdani42/nvim-tree.lua")
