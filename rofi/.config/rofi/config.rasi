@@ -1,7 +1,1 @@
-configuration {
-    modi: "drun,run,ssh";
-    font: "RobotMono Nerd Font 20";
-    terminal: "kitty";
-}
-
-@theme "/home/rolv/.config/rofi/themes/sidetab"
+@theme "/home/rolv/.config/rofi/themes/launcher"
