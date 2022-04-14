@@ -82,8 +82,8 @@ local mappings = {
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
     ["s"] = { "<cmd>w<CR>", "Format then save" },
     ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
-    ["q"] = { "<cmd>q<CR>", "Close" },
-    ["Q"] = { "<cmd>q!<CR>", "Force close" },
+    ["q"] = { "<cmd>q<CR>", "Close window" },
+    ["Q"] = { "<cmd>qa<CR>", "Close all windows" },
     ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
     ["W"] = {
         "<cmd>%bd|e#|bd#<CR>",
@@ -91,9 +91,11 @@ local mappings = {
     },
     ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
     ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
-    ["Y"] = { 'gg"y+yG', "Yank whole file to clipboard" },
+    ["p"] = { '"+p', "Paste from system clipboard" },
+    ["y"] = { '"+y', "Copy to system clipboard" },
+    ["Y"] = { 'gg"y+yG', "Copy whole file to system clipboard" },
 
-    p = {
+    a = {
         name = "Packer",
         c = { "<cmd>PackerCompile<CR>", "Compile" },
         i = { "<cmd>PackerInstall<CR>", "Install" },
@@ -162,6 +164,7 @@ local mappings = {
         b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
         h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
+        H = { "<cmd>Telescope highlights<CR>", "Highlights" },
         M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
         r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
         R = { "<cmd>Telescope registers<CR>", "Registers" },

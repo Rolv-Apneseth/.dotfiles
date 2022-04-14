@@ -17,8 +17,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Window resize (arrow keys)
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical +2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Buffer navigation
 keymap("n", "L", ":bnext<CR>", opts)
@@ -38,11 +38,8 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Copy and paste
 keymap("v", "p", '"_dP', opts) -- override default yank paste behaviour
--- Below are unecessary when using "clipboard = 'unnamedplus' in options"
--- keymap("n", "<leader>y", '"+y', opts)
--- keymap("v", "<leader>y", '"+y', opts)
--- keymap("n", "<leader>p", '"+p', opts)
--- keymap("v", "<leader>p", '"+p', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("v", "<leader>p", '"+p', opts)
 
 -- Keep cursor centered
 keymap("n", "n", "nzzzv", opts)

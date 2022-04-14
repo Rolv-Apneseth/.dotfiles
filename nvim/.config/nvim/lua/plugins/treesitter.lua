@@ -13,6 +13,10 @@ configs.setup({
         additional_vim_regex_highlighting = true,
     },
     indent = { enable = true, disable = { "yaml" } },
+    hijack_directories = {
+        enable = true,
+        auto_open = true,
+    },
     -- EXTENSIONS
     -- Autopair brackets, strings etc. (windwp/nvim-autopairs)
     autopairs = {

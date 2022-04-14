@@ -11,6 +11,8 @@ null_ls.setup({
     sources = {
         -- HTML, CSS, JS, TS, Markdown, Yaml etc.
         formatting.prettier.with({ extra_args = { "--tab-width", "4" } }),
+        -- HTML Linting
+        diagnostics.tidy,
 
         -- Lua
         formatting.stylua.with({
@@ -28,6 +30,11 @@ null_ls.setup({
         diagnostics.flake8.with({ extra_args = { "--max-line-length", "89" } }),
         formatting.black.with({ extra_args = { "--line-length", "89" } }),
         formatting.isort.with({ extra_args = { "--line-length", "89" } }),
+
+        -- Shell
+        diagnostics.shellcheck,
+        diagnostics.zsh,
+        formatting.shellharden,
     },
     on_attach = function(client)
         if client.resolved_capabilities.document_formatting then

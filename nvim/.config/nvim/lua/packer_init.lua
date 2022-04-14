@@ -82,13 +82,13 @@ return packer.startup(function(use)
     use({
         "iamcco/markdown-preview.nvim",
         run = "cd app && yarn install",
-        cmd = "MarkdownPreview",
     })
     use("moll/vim-bbye") -- proper bdelete command which never closes nvim
     use("folke/which-key.nvim") -- for showing shortcuts
     use("ggandor/lightspeed.nvim") -- for easier navigation around a file
     use("lukas-reineke/indent-blankline.nvim") -- for showing lines at different indentation levels
     use("tpope/vim-surround") -- for surrounding text with quotes, parentheses etc.
+    use("christoomey/vim-titlecase") -- provides a new operator for giving text titlecase
 
     -- Nvimtree
     use("kyazdani42/nvim-tree.lua")
