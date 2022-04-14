@@ -44,6 +44,10 @@ bindkey -v '^?' backward-delete-char
 [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
 
 
+# AUTOJUMP
+[ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
+
+
 # HISTORY
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
