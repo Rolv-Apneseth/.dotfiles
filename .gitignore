@@ -1,3 +1,4 @@
 __pycache__/
 .zcompdump
-plugin*/
+nvim/.config/nvim/plugin/
+general/.config/zsh/plugins/
