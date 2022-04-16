@@ -22,6 +22,10 @@ export MY_TERMINAL_FONT="RobotoMono Nerd Font Mono"
 export MY_VOLUME_MANAGER="pavucontrol"
 export MY_WORK_COMMUNICATION="skypeforlinux"
 
+export ROFI_WRAPPER="$HOME/.config/rofi/scripts/rofi-wrapper"
+export MY_LAUNCHER="$ROFI_WRAPPER run"
+export MY_GAMES_LAUNCHER="$ROFI_WRAPPER games"
+
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
@@ -30,7 +34,7 @@ export BROWSER="firefox"
 export DOTFILES="$HOME/.dotfiles"
 
 # For QT Themes
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # ZSH config file
 export ZDOTDIR="$HOME/.config/zsh"

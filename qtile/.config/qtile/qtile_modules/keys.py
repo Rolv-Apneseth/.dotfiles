@@ -1,8 +1,6 @@
 from libqtile.config import EzKey as Key
 from libqtile.lazy import lazy
-
 from qtile_modules.programs import PROGRAMS, WEBSITES
-
 
 MOD_KEY = "mod4"
 
@@ -53,7 +51,12 @@ KEYS = [
     Key(
         "M-d",
         lazy.spawn(PROGRAMS["launcher"]),
-        desc="Launch launcher program e.g. rofi, dmenu",
+        desc="Launch program launcher e.g. rofi",
+    ),
+    Key(
+        "M-S-d",
+        lazy.spawn(PROGRAMS["games_launcher"]),
+        desc="Launch games launcher",
     ),
     Key(
         "M-t",
