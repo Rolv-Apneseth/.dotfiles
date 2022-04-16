@@ -1,0 +1,5 @@
+@import "launcher"
+
+element-icon {
+    size:                           35%;
+}

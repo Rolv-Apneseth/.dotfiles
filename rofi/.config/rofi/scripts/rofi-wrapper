@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+export STEAM_DIR=~/.local/share/Steam
+export SCRIPTS_DIR="$HOME/.config/rofi/scripts"
+export CACHE_DIR=/tmp/rofi-game-launcher
+
+pushd "$SCRIPTS_DIR" > /dev/null || exit
+
+case "$1" in
+    run)      rofi -show run -theme launcher;;
+    games)
+        ./update-game-entries.sh -q &
+
+        (
+            # Temporarily overwrite XDG_DATA_HOME so that Rofi looks for
+            # .desktop files in $CACHE_DIR/applications instead of
+            # ~/.local/share/applications
+            export XDG_DATA_HOME="$CACHE_DIR"
+            rofi -show drun -theme games -drun-categories SteamLibrary \
+                 -cache-dir "$CACHE_DIR"
+        )
+        ;;
+    *)  echo "Usage: $0 {run,games}"
+;; esac
+
+popd > /dev/null || exit

@@ -1,0 +1,22 @@
+configuration {
+    font:                           "Fira Sans 16";
+}
+
+* {
+    background-color:               transparent;
+    background:                     #1D2330;
+    background-transparent:         #1D2330A0;
+    text-color:                     #BBBBBB;
+    text-color-selected:            #FFFFFF;
+    primary:                        #BB77BB;
+    secondary:                      #3B4252;
+    urgent:                         #BF616A;
+}
+
+element-text {
+    text-color: @text-color;
+}
+
+element-text selected {
+    text-color: @text-color-selected;
+}
