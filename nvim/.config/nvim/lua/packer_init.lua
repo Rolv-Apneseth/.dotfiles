@@ -97,6 +97,8 @@ return packer.startup(function(use)
     use("lukas-reineke/indent-blankline.nvim") -- for showing lines at different indentation levels
     use("tpope/vim-surround") -- for surrounding text with quotes, parentheses etc.
     use("christoomey/vim-titlecase") -- provides a new operator for giving text titlecase
+    use("lambdalisue/suda.vim") -- sudo read and write for nvim
+    use("mg979/vim-visual-multi") -- multi-line cursors
 
     -- Nvimtree
     use("kyazdani42/nvim-tree.lua")

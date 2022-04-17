@@ -1,7 +1,15 @@
-local colorscheme = "onedarker" -- Alternatives: slate, monokai
+local colorscheme = "onedarker"
+local colorscheme_visual_multi = "purplegray"
 local transparent_bg = true
 
-local is_status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- Set colorscheme and notify user if colorscheme could not be found
+local is_changed_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not is_changed_ok then
+    vim.notify("The colorscheme " .. colorscheme .. " was not found.")
+end
+
+-- Set vim-visual-multi (plugin for multi-line cursors) theme
+vim.api.nvim_set_var("VM_theme", colorscheme_visual_multi)
 
 -- Set transparent backgrounds
 if transparent_bg then
@@ -36,12 +44,6 @@ if transparent_bg then
     }
 
     for _, group in ipairs(groups) do
-        pcall(vim.cmd, "highlight " .. group .. " guibg=none ctermbg=none")
+        vim.cmd("highlight " .. group .. " guibg=none ctermbg=none")
     end
-    return
-end
-
-if not is_status_ok then
-    vim.notify("The colorscheme " .. colorscheme .. " was not found.")
-    return
 end
