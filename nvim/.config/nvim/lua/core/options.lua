@@ -1,3 +1,4 @@
+local o = vim.opt
 local options = {
     backup = false, -- creates a backup file
     -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
@@ -34,13 +35,11 @@ local options = {
     -- guifont = "monospace:h17",               -- the font used in graphical neovim applications
     hidden = true, -- buffer remains open in background after being closed
     incsearch = true, -- highlight search pattern in real time
+    whichwrap = "<>[]hl", -- set which left->right navigations can also move cursor up or down if at end/start of line
+    formatoptions = "trnj", -- options for auto wrap and auto format
+    iskeyword = o.iskeyword + "-", -- characters which are to be counted as 1 "word", added - for easily selecting variables e.g. foo-bar
 }
 
 for k, v in pairs(options) do
-    vim.opt[k] = v
+    o[k] = v
 end
-
-vim.cmd("syntax enable")
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]])
