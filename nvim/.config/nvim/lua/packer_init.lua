@@ -77,7 +77,15 @@ return packer.startup(function(use)
     use("nvim-lualine/lualine.nvim")
 
     -- Convenience
-    use("numToStr/Comment.nvim") -- comment out lines
+    -- use("numToStr/Comment.nvim") -- comment out lines
+    -- until nvim 0.7
+    use({
+        "numToStr/Comment.nvim",
+        tag = "v0.6",
+        config = function()
+            require("Comment").setup()
+        end,
+    })
     use("windwp/nvim-autopairs") -- auto pair brackets, quotations etc.
     use({
         "iamcco/markdown-preview.nvim",
