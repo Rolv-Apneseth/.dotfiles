@@ -8,25 +8,22 @@ for additional_path in "${ADDITIONAL_PATHS[@]}"; do
     export PATH="${PATH:+${PATH}:}$HOME/$additional_path"
 done;
 
-# Set default programs and other defaults through environment variables
-# These are used by, for example, my Qtile config to know what program I use
-export MY_BACKUP_FONT="Hack Nerd Font"
-export MY_EDITOR="vscodium"
+# Set default programs through environment variables
+# These are used by, for example, my Qtile config and Thunar custom actions
 export MY_EMAIL_CLIENT="thunderbird"
 export MY_EXPLORER="thunar"
-export MY_FONT="Inconsolata Nerd Font"
-export MY_LAUNCHER="rofi -show run"
 export MY_SCREENSHOT="flameshot gui"
 export MY_SYSTEM_MONITOR="psensor"
-export MY_TERMINAL_FONT="RobotoMono Nerd Font Mono"
 export MY_VOLUME_MANAGER="pavucontrol"
 export MY_WORK_COMMUNICATION="skypeforlinux"
+export MY_MEDIA_PLAYER="celluloid"
 
-export ROFI_WRAPPER="$HOME/.config/rofi/scripts/rofi-wrapper"
+ROFI_WRAPPER="$HOME/.config/rofi/scripts/rofi-wrapper"
 export MY_LAUNCHER="$ROFI_WRAPPER run"
 export MY_GAMES_LAUNCHER="$ROFI_WRAPPER games"
 
 export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 
