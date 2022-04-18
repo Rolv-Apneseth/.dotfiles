@@ -1,6 +1,5 @@
 # SKETCHY --------------------------------------------------------------
 # (If there's a problem look here first)
-alias sudo='doas --'
 alias grep='rg'
 alias cat='bat'
 alias ls='exa -1la --icons --color=always --group-directories-first'
