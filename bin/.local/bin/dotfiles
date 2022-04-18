@@ -9,13 +9,14 @@ DOTFILES="$HOME/.dotfiles"
 STOW_FOLDERS=(
     "bin"
     "general"
-    "kitty"
-    "neofetch"
-    "nvim"
-    "qtile"
-    "rofi"
-    "starship"
     "theming"
+    "qtile"
+    "kitty"
+    "starship"
+    "neofetch"
+    "rofi"
+    "nvim"
+    "thunar"
 )
 ########################################################################################
 # MAIN
