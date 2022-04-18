@@ -20,11 +20,11 @@ STOW_FOLDERS=(
 ########################################################################################
 # MAIN
 function main(){
-    arguments $@
+    arguments "$@"
 
     check_dotfiles
 
-    pushd "$DOTFILES"
+    pushd "$DOTFILES" > /dev/null || exit
 
     # Install vs Uninstall
     action="install"; command="--restow"
@@ -35,17 +35,17 @@ function main(){
 
     # Restow or unstow folders depending on options above
     echo
-    echo "Begin "$action"ing dotfiles"
+    echo "Begin ${action}ing dotfiles"
     echo
     for folder in "${STOW_FOLDERS[@]}" 
     do
         stow "$command" "$folder/"
     done
     echo
-    echo "Finished "$action"ing dotfiles"
+    echo "Finished ${action}ing dotfiles"
     echo
 
-    popd
+    popd > /dev/null || exit
 }
 ########################################################################################
 # PARSE ARGS
@@ -56,20 +56,20 @@ function arguments(){
       shift
       case "$arg" in
         "--help") set -- "$@" "-h" ;;
-        "--uninstall") set -- "$@" "-d" ;;
+        "--uninstall") set -- "$@" "-D" ;;
         *)        set -- "$@" "$arg"
-      esac
+      ;; esac
     done
 
     # Default behaviour
     uninstall=false
 
     # Parse arguments
-    while getopts "hd" opt
+    while getopts "hD" opt
     do
       case "$opt" in
         "h") help; exit 0 ;;
-        "d") uninstall=true ;;
+        "D") uninstall=true ;;
         "?") help >&2; exit 1 ;;
       esac
     done
@@ -79,7 +79,7 @@ function arguments(){
 function check_dotfiles(){
     if [ ! -d "$DOTFILES" ]
     then
-        echo "Dotfiles directory not found. Cloning repo "$REPO""
+        echo "Dotfiles directory not found. Cloning repo $REPO"
         git clone "$REPO" "$DOTFILES"
         echo "Dotfiles repo cloned"
     fi
@@ -88,7 +88,7 @@ function check_dotfiles(){
 # HELP
 function help(){
     echo
-    echo "usage: dotfiles [-h] [-d]"
+    echo "usage: dotfiles [-h] [-D]"
     echo
     echo "A command line tool used for managing dotfile configuration with the use of GNU Stow"
     echo
@@ -99,4 +99,4 @@ function help(){
 # ARGUMENTS
 
 
-main $@
+main "$@"
