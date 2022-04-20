@@ -69,16 +69,24 @@ which_key.setup({
     },
 })
 
-local opts = {
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-}
+-- KEYBINDINGS
+-- Options
+local function get_opts(mode)
+    return {
+        mode = mode,
+        prefix = "<leader>",
+        buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+    }
+end
 
-local mappings = {
+local opts_n = get_opts("n")
+local opts_v = get_opts("v")
+
+-- Mappings
+local mappings_n = {
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
     ["s"] = { "<cmd>w<CR>", "Format then save" },
     ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
@@ -90,10 +98,8 @@ local mappings = {
         "Close all buffers except current",
     },
     ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
+    ["r"] = { "<cmd>Telescope oldfiles<CR>", "Find recent file" },
     ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
-    ["p"] = { '"+p', "Paste from system clipboard" },
-    ["y"] = { '"+y', "Copy to system clipboard" },
-    ["Y"] = { 'gg"y+yG', "Copy whole file to system clipboard" },
 
     a = {
         name = "Packer",
@@ -173,4 +179,15 @@ local mappings = {
     },
 }
 
-which_key.register(mappings, opts)
+-- Mappings for both normal and visual modes
+local mappings_nv = {
+    ["p"] = { '"+p', "Paste from system clipboard (ahead)" },
+    ["P"] = { '"+P', "Paste from system clipboard (behind)" },
+    ["y"] = { '"+y', "Copy to system clipboard" },
+    ["Y"] = { '"+y$', "Copy remainder of the line to system clipboard" },
+}
+
+-- Apply
+which_key.register(mappings_n, opts_n)
+which_key.register(mappings_nv, opts_n)
+which_key.register(mappings_nv, opts_v)

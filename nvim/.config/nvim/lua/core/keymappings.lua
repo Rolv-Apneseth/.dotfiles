@@ -38,8 +38,7 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Copy and paste
 keymap("v", "p", '"_dP', opts) -- override default yank paste behaviour
-keymap("v", "<leader>y", '"+y', opts)
-keymap("v", "<leader>p", '"+p', opts)
+keymap("n", "Y", "y$", opts) -- make Y behave as expected
 
 -- Keep cursor centered
 keymap("n", "n", "nzzzv", opts)
