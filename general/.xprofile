@@ -17,6 +17,7 @@ export MY_SYSTEM_MONITOR="psensor"
 export MY_VOLUME_MANAGER="pavucontrol"
 export MY_WORK_COMMUNICATION="skypeforlinux"
 export MY_MEDIA_PLAYER="celluloid"
+export MY_MUSIC_PLAYER="audacious --play"
 
 ROFI_WRAPPER="$HOME/.config/rofi/scripts/rofi-wrapper"
 export MY_LAUNCHER="$ROFI_WRAPPER run"
