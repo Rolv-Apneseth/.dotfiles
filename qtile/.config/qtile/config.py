@@ -1,14 +1,13 @@
-from libqtile import bar, layout, hook, qtile
-from libqtile.config import Click, Drag, Group, Match, Screen
+from libqtile import bar, hook, layout, qtile
+from libqtile.config import Click, Drag
 from libqtile.config import EzKey as Key
+from libqtile.config import Group, Match, Screen
 from libqtile.lazy import lazy
-
-from qtile_modules.keys import MOD_KEY, KEYS
-from qtile_modules.layouts import LAYOUTS
-from qtile_modules.widgets import DEFAULT_WIDGET_STYLE, WIDGETS
-from qtile_modules.programs import PROGRAMS
 from qtile_modules.colours import COLOURS
-
+from qtile_modules.keys import KEYS, MOD_KEY
+from qtile_modules.layouts import LAYOUTS
+from qtile_modules.programs import PROGRAMS
+from qtile_modules.widgets import DEFAULT_WIDGET_STYLE, WIDGETS
 
 # KEYS
 keys = KEYS
