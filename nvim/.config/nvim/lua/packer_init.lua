@@ -16,13 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd([[packad packer.nvim]])
 end
 
--- Autocommand to reload nvim whenever you save this file (plugins.lua)
-vim.cmd([[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost packer_init.lua source <afile> | PackerSync
-    augroup end
-]])
+-- Autocommand to reload nvim whenever you save this file
+vim.api.nvim_create_autocmd("BufWritePost", {
+    command = "source <afile> | PackerSync",
+    pattern = "packer_init.lua",
+    group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+})
 
 -- Load packer and quit if not found
 local status_ok, packer = pcall(require, "packer")
@@ -77,15 +76,7 @@ return packer.startup(function(use)
     use("nvim-lualine/lualine.nvim")
 
     -- Convenience
-    -- use("numToStr/Comment.nvim") -- comment out lines
-    -- until nvim 0.7
-    use({
-        "numToStr/Comment.nvim",
-        tag = "v0.6",
-        config = function()
-            require("Comment").setup()
-        end,
-    })
+    use("numToStr/Comment.nvim") -- comment out lines
     use("windwp/nvim-autopairs") -- auto pair brackets, quotations etc.
     use({
         "iamcco/markdown-preview.nvim",
