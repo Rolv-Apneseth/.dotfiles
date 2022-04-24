@@ -40,6 +40,9 @@ packer.init({
 })
 -- Install plugins
 return packer.startup(function(use)
+    -- Speed up loading Lua modules and files
+    use("lewis6991/impatient.nvim")
+
     -- Have packer manage itself
     use("wbthomason/packer.nvim")
 
@@ -108,9 +111,6 @@ return packer.startup(function(use)
 
     -- Greeter
     use("goolord/alpha-nvim")
-
-    -- Speed up loading Lua modules and files
-    use("lewis6991/impatient.nvim")
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
