@@ -54,7 +54,3 @@ keymap("i", "?", "?<C-g>u", opts)
 ---------------------------------------------------------------------
 -- Many other keymaps are defined in the which-key configuration file
 ---------------------------------------------------------------------
-
--- Search and replace which uses functions defined in vimscript-functions
-vim.cmd([[vmap <leader>* <Esc>:/<c-r>=GetVisual()<cr><cr>]])
-vim.cmd([[vmap <leader># <Esc>:%s/<c-r>=GetVisual()<cr>//g<left><left>]])

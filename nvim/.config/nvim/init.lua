@@ -1,6 +1,5 @@
 require("core/options")
-require("core/vimscript-functions")
-require("core/vimscript-autocommands")
+require("core/autocommands")
 require("core/keymappings")
 require("core/colorscheme")
 
