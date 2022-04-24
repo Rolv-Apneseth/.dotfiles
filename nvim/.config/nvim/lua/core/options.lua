@@ -1,7 +1,8 @@
+local constants = require("core/constants")
 local o = vim.opt
+
 local options = {
-    backup = false, -- creates a backup file
-    -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+    backup = false, -- stops creation of a backup file
     cmdheight = 2, -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect", "noinsert" }, -- mostly just for cmp
     conceallevel = 0, -- so that `` is visible in markdown files
@@ -23,23 +24,23 @@ local options = {
     updatetime = 300, -- faster completion (4000ms default)
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = true, -- convert tabs to spaces
-    shiftwidth = 4, -- the number of spaces inserted for each indentation
-    tabstop = 4, -- insert 4 spaces for a tab
+    shiftwidth = constants.INDENT_SIZE, -- the number of spaces inserted for each indentation
+    tabstop = constants.INDENT_SIZE, -- insert x spaces for a tab
     cursorline = true, -- highlight the current line
     number = true, -- set numbered lines
     relativenumber = true, -- set relative numbered lines
     numberwidth = 4, -- number column width
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-    colorcolumn = "89", -- coloured column will be drawn this many characters into a line
+    colorcolumn = constants.LINE_LENGTH, -- coloured column will be drawn this many characters into a line
     scrolloff = 10, -- visible section will move when cursor is this many lines away from the edge of the viewport
-    -- guifont = "monospace:h17",               -- the font used in graphical neovim applications
     hidden = true, -- buffer remains open in background after being closed
     incsearch = true, -- highlight search pattern in real time
     whichwrap = "<>[]hl", -- set which left->right navigations can also move cursor up or down if at end/start of line
-    formatoptions = "trnj", -- options for auto wrap and auto format
+    laststatus = 3, -- global status line
     iskeyword = o.iskeyword + "-", -- characters which are to be counted as 1 "word", added - for easily selecting variables e.g. foo-bar
 }
 
+-- Apply options
 for k, v in pairs(options) do
     o[k] = v
 end
