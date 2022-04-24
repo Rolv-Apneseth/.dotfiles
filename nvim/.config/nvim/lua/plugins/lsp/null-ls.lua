@@ -3,6 +3,8 @@ if not status_ok then
     return
 end
 
+local constants = require("core/constants")
+
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
@@ -18,7 +20,7 @@ null_ls.setup({
         formatting.stylua.with({
             extra_args = {
                 "--column-width",
-                "89",
+                constants.LINE_LENGTH,
                 "--indent-width",
                 "4",
                 "--indent-type",
@@ -27,9 +29,15 @@ null_ls.setup({
         }),
 
         -- Python
-        diagnostics.flake8.with({ extra_args = { "--max-line-length", "89" } }),
-        formatting.black.with({ extra_args = { "--line-length", "89" } }),
-        formatting.isort.with({ extra_args = { "--line-length", "89" } }),
+        diagnostics.flake8.with({
+            extra_args = { "--max-line-length", constants.LINE_LENGTH },
+        }),
+        formatting.black.with({
+            extra_args = { "--line-length", constants.LINE_LENGTH },
+        }),
+        formatting.isort.with({
+            extra_args = { "--line-length", constants.LINE_LENGTH },
+        }),
 
         -- Shell
         diagnostics.shellcheck,
