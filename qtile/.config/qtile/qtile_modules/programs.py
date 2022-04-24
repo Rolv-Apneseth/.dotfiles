@@ -1,6 +1,7 @@
 from os import environ
 
 
+# Helper Functions
 def get_program(environment_variable: str, backup: str) -> str:
     return environ.get(environment_variable, default=backup)
 
@@ -24,11 +25,13 @@ PROGRAMS = dict(
     work_communication=get_program("MY_WORK_COMMUNICATION", "skypeforlinux"),
     screenshot=get_program("MY_SCREENSHOT", "flameshot gui"),
     volume_manager=get_program("MY_VOLUME_MANAGER", "pavucontrol"),
+    media_player=get_program("MY_MEDIA_PLAYER", "mpv"),
+    play_music=get_program("MY_MUSIC_PLAYER", "audacious"),
     system_monitor="psensor",
     volume_toggle="amixer set Master toggle",
     wallpaper_manager="variety",
 )
-# Update with terminal programs (requires terminal to be defined first)
+# Update with programs/commands that require others to be defined first
 PROGRAMS.update(
     dict(
         editor=get_terminal_program(get_program("EDITOR", "nvim")),

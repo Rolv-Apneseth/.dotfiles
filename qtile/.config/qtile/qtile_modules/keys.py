@@ -69,6 +69,11 @@ KEYS = [
         desc="Launch email client",
     ),
     Key(
+        "M-m",
+        lazy.spawn(PROGRAMS["play_music"]),
+        desc="Launch music player (and resume playback)",
+    ),
+    Key(
         "M-p",
         lazy.spawn(PROGRAMS["screenshot"]),
         desc="Launch screenshotting tool",
