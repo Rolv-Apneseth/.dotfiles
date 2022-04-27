@@ -3,6 +3,8 @@ if not status_ok then
     return
 end
 
+local constants = require("core.constants")
+
 npairs.setup({
     check_ts = true,
     ts_config = {
@@ -12,7 +14,7 @@ npairs.setup({
     },
     disable_filetype = { "TelescopePrompt", "spectre_panel" },
     fast_wrap = {
-        map = "<M-e>",
+        map = constants.OTHER_KEYMAPPINGS.treesitter.autopairs.fastwrap,
         chars = { "{", "[", "(", '"', "'" },
         pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
         offset = 0, -- Offset from pattern match

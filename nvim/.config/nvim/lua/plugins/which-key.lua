@@ -3,6 +3,9 @@ if not status_ok then
     return
 end
 
+local constants = require("core.constants")
+local keymaps = constants.OTHER_KEYMAPPINGS.whichkey
+
 which_key.setup({
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -71,10 +74,10 @@ which_key.setup({
 
 -- KEYBINDINGS
 -- Options
-local function get_opts(mode)
+local function get_opts(prefix, mode)
     return {
         mode = mode,
-        prefix = "<leader>",
+        prefix = prefix,
         buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
         silent = true, -- use `silent` when creating keymaps
         noremap = true, -- use `noremap` when creating keymaps
@@ -82,112 +85,10 @@ local function get_opts(mode)
     }
 end
 
-local opts_n = get_opts("n")
-local opts_v = get_opts("v")
+local opts_leader_n = get_opts("<leader>", "n")
+local opts_leader_v = get_opts("<leader>", "v")
 
--- Mappings
-local mappings_n = {
-    ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-    ["s"] = { "<cmd>w<CR>", "Format then save" },
-    ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
-    ["q"] = { "<cmd>q<CR>", "Close window" },
-    ["Q"] = { "<cmd>qa<CR>", "Close all windows" },
-    ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
-    ["W"] = {
-        "<cmd>%bd|e#|bd#<CR>",
-        "Close all buffers except current",
-    },
-    ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
-    ["r"] = { "<cmd>Telescope oldfiles<CR>", "Find recent file" },
-    ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
-
-    a = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<CR>", "Compile" },
-        i = { "<cmd>PackerInstall<CR>", "Install" },
-        s = { "<cmd>PackerSync<CR>", "Sync" },
-        S = { "<cmd>PackerStatus<CR>", "Status" },
-        u = { "<cmd>PackerUpdate<CR>", "Update" },
-    },
-
-    g = {
-        name = "Git",
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-        j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-        k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
-        l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-        p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
-        u = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
-            "Undo Stage Hunk",
-        },
-        o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
-        b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-        c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
-        d = {
-            "<cmd>Gitsigns diffthis HEAD<CR>",
-            "Diff",
-        },
-    },
-
-    l = {
-        name = "LSP",
-        a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-        d = {
-            "<cmd>Telescope lsp_document_diagnostics<CR>",
-            "Document Diagnostics",
-        },
-        w = {
-            "<cmd>Telescope lsp_workspace_diagnostics<CR>",
-            "Workspace Diagnostics",
-        },
-        f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
-        i = { "<cmd>LspInfo<CR>", "Info" },
-        I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
-        j = {
-            "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-            "Next Diagnostic",
-        },
-        k = {
-            "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
-            "Prev Diagnostic",
-        },
-        l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
-        q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-        s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-        S = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
-            "Workspace Symbols",
-        },
-    },
-
-    i = {
-        name = "Search",
-        b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-        c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
-        h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
-        H = { "<cmd>Telescope highlights<CR>", "Highlights" },
-        M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-        R = { "<cmd>Telescope registers<CR>", "Registers" },
-        k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-        C = { "<cmd>Telescope commands<CR>", "Commands" },
-    },
-}
-
--- Mappings for both normal and visual modes
-local mappings_nv = {
-    ["p"] = { '"+p', "Paste from system clipboard (ahead)" },
-    ["P"] = { '"+P', "Paste from system clipboard (behind)" },
-    ["y"] = { '"+y', "Copy to system clipboard" },
-    ["Y"] = { '"+y$', "Copy remainder of the line to system clipboard" },
-}
-
--- Apply
-which_key.register(mappings_n, opts_n)
-which_key.register(mappings_nv, opts_n)
-which_key.register(mappings_nv, opts_v)
+-- Apply keymaps
+which_key.register(keymaps.leader_n, opts_leader_n)
+which_key.register(keymaps.leader_nv, opts_leader_n)
+which_key.register(keymaps.leader_nv, opts_leader_v)

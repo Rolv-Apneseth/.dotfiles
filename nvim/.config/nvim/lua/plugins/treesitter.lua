@@ -3,6 +3,9 @@ if not status_ok then
     return
 end
 
+local constants = require("core.constants")
+local keymaps_text_object = constants.OTHER_KEYMAPPINGS.treesitter.text_object
+
 configs.setup({
     ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -12,7 +15,7 @@ configs.setup({
         disable = { "" }, -- list of language that will be disabled
         additional_vim_regex_highlighting = true,
     },
-    indent = { enable = true, disable = { "yaml" } },
+    indent = { enable = true, disable = { "yaml", "python" } },
     hijack_directories = {
         enable = true,
         auto_open = true,
@@ -39,5 +42,22 @@ configs.setup({
     -- Auto-tags for html etc.
     autotag = {
         enable = true,
+    },
+
+    -- Text objects (nvim-treesitter/nvim-treesitter-textobjects)
+    textobjects = {
+        select = {
+            enable = true,
+
+            -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
+
+            keymaps = keymaps_text_object.select,
+        },
+        swap = {
+            enable = true,
+            swap_next = keymaps_text_object.swap_next,
+            swap_previous = keymaps_text_object.swap_previous,
+        },
     },
 })
