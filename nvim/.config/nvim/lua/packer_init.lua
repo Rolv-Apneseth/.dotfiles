@@ -90,6 +90,7 @@ return packer.startup(function(use)
     use("ggandor/lightspeed.nvim") -- for easier navigation around a file
     use("lukas-reineke/indent-blankline.nvim") -- for showing lines at different indentation levels
     use("tpope/vim-surround") -- for surrounding text with quotes, parentheses etc.
+    use("michaeljsmith/vim-indent-object") -- indent text object
     use("christoomey/vim-titlecase") -- provides a new operator for giving text titlecase
     use("lambdalisue/suda.vim") -- sudo read and write for nvim
     use("mg979/vim-visual-multi") -- multi-line cursors
@@ -102,6 +103,7 @@ return packer.startup(function(use)
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("p00f/nvim-ts-rainbow")
     use("windwp/nvim-ts-autotag")
+    use("nvim-treesitter/nvim-treesitter-textobjects")
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
