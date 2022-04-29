@@ -39,6 +39,11 @@ KEYS = [
         desc="Launch terminal",
     ),
     Key(
+        "M-S-<Return>",
+        lazy.spawn(PROGRAMS["terminal_last_dir"]),
+        desc="Launch terminal in the last opened directory",
+    ),
+    Key(
         "M-f",
         lazy.spawn(PROGRAMS["browser"]),
         desc="Launch browser",
@@ -47,6 +52,11 @@ KEYS = [
         "M-c",
         lazy.spawn(PROGRAMS["editor"]),
         desc="Launch text editor",
+    ),
+    Key(
+        "M-S-c",
+        lazy.spawn(PROGRAMS["editor"]),
+        desc="Launch text editor in the last opened directory",
     ),
     Key(
         "M-d",
@@ -62,6 +72,11 @@ KEYS = [
         "M-t",
         lazy.spawn(PROGRAMS["file_explorer"]),
         desc="Launch file explorer",
+    ),
+    Key(
+        "M-S-t",
+        lazy.spawn(PROGRAMS["file_explorer_last_dir"]),
+        desc="Launch file explorer in the last opened directory",
     ),
     Key(
         "M-e",
