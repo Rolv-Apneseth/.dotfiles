@@ -35,19 +35,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 
-# FZF
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
-
-
-# AUTOJUMP
-[ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
-
-
 # HISTORY
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
@@ -56,11 +43,23 @@ HISTFILE="$HOME/.cache/.zsh_history"
 setopt SHARE_HISTORY
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
-# 
 
 
-# ZSH FUNCTIONS
+# Utility funcitons
 source "$ZDOTDIR/zsh_functions"
+
+
+# FZF
+add_file "/usr/share/fzf/completion.zsh" 
+add_file "/usr/share/fzf/key-bindings.zsh" 
+add_file "/usr/share/doc/fzf/examples/completion.zsh" 
+add_file "/usr/share/doc/fzf/examples/key-bindings.zsh" 
+add_file "~/.fzf.zsh" 
+add_file "$ZDOTDIR/completion/_fnm" 
+
+
+# AUTOJUMP
+add_file "/usr/share/autojump/autojump.zsh" 
 
 
 # PLUGINS 
@@ -71,9 +70,7 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # ALIASES
 # Note: some sketchy aliases are used in my .aliases file so check
 # there first when there's a problem
-ALIASES_PATH="$HOME/.config/.aliases"
-# shellcheck source=/home/rolv/.aliases
-[[ -f $ALIASES_PATH ]] && . "$ALIASES_PATH"
+add_file "$HOME/.config/.aliases"
 
 
 # RICE
@@ -88,3 +85,6 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     unfunction kitty-integration
 fi
 
+
+# ZSH hooks
+zsh_add_file "$ZDOTDIR/zsh_hooks"

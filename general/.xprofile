@@ -31,11 +31,14 @@ export BROWSER="firefox"
 # Stowed dotfiles directory
 export DOTFILES="$HOME/.dotfiles"
 
-# For QT Themes
-export QT_QPA_PLATFORMTHEME="qt5ct"
+# File containing last opened directory
+export LAST_DIR_FILE="$HOME/.cache/.last_dir"
 
 # ZSH config file
 export ZDOTDIR="$HOME/.config/zsh"
+
+# For QT Themes
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Set keyboard layout
 setxkbmap -layout gb

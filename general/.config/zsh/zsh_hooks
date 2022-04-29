@@ -1,0 +1,6 @@
+# On change pwd
+change_last_dir() {
+  pwd > "$LAST_DIR_FILE"
+}
+
+add-zsh-hook chpwd change_last_dir

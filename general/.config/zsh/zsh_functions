@@ -1,4 +1,8 @@
-# Functions from https://github.com/Mach-OS/Machfiles/blob/master/zsh/.config/zsh/zsh-functions
+function add_file() {
+    [ -f "$1" ] && source "$1"
+}
+
+# Below functions from https://github.com/Mach-OS/Machfiles/blob/master/zsh/.config/zsh/zsh-functions
 function zsh_add_file() {
     [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
