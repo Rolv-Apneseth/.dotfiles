@@ -1,7 +1,23 @@
-# On change pwd
-change_last_dir() {
-  pwd > "$LAST_DIR_FILE"
-}
+# ON CHANGED PWD
+do_ls() {emulate -L zsh; ls;}
+add-zsh-hook chpwd do_ls
 
 change_last_dir() {last_dir -s} # Calls custom script
 add-zsh-hook chpwd change_last_dir
+
+onefetch_dir() {
+    git rev-parse 2>/dev/null
+
+    # shellcheck disable=SC2181
+    if [ $? -eq 0 ]; then
+
+        CURRENT_REPO="$(basename "$(git rev-parse --show-toplevel)")" 
+        if [ "$LAST_REPO" != "$CURRENT_REPO" ]; then
+            onefetch --no-palette --show-logo never --text-colors 2 3 2 3 3 4 --disable-fields Authors 2>/dev/null
+            printf "\n"
+
+            LAST_REPO="$CURRENT_REPO"
+        fi
+    fi
+}
+add-zsh-hook chpwd onefetch_dir

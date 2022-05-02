@@ -41,32 +41,6 @@ alias gitupdate='find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} p
 
 # FUNCTIONS -------------------------------------------------------------
 
-# CUSTOM CD:
-#   1. Perform normal builtin cd command
-#   2. Check if directory is a git repo and if so run onefetch (also won't
-#      run on same repo twice consecutively)
-#   3. Run ls command (which is aliased above under SKETCHY)
-cd() {
-    builtin cd "$@" || return
-    
-    git rev-parse 2>/dev/null
-
-    # shellcheck disable=SC2181
-    if [ $? -eq 0 ]; then
-
-        CURRENT_REPO="$(basename "$(git rev-parse --show-toplevel)")" 
-        if [ "$LAST_REPO" != "$CURRENT_REPO" ]; then
-            onefetch --no-palette --show-logo never --text-colors 2 3 2 3 3 4 --disable-fields Authors
-            printf "\n"
-
-
-            LAST_REPO="$CURRENT_REPO"
-        fi
-    fi
-
-    ls
-}
-
 # EXTRACT ARCHIVE
 # Usage: ex <filename>
 ex ()

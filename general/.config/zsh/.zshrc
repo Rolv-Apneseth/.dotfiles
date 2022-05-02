@@ -87,4 +87,4 @@ fi
 
 
 # ZSH hooks
-zsh_add_file "$ZDOTDIR/zsh_hooks"
+zsh_add_file "zsh_hooks"
