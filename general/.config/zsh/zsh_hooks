@@ -3,4 +3,5 @@ change_last_dir() {
   pwd > "$LAST_DIR_FILE"
 }
 
+change_last_dir() {last_dir -s} # Calls custom script
 add-zsh-hook chpwd change_last_dir

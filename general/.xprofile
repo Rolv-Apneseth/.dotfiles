@@ -31,9 +31,6 @@ export BROWSER="firefox"
 # Stowed dotfiles directory
 export DOTFILES="$HOME/.dotfiles"
 
-# File containing last opened directory
-export LAST_DIR_FILE="$HOME/.cache/.last_dir"
-
 # ZSH config file
 export ZDOTDIR="$HOME/.config/zsh"
 
