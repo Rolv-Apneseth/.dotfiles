@@ -1,0 +1,57 @@
+#!/bin/env bash
+########################################################################################
+# AUTHOR: Rolv-Apneseth (https://github.com/Rolv-Apneseth)
+# LICENSE: MIT
+########################################################################################
+# CONSTANTS
+LAST_DIR_FILE="$HOME/.cache/.last_dir"
+########################################################################################
+# HELP
+function help(){
+    echo
+    echo "usage: last_dir [-h] [-s]"
+    echo
+    echo "Used to set or get (default) the last visited directory"
+    echo
+    echo "options:"
+    echo "   -h, --help     show this help message and exit"
+    echo "   -s, --set      set last visited directory (pwd) and exit"
+}
+########################################################################################
+# FUNCTIONS
+get_last_dir() {
+    sed -n "1{p;q}" "$LAST_DIR_FILE" || echo "$HOME"
+}
+set_last_dir() {
+    pwd > "$LAST_DIR_FILE"
+}
+########################################################################################
+# MAIN
+main() {
+    # Transform long options to short ones
+    for arg in "$@";
+    do
+      shift
+      case "$arg" in
+        "--help") set -- "$@" "-h" ;;
+        "--set") set -- "$@" "-s" ;;
+        *)        set -- "$@" "$arg"
+      ;; esac
+    done
+
+
+    # Parse arguments
+    while getopts "hs" opt
+    do
+      case "$opt" in
+        "h") help; exit 0 ;;
+        "s") set_last_dir; exit 0 ;;
+        "?") help 2>/dev/null ; exit 1 ;;
+      esac
+    done
+
+    # Default behaviour
+    get_last_dir
+}
+
+main "$@"
