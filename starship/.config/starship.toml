@@ -1,8 +1,8 @@
 # This config was modified from: https://gist.github.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593
 
 
-scan_timeout = 0
-command_timeout = 0
+scan_timeout = 1_000
+command_timeout = 1_000
 add_newline = true
 
 [character]
@@ -44,12 +44,12 @@ conflicted = "🏳 "
 ahead = "↑×${count} "
 behind = "↓×${count} "
 diverged = "🔱 ↑×${ahead_count} ↓×${behind_count} "
-untracked = "🤷‍ ×${count} "
+untracked = "🤷×${count} "
 stashed = "📦 "
 modified = "📝×${count} "
-staged = "🗃️ ×${count} "
-renamed = "📛 ×${count} "
-deleted = "🗑️ ×${count} "
+staged = "🗃️×${count} "
+renamed = "📛×${count} "
+deleted = "🗑️×${count} "
 style = "bright-white"
 format = "$all_status$ahead_behind"
 
@@ -62,7 +62,7 @@ disabled = true
 
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
-threshold = 70
+threshold = 50
 style = "bold dimmed white"
 disabled = false
 
