@@ -11,18 +11,11 @@ def get_terminal_program(program: str) -> str:
 
 
 def get_site(url: str) -> str:
-    return f'{PROGRAMS["browser"]} {url}'
+    return f"{PROGRAMS['browser']} {url}"
 
 
-def get_last_dir() -> str:
-    with open(environ.get("LAST_DIR_FILE"), "r") as last_dir_file:
-        last_dir = last_dir_file.read().strip()
-
-    return last_dir
-
-
-def get_program_last_dir(program: str) -> str:
-    return f"{program} {get_last_dir()}"
+def get_program_in_last_dir(program: str) -> str:
+    return f'{program} "$(last_dir)"'
 
 
 # Set used programs and commands
@@ -51,9 +44,9 @@ PROGRAMS.update(
 )
 PROGRAMS.update(
     dict(
-        terminal_last_dir=get_program_last_dir(PROGRAMS["terminal"]),
-        editor_last_dir=get_program_last_dir(PROGRAMS["editor"]),
-        file_explorer_last_dir=get_program_last_dir(PROGRAMS["file_explorer"]),
+        terminal_last_dir=get_program_in_last_dir(PROGRAMS["terminal"]),
+        editor_last_dir=get_program_in_last_dir(PROGRAMS["editor"]),
+        file_explorer_last_dir=get_program_in_last_dir(PROGRAMS["file_explorer"]),
     )
 )
 
@@ -75,4 +68,3 @@ if __name__ == "__main__":
 
     pprint(PROGRAMS)
     pprint(WEBSITES)
-    print("Last dir:", get_last_dir())

@@ -40,7 +40,7 @@ KEYS = [
     ),
     Key(
         "M-S-<Return>",
-        lazy.spawn(PROGRAMS["terminal_last_dir"]),
+        lazy.spawn(["sh", "-c", PROGRAMS["terminal_last_dir"]]),
         desc="Launch terminal in the last opened directory",
     ),
     Key(
@@ -55,7 +55,7 @@ KEYS = [
     ),
     Key(
         "M-S-c",
-        lazy.spawn(PROGRAMS["editor"]),
+        lazy.spawn(["sh", "-c", PROGRAMS["editor_last_dir"]]),
         desc="Launch text editor in the last opened directory",
     ),
     Key(
@@ -75,7 +75,7 @@ KEYS = [
     ),
     Key(
         "M-S-t",
-        lazy.spawn(PROGRAMS["file_explorer_last_dir"]),
+        lazy.spawn(["sh", "-c", PROGRAMS["file_explorer_last_dir"]]),
         desc="Launch file explorer in the last opened directory",
     ),
     Key(
