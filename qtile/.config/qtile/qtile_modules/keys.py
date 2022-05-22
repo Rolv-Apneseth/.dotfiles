@@ -23,7 +23,7 @@ KEYS = [
     Key("M-S-<space>", lazy.prev_layout(), desc="Change to previous layout"),
     # Qtile and power
     Key("M-S-q", lazy.restart(), desc="Restart Qtile"),
-    Key("M-S-c", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key("M-S-m", lazy.shutdown(), desc="Shutdown Qtile"),
     Key("M-S-r", lazy.spawn("reboot"), desc="Reboot PC"),
     Key("M-S-s", lazy.spawn("shutdown now"), desc="Shutdown PC"),
     # Volume
