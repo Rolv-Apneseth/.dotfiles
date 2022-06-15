@@ -9,7 +9,7 @@ from datetime import date, datetime
 
 import mariadb
 
-MAXIMUM_DAYS_AWAY = 100
+MAXIMUM_DAYS_AWAY = 31
 
 # Grab all contacts from mariadb database
 with mariadb.connect(
