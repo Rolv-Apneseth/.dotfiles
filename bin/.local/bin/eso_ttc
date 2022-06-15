@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+TABLE_URL="https://eu.tamrieltradecentre.com/download/PriceTable"
+ARCHIVE_LOCATION="$HOME/.cache/PriceTable.zip"
+TTC_LOCATION="/media/main/SteamLibrary/steamapps/compatdata/306130/pfx/drive_c/users/steamuser/My Documents/Elder Scrolls Online/live/AddOns/TamrielTradeCentre/"
+
+printf "\nFetching price table archive from $TABLE_URL\n"
+curl -s -o "$ARCHIVE_LOCATION" "$TABLE_URL" && echo "Archive fetched successfully"
+
+printf "\nExtracting archive to TTC directory at:\n$TTC_LOCATION\n"
+unzip -o -q "$ARCHIVE_LOCATION" -d "$TTC_LOCATION" && echo "Files extracted successfully"
+
+printf "\nRemoving archive (cleanup)\n"
+rm -rf "$ARCHIVE_LOCATION" && echo "Archive removed successfully"
