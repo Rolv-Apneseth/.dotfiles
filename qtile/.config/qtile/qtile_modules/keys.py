@@ -24,8 +24,8 @@ KEYS = [
     # Qtile and power
     Key("M-S-q", lazy.restart(), desc="Restart Qtile"),
     Key("M-S-m", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key("M-S-r", lazy.spawn("reboot"), desc="Reboot PC"),
-    Key("M-S-s", lazy.spawn("shutdown now"), desc="Shutdown PC"),
+    Key("M-S-r", lazy.spawn("reboot --no-wall"), desc="Reboot PC"),
+    Key("M-S-s", lazy.spawn("poweroff --no-wall"), desc="Shutdown PC"),
     # Volume
     Key("<XF86AudioLowerVolume>", lazy.spawn("pamixer --decrease 5")),
     Key("<XF86AudioRaiseVolume>", lazy.spawn("pamixer --increase 5")),
