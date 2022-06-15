@@ -37,9 +37,6 @@ export ZDOTDIR="$HOME/.config/zsh"
 # For QT Themes
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-# Set keyboard layout
-setxkbmap -layout gb
-
 # START
 # Compositor
 picom &
