@@ -9,7 +9,7 @@ pushd "$SCRIPTS_DIR" > /dev/null || exit
 case "$1" in
     run)      rofi -show run -theme launcher;;
     games)
-        ./update-game-entries.sh -q &
+        ./update-game-entries.sh -q
 
         (
             # Temporarily overwrite XDG_DATA_HOME so that Rofi looks for
