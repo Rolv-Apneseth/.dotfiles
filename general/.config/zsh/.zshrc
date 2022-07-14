@@ -8,6 +8,9 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
+# Better time keyword output
+export TIMEFMT=$'%J\n\n%*Es total\n%U user cpu\n%S system cpu\n%P cpu\n%MKB max mem'
+
 # If argument is unknown but is name of a directory, cd into it
 setopt autocd 
 # Disable Ctrl+S to freeze terminal
