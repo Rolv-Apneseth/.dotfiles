@@ -30,7 +30,12 @@ null_ls.setup({
 
         -- Python
         diagnostics.flake8.with({
-            extra_args = { "--max-line-length", constants.LINE_LENGTH },
+            extra_args = {
+                "--max-line-length",
+                constants.LINE_LENGTH,
+                "--ignore",
+                "E203, E266, E501, W503",
+            },
         }),
         formatting.black.with({
             extra_args = { "--line-length", constants.LINE_LENGTH },
