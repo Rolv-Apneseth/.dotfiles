@@ -60,8 +60,6 @@ return {
                     "Close all buffers except current",
                 },
 
-                ["t"] = { "<Plug>Titlecase", "Convert to titlecase" },
-
                 ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
                 ["r"] = { "<cmd>Telescope oldfiles<CR>", "Find recent file" },
                 ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
@@ -164,7 +162,7 @@ return {
                 ["P"] = { '"+P', "Paste from system clipboard (behind)" },
                 ["y"] = { '"+y', "Copy to system clipboard" },
                 ["Y"] = { '"+y$', "Copy remainder of the line to system clipboard" },
-                ["t"] = { "<Plug>Titlecase", "Convert selection to titlecase" },
+                ["t"] = { "gugv<Plug>Titlecase", "Convert selection to titlecase" },
             },
         },
     },
