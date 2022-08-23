@@ -10,6 +10,7 @@ return {
             { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
             { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
             { "gr", "<cmd>lua vim.lsp.buf.references()<CR>" },
+            { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
             { "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>" },
             {
                 "[d",
