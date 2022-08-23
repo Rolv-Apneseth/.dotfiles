@@ -10,6 +10,8 @@ alias df='df -h'
 alias yeet='rm -vrf'
 alias rm='rm -v'
 
+alias update="sudo pacman -Sy archlinux-keyring && yay"
+
 alias python="python3"
 alias pip="python3 -m pip"
 
