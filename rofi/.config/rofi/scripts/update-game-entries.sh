@@ -3,7 +3,8 @@
 # Generates .desktop entries for all installed Steam games with box art for
 # the icons to be used with a specifically configured Rofi launcher
 
-APP_PATH=$CACHE_DIR/applications
+STEAM_DIR="$HOME/.local/share/Steam"
+APP_PATH="$XDG_DATA_HOME/applications"
 
 # Fetch all Steam library folders.
 steam-libraries() {

@@ -2,7 +2,9 @@
 
 configuration {
     show-icons:                     true;
-    modi: "drun,run,ssh";
+    run {
+        fallback-icon: "package";
+    }
 }
 
 window {
@@ -62,6 +64,7 @@ entry {
     border:                         6px;
     border-color:                   @primary;
     border-radius:                  8px;
+    cursor:                         text;
 }
 
 element {
@@ -74,20 +77,23 @@ element {
 }
 
 element selected {
-    border-color: @primary;
+    border-color:                   @primary;
 }
 
 element-box {
     children:                       [element-icon, element-text];
     orientation:                    vertical;
     expand:                         false;
+    cursor:                         pointer;
 }
 
 element-icon {
     padding:                        10px;
     size:                           96;
+    cursor:                         inherit;
 }
 
 element-text {
     horizontal-align:               0.5;
+    cursor:                         inherit;
 }

@@ -1,7 +1,3 @@
-configuration {
-    font:                           "Fira Sans 16";
-}
-
 * {
     background-color:               transparent;
     background:                     #1D2330;
@@ -9,8 +5,12 @@ configuration {
     text-color:                     #BBBBBB;
     text-color-selected:            #FFFFFF;
     primary:                        #BB77BB;
-    secondary:                      #3B4252;
-    urgent:                         #BF616A;
+    important:                      #BF616A;
+    font-title:                     "SF Pro Bold 27";
+}
+
+configuration {
+    font:                           "SF Pro 17";
 }
 
 element-text {

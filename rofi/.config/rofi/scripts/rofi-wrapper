@@ -1,23 +1,21 @@
 #!/usr/bin/env bash
+# requirements: rofi steam 
+# required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME
 
-export STEAM_DIR=~/.local/share/Steam
 export SCRIPTS_DIR="$HOME/.config/rofi/scripts"
-export CACHE_DIR=/tmp/rofi-game-launcher
 
-pushd "$SCRIPTS_DIR" > /dev/null || exit
+pushd "$ROFI_SCRIPTS_DIR" > /dev/null || exit
 
 case "$1" in
-    run)      rofi -show run -theme launcher;;
+    #selector: rofi -theme selecter -dmenu";;
+    run)        rofi -show run -theme launcher;;
+    clipboard)  rofi -modi "clipboard:greenclip print" -show clipboard -theme selector;;
     games)
         ./update-game-entries.sh -q
 
         (
-            # Temporarily overwrite XDG_DATA_HOME so that Rofi looks for
-            # .desktop files in $CACHE_DIR/applications instead of
-            # ~/.local/share/applications
-            export XDG_DATA_HOME="$CACHE_DIR"
             rofi -show drun -theme games -drun-categories SteamLibrary \
-                 -cache-dir "$CACHE_DIR"
+                -cache-dir "$XDG_DATA_HOME"
         )
         ;;
     *)  echo "Usage: $0 {run,games}"
