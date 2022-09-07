@@ -10,7 +10,7 @@ done;
 
 # Set default programs through environment variables
 # These are used by, for example, my Qtile config and Thunar custom actions
-export MY_EMAIL_CLIENT="mailspring"
+export MY_EMAIL_CLIENT="thunderbird"
 export MY_EXPLORER="thunar"
 export MY_SCREENSHOT="flameshot gui"
 export MY_SYSTEM_MONITOR="psensor"
