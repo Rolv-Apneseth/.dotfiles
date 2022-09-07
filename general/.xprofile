@@ -19,14 +19,18 @@ export MY_WORK_COMMUNICATION="skypeforlinux"
 export MY_MEDIA_PLAYER="celluloid"
 export MY_MUSIC_PLAYER="audacious --play"
 
-ROFI_WRAPPER="$HOME/.config/rofi/scripts/rofi-wrapper"
-export MY_LAUNCHER="$ROFI_WRAPPER run"
-export MY_GAMES_LAUNCHER="$ROFI_WRAPPER games"
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
+
+# Rofi launcher etc.
+ROFI_DIR="$HOME/.config/rofi"
+export ROFI_SCRIPTS="$ROFI_DIR/scripts"
+ROFI_WRAPPER="$ROFI_SCRIPTS/rofi-wrapper"
+export MY_LAUNCHER="$ROFI_WRAPPER run"
+export MY_GAMES_LAUNCHER="$ROFI_WRAPPER games"
+export MY_CLIPBOARD="$ROFI_WRAPPER clipboard"
 
 # Stowed dotfiles directory
 export DOTFILES="$HOME/.dotfiles"
@@ -42,6 +46,8 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 picom &
 # Wallpaper manager
 variety &
+# Clipboard
+greenclip daemon &
 # Polkit authenticator
 lxqt-policykit-agent &
 
