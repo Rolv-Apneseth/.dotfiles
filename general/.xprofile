@@ -1,12 +1,14 @@
-# Append to PATH
-ADDITIONAL_PATHS=(
-    ".local/bin"
-    "work/tools"
-    "work/logins"
-)
-for additional_path in "${ADDITIONAL_PATHS[@]}"; do
-    export PATH="${PATH:+${PATH}:}$HOME/$additional_path"
-done;
+#!/bin/env sh
+# Shebang here is for shellcheck.
+#
+# WARNING! This file should not be executed directly. Sourced by, for example, lightdm
+# WARNING! This file should only contain POSIX-compliant commands and directives.
+
+# PATH ADDITIONS
+export PATH="${PATH:+${PATH}}\
+:$HOME/.local/bin\
+:$HOME/work/tools\
+:$HOME/work/logins"
 
 # Set default programs through environment variables
 # These are used by, for example, my Qtile config and Thunar custom actions
@@ -40,6 +42,19 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # For QT Themes
 export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# $HOME cleanup
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export GNUPGHOME="$XDG_DATA_HOME/gupg"
+export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
+export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/.gtkrc-2.0"
+alias wget=wget --hsts-file='$XDG_DATA_HOME'/wget-hsts
 
 # START
 # Compositor
