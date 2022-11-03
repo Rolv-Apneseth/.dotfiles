@@ -2,9 +2,9 @@
 <actions>
 <action>
 	<icon>utilities-terminal</icon>
-	<name>Open Terminal Here</name>
+	<name>Open With Terminal</name>
 	<unique-id>1623153185934582-1</unique-id>
-	<command>&quot;$TERMINAL&quot; %d</command>
+	<command>&quot;$TERMINAL&quot; %f</command>
 	<description>Open the default terminal at current directory</description>
 	<patterns>*</patterns>
 	<startup-notify/>
@@ -27,7 +27,7 @@
 	<icon>nvim</icon>
 	<name>Open With Neovim</name>
 	<unique-id>1650284976307665-2</unique-id>
-	<command>&quot;$TERMINAL&quot; -e nvim %F</command>
+	<command>&quot;$TERMINAL&quot; -e nvim %f</command>
 	<description>Open folder(s)/file(s) with neovim</description>
 	<patterns>*</patterns>
 	<directories/>
