@@ -6,8 +6,8 @@
 #   per day, days per week and weeks of unpaid leave
 # ------------------------------------------------------------------
 
-from math import floor
 from argparse import ArgumentParser
+from math import floor
 
 WEEKS_IN_A_YEAR = 52.143
 
