@@ -2,3 +2,4 @@ __pycache__/
 .zcompdump
 nvim/.config/nvim/plugin/
 general/.config/zsh/plugins/
+accels.scm
