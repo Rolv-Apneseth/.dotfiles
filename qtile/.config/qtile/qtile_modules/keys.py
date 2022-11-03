@@ -23,7 +23,7 @@ KEYS = [
     Key("M-S-<space>", lazy.prev_layout(), desc="Change to previous layout"),
     # Qtile and power
     Key("M-S-q", lazy.restart(), desc="Restart Qtile"),
-    Key("M-S-m", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key("M-A-q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key("M-S-r", lazy.spawn("reboot --no-wall"), desc="Reboot PC"),
     Key("M-S-s", lazy.spawn("poweroff --no-wall"), desc="Shutdown PC"),
     # Volume
@@ -49,12 +49,12 @@ KEYS = [
         desc="Launch browser",
     ),
     Key(
-        "M-c",
+        "M-n",
         lazy.spawn(PROGRAMS["editor"]),
         desc="Launch text editor",
     ),
     Key(
-        "M-S-c",
+        "M-S-n",
         lazy.spawn(["sh", "-c", PROGRAMS["editor_last_dir"]]),
         desc="Launch text editor in the last opened directory",
     ),
@@ -67,6 +67,11 @@ KEYS = [
         "M-S-d",
         lazy.spawn(PROGRAMS["games_launcher"]),
         desc="Launch games launcher",
+    ),
+    Key(
+        "M-c",
+        lazy.spawn(PROGRAMS["clipboard"]),
+        desc="Launch clipboard picker",
     ),
     Key(
         "M-t",
@@ -123,10 +128,5 @@ KEYS = [
         "M-y",
         lazy.spawn(WEBSITES["youtube"]),
         desc="Opens Youtube.",
-    ),
-    Key(
-        "M-n",
-        lazy.spawn(WEBSITES["netflix"]),
-        desc="Opens Netflix.",
     ),
 ]
