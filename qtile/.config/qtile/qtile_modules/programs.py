@@ -24,6 +24,7 @@ PROGRAMS = dict(
     browser=get_program("BROWSER", "firefox"),
     launcher=get_program("MY_LAUNCHER", "rofi -show run"),
     games_launcher=get_program("MY_GAMES_LAUNCHER", "rofi -show drun"),
+    clipboard=get_program("MY_CLIPBOARD", "rofi -show drun"),
     file_explorer=get_program("MY_EXPLORER", "thunar"),
     email_client=get_program("MY_EMAIL_CLIENT", "thunderbird"),
     work_communication=get_program("MY_WORK_COMMUNICATION", "skypeforlinux"),
