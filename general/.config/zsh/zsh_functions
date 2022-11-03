@@ -1,3 +1,14 @@
+# Search for a file by name using ripgrep
+function rf() {
+  if [ -z "$2" ]
+  then
+      rg --files | rg "$1"
+  else
+      rg --files "$2" | rg "$1"
+  fi
+}
+
+# Source a file, by first checking if it exists
 function add_file() {
     [ -f "$1" ] && source "$1"
 }
