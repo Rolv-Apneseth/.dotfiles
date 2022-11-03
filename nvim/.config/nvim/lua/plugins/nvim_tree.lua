@@ -1,10 +1,10 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-    return
-end
+-- Requirements: trash
+local require_plugin = require("core.helpers").require_plugin
+local icons = require("core.constants").ICONS
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+local nvim_tree = require_plugin("nvim-tree")
+local nvim_tree_config = require_plugin("nvim-tree.config")
+if not nvim_tree or not nvim_tree_config then
     return
 end
 
@@ -25,27 +25,27 @@ nvim_tree.setup({
                 git = true,
             },
             glyphs = {
-                default = "",
-                symlink = "",
-                bookmark = "",
+                default = icons.documents.File,
+                symlink = icons.documents.Symlink,
+                bookmark = icons.ui.BookMark,
                 folder = {
-                    arrow_closed = "",
-                    arrow_open = "",
-                    default = "",
-                    open = "",
-                    empty = "",
-                    empty_open = "",
-                    symlink = "",
-                    symlink_open = "",
+                    arrow_closed = icons.ui.ArrowClosed,
+                    arrow_open = icons.ui.ArrowOpen,
+                    default = icons.documents.Folder,
+                    open = icons.documents.OpenFolder,
+                    empty = icons.documents.FolderEmpty,
+                    empty_open = icons.documents.OpenFolderEmpty,
+                    symlink = icons.documents.SymlinkFolder,
+                    symlink_open = icons.documents.SymlinkFolder,
                 },
                 git = {
-                    unstaged = "",
-                    staged = "S",
-                    unmerged = "",
-                    renamed = "➜",
-                    deleted = "",
-                    untracked = "U",
-                    ignored = "◌",
+                    unstaged = icons.git.Unstaged,
+                    staged = icons.git.Staged,
+                    unmerged = icons.git.Unmerged,
+                    renamed = icons.git.Renamed,
+                    deleted = icons.git.Remove,
+                    untracked = icons.git.Untracked,
+                    ignored = icons.git.Ignored,
                 },
             },
         },
@@ -73,10 +73,10 @@ nvim_tree.setup({
     diagnostics = {
         enable = true,
         icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
+            hint = icons.diagnostics.Hint,
+            info = icons.diagnostics.Information,
+            warning = icons.diagnostics.Warning,
+            error = icons.diagnostics.Error,
         },
     },
     update_focused_file = {
@@ -99,7 +99,6 @@ nvim_tree.setup({
     },
     view = {
         width = 30,
-        height = 30,
         hide_root_folder = false,
         adaptive_size = true,
         side = "left",

@@ -1,6 +1,6 @@
-local status_ok, impatient = pcall(require, "impatient")
-if not status_ok then
+local require_plugin = require("core.helpers").require_plugin
+
+local impatient = require_plugin("impatient")
+if not impatient then
     return
 end
-
-impatient.enable_profile()

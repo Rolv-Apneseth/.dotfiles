@@ -1,5 +1,8 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
+local icons = require("core.constants").ICONS
+local require_plugin = require("core.helpers").require_plugin
+
+local telescope = require_plugin("telescope")
+if not telescope then
     return
 end
 
@@ -8,9 +11,62 @@ local actions = require("telescope.actions")
 telescope.setup({
     defaults = {
 
-        prompt_prefix = " ",
-        selection_caret = " ",
+        prompt_prefix = icons.ui.Telescope .. " ",
+        selection_caret = icons.ui.Selection .. " ",
         path_display = { "smart" },
+        file_ignore_patterns = {
+            ".git/",
+            "target/",
+            "docs/",
+            "vendor/*",
+            "%.lock",
+            "__pycache__/*",
+            "%.sqlite3",
+            "%.ipynb",
+            "node_modules/*",
+            "%.jpg",
+            "%.jpeg",
+            "%.png",
+            "%.svg",
+            "%.otf",
+            "%.ttf",
+            "%.webp",
+            ".dart_tool/",
+            ".github/",
+            ".gradle/",
+            ".idea/",
+            ".settings/",
+            ".vscode/",
+            "__pycache__/",
+            "build/",
+            "env/",
+            "gradle/",
+            "node_modules/",
+            "%.pdb",
+            "%.dll",
+            "%.class",
+            "%.exe",
+            "%.cache",
+            "%.ico",
+            "%.pdf",
+            "%.dylib",
+            "%.jar",
+            "%.docx",
+            "%.met",
+            "smalljre_*/*",
+            ".vale/",
+            "%.burp",
+            "%.mp4",
+            "%.mkv",
+            "%.rar",
+            "%.zip",
+            "%.7z",
+            "%.tar",
+            "%.bz2",
+            "%.epub",
+            "%.flac",
+            "%.tar.gz",
+        },
 
         mappings = {
             i = {
@@ -78,5 +134,18 @@ telescope.setup({
         },
     },
     pickers = {},
-    extensions = {},
+    extensions = {
+        recent_files = {
+            only_cwd = false, -- only files in the cwd
+            start_files = true, -- checks if files exist before being shown in the picker
+        },
+    },
 })
+
+telescope.load_extension("recent_files")
+vim.api.nvim_set_keymap(
+    "n",
+    "<Leader>r",
+    "",
+    { noremap = true, silent = true, callback = telescope.extensions.recent_files.pick }
+)

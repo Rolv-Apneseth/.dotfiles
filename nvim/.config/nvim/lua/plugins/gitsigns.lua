@@ -1,5 +1,8 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
+local require_plugin = require("core.helpers").require_plugin
+local icons = require("core.constants").ICONS.gitsigns
+
+local gitsigns = require_plugin("gitsigns")
+if not gitsigns then
     return
 end
 
@@ -7,31 +10,31 @@ gitsigns.setup({
     signs = {
         add = {
             hl = "GitSignsAdd",
-            text = "▎",
+            text = icons.AddOrChange,
             numhl = "GitSignsAddNr",
             linehl = "GitSignsAddLn",
         },
         change = {
             hl = "GitSignsChange",
-            text = "▎",
+            text = icons.AddOrChange,
             numhl = "GitSignsChangeNr",
             linehl = "GitSignsChangeLn",
         },
         delete = {
             hl = "GitSignsDelete",
-            text = "契",
+            text = icons.Delete,
             numhl = "GitSignsDeleteNr",
             linehl = "GitSignsDeleteLn",
         },
         topdelete = {
             hl = "GitSignsDelete",
-            text = "契",
+            text = icons.Delete,
             numhl = "GitSignsDeleteNr",
             linehl = "GitSignsDeleteLn",
         },
         changedelete = {
             hl = "GitSignsChange",
-            text = "▎",
+            text = icons.AddOrChange,
             numhl = "GitSignsChangeNr",
             linehl = "GitSignsChangeLn",
         },

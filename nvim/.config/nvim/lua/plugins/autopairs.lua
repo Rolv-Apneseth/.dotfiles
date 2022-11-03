@@ -1,9 +1,10 @@
-local status_ok, npairs = pcall(require, "nvim-autopairs")
-if not status_ok then
+local constants = require("core.constants")
+local require_plugin = require("core.helpers").require_plugin
+
+local npairs = require_plugin("nvim-autopairs")
+if not npairs then
     return
 end
-
-local constants = require("core.constants")
 
 npairs.setup({
     check_ts = true,

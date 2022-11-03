@@ -1,5 +1,7 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
+local require_plugin = require("core.helpers").require_plugin
+
+local which_key = require_plugin("which-key")
+if not which_key then
     return
 end
 
@@ -90,5 +92,6 @@ local opts_leader_v = get_opts("<leader>", "v")
 
 -- Apply keymaps
 which_key.register(keymaps.leader_n, opts_leader_n)
+which_key.register(keymaps.leader_v, opts_leader_v)
 which_key.register(keymaps.leader_nv, opts_leader_n)
 which_key.register(keymaps.leader_nv, opts_leader_v)

@@ -1,5 +1,7 @@
-local status_ok, neoscroll = pcall(require, "neoscroll")
-if not status_ok then
+local require_plugin = require("core.helpers").require_plugin
+
+local neoscroll = require_plugin("neoscroll")
+if not neoscroll then
     return
 end
 

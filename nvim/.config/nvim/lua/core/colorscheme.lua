@@ -1,31 +1,33 @@
-local colorscheme = "onedarker"
-local colorscheme_visual_multi = "purplegray"
-local transparent_bg = true
+local M = {}
+
+M.USE_TRANSPARENT_BG = true
+M.THEME = "onedark"
 
 -- Set colorscheme and notify user if colorscheme could not be found
-local is_changed_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+local is_changed_ok, onedark = pcall(require, M.THEME)
 if not is_changed_ok then
-    vim.notify("The colorscheme " .. colorscheme .. " was not found.")
+    vim.notify("The plugin onedark could not be found")
 end
 
--- Set vim-visual-multi (plugin for multi-line cursors) theme
-vim.api.nvim_set_var("VM_theme", colorscheme_visual_multi)
+onedark.setup({
+    style = "darker",
+    transparent = M.USE_TRANSPARENT_BG,
+})
+onedark.load()
 
 -- Set transparent backgrounds
-if transparent_bg then
+if M.USE_TRANSPARENT_BG then
     local groups = {
-        "Comment",
-        "Conditional",
-        "Constant",
-        "CursorLineNr",
+        "EndOfBuffer",
+        "FloatBorder",
         "Folded",
         "Function",
         "Identifier",
-        "LineNr",
         "MoreMsg",
         "MsgArea",
         "NonText",
         "Normal",
+        "NormalFloat",
         "NormalNC",
         "NvimTreeNormal",
         "Operator",
@@ -34,16 +36,18 @@ if transparent_bg then
         "SignColumn",
         "Special",
         "Statement",
+        "StatusLine",
         "String",
         "Structure",
+        "TabLine",
         "Todo",
         "Type",
         "Underlined",
-        "NormalFloat",
-        "FloatBorder",
     }
 
     for _, group in ipairs(groups) do
-        vim.cmd("highlight " .. group .. " guibg=none ctermbg=none")
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
     end
 end
+
+return M

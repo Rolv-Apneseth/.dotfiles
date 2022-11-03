@@ -1,10 +1,12 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-    return
-end
-
 local constants = require("core.constants")
 local keymaps_text_object = constants.OTHER_KEYMAPPINGS.treesitter.text_object
+local require_plugin = require("core.helpers").require_plugin
+
+local nvim_treesitter = require_plugin("nvim-treesitter")
+local configs = require_plugin("nvim-treesitter.configs")
+if not nvim_treesitter or not configs then
+    return
+end
 
 configs.setup({
     ensure_installed = "all", -- "all", or a list of languages

@@ -1,6 +1,7 @@
 return {
     INDENT_SIZE = 4,
     LINE_LENGTH = "89",
+    TAB_WIDTH = "4",
 
     OTHER_KEYMAPPINGS = {
         lsp = {
@@ -46,23 +47,31 @@ return {
             autopairs = { fastwrap = "<A-e>" },
         },
 
+        surround = {
+            normal = "m",
+            normal_line = "M",
+            visual = "m",
+            visual_line = "M",
+            delete = "ds",
+            change = "cs",
+        },
+
         whichkey = {
+            -- Normal mode
             leader_n = {
                 ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+                ["E"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" },
+                ["n"] = { "<cmd>Notifications<CR>", "Show log of notifications" },
 
                 ["s"] = { "<cmd>w<CR>", "Format then save" },
                 ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
 
-                ["q"] = { "<cmd>q<CR>", "Close window" },
-                ["Q"] = { "<cmd>qa<CR>", "Close all windows" },
-                ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
-                ["W"] = {
-                    "<cmd>%bd|e#|bd#<CR>",
-                    "Close all buffers except current",
-                },
-
                 ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
-                ["r"] = { "<cmd>Telescope oldfiles<CR>", "Find recent file" },
+                ["r"] = {
+                    --[[ "<cmd>lua require('telescope').extensions.recent_files.pick()<CR>", ]]
+                    "Find recently opened file",
+                },
+                ["R"] = "Rename variable", -- set in inc_rename.lua
                 ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
 
                 m = {
@@ -150,6 +159,10 @@ return {
                     c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
                     h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
                     H = { "<cmd>Telescope highlights<CR>", "Highlights" },
+                    n = {
+                        "<cmd>lua require('telescope').extensions.notify.notify()<CR>",
+                        "Notifications",
+                    },
                     M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
                     r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
                     R = { "<cmd>Telescope registers<CR>", "Registers" },
@@ -158,13 +171,154 @@ return {
                 },
             },
 
+            -- Visual mode
+            leader_v = {
+                ["t"] = { "gugv<Plug>Titlecase", "Convert selection to titlecase" },
+            },
+
+            -- Both normal and visual modes
             leader_nv = {
+                ["q"] = { "<cmd>q<CR>", "Close window" },
+                ["Q"] = { "<cmd>q!<CR>", "Force close window" },
+                ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
+                ["W"] = {
+                    "<cmd>%bd|e#|bd#<CR>",
+                    "Close all buffers except current",
+                },
+
                 ["p"] = { '"+p', "Paste from system clipboard (ahead)" },
                 ["P"] = { '"+P', "Paste from system clipboard (behind)" },
                 ["y"] = { '"+y', "Copy to system clipboard" },
                 ["Y"] = { '"+y$', "Copy remainder of the line to system clipboard" },
-                ["t"] = { "gugv<Plug>Titlecase", "Convert selection to titlecase" },
             },
+        },
+    },
+    ICONS = {
+        kind = {
+            Text = "",
+            Method = "m",
+            Function = "",
+            Constructor = "",
+            --[[ Method = "", ]]
+            --[[ Function = "", ]]
+            --[[ Constructor = "", ]]
+            Field = "",
+            Variable = "",
+            --[[ Variable = "", ]]
+            Class = "",
+            Interface = "",
+            Module = "",
+            --[[ Module = "", ]]
+            Property = "",
+            Unit = "",
+            Value = "",
+            Enum = "",
+            Keyword = "",
+            --[[ Keyword = "", ]]
+            -- Snippet = "",
+            Snippet = "",
+            Color = "",
+            File = "",
+            Reference = "",
+            Folder = "",
+            EnumMember = "",
+            Constant = "",
+            Struct = "",
+            Event = "",
+            Operator = "",
+            TypeParameter = "",
+        },
+        type = {
+            Array = "",
+            Number = "",
+            String = "",
+            Boolean = "𝐁",
+            Object = "",
+        },
+        documents = {
+            File = "",
+            Files = "",
+            Folder = "",
+            FolderEmpty = "",
+            OpenFolder = "",
+            OpenFolderEmpty = "",
+            Symlink = "",
+            SymlinkFolder = "",
+        },
+        git = {
+            Add = "",
+            Mod = "",
+            Remove = "",
+            Ignore = "",
+            Rename = "",
+            Diff = "",
+            Repo = "",
+            Octoface = "",
+
+            Unstaged = "",
+            Staged = "S",
+            Unmerged = "",
+            Renamed = "➜",
+            Untracked = "U",
+            Ignored = "◌",
+        },
+        gitsigns = {
+            AddOrChange = "▎",
+            Delete = "契",
+        },
+        ui = {
+            ArrowClosed = "",
+            ArrowOpen = "",
+            Lock = "",
+            Circle = "",
+            BigCircle = "",
+            BigUnfilledCircle = "",
+            HalfCircleLeft = "",
+            HalfCircleRight = "",
+            Close = "",
+            Wrong = "✗",
+            NewFile = "",
+            Search = "",
+            Lightbulb = "",
+            Project = "",
+            Dashboard = "",
+            History = "",
+            Comment = "",
+            Bug = "",
+            Code = "",
+            Telescope = "",
+            Selection = "",
+            Gear = "",
+            Package = "",
+            List = "",
+            SignIn = "",
+            SignOut = "",
+            Check = "✓",
+            Next = "➜",
+            Fire = "",
+            Note = "",
+            BookMark = "",
+            Pencil = "",
+            ChevronRight = "",
+            Table = "",
+            Calendar = "",
+            CloudDownload = "",
+        },
+        diagnostics = {
+            Error = "",
+            Warning = "",
+            Information = "",
+            Question = "",
+            Hint = "",
+        },
+        misc = {
+            Robot = "ﮧ",
+            Squirrel = "",
+            Tag = "",
+            Watch = "",
+            Smiley = "ﲃ",
+            Package = "",
+            CircuitBoard = "",
         },
     },
 }
