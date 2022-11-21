@@ -65,6 +65,10 @@ variety &
 greenclip daemon &
 # Polkit authenticator
 lxqt-policykit-agent &
+# Network manager applet
+nm-applet &
+# Notifications
+dunst &
 
 # Turn sleep off
 xset s off
