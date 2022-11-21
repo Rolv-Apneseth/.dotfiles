@@ -27,11 +27,10 @@ KEYS = [
     Key("M-S-r", lazy.spawn("reboot --no-wall"), desc="Reboot PC"),
     Key("M-S-s", lazy.spawn("poweroff --no-wall"), desc="Shutdown PC"),
     # Volume
-    Key("<XF86AudioLowerVolume>", lazy.spawn("pamixer --decrease 5")),
-    Key("<XF86AudioRaiseVolume>", lazy.spawn("pamixer --increase 5")),
-    Key("<XF86AudioMute>", lazy.spawn("pamixer --toggle-mute")),
+    Key("<XF86AudioLowerVolume>", lazy.spawn(PROGRAMS["volume_decrease"])),
+    Key("<XF86AudioRaiseVolume>", lazy.spawn(PROGRAMS["volume_increase"])),
+    Key("<XF86AudioMute>", lazy.spawn(PROGRAMS["volume_toggle"])),
     # Launch programs
-    Key("M-u", lazy.spawn("eww close-all"), desc="Kill eww processes"),
     Key("M-r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key(
         "M-<Return>",
@@ -87,6 +86,11 @@ KEYS = [
         "M-e",
         lazy.spawn(PROGRAMS["email_client"]),
         desc="Launch email client",
+    ),
+    Key(
+        "M-u",
+        lazy.spawn("dunst_test"),
+        desc="Test dunst notifications",
     ),
     Key(
         "M-m",

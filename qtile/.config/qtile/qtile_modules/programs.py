@@ -33,7 +33,9 @@ PROGRAMS = dict(
     media_player=get_program("MY_MEDIA_PLAYER", "mpv"),
     play_music=get_program("MY_MUSIC_PLAYER", "audacious"),
     system_monitor="psensor",
-    volume_toggle="amixer set Master toggle",
+    volume_toggle="change_volume toggle",
+    volume_increase="change_volume 5%+ unmute",
+    volume_decrease="change_volume 5%- unmute",
     wallpaper_manager="variety",
 )
 # Update levels since there are programs/commands that require others to be defined first
