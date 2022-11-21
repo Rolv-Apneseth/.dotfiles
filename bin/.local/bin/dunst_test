@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+pidof dunst && killall dunst
+dunst &
+
+dunstify "Message 1"
+dunstify "Message 2"
+dunstify "Message 3"
+dunstify "Message 4"
+dunstify "Message 5"
+dunstify "Message 6"
+dunstify "Longer Message, Hello Worldddddddddddddd"
+dunstify "Loading" -h int:value:12
+
+dunstify "Error Message" -u critical
+dunstify "Low Priority Message" -u low
+
