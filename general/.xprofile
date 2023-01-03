@@ -17,7 +17,7 @@ export MY_EXPLORER="thunar"
 export MY_SCREENSHOT="flameshot gui"
 export MY_SYSTEM_MONITOR="psensor"
 export MY_VOLUME_MANAGER="pavucontrol"
-export MY_WORK_COMMUNICATION="skypeforlinux"
+export MY_WORK_COMMUNICATION="google-chat-linux"
 export MY_MEDIA_PLAYER="celluloid"
 export MY_MUSIC_PLAYER="audacious --play"
 
@@ -54,7 +54,11 @@ export GNUPGHOME="$XDG_DATA_HOME/gupg"
 export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
 export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/.gtkrc-2.0"
-alias wget=wget --hsts-file='$XDG_DATA_HOME'/wget-hsts
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 # START
 # Compositor
