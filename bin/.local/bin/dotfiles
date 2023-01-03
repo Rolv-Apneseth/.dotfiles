@@ -18,10 +18,12 @@ STOW_FOLDERS=(
     "nvim"
     "thunar"
     "dunst"
+    "tealdeer"
 )
 ########################################################################################
 # MAIN
-function main(){
+function main()
+{
     arguments "$@"
 
     check_dotfiles
@@ -29,18 +31,18 @@ function main(){
     pushd "$DOTFILES" > /dev/null || exit
 
     # Install vs Uninstall
-    action="install"; command="--restow"
-    if [ "$uninstall" = true ]
-    then
-        action="uninstall"; command="--delete"
+    action="install"
+    command="--restow"
+    if [ "$uninstall" = true ]; then
+        action="uninstall"
+        command="--delete"
     fi
 
     # Restow or unstow folders depending on options above
     echo
     echo "Begin ${action}ing dotfiles"
     echo
-    for folder in "${STOW_FOLDERS[@]}" 
-    do
+    for folder in "${STOW_FOLDERS[@]}"; do
         stow "$command" "$folder/"
     done
     echo
@@ -51,36 +53,43 @@ function main(){
 }
 ########################################################################################
 # PARSE ARGS
-function arguments(){
+function arguments()
+{
     # Transform long options to short ones
-    for arg in "$@";
-    do
-      shift
-      case "$arg" in
-        "--help") set -- "$@" "-h" ;;
-        "--uninstall") set -- "$@" "-D" ;;
-        *)        set -- "$@" "$arg"
-      ;; esac
+    for arg in "$@"; do
+        shift
+        case "$arg" in
+            "--help") set -- "$@" "-h" ;;
+            "--uninstall") set -- "$@" "-D" ;;
+            *)
+                set -- "$@" "$arg"
+                ;;
+        esac
     done
 
     # Default behaviour
     uninstall=false
 
     # Parse arguments
-    while getopts "hD" opt
-    do
-      case "$opt" in
-        "h") help; exit 0 ;;
-        "D") uninstall=true ;;
-        "?") help >&2; exit 1 ;;
-      esac
+    while getopts "hD" opt; do
+        case "$opt" in
+            "h")
+                help
+                exit 0
+                ;;
+            "D") uninstall=true ;;
+            "?")
+                help >&2
+                exit 1
+                ;;
+        esac
     done
 }
 ########################################################################################
 # CHECK DOTFILES
-function check_dotfiles(){
-    if [ ! -d "$DOTFILES" ]
-    then
+function check_dotfiles()
+{
+    if [ ! -d "$DOTFILES" ]; then
         echo "Dotfiles directory not found. Cloning repo $REPO"
         git clone "$REPO" "$DOTFILES"
         echo "Dotfiles repo cloned"
@@ -88,7 +97,8 @@ function check_dotfiles(){
 }
 ########################################################################################
 # HELP
-function help(){
+function help()
+{
     echo
     echo "usage: dotfiles [-h] [-D]"
     echo
@@ -99,6 +109,5 @@ function help(){
 }
 ########################################################################################
 # ARGUMENTS
-
 
 main "$@"
