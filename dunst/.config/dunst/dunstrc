@@ -5,7 +5,7 @@
 
     origin = bottom-right
 	offset = 20x20
-    width = 300
+    width = 500
     height = 200
     corner_radius = 10
     frame_width = 3
@@ -50,7 +50,7 @@
     progress_bar_height = 8
     progress_bar_frame_width = 2
     progress_bar_min_width = 150
-    progress_bar_max_width = 200
+    progress_bar_max_width = 350
 
     enable_recursive_icon_lookup = true
     icon_theme = "Vimix-Amethyst, Vimix"
