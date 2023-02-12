@@ -2,23 +2,16 @@
 # requirements: rofi steam greenclip
 # required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME
 
-export SCRIPTS_DIR="$HOME/.config/rofi/scripts"
-
-pushd "$ROFI_SCRIPTS_DIR" > /dev/null || exit
-
 case "$1" in
-    #selector: rofi -theme selecter -dmenu";;
     run) rofi -show run -theme launcher ;;
     clipboard) rofi -modi "clipboard:greenclip print" -show clipboard -theme selector ;;
     fonts) fc-list | awk -F ":" '{print $2}' | rofi -dmenu | xclip -selection clipboard ;;
     games)
-        ./update-game-entries.sh -q
+        "$ROFI_SCRIPTS"/update-game-entries.sh -q
         rofi -show drun -theme games -drun-categories SteamLibrary
         ;;
-    default_sound_sink) pactl list short sinks | awk '{print $2}' | rofi -dmenu -theme selector -p "Select default sound sink" | pactl set-default-sink ;;
+    sound_sink) pactl list short sinks | awk '{print $2}' | rofi -dmenu -theme selector -p "Select default sound sink" | pactl set-default-sink ;;
     *)
-        echo "Usage: $0 {run,games,clipboard}"
+        echo "Usage: $0 {run,clipboard,fonts,games,sound_sink}"
         ;;
 esac
-
-popd > /dev/null || exit
