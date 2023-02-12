@@ -1,6 +1,16 @@
+source "$ZDOTDIR/zsh_functions"
+
 # MISC
-# enable colours
+# Automatically add directory to stack when using `cd`. Use the commands
+# `pushd`, `popd` and `dirs -v` to use the stack.  
+setopt auto_pushd
+
+# If argument is unknown but is name of a directory, cd into it
+setopt autocd 
+
+# Enable colours
 autoload -U colors && colors
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -8,15 +18,13 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# Better time keyword output
-export TIMEFMT=$'%J\n\n%*Es total\n%U user cpu\n%S system cpu\n%P cpu\n%MKB max mem'
-
-# If argument is unknown but is name of a directory, cd into it
-setopt autocd 
 # Disable Ctrl+S to freeze terminal
 stty stop undef
 # Disable paste hightlight
 zle_highlight=('paste:none')
+
+# Better time keyword output
+export TIMEFMT=$'%J\n\n%*Es total\n%U user cpu\n%S system cpu\n%P cpu\n%MKB max mem'
 
 
 # KEYBINDINGS
@@ -48,10 +56,6 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 
-# Utility funcitons
-source "$ZDOTDIR/zsh_functions"
-
-
 # FZF
 add_file "/usr/share/fzf/completion.zsh" 
 add_file "/usr/share/fzf/key-bindings.zsh" 
@@ -80,7 +84,7 @@ add_file "$HOME/.config/.aliases"
 eval "$(starship init zsh)"
 neofetch
 
-# KITTY SHELL INTEGRATION
+# Kitty Shell Integration
 if test -n "$KITTY_INSTALLATION_DIR"; then
     export KITTY_SHELL_INTEGRATION="enabled"
     autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
@@ -89,5 +93,5 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
 fi
 
 
-# ZSH hooks
+# HOOKS
 zsh_add_file "zsh_hooks"
