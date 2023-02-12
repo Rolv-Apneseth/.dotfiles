@@ -11,7 +11,8 @@ alias df='df -h'
 alias yeet='rm -vrf'
 alias rm='rm -v'
 
-alias update="sudo pacman --needed -Sy archlinux-keyring && yay"
+alias p="paru"
+alias update="sudo pacman --needed -Sy archlinux-keyring && paru -Syu --news"
 
 alias python="python3"
 alias pip="python3 -m pip"
