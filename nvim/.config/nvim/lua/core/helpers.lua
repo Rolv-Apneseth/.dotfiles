@@ -11,17 +11,4 @@ M.require_plugin = function(plugin_name)
     return plugin
 end
 
-M.get_listed_buffers = function()
-    local buffers = {}
-    local len = 0
-    for buffer = 1, vim.fn.bufnr("$") do
-        if vim.fn.buflisted(buffer) == 1 then
-            len = len + 1
-            buffers[len] = buffer
-        end
-    end
-
-    return buffers
-end
-
 return M
