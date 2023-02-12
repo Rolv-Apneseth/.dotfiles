@@ -1,8 +1,8 @@
 local M = {}
 
-local constants = require("core.constants")
+local keymappings = require("core.keymappings")
 local require_plugin = require("core.helpers").require_plugin
-local icons = constants.ICONS
+local icons = require("core.icons")
 local servers_to_disable_formatting = { "tsserver", "sumneko_lua" }
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -90,7 +90,7 @@ local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
 
-    for _, mapping in pairs(constants.OTHER_KEYMAPPINGS.lsp) do
+    for _, mapping in pairs(keymappings.lsp) do
         keymap(bufnr, "n", mapping[1], mapping[2], opts)
     end
 end

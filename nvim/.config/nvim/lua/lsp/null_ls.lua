@@ -1,5 +1,5 @@
 local require_plugin = require("core.helpers").require_plugin
-local constants = require("core/constants")
+local constants = require("core.constants")
 
 local null_ls = require_plugin("null-ls")
 if not null_ls then
@@ -10,7 +10,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 -- Requirements
--- prettier tidy stylua flake8 python-isort python-black shellcheck-bin shellharden
+-- prettier tidy stylua flake8 python-isort python-black shellcheck-bin shellharden rustup
 
 null_ls.setup({
     debug = false,
@@ -20,6 +20,7 @@ null_ls.setup({
             extra_filetypes = { "toml" },
             extra_args = { "--tab-width", constants.TAB_WIDTH },
         }),
+        diagnostics.eslint,
         -- HTML Linting
         diagnostics.tidy,
 
@@ -78,7 +79,7 @@ local unwrap = {
     filetypes = { "rust" },
     generator = {
         fn = function(params)
-            local diagnostics = {}
+            local generator_diagnostics = {}
             -- sources have access to a params object
             -- containing info about the current file and editor state
             for i, line in ipairs(params.content) do
@@ -86,7 +87,7 @@ local unwrap = {
                 if col and end_col then
                     -- null-ls fills in undefined positions
                     -- and converts source diagnostics into the required format
-                    table.insert(diagnostics, {
+                    table.insert(generator_diagnostics, {
                         row = i,
                         col = col,
                         end_col = end_col,
@@ -96,7 +97,7 @@ local unwrap = {
                     })
                 end
             end
-            return diagnostics
+            return generator_diagnostics
         end,
     },
 }

@@ -1,14 +1,11 @@
-local keymaps = require("core.constants").OTHER_KEYMAPPINGS.surround
-local require_plugin = require("core.helpers").require_plugin
+local keymaps = require("core.keymappings").surround
 
-local surround = require_plugin("nvim-surround")
-if not surround then
-    return
-end
-
-surround.setup({
-    keymaps = keymaps,
-    highlight = {
-        duration = 1,
+return {
+    "kylechui/nvim-surround", -- for surrounding text with quotes, parentheses etc.
+    opts = {
+        keymaps = keymaps,
+        highlight = {
+            duration = 1,
+        },
     },
-})
+}

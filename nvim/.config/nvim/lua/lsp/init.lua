@@ -32,11 +32,11 @@ M.server_capabilities = function()
     end)
 end
 
-require("plugins.lsp.lsp_signature")
-require("plugins.lsp.mason")
-require("plugins.lsp.handlers").setup()
-require("plugins.lsp.null_ls")
-require("plugins.lsp.lsp_inlayhints")
-require("plugins.lsp.nvim_navic")
+require("lsp.lsp_signature")
+require("lsp.mason")
+require("lsp.handlers").setup()
+require("lsp.null_ls")
+require("lsp.lsp_inlayhints")
+require("lsp.nvim_navic")
 
 return M

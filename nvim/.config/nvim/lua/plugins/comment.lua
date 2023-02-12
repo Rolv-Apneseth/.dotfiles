@@ -1,27 +1,27 @@
-local require_plugin = require("core.helpers").require_plugin
+return {
+    {
+        "numToStr/Comment.nvim", -- comment out lines
+        opts = {
+            pre_hook = function(ctx)
+                local utils = require("Comment.utils")
+                local ts_utils = require("ts_context_commentstring.utils")
+                local ts_internal = require("ts_context_commentstring.internal")
+                local location = nil
 
-local comment = require_plugin("Comment")
-local ts_context_commentstring = require_plugin("ts_context_commentstring")
-if not comment or not ts_context_commentstring then
-    return
-end
+                if ctx.ctype == utils.ctype.block then
+                    location = ts_utils.get_cursor_location()
+                elseif
+                    ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V
+                then
+                    location = ts_utils.get_visual_start_location()
+                end
 
-comment.setup({
-    pre_hook = function(ctx)
-        local utils = require("Comment.utils")
-        local ts_utils = require("ts_context_commentstring.utils")
-        local ts_internal = require("ts_context_commentstring.internal")
-        local location = nil
-
-        if ctx.ctype == utils.ctype.block then
-            location = ts_utils.get_cursor_location()
-        elseif ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V then
-            location = ts_utils.get_visual_start_location()
-        end
-
-        return ts_internal.calculate_commentstring({
-            key = ctx.ctype == utils.ctype.line and "__default" or "__multiline",
-            location = location,
-        })
-    end,
-})
+                return ts_internal.calculate_commentstring({
+                    key = ctx.ctype == utils.ctype.line and "__default" or "__multiline",
+                    location = location,
+                })
+            end,
+        },
+    },
+    "JoosepAlviste/nvim-ts-context-commentstring",
+}

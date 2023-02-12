@@ -1,4 +1,4 @@
-local constants = require("core/constants")
+local constants = require("core.constants")
 local o = vim.opt
 
 local options = {
@@ -38,6 +38,8 @@ local options = {
     fillchars = "eob: ", -- replaces ~ symbols with whitespace characters at the end of buffer
     whichwrap = "<>[]hl", -- set which left->right navigations can also move cursor up or down if at end/start of line
     laststatus = 3, -- global status line
+    foldmethod = "indent",
+    foldlevelstart = 99, -- don't close folds by default when opening buffer
     iskeyword = o.iskeyword + "-", -- characters which are to be counted as 1 "word", added - for easily selecting variables e.g. foo-bar
 }
 

@@ -67,8 +67,8 @@ return {
         },
     },
     server = {
-        on_attach = require("plugins.lsp.handlers").on_attach,
-        capabilities = require("plugins.lsp.handlers").capabilities,
+        on_attach = require("lsp.handlers").on_attach,
+        capabilities = require("lsp.handlers").capabilities,
 
         settings = {
             ["rust-analyzer"] = {

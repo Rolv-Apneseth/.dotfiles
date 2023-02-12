@@ -1,151 +1,176 @@
-local icons = require("core.constants").ICONS
 local require_plugin = require("core.helpers").require_plugin
+local icons = require("core.icons")
 
-local telescope = require_plugin("telescope")
-if not telescope then
-    return
-end
-
-local actions = require("telescope.actions")
-
-telescope.setup({
-    defaults = {
-
-        prompt_prefix = icons.ui.Telescope .. " ",
-        selection_caret = icons.ui.Selection .. " ",
-        path_display = { "smart" },
-        file_ignore_patterns = {
-            ".git/",
-            "target/",
-            "docs/",
-            "vendor/*",
-            "%.lock",
-            "__pycache__/*",
-            "%.sqlite3",
-            "%.ipynb",
-            "node_modules/*",
-            "%.jpg",
-            "%.jpeg",
-            "%.png",
-            "%.svg",
-            "%.otf",
-            "%.ttf",
-            "%.webp",
-            ".dart_tool/",
-            ".github/",
-            ".gradle/",
-            ".idea/",
-            ".settings/",
-            ".vscode/",
-            "__pycache__/",
-            "build/",
-            "env/",
-            "gradle/",
-            "node_modules/",
-            "%.pdb",
-            "%.dll",
-            "%.class",
-            "%.exe",
-            "%.cache",
-            "%.ico",
-            "%.pdf",
-            "%.dylib",
-            "%.jar",
-            "%.docx",
-            "%.met",
-            "smalljre_*/*",
-            ".vale/",
-            "%.burp",
-            "%.mp4",
-            "%.mkv",
-            "%.rar",
-            "%.zip",
-            "%.7z",
-            "%.tar",
-            "%.bz2",
-            "%.epub",
-            "%.flac",
-            "%.tar.gz",
+return {
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "smartpde/telescope-recent-files",
         },
+        config = function()
+            local telescope = require_plugin("telescope")
+            if not telescope then
+                return
+            end
 
-        mappings = {
-            i = {
-                ["<C-n>"] = actions.cycle_history_next,
-                ["<C-p>"] = actions.cycle_history_prev,
+            local actions = require("telescope.actions")
 
-                ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous,
+            telescope.setup({
+                defaults = {
 
-                ["<C-c>"] = actions.close,
+                    prompt_prefix = icons.ui.Telescope .. " ",
+                    selection_caret = icons.ui.Selection .. " ",
+                    path_display = { "smart" },
+                    file_ignore_patterns = {
+                        ".git/",
+                        "target/",
+                        "docs/",
+                        "vendor/*",
+                        "%.lock",
+                        "__pycache__/*",
+                        "%.sqlite3",
+                        "%.ipynb",
+                        "node_modules/*",
+                        "%.jpg",
+                        "%.jpeg",
+                        "%.png",
+                        "%.svg",
+                        "%.otf",
+                        "%.ttf",
+                        "%.webp",
+                        ".dart_tool/",
+                        ".github/",
+                        ".gradle/",
+                        ".idea/",
+                        ".settings/",
+                        ".vscode/",
+                        "__pycache__/",
+                        "build/",
+                        "env/",
+                        "gradle/",
+                        "node_modules/",
+                        "%.pdb",
+                        "%.dll",
+                        "%.class",
+                        "%.exe",
+                        "%.cache",
+                        "%.ico",
+                        "%.pdf",
+                        "%.dylib",
+                        "%.jar",
+                        "%.docx",
+                        "%.met",
+                        "smalljre_*/*",
+                        ".vale/",
+                        "%.burp",
+                        "%.mp4",
+                        "%.mkv",
+                        "%.rar",
+                        "%.zip",
+                        "%.7z",
+                        "%.tar",
+                        "%.bz2",
+                        "%.epub",
+                        "%.flac",
+                        "%.tar.gz",
+                    },
 
-                ["<Down>"] = actions.move_selection_next,
-                ["<Up>"] = actions.move_selection_previous,
+                    mappings = {
+                        i = {
+                            ["<C-n>"] = actions.cycle_history_next,
+                            ["<C-p>"] = actions.cycle_history_prev,
 
-                ["<CR>"] = actions.select_default,
-                ["<C-x>"] = actions.select_horizontal,
-                ["<C-v>"] = actions.select_vertical,
-                ["<C-t>"] = actions.select_tab,
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
 
-                ["<C-u>"] = actions.preview_scrolling_up,
-                ["<C-d>"] = actions.preview_scrolling_down,
+                            ["<C-c>"] = actions.close,
 
-                ["<PageUp>"] = actions.results_scrolling_up,
-                ["<PageDown>"] = actions.results_scrolling_down,
+                            ["<Down>"] = actions.move_selection_next,
+                            ["<Up>"] = actions.move_selection_previous,
 
-                ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-                ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                ["<C-l>"] = actions.complete_tag,
-                ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-            },
+                            ["<CR>"] = actions.select_default,
+                            ["<C-x>"] = actions.select_horizontal,
+                            ["<C-v>"] = actions.select_vertical,
+                            ["<C-t>"] = actions.select_tab,
 
-            n = {
-                ["<esc>"] = actions.close,
-                ["<CR>"] = actions.select_default,
-                ["<C-x>"] = actions.select_horizontal,
-                ["<C-v>"] = actions.select_vertical,
-                ["<C-t>"] = actions.select_tab,
+                            ["<C-u>"] = actions.preview_scrolling_up,
+                            ["<C-d>"] = actions.preview_scrolling_down,
 
-                ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-                ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                            ["<PageUp>"] = actions.results_scrolling_up,
+                            ["<PageDown>"] = actions.results_scrolling_down,
 
-                ["j"] = actions.move_selection_next,
-                ["k"] = actions.move_selection_previous,
-                ["H"] = actions.move_to_top,
-                ["M"] = actions.move_to_middle,
-                ["L"] = actions.move_to_bottom,
+                            ["<Tab>"] = actions.toggle_selection
+                                + actions.move_selection_worse,
+                            ["<S-Tab>"] = actions.toggle_selection
+                                + actions.move_selection_better,
+                            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+                            ["<M-q>"] = actions.send_selected_to_qflist
+                                + actions.open_qflist,
+                            ["<C-l>"] = actions.complete_tag,
+                            ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+                        },
 
-                ["<Down>"] = actions.move_selection_next,
-                ["<Up>"] = actions.move_selection_previous,
-                ["gg"] = actions.move_to_top,
-                ["G"] = actions.move_to_bottom,
+                        n = {
+                            ["<esc>"] = actions.close,
+                            ["<CR>"] = actions.select_default,
+                            ["<C-x>"] = actions.select_horizontal,
+                            ["<C-v>"] = actions.select_vertical,
+                            ["<C-t>"] = actions.select_tab,
 
-                ["<C-u>"] = actions.preview_scrolling_up,
-                ["<C-d>"] = actions.preview_scrolling_down,
+                            ["<Tab>"] = actions.toggle_selection
+                                + actions.move_selection_worse,
+                            ["<S-Tab>"] = actions.toggle_selection
+                                + actions.move_selection_better,
+                            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+                            ["<M-q>"] = actions.send_selected_to_qflist
+                                + actions.open_qflist,
 
-                ["<PageUp>"] = actions.results_scrolling_up,
-                ["<PageDown>"] = actions.results_scrolling_down,
+                            ["j"] = actions.move_selection_next,
+                            ["k"] = actions.move_selection_previous,
+                            ["H"] = actions.move_to_top,
+                            ["M"] = actions.move_to_middle,
+                            ["L"] = actions.move_to_bottom,
 
-                ["?"] = actions.which_key,
-            },
-        },
+                            ["<Down>"] = actions.move_selection_next,
+                            ["<Up>"] = actions.move_selection_previous,
+                            ["gg"] = actions.move_to_top,
+                            ["G"] = actions.move_to_bottom,
+
+                            ["<C-u>"] = actions.preview_scrolling_up,
+                            ["<C-d>"] = actions.preview_scrolling_down,
+
+                            ["<PageUp>"] = actions.results_scrolling_up,
+                            ["<PageDown>"] = actions.results_scrolling_down,
+
+                            ["?"] = actions.which_key,
+                        },
+                    },
+                },
+                pickers = {},
+                extensions = {
+                    recent_files = {
+                        only_cwd = false, -- only files in the cwd
+                        start_files = true, -- checks if files exist before being shown in the picker
+                    },
+                },
+            })
+
+            -- KEYMAPS FOR EXTENSIONS
+            telescope.load_extension("recent_files")
+
+            local keymaps_extensions = {
+                { "<leader>tr", telescope.extensions.recent_files.pick },
+                { "<leader>n", telescope.extensions.notify.notify },
+            }
+
+            for _, mapping in pairs(keymaps_extensions) do
+                vim.api.nvim_set_keymap(
+                    "n",
+                    mapping[1],
+                    "",
+                    { noremap = true, silent = true, callback = mapping[2] }
+                )
+            end
+        end,
     },
-    pickers = {},
-    extensions = {
-        recent_files = {
-            only_cwd = false, -- only files in the cwd
-            start_files = true, -- checks if files exist before being shown in the picker
-        },
-    },
-})
-
-telescope.load_extension("recent_files")
-vim.api.nvim_set_keymap(
-    "n",
-    "<Leader>r",
-    "",
-    { noremap = true, silent = true, callback = telescope.extensions.recent_files.pick }
-)
+}

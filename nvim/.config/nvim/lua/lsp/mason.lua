@@ -1,5 +1,5 @@
 local require_plugin = require("core.helpers").require_plugin
-local icons = require("core.constants").ICONS
+local icons = require("core.icons")
 
 local mason = require_plugin("mason")
 local lspconfig = require_plugin("lspconfig")
@@ -45,19 +45,19 @@ local opts = {}
 
 for _, server in pairs(servers) do
     opts = {
-        on_attach = require("plugins.lsp.handlers").on_attach,
-        capabilities = require("plugins.lsp.handlers").capabilities,
+        on_attach = require("lsp.handlers").on_attach,
+        capabilities = require("lsp.handlers").capabilities,
     }
 
     server = vim.split(server, "@")[1]
 
     if server == "jsonls" then
-        local jsonls_opts = require("plugins.lsp.settings.jsonls")
+        local jsonls_opts = require("lsp.settings.jsonls")
         opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     end
 
     if server == "yamlls" then
-        local yamlls_opts = require("plugins.lsp.settings.yamlls")
+        local yamlls_opts = require("lsp.settings.yamlls")
         opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
     end
 
@@ -77,22 +77,22 @@ for _, server in pairs(servers) do
     end
 
     if server == "tsserver" then
-        local tsserver_opts = require("plugins.lsp.settings.tsserver")
+        local tsserver_opts = require("lsp.settings.tsserver")
         opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
     end
 
     if server == "pyright" then
-        local pyright_opts = require("plugins.lsp.settings.pyright")
+        local pyright_opts = require("lsp.settings.pyright")
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
     end
 
     if server == "emmet_ls" then
-        local emmet_ls_opts = require("plugins.lsp.settings.emmet_ls")
+        local emmet_ls_opts = require("lsp.settings.emmet_ls")
         opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
     end
 
     if server == "rust_analyzer" then
-        local rust_opts = require("plugins.lsp.settings.rust")
+        local rust_opts = require("lsp.settings.rust")
         local rust_tools = require_plugin("rust-tools")
         if not rust_tools then
             return
