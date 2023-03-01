@@ -71,6 +71,9 @@ null_ls.setup({
                 "--func-next-line",
             },
         }),
+
+        -- TOML
+        formatting.taplo,
     },
 })
 
