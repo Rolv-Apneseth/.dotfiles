@@ -1,0 +1,84 @@
+# LAYOUT
+[[row]]
+[[row.child]]
+type = "net"
+[[row.child]]
+ratio = 4
+type = "cpu"
+[[row]]
+[[row.child]]
+ratio = 4
+type = "mem"
+[[row.child]]
+ratio = 3
+[[row.child.child]]
+type = "temp"
+[[row.child.child]]
+type = "disk"
+[[row]]
+ratio = 2
+[[row.child]]
+type = "proc"
+
+# OPTIONS
+[flags]
+hide_avg_cpu = false
+dot_marker = false
+left_legend = false
+current_usage = true
+group_processes = true
+case_sensitive = false
+whole_word = false
+regex = true
+basic = false
+battery = false
+rate = 1000
+hide_time = true
+temperature_type = "c"
+default_widget_type = "proc"
+disable_click = false
+mem_as_value = true
+tree = false
+show_table_scroll_position = true
+process_command = false
+disable_advanced_kill = true
+network_use_binary_prefix = false
+network_use_bytes = true
+enable_gpu_memory = true
+retention = "1h"
+unnormalized_cpu = false
+expanded_on_startup = false
+
+# FILTER DRIVES
+[mount_filter]
+list = ["/boot", "/run*"]
+is_list_ignored = true
+regex = true
+
+# COLOURSCHEME
+[colors]
+table_header_color = "LightGreen"
+cpu_core_colors = [
+  "Magenta",
+  "Cyan",
+  "Blue",
+  "LightGreen",
+  "LightBlue",
+  "Yellow",
+  "Black",
+  "LightYellow",
+]
+avg_cpu_color = "White"
+all_cpu_color = "White"
+ram_color = "Yellow"
+swap_color = "Blue"
+rx_color = "Yellow"
+tx_color = "Blue"
+widget_title_color = "Magenta"
+border_color = "White"
+highlighted_border_color = "Magenta"
+text_color = "DarkGray"
+selected_text_color = "White"
+selected_bg_color = "Reset"
+background_text_color = "yellow"
+graph_color = "DarkGray"
