@@ -13,7 +13,7 @@ STOW_FOLDERS=(
     "qtile"
     "kitty"
     "starship"
-    "neofetch"
+    "macchina"
     "rofi"
     "nvim"
     "thunar"
