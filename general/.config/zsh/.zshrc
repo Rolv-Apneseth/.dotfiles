@@ -82,7 +82,7 @@ add_file "$HOME/.config/.aliases"
 
 # RICE
 eval "$(starship init zsh)"
-neofetch
+macchina
 
 # Kitty Shell Integration
 if test -n "$KITTY_INSTALLATION_DIR"; then
