@@ -8,7 +8,8 @@
 export PATH="${PATH:+${PATH}}\
 :$HOME/.local/bin\
 :$HOME/work/tools\
-:$HOME/work/logins"
+:$HOME/work/logins\
+:$HOME/.config/rofi/scripts"
 
 # Set default programs through environment variables
 # These are used by, for example, my Qtile config and Thunar custom actions
@@ -27,13 +28,11 @@ export TERMINAL="kitty"
 export BROWSER="firefox"
 
 # Rofi launcher etc.
-ROFI_DIR="$HOME/.config/rofi"
-export ROFI_SCRIPTS="$ROFI_DIR/scripts"
-ROFI_WRAPPER="$ROFI_SCRIPTS/rofi-wrapper"
-export MY_LAUNCHER="$ROFI_WRAPPER run"
-export MY_GAMES_LAUNCHER="$ROFI_WRAPPER games"
-export MY_CLIPBOARD="$ROFI_WRAPPER clipboard"
-export MY_CALCULATOR="$ROFI_WRAPPER calc"
+export MY_LAUNCHER=rofi-wrapper run
+export MY_GAMES_LAUNCHER=rofi-wrapper games
+export MY_CLIPBOARD=rofi-wrapper clipboard
+export MY_CALCULATOR=rofi-wrapper calc
+export MY_SELECTOR_DEFAULT_SOUND_SINK=rofi-wrapper sound_sink
 
 # Stowed dotfiles directory
 export DOTFILES="$HOME/.dotfiles"
