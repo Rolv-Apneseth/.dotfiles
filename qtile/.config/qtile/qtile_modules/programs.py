@@ -2,7 +2,7 @@ from os import environ
 
 
 # Helper Functions
-def get_program(environment_variable: str, backup: str) -> str:
+def get_program(environment_variable: str, backup: str = "") -> str:
     return environ.get(environment_variable, default=backup)
 
 
@@ -22,20 +22,18 @@ def get_program_in_last_dir(program: str) -> str:
 PROGRAMS = dict(
     terminal=get_program("TERMINAL", "xterm"),
     browser=get_program("BROWSER", "firefox"),
-    launcher=get_program("MY_LAUNCHER", "rofi -show run"),
-    games_launcher=get_program("MY_GAMES_LAUNCHER", "rofi -show drun"),
-    clipboard=get_program("MY_CLIPBOARD", "rofi -show drun"),
-    calculator=get_program(
-        "MY_CALCULATOR",
-        "rofi -show calc -modi calc -no-show-match -no-sort -theme calculator",
-    ),
-    file_explorer=get_program("MY_EXPLORER", "thunar"),
-    email_client=get_program("MY_EMAIL_CLIENT", "thunderbird"),
-    work_communication=get_program("MY_WORK_COMMUNICATION", "skypeforlinux"),
-    screenshot=get_program("MY_SCREENSHOT", "flameshot gui"),
-    volume_manager=get_program("MY_VOLUME_MANAGER", "pavucontrol"),
-    media_player=get_program("MY_MEDIA_PLAYER", "mpv"),
-    play_music=get_program("MY_MUSIC_PLAYER", "audacious"),
+    launcher=get_program("MY_LAUNCHER"),
+    games_launcher=get_program("MY_GAMES_LAUNCHER"),
+    clipboard=get_program("MY_CLIPBOARD"),
+    calculator=get_program("MY_CALCULATOR"),
+    selector_default_sound_sink=get_program("MY_SELECTOR_DEFAULT_SOUND_SINK"),
+    file_explorer=get_program("MY_EXPLORER"),
+    email_client=get_program("MY_EMAIL_CLIENT"),
+    work_communication=get_program("MY_WORK_COMMUNICATION"),
+    screenshot=get_program("MY_SCREENSHOT"),
+    volume_manager=get_program("MY_VOLUME_MANAGER"),
+    media_player=get_program("MY_MEDIA_PLAYER"),
+    play_music=get_program("MY_MUSIC_PLAYER"),
     system_monitor="psensor",
     volume_toggle="change_volume toggle",
     volume_increase="change_volume 5%+ unmute",
@@ -60,13 +58,11 @@ PROGRAMS.update(
 # Set commands used to open useful websites
 WEBSITES = dict(
     stack_overflow=get_site(
-        "https://stackoverflow.com/questions/tagged/python?sort=Newest&filters=NoAnswers"
-        "&uqlId=33538"
+        "https://stackoverflow.com/questions/tagged?sort=Newest&filters=NoAnswers&"
+        "tagMode=Watched&uqlId=33538"
     ),
     github=get_site("https://github.com/Rolv-Apneseth"),
     youtube=get_site("https://www.youtube.com/"),
-    netflix=get_site("https://www.netflix.com/"),
-    arch_wiki=get_site("https://wiki.archlinux.org/"),
 )
 
 if __name__ == "__main__":
