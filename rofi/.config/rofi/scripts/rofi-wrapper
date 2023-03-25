@@ -6,7 +6,6 @@ case "$1" in
     run) rofi -show run -theme launcher ;;
     calc) rofi -show calc -modi calc -no-show-match -no-sort -theme calculator ;;
     clipboard) rofi -modi "clipboard:greenclip print" -show clipboard -theme selector ;;
-    fonts) fc-list | awk -F ":" '{print $2}' | rofi -dmenu | xclip -selection clipboard ;;
     games)
         "$ROFI_SCRIPTS"/update-game-entries.sh -q
         rofi -show drun -theme games -drun-categories SteamLibrary
