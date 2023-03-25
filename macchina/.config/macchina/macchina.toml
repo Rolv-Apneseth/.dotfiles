@@ -2,7 +2,7 @@
 interface = "wlan0"
 
 # Lengthen uptime output
-long_uptime = true
+long_uptime = false
 
 # Lengthen shell output
 long_shell = false
@@ -15,7 +15,7 @@ current_shell = true
 
 # Toggle between displaying the number of physical or logical cores of your
 # processor.
-physical_cores = true 
+physical_cores = true
 
 # Themes need to be placed in "$XDG_CONFIG_DIR/macchina/themes" beforehand.
 # e.g.:
@@ -46,13 +46,15 @@ theme = "main"
 #   - Battery
 # Example:
 show = [
-    "Kernel",
-    "Distribution",
-    "DesktopEnvironment",
-    "Packages",
-    "Terminal",
-    "Shell",
-    "Uptime",
-    "Processor",
-    "Memory",
+  "Kernel",
+  "Distribution",
+  "DesktopEnvironment",
+  "Shell",
+  "Terminal",
+  "Uptime",
+  "Packages",
+  "Resolution",
+  "Memory",
+  "Processor",
+  "GPU",
 ]
