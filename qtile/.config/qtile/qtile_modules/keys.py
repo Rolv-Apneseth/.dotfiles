@@ -75,7 +75,12 @@ KEYS = [
     Key(
         "M-S-c",
         lazy.spawn(PROGRAMS["calculator"]),
-        desc="Launch rofi calc",
+        desc="Launch calculator",
+    ),
+    Key(
+        "M-s",
+        lazy.spawn(PROGRAMS["selector_default_sound_sink"]),
+        desc="Launch default sound sink selector",
     ),
     Key(
         "M-t",

@@ -27,6 +27,7 @@ PROGRAMS = dict(
     clipboard=get_program("MY_CLIPBOARD"),
     calculator=get_program("MY_CALCULATOR"),
     selector_default_sound_sink=get_program("MY_SELECTOR_DEFAULT_SOUND_SINK"),
+    fonts_explorer=get_program("MY_FONTS_EXPLORER"),
     file_explorer=get_program("MY_EXPLORER"),
     email_client=get_program("MY_EMAIL_CLIENT"),
     work_communication=get_program("MY_WORK_COMMUNICATION"),

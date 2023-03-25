@@ -21,6 +21,7 @@ export MY_VOLUME_MANAGER="pavucontrol"
 export MY_WORK_COMMUNICATION="google-chat-linux"
 export MY_MEDIA_PLAYER="celluloid"
 export MY_MUSIC_PLAYER="audacious --play"
+export MY_FONTS_EXPLORER="font-manager"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
