@@ -33,6 +33,7 @@ ROFI_WRAPPER="$ROFI_SCRIPTS/rofi-wrapper"
 export MY_LAUNCHER="$ROFI_WRAPPER run"
 export MY_GAMES_LAUNCHER="$ROFI_WRAPPER games"
 export MY_CLIPBOARD="$ROFI_WRAPPER clipboard"
+export MY_CALCULATOR="$ROFI_WRAPPER calc"
 
 # Stowed dotfiles directory
 export DOTFILES="$HOME/.dotfiles"

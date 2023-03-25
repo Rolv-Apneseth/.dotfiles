@@ -73,6 +73,11 @@ KEYS = [
         desc="Launch clipboard picker",
     ),
     Key(
+        "M-S-c",
+        lazy.spawn(PROGRAMS["calculator"]),
+        desc="Launch rofi calc",
+    ),
+    Key(
         "M-t",
         lazy.spawn(PROGRAMS["file_explorer"]),
         desc="Launch file explorer",

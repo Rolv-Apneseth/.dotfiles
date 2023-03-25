@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# requirements: rofi steam greenclip
+# requirements: rofi steam greenclip rofi-calc
 # required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME
 
 case "$1" in
     run) rofi -show run -theme launcher ;;
+    calc) rofi -show calc -modi calc -no-show-match -no-sort -theme calculator ;;
     clipboard) rofi -modi "clipboard:greenclip print" -show clipboard -theme selector ;;
     fonts) fc-list | awk -F ":" '{print $2}' | rofi -dmenu | xclip -selection clipboard ;;
     games)

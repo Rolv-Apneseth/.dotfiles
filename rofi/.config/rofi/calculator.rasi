@@ -1,0 +1,5 @@
+@import "selector"
+
+textbox-prompt {
+    str: "";
+}
