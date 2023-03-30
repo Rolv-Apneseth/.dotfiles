@@ -21,6 +21,11 @@ alias code="vscodium"
 alias lg="lazygit"
 alias mc="macchina"
 
+# Avoid $HOME/.wget-hsts file
+alias wget=wget --hsts-file='$XDG_DATA_HOME/wget-hsts'
+# Avoid $HOME/.yarnrc file
+alias yarn='yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
+
 # NAVIGATION ------------------------------------------------------------
 alias ..='cd ..'
 alias .2='cd ../..'
