@@ -28,12 +28,12 @@ export VISUAL="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 
-# Rofi launcher etc.
-export MY_LAUNCHER=rofi-wrapper run
-export MY_GAMES_LAUNCHER=rofi-wrapper games
-export MY_CLIPBOARD=rofi-wrapper clipboard
-export MY_CALCULATOR=rofi-wrapper calc
-export MY_SELECTOR_DEFAULT_SOUND_SINK=rofi-wrapper sound_sink
+# Rofi
+export MY_LAUNCHER="rofi-wrapper run"
+export MY_GAMES_LAUNCHER="rofi-wrapper games"
+export MY_CLIPBOARD="rofi-wrapper clipboard"
+export MY_CALCULATOR="rofi-wrapper calc"
+export MY_SELECTOR_DEFAULT_SOUND_SINK="rofi-wrapper sound_sink"
 
 # Stowed dotfiles directory
 export DOTFILES="$HOME/.dotfiles"
@@ -60,6 +60,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export GOPATH="$XDG_DATA_HOME"/go
 
 # START
 # Compositor
@@ -74,6 +75,8 @@ lxqt-policykit-agent &
 nm-applet &
 # Notifications
 dunst &
+# RGB
+openrgb -p Main &
 
 # Turn sleep off
 xset s off
