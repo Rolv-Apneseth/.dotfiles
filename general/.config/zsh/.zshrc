@@ -28,7 +28,7 @@ export TIMEFMT=$'%J\n\n%*Es total\n%U user cpu\n%S system cpu\n%P cpu\n%MKB max 
 
 
 # KEYBINDINGS
-bindkey -s '^s' 'ncdu^M'
+bindkey -s '^s' 'dua i^M'
 bindkey -s '^n' 'nvim^M'
 
 
