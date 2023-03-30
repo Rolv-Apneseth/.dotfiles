@@ -55,7 +55,6 @@ setopt SHARE_HISTORY
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
-
 # FZF
 add_file "/usr/share/fzf/completion.zsh" 
 add_file "/usr/share/fzf/key-bindings.zsh" 
@@ -65,8 +64,9 @@ add_file "~/.fzf.zsh"
 add_file "$ZDOTDIR/completion/_fnm" 
 
 
-# AUTOJUMP
-add_file "/usr/share/autojump/autojump.zsh" 
+# ZOXIDE
+eval "$(zoxide init zsh --cmd j)"
+export _ZO_ECHO=1
 
 
 # PLUGINS 
