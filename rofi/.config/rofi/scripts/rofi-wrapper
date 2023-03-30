@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# requirements: rofi steam greenclip rofi-calc
+# requirements: rofi steam pactl greenclip rofi-greenclip rofi-calc rofi-emoji
 # required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME
 
 case "$1" in
     run) rofi -show run -theme launcher ;;
-    calc) rofi -show calc -modi calc -no-show-match -no-sort -theme calculator ;;
+    calc) rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xclip" -theme calculator ;;
     clipboard) rofi -modi "clipboard:greenclip print" -show clipboard -theme selector ;;
+    emojis) rofi -modi emoji -show emoji -emoji-mode copy -theme selector ;;
     games)
         "$ROFI_SCRIPTS"/update-game-entries.sh -q
         rofi -show drun -theme games -drun-categories SteamLibrary
