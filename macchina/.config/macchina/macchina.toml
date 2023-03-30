@@ -8,7 +8,7 @@ long_uptime = false
 long_shell = false
 
 # Lengthen kernel output
-long_kernel = true
+long_kernel = false
 
 # Toggle between displaying the current shell or your user's default one.
 current_shell = true
@@ -17,6 +17,10 @@ current_shell = true
 # processor.
 physical_cores = true
 
+memory_percentage = true
+
+disk_space_percentage = true
+
 # Themes need to be placed in "$XDG_CONFIG_DIR/macchina/themes" beforehand.
 # e.g.:
 #  if theme path is /home/foo/.config/macchina/themes/Sodium.toml
@@ -24,7 +28,6 @@ physical_cores = true
 #
 theme = "main"
 
-# Displays only the specified readouts.
 # Accepted values (case-sensitive):
 #   - Host
 #   - Machine
@@ -44,6 +47,7 @@ theme = "main"
 #   - ProcessorLoad
 #   - Memory
 #   - Battery
+#   - GPU
 # Example:
 show = [
   "Kernel",
@@ -57,4 +61,5 @@ show = [
   "Memory",
   "Processor",
   "GPU",
+  "DiskSpace",
 ]
