@@ -1,5 +1,4 @@
 from libqtile import layout
-
 from qtile_modules.colours import COLOURS
 
 BASE_STYLE = {
