@@ -27,4 +27,9 @@ require("lazy").setup("plugins", {
         enabled = true,
         notify = true, -- get a notification when changes are found
     },
+    ui = {
+        size = { width = 0.8, height = 0.8 },
+        wrap = true, -- wrap the lines in the ui
+        border = "rounded",
+    },
 })
