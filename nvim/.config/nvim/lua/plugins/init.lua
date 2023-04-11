@@ -10,7 +10,7 @@ return {
     "tamago324/nlsp-settings.nvim", -- language server settings defined in json
     "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
     "b0o/SchemaStore.nvim", -- json schmemas
-    "christianchiarulli/lua-dev.nvim", -- developer setup for init.lua and plugin development
+    "folke/neodev.nvim", -- neovim lua setup
     "SmiteshP/nvim-navic", -- show current code context in a bar
     "ray-x/lsp_signature.nvim", -- show function signature as you type
     "lvimuser/lsp-inlayhints.nvim", -- inlay hints used for e.g. tsserver

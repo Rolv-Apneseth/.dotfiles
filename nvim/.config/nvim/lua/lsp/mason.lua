@@ -14,7 +14,7 @@ local servers = {
     "emmet_ls",
     "html",
     "jsonls",
-    "sumneko_lua",
+    "lua_ls",
     "tsserver",
     "pyright",
     "yamlls",
@@ -61,18 +61,16 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
     end
 
-    if server == "sumneko_lua" then
-        local lua_dev = require_plugin("lua-dev")
-        if not lua_dev then
-            goto continue
-        end
-
-        lspconfig.sumneko_lua.setup(lua_dev.setup({
-            lspconfig = {
-                on_attach = opts.on_attach,
-                capabilities = opts.capabilities,
+    if server == "lua_ls" then
+        lspconfig.lua_ls.setup({
+            settings = {
+                Lua = {
+                    completion = {
+                        callSnippet = "Replace",
+                    },
+                },
             },
-        }))
+        })
         goto continue
     end
 
@@ -101,10 +99,6 @@ for _, server in pairs(servers) do
         rust_tools.setup(rust_opts)
         goto continue
     end
-
-    --[[ if server == "jdtls" then ]]
-    --[[      ]]
-    --[[ end ]]
 
     lspconfig[server].setup(opts)
     ::continue::

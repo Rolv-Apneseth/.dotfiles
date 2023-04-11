@@ -32,6 +32,7 @@ M.server_capabilities = function()
     end)
 end
 
+require("lsp.neodev")
 require("lsp.lsp_signature")
 require("lsp.mason")
 require("lsp.handlers").setup()
