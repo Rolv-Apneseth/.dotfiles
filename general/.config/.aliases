@@ -8,16 +8,13 @@ alias ls='exa -1la --icons --color=always --group-directories-first'
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias df='df -h'
-alias yeet='rm -vrf'
+alias yeet='rm -vrfi'
 alias rm='rm -v'
 
 alias p="paru"
+alias pR="paru -Rcns"
 alias update="sudo pacman --needed -Sy archlinux-keyring && paru -Syu --news"
 
-alias python="python3"
-alias pip="python3 -m pip"
-
-alias code="vscodium"
 alias lg="lazygit"
 alias mc="macchina"
 
