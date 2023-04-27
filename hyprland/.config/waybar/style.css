@@ -1,0 +1,64 @@
+* {
+    border: none;
+    font-family: SF Pro Display Bold;
+    font-size: 17px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.75);
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-radius: 0px;
+}
+/*-----module groups----*/
+.modules-right {
+    background: transparent;
+    margin-right: 20px;
+    border-radius: 0;
+}
+.modules-center {
+    background: transparent;
+    margin: 0 0 0 0;
+    border-radius: 0;
+}
+.modules-left {
+    background: transparent;
+    margin-left: 20px;
+    border-radius: 0;
+}
+
+tooltip {
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#workspaces button {
+    padding: 1px 5px;
+    background: transparent;
+    color: #4c566a;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: #d8dee9;
+}
+
+#workspaces button.active {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+#workspaces button.urgent {
+    color: #ffbbff;
+}
+
+#custom-sep {
+    color: #666666;
+    font-size: 18px;
+}
+
+#cpu,
+#memory,
+#tray,
+#mode {
+    padding: 0 5px;
+}
