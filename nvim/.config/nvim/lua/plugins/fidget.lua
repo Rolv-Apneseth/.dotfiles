@@ -3,6 +3,9 @@ local icons = require("core.icons")
 return {
     "j-hui/fidget.nvim", -- LSP progress animations
     opts = {
+        window = {
+            blend = 0,
+        },
         text = {
             spinner = "meter", -- best ones: pipe arc zip bouncing_bar bouncing_ball meter
             done = icons.ui.Check, -- character shown when all tasks are complete

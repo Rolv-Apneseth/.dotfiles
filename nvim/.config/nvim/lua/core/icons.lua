@@ -90,7 +90,7 @@ return {
         List = "",
         SignIn = "",
         SignOut = "",
-        Check = "✓",
+        Check = "",
         Next = "➜",
         Fire = "",
         Note = "",

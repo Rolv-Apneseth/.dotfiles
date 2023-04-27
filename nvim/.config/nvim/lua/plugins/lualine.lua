@@ -25,7 +25,6 @@ return {
             lualine_b = {
                 "filetype",
             },
-            --[[ lualine_b = { "filesize", "filename", "branch" }, ]]
             lualine_c = {},
             lualine_x = {},
             lualine_y = {

@@ -99,13 +99,6 @@ return {
                 side = "left",
                 number = false,
                 relativenumber = false,
-                mappings = {
-                    custom_only = false,
-                    list = {
-                        { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                        { key = "h", cb = tree_cb("close_node") },
-                    },
-                },
             },
             trash = {
                 cmd = "trash",

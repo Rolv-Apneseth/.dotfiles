@@ -10,7 +10,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 -- Requirements
--- prettier tidy stylua flake8 python-isort python-black shellcheck-bin shellharden rustup
+-- prettier tidy stylua flake8 python-isort python-black shellcheck-bin shellharden rustup markdownlint
 
 null_ls.setup({
     debug = false,
@@ -18,11 +18,40 @@ null_ls.setup({
         -- HTML, CSS, JS, TS, Markdown, Yaml etc.
         formatting.prettier.with({
             extra_filetypes = { "toml" },
+            filetypes = {
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+                "vue",
+                "css",
+                "scss",
+                "less",
+                "html",
+                "json",
+                "jsonc",
+                "yaml",
+                -- using markdownlint for markdown
+                --[[ "markdown", ]]
+                --[[ "markdown.mdx", ]]
+                "graphql",
+                "handlebars",
+            },
             extra_args = { "--tab-width", constants.TAB_WIDTH },
         }),
         diagnostics.eslint,
+
         -- HTML Linting
         diagnostics.tidy,
+
+        -- Markdown
+        diagnostics.markdownlint.with({
+            extra_args = {
+                "--disable",
+                "MD013", -- line-length
+            },
+        }),
+        formatting.markdownlint,
 
         -- Rust
         formatting.rustfmt,

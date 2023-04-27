@@ -98,6 +98,7 @@ end
 M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
 
+    vim.notify(client)
     for _, server in pairs(servers_to_disable_formatting) do
         if client.name == server then
             client.server_capabilities.documentFormattingProvider = false
@@ -109,7 +110,6 @@ M.on_attach = function(client, bufnr)
     --[[         return ]]
     --[[     end ]]
     --[[ end ]]
-
     if client.server_capabilities.documentSymbolProvider then
         attach_navic(client, bufnr)
     end

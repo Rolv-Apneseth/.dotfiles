@@ -38,7 +38,7 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Copy and paste
 keymap("v", "p", '"_dP', opts) -- override default yank paste behaviour
-keymap("n", "Y", "y$", opts) -- make Y behave as expected
+keymap("n", "Y", "y$", opts)   -- make Y behave as expected
 
 -- Keep cursor centered
 keymap("n", "n", "nzzzv", opts)
@@ -56,10 +56,10 @@ end
 -----------------------------------------------------------------------------------------
 return {
     lsp = {
-        { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
-        { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
+        { "gi",    "<cmd>lua vim.lsp.buf.implementation()<CR>" },
+        { "K",     "<cmd>lua vim.lsp.buf.hover()<CR>" },
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
-        { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
+        { "gR",    "<cmd>lua vim.lsp.buf.rename()<CR>" },
         {
             "[d",
             '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
@@ -81,7 +81,6 @@ return {
         { "gd", "<cmd>Telescope lsp_definitions<CR>" },
         { "gD", "<cmd>Telescope diagnostics<CR>" },
     },
-
     treesitter = {
         text_object = {
             select = {
@@ -90,7 +89,6 @@ return {
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
             },
-
             swap_next = {
                 ["<leader>c"] = "@parameter.inner",
             },
@@ -98,10 +96,8 @@ return {
                 ["<leader>C"] = "@parameter.inner",
             },
         },
-
         autopairs = { fastwrap = "<A-e>" },
     },
-
     surround = {
         normal = "m",
         normal_line = "M",
@@ -110,79 +106,69 @@ return {
         delete = "ds",
         change = "cs",
     },
-
     whichkey = {
         -- Normal mode
         leader_n = {
-
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
-
             -- TREESITTER
             ["<leader>c"] = { "Move argument forward by 1 position" },
             ["<leader>C"] = { "Move argument backward by 1 position" },
-
             -- SYMBOLS_OUTLINE
             ["E"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" },
-
             -- NVIM_TREE
             ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-
             -- TELESCOPE
             ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
             ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
-
-            -- NVIM_NOTIFY + TELESCOPE
-            ["n"] = { "Show log of notifications" },
-
             -- INC_RENAME
             ["r"] = "LSP partially rename variable",
             ["R"] = "LSP fully rename variable",
-
-            m = {
-                name = "Packer",
-                c = { "<cmd>PackerCompile<CR>", "Compile" },
-                i = { "<cmd>PackerInstall<CR>", "Install" },
-                s = { "<cmd>PackerSync<CR>", "Sync" },
-                S = { "<cmd>PackerStatus<CR>", "Status" },
-                u = { "<cmd>PackerUpdate<CR>", "Update" },
+            -- HARPOON
+            ["m"] = {
+                "<cmd>lua require('harpoon.mark').add_file()<CR>",
+                "Harpoon add file",
             },
-
+            ["M"] = {
+                "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
+                "Harpoon view marks",
+            },
+            ["1"] = {
+                "<cmd>lua require('harpoon.ui').nav_file(1)<CR>",
+                "Harpoon 1",
+            },
+            ["2"] = {
+                "<cmd>lua require('harpoon.ui').nav_file(2)<CR>",
+                "Harpoon 2",
+            },
+            ["3"] = {
+                "<cmd>lua require('harpoon.ui').nav_file(3)<CR>",
+                "Harpoon 3",
+            },
+            ["4"] = {
+                "<cmd>lua require('harpoon.ui').nav_file(4)<CR>",
+                "Harpoon 4",
+            },
+            ["5"] = {
+                "<cmd>lua require('harpoon.ui').nav_file(5)<CR>",
+                "Harpoon 5",
+            },
+            ["6"] = {
+                "<cmd>lua require('harpoon.ui').nav_file(6)<CR>",
+                "Harpoon 6",
+            },
             v = {
                 name = "Git",
                 g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
                 j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
                 k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
                 l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-                p = {
-                    "<cmd>lua require 'gitsigns'.preview_hunk()<CR>",
-                    "Preview Hunk",
-                },
-                r = {
-                    "<cmd>lua require 'gitsigns'.reset_hunk()<CR>",
-                    "Reset Hunk",
-                },
-                R = {
-                    "<cmd>lua require 'gitsigns'.reset_buffer()<CR>",
-                    "Reset Buffer",
-                },
-                s = {
-                    "<cmd>lua require 'gitsigns'.stage_hunk()<CR>",
-                    "Stage Hunk",
-                },
-                u = {
-                    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
-                    "Undo Stage Hunk",
-                },
                 o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
-                b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-                c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
                 d = {
                     "<cmd>Gitsigns diffthis HEAD<CR>",
                     "Diff",
                 },
             },
-
             l = {
                 name = "LSP",
                 a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
@@ -207,28 +193,52 @@ return {
                 q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
                 r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
             },
-
             t = {
                 name = "Telescope",
-                r = { "Find recently opened file" },
+                C = { "<cmd>Telescope commands<CR>", "Commands" },
+                H = { "<cmd>Telescope highlights<CR>", "Highlights" },
+                M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
+                R = { "<cmd>Telescope registers<CR>", "Registers" },
                 b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
                 c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
                 h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
-                H = { "<cmd>Telescope highlights<CR>", "Highlights" },
-                M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
-                o = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-                R = { "<cmd>Telescope registers<CR>", "Registers" },
                 k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-                C = { "<cmd>Telescope commands<CR>", "Commands" },
+                r = { "Find recently opened file" },
+                -- NVIM_NOTIFY
+                n = { "Show log of notifications" },
+            },
+            z = {
+                name = "zk",
+                o = { "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", "Open notes" },
+                O = {
+                    "<Cmd>ZkTags<CR>",
+                    "Open notes - tags",
+                },
+                n = {
+                    "<Cmd>ZkNew { dir = 'program', title = vim.fn.input('Title: ') }<CR>",
+                    "New note",
+                },
+                b = "Open notes linking TO the current buffer.",
+                B = "Open notes linked BY the current buffer.",
             },
         },
-
         -- Visual mode
         leader_v = {
             -- TITLECASE
             ["t"] = { "gugv<Plug>Titlecase", "Convert selection to titlecase" },
+            -- ZK
+            z = {
+                name = "zk",
+                n = {
+                    "<Cmd>'<,'>ZkNewFromTitleSelection { dir = 'program' }<CR>",
+                    "New note with current selection as title",
+                },
+                N = {
+                    "<Cmd>'<,'>ZkNewFromContentSelection { dir = 'program', title = vim.fn.input('Title: ') }<CR>",
+                    "New note with current selection as content",
+                },
+            },
         },
-
         -- Both normal and visual modes
         leader_nv = {
             ["q"] = { "<cmd>q<CR>", "Close window" },
@@ -238,7 +248,6 @@ return {
                 "<cmd>%bd|e#|bd#<CR>",
                 "Close all buffers except current",
             },
-
             ["p"] = { '"+p', "Paste from system clipboard (ahead)" },
             ["P"] = { '"+P', "Paste from system clipboard (behind)" },
             ["y"] = { '"+y', "Copy to system clipboard" },

@@ -1,7 +1,9 @@
 return {
-    "nvim-lua/popup.nvim", -- Dependency (popup API implementation for neovim)
-    "nvim-lua/plenary.nvim", -- Dependency (lots of useful lua functions)
-    "kyazdani42/nvim-web-devicons", -- Dependency (icons)
+    -- Base Dependencies
+    "nvim-lua/popup.nvim", -- popup API implementation for neovim
+    "nvim-lua/plenary.nvim", -- lots of useful lua functions
+    "kyazdani42/nvim-web-devicons", -- icons
+    "MunifTanjim/nui.nvim", -- ui component library
 
     -- LSP
     "neovim/nvim-lspconfig",
