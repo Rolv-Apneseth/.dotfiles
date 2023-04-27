@@ -1,33 +1,42 @@
-# This config was modified from: https://gist.github.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593
-
-
+format = '$all$line_break$status$os$container$shell$character'
 scan_timeout = 1_000
 command_timeout = 1_000
 add_newline = true
 
 [character]
-success_symbol = "[>](bold green) "
-error_symbol = "[>](bold red) "
-vicmd_symbol="[>](bold green) "
+success_symbol = "[󰥭](bold green) "
+error_symbol = "[󰥭](bold red) "
+vicmd_symbol = "[󰥭](bold green) "
 
 [status]
-style = "italic red"
-symbol = "🔴"
-format = '[$symbol]($style) '
+style = 'bold red'
+symbol = ''
+success_symbol = ''
+not_found_symbol = '󰦀'
+not_executable_symbol = ''
+signal_symbol = '󰠠'
+sigint_symbol = '󰟾'
+format = '[$symbol$maybe_int]($style) '
 map_symbol = true
 disabled = false
 
+[jobs]
+symbol = ''
+number_threshold = 5
+symbol_threshold = 1
+
 [cmd_duration]
-min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+min_time = 1_000
 format = " took [$duration]($style)"
 
 [directory]
+truncation_symbol = ""
 truncation_length = 5
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+format = "[$path]($style) "
 
 [git_branch]
 format = "[$symbol$branch]($style)(:[$remote]($style)) "
-symbol = ' '
+symbol = " "
 style = "bold yellow"
 truncation_symbol = '…'
 always_show_remote = false
@@ -40,46 +49,152 @@ style = "bold white"
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-conflicted = "🏳 "
+conflicted = " "
 ahead = "↑×${count} "
 behind = "↓×${count} "
-diverged = "🔱 ↑×${ahead_count} ↓×${behind_count} "
-untracked = "🤷×${count} "
-stashed = "📦 "
-modified = "📝×${count} "
-staged = "🗃️×${count} "
-renamed = "📛×${count} "
-deleted = "🗑️×${count} "
+diverged = "󰙁 ↑×${ahead_count} ↓×${behind_count} "
+untracked = "󱪝×${count} "
+stashed = "󱉼×${count} "
+modified = "󰷈×${count} "
+staged = "󰪶×${count} "
+renamed = "󰑕×${count} "
+deleted = "󰆴×${count} "
 style = "bright-white"
 format = "$all_status$ahead_behind"
 
-[hostname]
-ssh_only = false
-format = "<[$hostname]($style)>"
-trim_at = "-"
-style = "bold dimmed white"
-disabled = true
-
 [memory_usage]
-format = "$symbol[${ram}( | ${swap})]($style) "
-threshold = 50
+symbol = " "
+format = "$symbol[${ram}]($style) "
+threshold = 40
 style = "bold dimmed white"
 disabled = false
 
+[package]
+symbol = " "
+format = '[$symbol$version]($style) '
+disabled = false
+
 [python]
+symbol = " "
 format = "[$symbol$version]($style) [\\($virtualenv\\)](yellow bold)"
 style = "bold green"
 version_format = "$major.$minor"
 
 [rust]
-format = "[$symbol$version]($style) "
+symbol = " "
 style = "bold green"
+format = "[$symbol$version]($style) "
 
 [nodejs]
+symbol = " "
 format = "[$symbol$version](green) "
 
-# [time]
-# time_format = "%T"
-# format = "🕙[$time]($style) "
-# style = "bold green"
-# disabled = false
+[aws]
+symbol = "  "
+disabled = false
+
+[buf]
+symbol = " "
+disabled = true
+
+[c]
+symbol = " "
+disabled = true
+
+[conda]
+symbol = " "
+disabled = true
+
+[dart]
+symbol = " "
+disabled = true
+
+[docker_context]
+symbol = " "
+disabled = true
+
+[elixir]
+symbol = " "
+disabled = true
+
+[elm]
+symbol = " "
+disabled = true
+
+[fossil_branch]
+symbol = " "
+disabled = true
+
+[golang]
+symbol = " "
+disabled = true
+
+[guix_shell]
+symbol = " "
+disabled = true
+
+[haskell]
+symbol = " "
+disabled = true
+
+[haxe]
+symbol = "⌘ "
+disabled = true
+
+[hg_branch]
+symbol = " "
+disabled = true
+
+[hostname]
+ssh_symbol = " "
+disabled = true
+
+[java]
+symbol = " "
+disabled = true
+
+[julia]
+symbol = " "
+disabled = true
+
+[lua]
+symbol = " "
+disabled = false
+
+[meson]
+symbol = "喝 "
+disabled = true
+
+[nim]
+symbol = " "
+disabled = true
+
+[nix_shell]
+symbol = " "
+disabled = true
+
+[os]
+disabled = true
+
+[os.symbols]
+Amazon = " "
+Arch = " "
+
+[pijul_channel]
+symbol = "🪺 "
+
+[rlang]
+symbol = "ﳒ "
+disabled = true
+
+[ruby]
+symbol = " "
+disabled = true
+
+[scala]
+symbol = " "
+disabled = true
+
+[spack]
+symbol = "🅢 "
+disabled = true
