@@ -1,0 +1,53 @@
+# SETTINGS
+[note]
+language = "en"
+default-title = "Untitled"
+filename = "{{id}}_{{slug title}}"
+extension = "md"
+id-charset = "alphanum"
+id-length = 10
+id-case = "mixed"
+
+# GROUP OVERRIDES
+[group.program.note]
+template = "program.md"
+
+# MARKDOWN SETTINGS
+[format.markdown]
+hashtags = true   # Enable support for #hashtags
+colon-tags = true # Enable support for :colon:separated:tags:
+
+
+# EXTERNAL TOOLS
+[tool]
+pager = "less -FIRX"                       # Pager used to scroll through long output.
+fzf-preview = "bat -p --color always {-1}" # Command used to preview a note during interactive fzf mode.
+
+# NAMED FILTERS
+[filter]
+recents = "--sort created- --created-after 'last two weeks'"
+
+# COMMAND ALIASES
+[alias]
+last = "zk edit --limit 1 --sort modified-"                                             # Edit the last modified note.
+recent = "zk edit recents --interactive"                                                # Edit the notes selected interactively among the notes filtered by "recents"
+rand = "zk list --quiet --format full --sort random --limit 1"                          # Show a random note.
+ls = "zk edit --interactive"                                                            # list notes for editing
+d_ls = 'zk list --format "{{title}}" --quiet --no-pager'                                # list notes for piping into dmenu with zk edit $(zk d_ls | rofi -dmenu)
+t = "zk edit --interactive --tag $argv"                                                 # sear notes by tags
+conf = 'nvim "$HOME/.config/zk/config.toml"'
+np = 'zk new --no-input "$ZK_NOTEBOOK_DIR/program --title $@'                           # new note
+nm = 'zk new --no-input "$ZK_NOTEBOOK_DIR/misc" --title $@'                             # new misc note
+rm = "zk list --interactive --quiet --format path --delimiter0 $@ | xargs -0 rm -vf --" # remove a files
+
+# open last zk in slides
+slides = "zk list --interactive --quiet --format path --delimiter0 $@ | xargs -0 slides"
+
+# LSP (EDITOR INTEGRATION)
+[lsp]
+
+[lsp.diagnostics]
+# Report titles of wiki-links as hints.
+wiki-title = "hint"
+# Warn for dead links between notes.
+dead-link = "error"
