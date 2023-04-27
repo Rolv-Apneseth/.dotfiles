@@ -1,0 +1,142 @@
+##### directories ######
+#
+ncmpcpp_directory = "~/.local/share/ncmpcpp"
+#
+lyrics_directory = "~/.local/share/ncmpcpp/lyrics"
+#
+##### connection settings #####
+#
+#mpd_host = localhost
+#
+#mpd_port = 6600
+#
+#mpd_connection_timeout = 5
+#
+mpd_music_dir = "~/Music"
+#
+#mpd_crossfade_time = 5
+#
+##### visualizer ######
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer feed"
+visualizer_in_stereo = "yes"
+#
+#visualizer_sync_interval = 0
+#
+## Available values: spectrum, wave, wave_filled, ellipse.
+visualizer_type = "spectrum"
+#
+visualizer_fps = "60"
+#
+visualizer_autoscale = "no"
+#
+visualizer_look = "●▮"
+#
+visualizer_color = magenta, blue, cyan, green, yellow, white
+#visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
+#
+#visualizer_spectrum_smooth_look = yes
+#
+visualizer_spectrum_dft_size = "2"
+#
+#visualizer_spectrum_gain = 10
+#
+#visualizer_spectrum_hz_min = 20
+#
+visualizer_spectrum_hz_max = "15000"
+#
+##### UI #####
+#
+song_columns_list_format = "$L (10)[white]{n} $1│$7 (20)[magenta]{a} $1│$7 (20)[magenta]{t} (20)[white]{b} $1│$7 $1│$7 (20)[white]{l}"
+#
+now_playing_prefix = "$b"
+#
+centered_cursor = "no"
+#
+autocenter_mode = "yes"
+#
+display_bitrate = "yes"
+#
+header_visibility = "yes"
+#
+statusbar_visibility = "yes"
+#
+titles_visibility = "yes"
+#
+progressbar_look = "─⊙-"
+#
+discard_colors_if_item_is_selected = "yes"
+#
+main_window_color = "white"
+#
+header_window_color = "4"
+#
+progressbar_color = "cyan"
+#
+statusbar_color = "white"
+#
+volume_color = "4"
+#
+window_border_color = "white"
+#
+## Note: Possible display modes: classic, columns.
+#playlist_display_mode = columns
+#
+#browser_display_mode = classic
+#
+#search_engine_display_mode = classic
+#
+#playlist_editor_display_mode = classic
+#
+show_duplicate_tags = "no"
+#
+#incremental_seeking = yes
+#
+#seek_time = 1
+#
+#volume_change_step = 2
+#
+#data_fetching_delay = yes
+#
+## Available values: artist, album_artist, date, genre, composer, performer.
+#media_library_primary_tag = artist
+#
+#media_library_albums_split_by_date = yes
+#
+#media_library_hide_album_dates = no
+#
+#header_text_scrolling = yes
+#
+#cyclic_scrolling = no
+#
+#jump_to_now_playing_song_at_start = yes
+#
+#clock_display_seconds = no
+#
+#display_volume_level = yes
+#
+# display_bitrate = no
+#
+#ignore_leading_the = no
+#
+#ignore_diacritics = no
+#
+#block_search_constraints_change_if_items_found = yes
+#
+#mouse_support = yes
+#
+#mouse_list_scroll_whole_page = no
+#
+#lines_scrolled = 5
+#
+#empty_tag_marker = <empty>
+#
+#tags_separator = " | "
+#
+#tag_editor_extended_numeration = no
+#
+#media_library_sort_by_mtime = no
+#
+#enable_window_title = yes
+#
+external_editor = "nvim"
