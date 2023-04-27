@@ -20,6 +20,7 @@ physical_cores = true
 memory_percentage = true
 
 disk_space_percentage = true
+disks = ["/", "/home/rolv", "/media/main/"]
 
 # Themes need to be placed in "$XDG_CONFIG_DIR/macchina/themes" beforehand.
 # e.g.:

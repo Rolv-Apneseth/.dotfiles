@@ -7,7 +7,7 @@ separator_color = "White"
 
 [palette]
 glyph = "   "
-type = "Dark"
+type = "Light"
 visible = true
 
 [box]
