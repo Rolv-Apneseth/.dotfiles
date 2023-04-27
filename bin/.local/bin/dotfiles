@@ -2,6 +2,7 @@
 ########################################################################################
 # AUTHOR: Rolv-Apneseth (https://github.com/Rolv-Apneseth)
 # LICENSE: MIT
+# NOTE: to stow `root` directory, use `sudo stow -t / root`
 ########################################################################################
 # CONSTANTS
 REPO="https://github.com/Rolv-Apneseth/.dotfiles.git"

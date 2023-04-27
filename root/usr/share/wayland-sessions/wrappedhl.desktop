@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=WrappedHyprland
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=/home/rolv/.local/bin/wrappedhl
+Icon=wayland
+Type=Application
