@@ -10,8 +10,8 @@ STOW_FOLDERS=(
     "bin"
     "general"
     "theming"
-    "qtile"
-    "kitty"
+    "hyprland"
+    "wezterm"
     "starship"
     "macchina"
     "rofi"
@@ -20,6 +20,10 @@ STOW_FOLDERS=(
     "dunst"
     "tealdeer"
     "bottom"
+    "mpd"
+    "ncmpcpp"
+    "zk"
+    "erdtree"
 )
 ########################################################################################
 # MAIN
