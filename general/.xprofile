@@ -4,63 +4,7 @@
 # WARNING! This file should not be executed directly. Sourced by, for example, lightdm
 # WARNING! This file should only contain POSIX-compliant commands and directives.
 
-# PATH ADDITIONS
-export PATH="${PATH:+${PATH}}\
-:$HOME/.local/bin\
-:$HOME/work/tools\
-:$HOME/work/logins\
-:$HOME/.config/rofi/scripts"
-
-# Set default programs through environment variables
-# These are used by, for example, my Qtile config and Thunar custom actions
-export MY_EMAIL_CLIENT="thunderbird"
-export MY_EXPLORER="thunar"
-export MY_SCREENSHOT="flameshot gui"
-export MY_SYSTEM_MONITOR="psensor"
-export MY_VOLUME_MANAGER="pavucontrol"
-export MY_WORK_COMMUNICATION="google-chat-linux"
-export MY_MEDIA_PLAYER="celluloid"
-export MY_MUSIC_PLAYER="audacious --play"
-export MY_FONTS_EXPLORER="font-manager"
-
-export EDITOR="nvim"
-export VISUAL="nvim"
-export TERMINAL="kitty"
-export BROWSER="firefox"
-
-# Rofi
-export MY_LAUNCHER="rofi-wrapper run"
-export MY_GAMES_LAUNCHER="rofi-wrapper games"
-export MY_CLIPBOARD="rofi-wrapper clipboard"
-export MY_CALCULATOR="rofi-wrapper calc"
-export MY_SELECTOR_DEFAULT_SOUND_SINK="rofi-wrapper sound_sink"
-
-# Stowed dotfiles directory
-export DOTFILES="$HOME/.dotfiles"
-
-# ZSH config file
-export ZDOTDIR="$HOME/.config/zsh"
-
-# For QT Themes
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
-# $HOME cleanup
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-export HISTFILE="$XDG_STATE_HOME/bash/history"
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-export GNUPGHOME="$XDG_DATA_HOME/gupg"
-export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
-export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/.gtkrc-2.0"
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-export GOPATH="$XDG_DATA_HOME"/go
+. "/home/rolv/.config/base_profile.sh"
 
 # START
 # Compositor
@@ -73,10 +17,6 @@ greenclip daemon &
 lxqt-policykit-agent &
 # Network manager applet
 nm-applet &
-# Notifications
-dunst &
-# RGB
-openrgb -p Main &
 
 # Turn sleep off
 xset s off
