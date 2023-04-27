@@ -1,23 +1,70 @@
 #!/bin/env bash
 # ------------------------------------------------------------------
-# Quick script for changing volume using amixer and displaying
-# notifications with dunstify (dunst)
-# Requirements: dunst amixer
+# Quick script for changing volume using pactl and displaying notifications with
+# dunstify (dunst)
+# Requirements: dunst
 # ------------------------------------------------------------------
 
-amixer -c 0 set Master "$@" > /dev/null
-msg="changeVolume"
+volume_step=5
+max_volume=100
+bar_colour="#aa00ff"
 
-# Query amixer for the current volume and whether or not the speaker is muted
-volume="$(amixer -c 0 get Master | tail -1 | awk '{print $4}' | sed 's/[^0-9]*//g')"
-mute="$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
+# Get volume from pactl
+function get_volume
+{
+    pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]{1,3}(?=%)' | head -1
+}
 
+# Get mute status from pactl
+function get_mute
+{
+    pactl get-sink-mute @DEFAULT_SINK@ | grep -Po '(?<=Mute: )(yes|no)'
+}
 
-if [[ $volume == 0 || "$mute" == "off" ]]; then
-    # Show the sound muted notification
-    dunstify -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msg "Volume muted" 
-else
-    # Show the volume notification
-    dunstify -a "changeVolume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$msg \
-    -h int:value:"$volume" "Volume: "
-fi
+# Returns a mute icon, a volume-low icon, or a volume-high icon, depending on the volume
+function get_volume_icon
+{
+    volume=$(get_volume)
+    mute=$(get_mute)
+    if [ "$volume" -eq 0 ] || [ "$mute" == "yes" ]; then
+        volume_icon="󰖁"
+    elif [ "$volume" -lt 50 ]; then
+        volume_icon="󰖀"
+    else
+        volume_icon="󰕾"
+    fi
+}
+
+# Displays a volume notification using dunstify
+function notify_volume
+{
+    volume=$(get_mute)
+    get_volume_icon
+    dunstify -a "change_volume" -i audio-volume-high -r 2593 "$volume_icon $volume%" -h int:value:"$volume" -h string:hlcolor:"$bar_colour"
+}
+
+# Case insensitive match
+shopt -s nocasematch
+# Change / mute volume, or display usage message
+case $1 in
+    up)
+        pactl set-sink-mute @DEFAULT_SINK@ 0
+        volume=$(get_volume)
+        if [ $(("$volume" + "$volume_step")) -gt "$max_volume" ]; then
+            pactl set-sink-volume @DEFAULT_SINK@ "$max_volume"%
+        else
+            pactl set-sink-volume @DEFAULT_SINK@ +"$volume_step"%
+        fi
+        ;;
+
+    down) pactl set-sink-volume @DEFAULT_SINK@ -"$volume_step"% ;;
+
+    toggle | TOGGLE) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+
+    ?)
+        echo "Usage: $(basename "$0") [up | down | toggle]"
+        exit 1
+        ;;
+esac
+
+notify_volume
