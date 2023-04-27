@@ -103,9 +103,14 @@ KEYS = [
         desc="Test dunst notifications",
     ),
     Key(
+        "M-S-m",
+        lazy.spawn(PROGRAMS["music_client"]),
+        desc="Launch music client",
+    ),
+    Key(
         "M-m",
-        lazy.spawn(PROGRAMS["play_music"]),
-        desc="Launch music player (and resume playback)",
+        lazy.spawn(PROGRAMS["music_toggle"]),
+        desc="Toggle play state of music",
     ),
     Key(
         "M-p",
