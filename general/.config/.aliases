@@ -1,5 +1,5 @@
 #!/bin/env sh
-# SKETCHY --------------------------------------------------------------
+# SKETCHY -------------------------------------------------------------------------------
 # (If there's a problem look here first)
 alias grep='rg'
 alias cat='bat'
@@ -8,11 +8,13 @@ alias ls='exa -1la --icons --color=always --group-directories-first'
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias df='df -h'
-alias yeet='rm -vrfi'
+alias yeet='rm -vrf'
 alias rm='rm -v'
 
+# TOOLS ---------------------------------------------------------------------------------
 alias p="paru"
 alias pR="paru -Rcns"
+alias pS="paru -S"
 alias update="sudo pacman --needed -Sy archlinux-keyring && paru -Syu --news"
 
 alias lg="lazygit"
@@ -23,13 +25,13 @@ alias wget=wget --hsts-file='$XDG_DATA_HOME/wget-hsts'
 # Avoid $HOME/.yarnrc file
 alias yarn='yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
 
-# NAVIGATION ------------------------------------------------------------
+# NAVIGATION ----------------------------------------------------------------------------
 alias ..='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 
-# GIT -------------------------------------------------------------------
+# GIT -----------------------------------------------------------------------------------
 alias gits='git status'
 alias gita='git add'
 alias gitrm='git rm'
