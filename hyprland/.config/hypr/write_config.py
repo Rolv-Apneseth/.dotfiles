@@ -235,7 +235,7 @@ bind = $MS, M, exec, {get_var("MY_MUSIC_NEXT")}
 bind = $M, P, exec, flameshot gui
 
 # Notes - zk
-bind = $M, Z, exec, [floating;dimaround;size 50% 80%;center] {get_var("TERMINAL_EXECUTE")} nvim -c 'execute "normal "1"zo"'
+bind = $M, Z, exec, [floating;dimaround;size 50% 80%;center] {get_var("TERMINAL_EXECUTE")} --class floating nvim -c 'ZkNotes'
 """
 
 
