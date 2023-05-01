@@ -23,7 +23,7 @@ case "$1" in
         ;;
     emojis) rofi -modi emoji -show emoji -emoji-mode copy -theme selector ;;
     games)
-        rofi-games \
+        rofi-games sync \
             && rofi -show drun -theme games -drun-categories RofiGames
         ;;
     sound_sink) pactl set-default-sink "$(pactl list short sinks | awk '{print $2}' | rofi -dmenu -theme selector -p "Select default sound sink")" ;;
