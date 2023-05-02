@@ -1,7 +1,7 @@
 * {
     border: none;
-    font-family: SF Pro Display Bold;
-    font-size: 17px;
+    font-family: SF Pro Display, FiraCode Nerd Font Mono;
+    font-size: 18px;
 }
 
 window#waybar {
@@ -53,7 +53,7 @@ tooltip {
 
 #custom-sep {
     color: #666666;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #cpu,
