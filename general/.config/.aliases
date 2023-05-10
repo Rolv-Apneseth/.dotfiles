@@ -46,6 +46,7 @@ alias gitl='git log --graph --decorate --oneline'
 alias gitlast='git log -1 HEAD --stat'
 alias gitl-pretty='gitk --all --date-order $(git log -g --pretty=%H)'
 alias gitcheck='git checkout'
+alias gitbranch='git checkout $(git branch -l | fzf)'
 # One liner for updating all repos in a directory, found under a comment under one of
 # the answers here: https://stackoverflow.com/q/3497123/14316282
 alias gitupdate='find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;'
