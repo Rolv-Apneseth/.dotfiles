@@ -68,6 +68,7 @@ misc {
 windowrulev2 = float, class:floating
 # programs which should always float
 windowrulev2 = float, class:flameshot
+windowrulev2 = nofullscreenrequest, class:flameshot
 # firefox Picture-in-Picture
 windowrulev2 = float,class:^(firefox)$,title:^(Picture-in-Picture)$
 windowrulev2 = pin,class:^(firefox)$,title:^(Picture-in-Picture)$
@@ -78,6 +79,9 @@ windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
 # firefox save image
 windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Save Image)$
 windowrulev2 = float,class:^(firefox)$,title:^(Save Image)$
+# firefox file upload
+windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(File Upload)$
+windowrulev2 = float,class:^(firefox)$,title:^(File Upload)$
 
 # thunderbird sending email
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Save Message)
