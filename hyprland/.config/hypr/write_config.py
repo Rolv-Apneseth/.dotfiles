@@ -25,7 +25,7 @@ general {
 
     layout = master
     no_border_on_floating = yes
-    cursor_inactive_timeout = 10
+    cursor_inactive_timeout = 0
 }
 
 decoration {
