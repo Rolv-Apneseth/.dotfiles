@@ -69,6 +69,7 @@ windowrulev2 = float, class:floating
 # programs which should always float
 windowrulev2 = float, class:flameshot
 windowrulev2 = nofullscreenrequest, class:flameshot
+
 # firefox Picture-in-Picture
 windowrulev2 = float,class:^(firefox)$,title:^(Picture-in-Picture)$
 windowrulev2 = pin,class:^(firefox)$,title:^(Picture-in-Picture)$
@@ -83,11 +84,17 @@ windowrulev2 = float,class:^(firefox)$,title:^(Save Image)$
 windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(File Upload)$
 windowrulev2 = float,class:^(firefox)$,title:^(File Upload)$
 
-# thunderbird sending email
+# thunderbird sending email (not writing)
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Save Message)
 windowrulev2 = float,class:^(thunderbird)$,title:^(Save Message)
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Sending Message)
 windowrulev2 = float,class:^(thunderbird)$,title:^(Sending Message)
+# thunderbird reminders
+windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:(Reminder)$
+windowrulev2 = float,class:^(thunderbird)$,title:(Reminder)$
+# thunderbird invitations
+windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Invitations)
+windowrulev2 = float,class:^(thunderbird)$,title:^(Invitations)
 
 
 # common modals
