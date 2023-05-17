@@ -120,6 +120,7 @@ exec-once = hyprctl setcursor "Bibata-Original-Classic" "24"
 exec-once = /usr/lib/polkit-kde-authentication-agent-1
 exec-once = waybar
 exec-once = nm-applet
+exec-once = wpaperd
 
 # Clipboard
 exec-once = wl-paste -t text --watch clipman store --no-persist --notify
@@ -128,7 +129,7 @@ exec-once = wl-clip-persist --clipboard regular
 # Scripts
 $SCRIPTS_DIR = /home/rolv/.config/hypr/scripts
 exec-once = $SCRIPTS_DIR/xdg.sh
-exec-once = $SCRIPTS_DIR/random_bg.sh
+# exec-once = $SCRIPTS_DIR/random_bg.sh
 exec = $SCRIPTS_DIR/gsettings.sh
 
 # BINDINGS ------------------------------------------------------------------------------
