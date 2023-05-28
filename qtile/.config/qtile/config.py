@@ -58,7 +58,7 @@ mouse = [
 
 # GROUPS
 groups_info = dict(
-    # labels=("", "", "", "", "", "", "", ""),
+    # labels=("", "", "", "󰄑", "", "󰆽", "", ""),
     labels=("●" for _ in range(8)),
     layouts=(
         "max",

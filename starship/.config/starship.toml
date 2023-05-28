@@ -21,7 +21,7 @@ map_symbol = true
 disabled = false
 
 [jobs]
-symbol = ''
+symbol = ' '
 number_threshold = 5
 symbol_threshold = 1
 
@@ -63,14 +63,14 @@ style = "bright-white"
 format = "$all_status$ahead_behind"
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 format = "$symbol[${ram}]($style) "
 threshold = 40
 style = "bold dimmed white"
 disabled = false
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 format = '[$symbol$version]($style) '
 disabled = false
 
@@ -162,11 +162,11 @@ symbol = " "
 disabled = false
 
 [meson]
-symbol = "喝 "
+symbol = "󰔷 "
 disabled = true
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 disabled = true
 
 [nix_shell]
@@ -184,7 +184,7 @@ Arch = " "
 symbol = "🪺 "
 
 [rlang]
-symbol = "ﳒ "
+symbol = "󰟔 "
 disabled = true
 
 [ruby]

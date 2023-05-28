@@ -88,7 +88,7 @@ return {
         -- Set body
         dashboard.section.buttons.val = {
             dashboard.button("e", "  Edit current directory", ":e .<CR>"),
-            dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+            dashboard.button("f", "󰈞  Find file", ":Telescope find_files<CR>"),
             dashboard.button(
                 "r",
                 "  Recent",
@@ -96,7 +96,7 @@ return {
             ),
             dashboard.button("z", "󰚸  Notes", ":ZkNotes<CR>"),
             dashboard.button("s", "  Config", ":e $HOME/.config/nvim/<CR>"),
-            dashboard.button("q", "  Quit", ":qa<CR>"),
+            dashboard.button("q", "󰅚  Quit", ":qa<CR>"),
         }
 
         -- Set footer
