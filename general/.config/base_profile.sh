@@ -3,8 +3,7 @@
 # PATH ADDITIONS
 export PATH="${PATH:+${PATH}}\
 :$HOME/.local/bin\
-:$HOME/work/tools\
-:$HOME/work/logins\
+:$HOME/.local/share/cargo/bin\
 :$HOME/.config/rofi/scripts"
 
 # Set default programs through environment variables
