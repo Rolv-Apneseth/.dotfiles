@@ -69,7 +69,7 @@ return {
                         icon = "",
                         lang = "lua",
                     },
-                    help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+                    help = { pattern = "^:%s*he?l?p?%s+", icon = "󰋖" },
                     input = {
                         icon = icons.ui.ChevronRight,
                     }, -- Used by input()
@@ -82,6 +82,9 @@ return {
                 view_warn = "notify", -- view for warnings
                 view_history = "messages", -- view for :messages
                 view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+                opts = {
+                    replace = true,
+                },
             },
             popupmenu = {
                 enabled = true, -- enables the Noice popupmenu UI
@@ -197,7 +200,7 @@ return {
                 bottom_search = true, -- use a classic bottom cmdline for search
                 command_palette = false, -- position the cmdline and popupmenu together
                 long_message_to_split = false, -- long messages will be sent to a split
-                inc_rename = false, -- enables an input dialog for inc-rename.nvim
+                inc_rename = true, -- enables an input dialog for inc-rename.nvim
                 lsp_doc_border = true, -- add a border to hover docs and signature help
             },
             throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
