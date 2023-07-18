@@ -10,7 +10,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 -- Requirements
--- prettier tidy stylua flake8 python-isort python-black shellcheck-bin shellharden rustup markdownlint
+-- prettier tidy stylua flake8 python-isort python-black shellcheck-bin shellharden rustup markdownlint rustywind
 
 null_ls.setup({
     debug = false,
@@ -43,6 +43,9 @@ null_ls.setup({
 
         -- HTML Linting
         diagnostics.tidy,
+
+        -- Tailwind CSS
+        formatting.rustywind,
 
         -- Markdown
         diagnostics.markdownlint.with({
