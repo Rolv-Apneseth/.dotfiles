@@ -7,17 +7,16 @@ return {
     },
     config = function()
         local bufferline = require_plugin("bufferline")
-        local bufdelete = require_plugin("bufdelete")
         local theme_colours = require_plugin("onedark.colors")
-        if not bufferline or not theme_colours or not bufdelete then
+        if not bufferline or not theme_colours then
             return
         end
 
         bufferline.setup({
             options = {
                 numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-                close_command = bufdelete.bufdelete,
-                right_mouse_command = bufdelete.bufdelete,
+                close_command = "bdelete! %d",
+                right_mouse_command = "bdelete! %d",
                 left_mouse_command = "buffer %d",
                 middle_mouse_command = nil,
                 modified_icon = "●",

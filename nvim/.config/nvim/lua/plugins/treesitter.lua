@@ -2,7 +2,6 @@ local keymaps_text_object = require("core.keymappings").treesitter.text_object
 local require_plugin = require("core.helpers").require_plugin
 
 return {
-    "p00f/nvim-ts-rainbow",
     "windwp/nvim-ts-autotag",
     "nvim-treesitter/nvim-treesitter-textobjects",
     {
@@ -39,13 +38,6 @@ return {
                 context_commentstring = {
                     enable = true,
                     enable_autocmd = false,
-                },
-                -- Rainbow brackets (p00f/nvim-ts-rainbow)
-                rainbow = {
-                    enable = true,
-                    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-                    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-                    max_file_lines = nil, -- Do not enable for files with more than n lines, int
                 },
                 -- Auto-tags for html etc.
                 autotag = {

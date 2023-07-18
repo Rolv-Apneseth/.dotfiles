@@ -24,7 +24,6 @@ return {
         build = "cd app && npm install",
         ft = "markdown",
     },
-    "famiu/bufdelete.nvim", -- proper bdelete command which never closes nvim ]]
     { "echasnovski/mini.ai", branch = "stable" }, -- extend functionality of a and i text objects
     "michaeljsmith/vim-indent-object", -- indent text object
     "christoomey/vim-titlecase", -- provides a new operator for giving text titlecase
