@@ -17,6 +17,7 @@ alias pR="paru -Rcns"
 alias pS="paru -S"
 alias update="sudo pacman --needed -Sy archlinux-keyring && paru -Syu --news"
 
+alias n="neovim"
 alias lg="lazygit"
 alias mc="macchina"
 
