@@ -10,6 +10,12 @@ long_shell = false
 # Lengthen kernel output
 long_kernel = false
 
+# Shorten gpu output
+shorter_gpu = true
+
+# Shorten cpu output
+shorter_cpu = true
+
 # Toggle between displaying the current shell or your user's default one.
 current_shell = true
 
