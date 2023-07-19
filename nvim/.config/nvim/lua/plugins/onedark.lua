@@ -3,7 +3,8 @@ local transparency = require("core.transparency")
 
 return {
     "Rolv-Apneseth/onedark.nvim",
-    --[[ "~/repos/onedark.nvim/", -- for local development]]
+    --[[ dir = "~/repos/onedark.nvim/", -- for local development ]]
+    --[[ dev = true, ]]
     config = function()
         local onedark = require_plugin("onedark")
         if not onedark then

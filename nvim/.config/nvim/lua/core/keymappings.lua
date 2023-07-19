@@ -38,7 +38,7 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Copy and paste
 keymap("v", "p", '"_dP', opts) -- override default yank paste behaviour
-keymap("n", "Y", "y$", opts)   -- make Y behave as expected
+keymap("n", "Y", "y$", opts) -- make Y behave as expected
 
 -- Keep cursor centered
 keymap("n", "n", "nzzzv", opts)
@@ -56,10 +56,10 @@ end
 -----------------------------------------------------------------------------------------
 return {
     lsp = {
-        { "gi",    "<cmd>lua vim.lsp.buf.implementation()<CR>" },
-        { "K",     "<cmd>lua vim.lsp.buf.hover()<CR>" },
+        { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
+        { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
-        { "gR",    "<cmd>lua vim.lsp.buf.rename()<CR>" },
+        { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
         {
             "[d",
             '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
@@ -90,10 +90,10 @@ return {
                 ["ic"] = "@class.inner",
             },
             swap_next = {
-                ["<leader>c"] = "@parameter.inner",
+                ["<leader>a"] = "@parameter.inner",
             },
             swap_previous = {
-                ["<leader>C"] = "@parameter.inner",
+                ["<leader>A"] = "@parameter.inner",
             },
         },
         autopairs = { fastwrap = "<A-e>" },
@@ -112,8 +112,8 @@ return {
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
             -- TREESITTER
-            ["<leader>c"] = { "Move argument forward by 1 position" },
-            ["<leader>C"] = { "Move argument backward by 1 position" },
+            ["a"] = { "Move argument forward by 1 position" },
+            ["A"] = { "Move argument backward by 1 position" },
             -- SYMBOLS_OUTLINE
             ["E"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" },
             -- NVIM_TREE
@@ -243,7 +243,10 @@ return {
         leader_nv = {
             ["q"] = { "<cmd>q<CR>", "Close window" },
             ["Q"] = { "<cmd>q!<CR>", "Force close window" },
-            ["w"] = { "<cmd>Bdelete<CR>", "Close current buffer" },
+            ["w"] = {
+                "<cmd>bdelete<CR>",
+                "Close current buffer",
+            },
             ["W"] = {
                 "<cmd>%bd|e#|bd#<CR>",
                 "Close all buffers except current",

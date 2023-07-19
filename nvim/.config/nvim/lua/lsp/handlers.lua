@@ -105,11 +105,6 @@ M.on_attach = function(client, bufnr)
         end
     end
 
-    --[[ for _, server in pairs(servers_to_disable_navic) do ]]
-    --[[     if client.name == server then ]]
-    --[[         return ]]
-    --[[     end ]]
-    --[[ end ]]
     if client.server_capabilities.documentSymbolProvider then
         attach_navic(client, bufnr)
     end
