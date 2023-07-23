@@ -72,6 +72,15 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export GOPATH="$XDG_DATA_HOME"/go
 
+# FZF
+export FD_IGNORE_FILE="$HOME/.config/.fdignore"
+export FZF_DEFAULT_COMMAND="fd --absolute-path --hidden --type file --ignore-file $FD_IGNORE_FILE"
+export FZF_DEFAULT_OPTS="--no-height --preview='bat --color=always --style=plain --line-range :50 {}'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
+export FZF_ALT_C_COMMAND="fd --absolute-path --hidden --type directory --ignore-file $FD_IGNORE_FILE"
+export FZF_ALT_C_OPTS="--preview='erd --hidden --no-git --layout=inverted --level 2 --color=force {}'"
+
 # START
 # Notifications
 dunst &
