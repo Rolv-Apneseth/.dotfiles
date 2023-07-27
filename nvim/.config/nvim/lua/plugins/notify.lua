@@ -22,7 +22,7 @@ return {
             -- Function called when a window is closed
             on_close = nil,
             -- Render function for notifications. See notify-render()
-            render = "default",
+            render = "compact",
             -- Default timeout for notifications
             timeout = 500,
             -- For stages that change opacity this is treated as the highlight behind the window
