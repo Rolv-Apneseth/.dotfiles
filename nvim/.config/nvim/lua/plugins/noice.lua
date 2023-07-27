@@ -36,6 +36,10 @@ return {
                                 kind = "",
                                 find = "more line",
                             },
+                            {
+                                event = "msg_show",
+                                find = "search hit",
+                            },
                         },
                     },
                     opts = { skip = true },
