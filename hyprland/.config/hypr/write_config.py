@@ -70,31 +70,42 @@ windowrulev2 = float, class:floating
 windowrulev2 = float, class:flameshot
 windowrulev2 = nofullscreenrequest, class:flameshot
 
-# firefox Picture-in-Picture
+# Firefox
+# Picture-in-Picture
 windowrulev2 = float,class:^(firefox)$,title:^(Picture-in-Picture)$
 windowrulev2 = pin,class:^(firefox)$,title:^(Picture-in-Picture)$
 windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Picture-in-Picture)$
-# firefox figma micro indicator
+# figma micro indicator
 windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
 windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
-# firefox save image
+# save image
 windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Save Image)$
 windowrulev2 = float,class:^(firefox)$,title:^(Save Image)$
-# firefox file upload
+# save as
+windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Save As)$
+windowrulev2 = float,class:^(firefox)$,title:^(Save As)$
+# file upload
 windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(File Upload)$
 windowrulev2 = float,class:^(firefox)$,title:^(File Upload)$
+# misc / replace file dialog
+windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^()$
+windowrulev2 = float,class:^(firefox)$,title:^()$
 
+# Thunderbird
 # thunderbird sending email (not writing)
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Save Message)
 windowrulev2 = float,class:^(thunderbird)$,title:^(Save Message)
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Sending Message)
 windowrulev2 = float,class:^(thunderbird)$,title:^(Sending Message)
-# thunderbird reminders
+# reminders
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:(Reminder)$
 windowrulev2 = float,class:^(thunderbird)$,title:(Reminder)$
-# thunderbird invitations
+# invitations
 windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Invitations)
 windowrulev2 = float,class:^(thunderbird)$,title:^(Invitations)
+# save attachment
+windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Save Attachment)$
+windowrulev2 = float,class:^(thunderbird)$,title:^(Save Attachment)$
 
 
 # common modals
@@ -129,7 +140,6 @@ exec-once = wl-clip-persist --clipboard regular
 # Scripts
 $SCRIPTS_DIR = /home/rolv/.config/hypr/scripts
 exec-once = $SCRIPTS_DIR/xdg.sh
-# exec-once = $SCRIPTS_DIR/random_bg.sh
 exec = $SCRIPTS_DIR/gsettings.sh
 
 # BINDINGS ------------------------------------------------------------------------------
@@ -238,6 +248,7 @@ bind = $MS, D, exec, {get_var("MY_GAMES_LAUNCHER")}
 bind = $M, C, exec, {get_var("MY_CLIPBOARD")}
 bind = $MS, C, exec, {get_var("MY_CALCULATOR")}
 bind = $M, S, exec, {get_var("MY_SELECTOR_DEFAULT_SOUND_SINK")}
+bind = $M, E, exec, {get_var("MY_SELECTOR_EDIT_FILE")}
 
 # Music
 bind = $M, M, exec, {get_var("MY_MUSIC_TOGGLE")}
@@ -246,8 +257,12 @@ bind = $MS, M, exec, {get_var("MY_MUSIC_NEXT")}
 # Screenshot
 bind = $M, P, exec, flameshot gui
 
+
 # Notes - zk
 bind = $M, Z, exec, [floating;dimaround;size 50% 80%;center] {get_var("TERMINAL_EXECUTE")} --class floating nvim -c 'ZkNotes'
+
+# System monitoring
+bind = $MS, X, exec, [floating;dimaround;size 50% 80%;center] {get_var("TERMINAL_EXECUTE")} --class floating btm
 """
 
 
