@@ -10,7 +10,12 @@ end
 
 for k, v in pairs({
     colors = colours,
-    font = wezterm.font("Inconsolata Nerd Font Mono"),
+    font = wezterm.font_with_fallback({
+        "Inconsolata Nerd Font Mono",
+        "CaskaydiaCove Nerd Font Mono",
+        "Hack Nerd Font Mono",
+        "Font Awesome 6 Free",
+    }),
     font_size = 18,
     line_height = 1.0,
     window_background_opacity = 0.8,
