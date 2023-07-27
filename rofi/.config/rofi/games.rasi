@@ -1,5 +1,7 @@
 @import "launcher"
 
+
 element-icon {
-    size:                           35%;
+    size:       35%;
+    margin:     10px;
 }
