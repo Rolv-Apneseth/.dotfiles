@@ -4,7 +4,7 @@ local auto_cmd = vim.api.nvim_create_autocmd
 local group_general_settings = augroup("_general_settings", { clear = true })
 
 -- Format on save (with LSP)
-local excluded_filetypes = { "text", "svg" }
+local excluded_filetypes = { "text", "svg", "zsh" }
 auto_cmd("BufWritePre", {
     callback = function()
         -- Exclude certain filetypes
@@ -25,6 +25,8 @@ auto_cmd("BufWritePost", {
     callback = function()
         if vim.bo.filetype == "svg" then
             vim.cmd("!svgo %")
+        elseif vim.bo.filetype == "zsh" then
+            vim.cmd("!shfmt -w %")
         end
     end,
     group = augroup("post_write_custom_commands", { clear = true }),
