@@ -1,8 +1,8 @@
-spacing         = 2
-padding         = 1
-hide_ascii      = true
-separator       = ""
-key_color       = "#FF00FF"
+spacing = 2
+padding = 1
+hide_ascii = true
+separator = ""
+key_color = "#FF00FF"
 separator_color = "White"
 
 [palette]
@@ -12,27 +12,27 @@ visible = true
 
 [box]
 title = " Macchina "
-border          = "rounded"
-visible         = true
+border = "rounded"
+visible = true
 
 [box.inner_margin]
-x               = 2
-y               = 1
+x = 2
+y = 1
 
 [randomize]
-key_color       = false
+key_color = false
 separator_color = false
 
 [keys]
-kernel          = ""
-de              = ""
-distro          = ""
-terminal        = ""
-shell           = "󰈺"
-packages        = ""
-uptime          = "󰥔"
-memory          = "⛀"
-resolution      = "󰍹"
-cpu             = ""
-gpu             = ""
-disk_space      = "⛃"
+kernel = ""
+de = ""
+distro = ""
+terminal = ""
+shell = "󱆃"
+packages = ""
+uptime = "󰥔"
+memory = "󰍛"
+resolution = "󰨇"
+cpu = ""
+gpu = ""
+disk_space = ""
