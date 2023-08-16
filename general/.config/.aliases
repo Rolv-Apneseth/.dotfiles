@@ -11,6 +11,9 @@ alias df='df -h'
 alias yeet='rm -vrf'
 alias rm='rm -v'
 
+alias s='sudo'
+alias se='sudoedit'
+
 # TOOLS ---------------------------------------------------------------------------------
 alias p="paru"
 alias pR="paru -Rcns"
