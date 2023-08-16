@@ -33,14 +33,14 @@ function fpi() {
 # Checkout branch
 function fbr() {
 	git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)" |
-		fzf |
+		fzf -0 --preview='git log -50 --color=always --format="%C(auto)%h %s %C(black)%C(bold)%cr" {}' |
 		xargs --no-run-if-empty git checkout
 }
 
 # Show commits and copy to clipboard if one is selected
 function fco() {
-	glNoGraph |
-		fzf --no-sort --reverse --tiebreak=index --no-multi \
+	git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@" |
+		fzf -0 --no-sort --reverse --tiebreak=index --no-multi \
 			--ansi --preview="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always %'" |
 		# WAYLAND, use `xclip` instead of `wl-copy` for XORG
 		xargs --no-run-if-empty --delimiter="\n" wl-copy
