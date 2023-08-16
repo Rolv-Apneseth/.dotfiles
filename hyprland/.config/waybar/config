@@ -5,16 +5,18 @@
     "margin-top": 0,
     "margin-left": 0,
     "margin-right": 0,
-    "modules-left": ["clock"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": [
-        "tray",
+    "modules-left": [
+        "pulseaudio",
         "custom/sep",
         "cpu",
         "custom/sep",
         "memory",
+    ],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": [ 
+        "tray",
         "custom/sep",
-        "pulseaudio"
+        "clock"
     ],
     "custom/sep": {
         "format": " | "
@@ -37,8 +39,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "󰥔 {:%H:%M     %a, %d %b} ",
-        "format-alt": " {:%A, %B %d, %Y (%R)}",
+        "format": "󰥔  {:%H:%M  %a, %d %b}",
+        "format-alt": "  {:%Y-%M-%d}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -62,10 +64,10 @@
         }
     },
     "cpu": {
-        "format": " {usage}%"
+        "format": "  {usage}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": "󰍛  {percentage}%"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
