@@ -1,26 +1,28 @@
-local M = {}
-
-local keymappings = require("core.keymappings")
-local require_plugin = require("core.helpers").require_plugin
 local icons = require("core.icons")
+local keymappings = require("core.keymappings")
 local servers_to_disable_formatting = { "tsserver", "sumneko_lua" }
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+local handlers = {}
 
-local cmp_nvim_lsp = require_plugin("cmp_nvim_lsp")
-if not cmp_nvim_lsp then
-    return
-end
+handlers.capabilities = vim.lsp.protocol.make_client_capabilities()
+handlers.capabilities.textDocument.completion.completionItem.snippetSupport = true
+handlers.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
 
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+handlers.capabilities = cmp_nvim_lsp.default_capabilities(handlers.capabilities)
 
-M.setup = function()
+handlers.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = icons.diagnostics.Error },
         { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
         { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+        {
+            name = "DiagnosticSignInfo",
+            text = icons.diagnostics.Information,
+        },
     }
 
     for _, sign in ipairs(signs) do
@@ -38,9 +40,6 @@ M.setup = function()
             severity_sort = true,
             prefix = icons.ui.Circle,
             source = "if_many", -- Or "always"
-            -- format = function(diag)
-            --   return diag.message .. "blah"
-            -- end,
         },
         -- show signs
         signs = {
@@ -53,7 +52,6 @@ M.setup = function()
             focusable = true,
             style = "minimal",
             border = "rounded",
-            -- border = {"▄","▄","▄","█","▀","▀","▀","█"},
             source = "if_many", -- Or "always"
             header = "",
             prefix = "",
@@ -77,15 +75,6 @@ M.setup = function()
         })
 end
 
-local function attach_navic(client, bufnr)
-    local nvim_navic = require_plugin("nvim-navic")
-    if not nvim_navic then
-        return
-    end
-
-    nvim_navic.attach(client, bufnr)
-end
-
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
@@ -95,7 +84,7 @@ local function lsp_keymaps(bufnr)
     end
 end
 
-M.on_attach = function(client, bufnr)
+handlers.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
 
     vim.notify(client)
@@ -104,10 +93,6 @@ M.on_attach = function(client, bufnr)
             client.server_capabilities.documentFormattingProvider = false
         end
     end
-
-    if client.server_capabilities.documentSymbolProvider then
-        attach_navic(client, bufnr)
-    end
 end
 
-return M
+return handlers

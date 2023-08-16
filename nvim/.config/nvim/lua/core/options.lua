@@ -37,6 +37,7 @@ local options = {
     linebreak = true, -- breaks lines only at chacracters in "breakat" ( ^I!@*-+;:,./?)
     fillchars = "eob: ", -- replaces ~ symbols with whitespace characters at the end of buffer
     whichwrap = "<>[]hl", -- set which left->right navigations can also move cursor up or down if at end/start of line
+    startofline = true,
     laststatus = 3, -- global status line
     foldmethod = "indent",
     foldlevelstart = 99, -- don't close folds by default when opening buffer

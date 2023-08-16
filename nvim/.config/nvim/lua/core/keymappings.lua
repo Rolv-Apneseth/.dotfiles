@@ -57,7 +57,8 @@ end
 return {
     lsp = {
         { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
-        { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
+        -- Set in ufo so it can also be used for previewing folds
+        --[[ { "K",     "<cmd>lua vim.lsp.buf.hover()<CR>" }, ]]
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
         { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
         {
@@ -73,9 +74,6 @@ return {
             '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
         },
         { "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>" },
-        --[[ { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>" }, ]]
-        --[[ { "gr", "<cmd>lua vim.lsp.buf.references()<CR>" }, ]]
-        --[[ { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>" }, ]]
         -- Telescope
         { "gr", "<cmd>Telescope lsp_references<CR>" },
         { "gd", "<cmd>Telescope lsp_definitions<CR>" },
@@ -111,101 +109,69 @@ return {
         leader_n = {
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
-            -- TREESITTER
-            ["a"] = { "Move argument forward by 1 position" },
-            ["A"] = { "Move argument backward by 1 position" },
-            -- SYMBOLS_OUTLINE
-            ["E"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" },
-            -- NVIM_TREE
-            ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-            -- TELESCOPE
-            ["f"] = { "<cmd>Telescope find_files<CR>", "Find file" },
-            ["/"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
-            -- INC_RENAME
-            ["r"] = "LSP partially rename variable",
-            ["R"] = "LSP fully rename variable",
-            -- HARPOON
-            ["m"] = {
-                "<cmd>lua require('harpoon.mark').add_file()<CR>",
-                "Harpoon add file",
-            },
-            ["M"] = {
-                "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
-                "Harpoon view marks",
-            },
-            ["1"] = {
-                "<cmd>lua require('harpoon.ui').nav_file(1)<CR>",
-                "Harpoon 1",
-            },
-            ["2"] = {
-                "<cmd>lua require('harpoon.ui').nav_file(2)<CR>",
-                "Harpoon 2",
-            },
-            ["3"] = {
-                "<cmd>lua require('harpoon.ui').nav_file(3)<CR>",
-                "Harpoon 3",
-            },
-            ["4"] = {
-                "<cmd>lua require('harpoon.ui').nav_file(4)<CR>",
-                "Harpoon 4",
-            },
-            ["5"] = {
-                "<cmd>lua require('harpoon.ui').nav_file(5)<CR>",
-                "Harpoon 5",
-            },
-            ["6"] = {
-                "<cmd>lua require('harpoon.ui').nav_file(6)<CR>",
-                "Harpoon 6",
-            },
-            v = {
+
+            g = {
                 name = "Git",
                 g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
                 j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
                 k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
                 l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-                o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
                 d = {
                     "<cmd>Gitsigns diffthis HEAD<CR>",
                     "Diff",
                 },
+                b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
             },
             l = {
                 name = "LSP",
                 a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-                d = {
-                    "<cmd>Telescope lsp_document_diagnostics<CR>",
-                    "Document Diagnostics",
-                },
-                w = {
-                    "<cmd>Telescope lsp_workspace_diagnostics<CR>",
-                    "Workspace Diagnostics",
-                },
-                f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
-                j = {
-                    "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-                    "Next Diagnostic",
-                },
-                k = {
-                    "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
-                    "Prev Diagnostic",
-                },
+                f = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format" },
                 l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
-                q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
-                r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+                d = {
+                    "<cmd>Telescope diagnostics<CR>",
+                    "Diagnostics",
+                },
+                i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
+                t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
+            },
+            c = {
+                name = "Rust tools",
+                r = { "<cmd>RustRunnables<CR>", "Runnables" },
+                d = { "<cmd>RustDebuggables<CR>", "Debuggables" },
+                c = {
+                    "<cmd>RustOpenCargo<CR>",
+                    "Open Cargo.toml",
+                },
+                p = {
+                    "<cmd>RustParentModule<CR>",
+                    "Parent module",
+                },
+            },
+            d = {
+                name = "Debugging",
+                t = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
+                d = { "<cmd>DapTerminate<CR>", "Terminate" },
+                o = { "<cmd>DapStepOver<CR>", "Step over" },
+                O = { "<cmd>DapStepOut<CR>", "Step out" },
+                i = { "<cmd>DapStepInto<CR>", "Step into" },
+                c = { "<cmd>DapContinue<CR>", "Continue" },
+                u = { '<cmd>lua require("dapui").open()<CR>', "Open UI" },
+                U = { '<cmd>lua require("dapui").close()<CR>', "Close UI" },
             },
             t = {
                 name = "Telescope",
+                b = { "<cmd>Telescope buffers<CR>", "Buffers" },
                 C = { "<cmd>Telescope commands<CR>", "Commands" },
                 H = { "<cmd>Telescope highlights<CR>", "Highlights" },
                 M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
+                m = { "<cmd>Telescope reloader<CR>", "Module reloader" },
                 R = { "<cmd>Telescope registers<CR>", "Registers" },
-                b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
                 c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
                 h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
                 k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-                r = { "Find recently opened file" },
-                -- NVIM_NOTIFY
-                n = { "Show log of notifications" },
+                g = { "<cmd>Telescope git_files<CR>", "Open changed file" },
+                s = { "<cmd>Telescope spell_suggest<CR>", "Suggest spelling" },
+                F = { "<cmd>Telescope filetypes<CR>", "Available filetypes" },
             },
             z = {
                 name = "zk",
@@ -224,8 +190,6 @@ return {
         },
         -- Visual mode
         leader_v = {
-            -- TITLECASE
-            ["t"] = { "gugv<Plug>Titlecase", "Convert selection to titlecase" },
             -- ZK
             z = {
                 name = "zk",

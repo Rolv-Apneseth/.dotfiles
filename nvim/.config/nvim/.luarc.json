@@ -60,5 +60,6 @@
         "/home/rolv/.local/share/nvim/lazy/cmp-path/lua",
         "/home/rolv/.dotfiles/nvim/.config/nvim/lua",
         "${3rd}/luv/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

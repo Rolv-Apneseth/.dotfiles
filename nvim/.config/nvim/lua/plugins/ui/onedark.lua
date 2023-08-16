@@ -2,7 +2,7 @@ local require_plugin = require("core.helpers").require_plugin
 local transparency = require("core.transparency")
 
 return {
-    "Rolv-Apneseth/onedark.nvim",
+    "Rolv-Apneseth/onedark.nvim", -- colourscheme
     --[[ dir = "~/repos/onedark.nvim/", -- for local development ]]
     --[[ dev = true, ]]
     config = function()

@@ -1,63 +1,137 @@
-local keymaps_text_object = require("core.keymappings").treesitter.text_object
-local require_plugin = require("core.helpers").require_plugin
+local keymaps = require("core.keymappings").treesitter
+local keymaps_text_object = keymaps.text_object
+local keymaps_autopairs = keymaps.autopairs
 
 return {
-    "windwp/nvim-ts-autotag",
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-            local nvim_treesitter = require_plugin("nvim-treesitter")
-            local configs = require_plugin("nvim-treesitter.configs")
-            if not nvim_treesitter or not configs then
-                return
-            end
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    main = "nvim-treesitter.configs",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        "windwp/nvim-ts-autotag",
 
-            configs.setup({
-                ensure_installed = "all", -- "all", or a list of languages
-                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-                auto_install = true, -- install missing parsers when entering buffer
-                ignore_install = {}, -- List of parsers to ignore installing
-                highlight = {
-                    enable = true, -- false will disable the whole extension
-                    disable = { "" }, -- list of language that will be disabled
-                    additional_vim_regex_highlighting = { "markdown" },
+        {
+            "windwp/nvim-autopairs", -- auto pair brackets, quotations etc.
+            opts = {
+                check_ts = true,
+                ts_opts = {
+                    lua = { "string", "source" },
+                    javascript = { "string", "template_string" },
+                    java = false,
                 },
-                indent = { enable = true, disable = { "yaml", "python" } },
-                hijack_directories = {
-                    enable = true,
-                    auto_open = true,
+                disable_filetype = { "TelescopePrompt", "spectre_panel" },
+                fast_wrap = {
+                    map = keymaps_autopairs.fastwrap,
+                    chars = { "{", "[", "(", '"', "'" },
+                    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+                    offset = 0, -- Offset from pattern match
+                    end_key = "$",
+                    keys = "qwertyuiopzxcvbnmasdfghjkl",
+                    check_comma = true,
+                    highlight = "PmenuSel",
+                    highlight_grey = "LineNr",
                 },
-                -- EXTENSIONS
-                -- Autopair brackets, strings etc. (windwp/nvim-autopairs)
-                autopairs = {
-                    enable = true,
+            },
+        },
+
+        {
+            "nvim-treesitter/nvim-treesitter-context", -- Show current context at the top of the window
+            opts = {
+                enable = true,
+                max_lines = 5,
+                min_window_height = 0,
+                line_numbers = true,
+                multiline_threshold = 10,
+                trim_scope = "outer", -- inner | outer
+                mode = "cursor",      -- cursor | topline
+                separator = "─",
+            },
+        },
+
+        {
+            "Wansmer/treesj", -- Join / split blocks of code
+            dependencies = { "nvim-treesitter/nvim-treesitter" },
+            opts = {
+                use_default_keymaps = false,
+                check_syntax_error = true,
+                max_join_length = 120,
+                cursor_behavior = "start", -- hold | start | end
+                notify = true,
+                dot_repeat = true,
+                on_error = nil,
+            },
+            keys = {
+                { "<leader>o", ":TSJToggle<CR>", desc = "Toggle join/split" },
+            },
+        },
+
+        {
+            "Wansmer/sibling-swap.nvim",
+            opts = {
+                use_default_keymaps = false,
+                highlight_node_at_cursor = false,
+                ignore_injected_langs = false,
+                allow_interline_swaps = true,
+                interline_swaps_witout_separator = false,
+            },
+            keys = {
+                {
+                    "<leader>,",
+                    ":lua require('sibling-swap').swap_with_left()<CR>",
+                    desc = "Move node back",
                 },
-                -- Context based commentstring (JoosepAlviste/nvim-ts-context-commentstring)
-                context_commentstring = {
-                    enable = true,
-                    enable_autocmd = false,
+                {
+                    "<leader>.",
+                    ":lua require('sibling-swap').swap_with_right()<CR>",
+                    desc = "Move node forward",
                 },
-                -- Auto-tags for html etc.
-                autotag = {
-                    enable = true,
-                },
-                -- Text objects (nvim-treesitter/nvim-treesitter-textobjects)
-                textobjects = {
-                    select = {
-                        enable = true,
-                        -- Automatically jump forward to textobj, similar to targets.vim
-                        lookahead = true,
-                        keymaps = keymaps_text_object.select,
-                    },
-                    swap = {
-                        enable = true,
-                        swap_next = keymaps_text_object.swap_next,
-                        swap_previous = keymaps_text_object.swap_previous,
-                    },
-                },
-            })
-        end,
+            },
+        },
+    },
+
+    opts = {
+        ensure_installed = "all", -- "all", or a list of languages
+        sync_install = false,     -- install languages synchronously (only applied to `ensure_installed`)
+        auto_install = true,      -- install missing parsers when entering buffer
+        ignore_install = {},      -- List of parsers to ignore installing
+        highlight = {
+            enable = true,        -- false will disable the whole extension
+            disable = { "" },     -- list of language that will be disabled
+            additional_vim_regex_highlighting = { "markdown" },
+        },
+        indent = { enable = true, disable = { "yaml", "python" } },
+        hijack_directories = {
+            enable = true,
+            auto_open = true,
+        },
+        -- EXTENSIONS
+        -- Autopair brackets, strings etc. (windwp/nvim-autopairs)
+        autopairs = {
+            enable = true,
+        },
+        -- Context based commentstring (JoosepAlviste/nvim-ts-context-commentstring)
+        context_commentstring = {
+            enable = true,
+            enable_autocmd = false,
+        },
+        -- Auto-tags for html etc.
+        autotag = {
+            enable = true,
+        },
+        -- Text objects (nvim-treesitter/nvim-treesitter-textobjects)
+        textobjects = {
+            select = {
+                enable = true,
+                -- Automatically jump forward to textobj, similar to targets.vim
+                lookahead = true,
+                keymaps = keymaps_text_object.select,
+            },
+            swap = {
+                enable = true,
+                swap_next = keymaps_text_object.swap_next,
+                swap_previous = keymaps_text_object.swap_previous,
+            },
+        },
     },
 }

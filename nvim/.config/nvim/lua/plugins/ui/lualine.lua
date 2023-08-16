@@ -2,13 +2,10 @@ local icons = require("core.icons")
 
 return {
     "nvim-lualine/lualine.nvim", -- Statusbar
-    dependencies = {
-        "Rolv-Apneseth/onedark.nvim",
-    },
     opts = {
         options = {
             theme = "onedark",
-            component_separators = "|",
+            component_separators = "│",
             section_separators = {
                 left = icons.ui.HalfCircleRight,
                 right = icons.ui.HalfCircleLeft,
@@ -24,6 +21,12 @@ return {
             },
             lualine_b = {
                 "filetype",
+                {
+                    function()
+                        return " " .. require("grapple").key()
+                    end,
+                    cond = require("grapple").exists,
+                },
             },
             lualine_c = {},
             lualine_x = {},
@@ -36,11 +39,6 @@ return {
                         warn = icons.diagnostics.Warning .. " ",
                         info = icons.diagnostics.Information .. " ",
                     },
-                    --[[ diagnostics_color = { ]]
-                    --[[     color_error = { fg = colors.red }, ]]
-                    --[[     color_warn = { fg = colors.yellow }, ]]
-                    --[[     color_info = { fg = colors.blue }, ]]
-                    --[[ }, ]]
                 },
                 "filesize",
             },

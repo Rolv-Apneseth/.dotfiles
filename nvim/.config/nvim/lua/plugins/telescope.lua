@@ -2,169 +2,80 @@ local require_plugin = require("core.helpers").require_plugin
 local icons = require("core.icons")
 
 return {
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            "smartpde/telescope-recent-files",
-        },
-        config = function()
-            local telescope = require_plugin("telescope")
-            if not telescope then
-                return
-            end
+    "nvim-telescope/telescope.nvim",
+    lazy = false,
+    dependencies = {
+        "smartpde/telescope-recent-files",
+        "debugloop/telescope-undo.nvim",
+    },
+    config = function()
+        local telescope = require_plugin("telescope")
+        if not telescope then
+            return
+        end
 
-            local actions = require("telescope.actions")
-
-            telescope.setup({
-                defaults = {
-                    prompt_prefix = icons.ui.Telescope .. " ",
-                    selection_caret = icons.ui.Selection .. " ",
-                    path_display = { "smart" },
-                    layout_strategy = "horizontal",
+        telescope.setup({
+            defaults = {
+                prompt_prefix = icons.ui.Telescope .. " ",
+                selection_caret = icons.ui.Selection .. " ",
+                path_display = { "smart" },
+                layout_strategy = "horizontal",
+                layout_config = {
+                    horizontal = {
+                        width = 0.9,
+                        height = 0.7,
+                        preview_cutoff = 110,
+                        preview_width = 0.6,
+                    },
+                },
+            },
+            pickers = {},
+            extensions = {
+                recent_files = {
+                    only_cwd = false,   -- only files in the cwd
+                    start_files = true, -- checks if files exist before being shown in the picker
+                },
+                undo = {
+                    use_delta = true,
+                    side_by_side = true,
+                    layout_strategy = "vertical",
                     layout_config = {
-                        horizontal = {
-                            width = 0.9,
-                            height = 0.7,
-                            preview_cutoff = 110,
-                            preview_width = 0.6,
-                        },
-                    },
-                    file_ignore_patterns = {
-                        ".git/",
-                        "target/",
-                        "docs/",
-                        "vendor/*",
-                        "%.lock",
-                        "__pycache__/*",
-                        "%.sqlite3",
-                        "%.ipynb",
-                        "node_modules/*",
-                        "%.jpg",
-                        "%.jpeg",
-                        "%.png",
-                        "%.svg",
-                        "%.otf",
-                        "%.ttf",
-                        "%.webp",
-                        ".dart_tool/",
-                        ".github/",
-                        ".gradle/",
-                        ".idea/",
-                        ".settings/",
-                        ".vscode/",
-                        "__pycache__/",
-                        "build/",
-                        "env/",
-                        "gradle/",
-                        "node_modules/",
-                        "%.pdb",
-                        "%.dll",
-                        "%.class",
-                        "%.exe",
-                        "%.cache",
-                        "%.ico",
-                        "%.pdf",
-                        "%.dylib",
-                        "%.jar",
-                        "%.docx",
-                        "%.met",
-                        "smalljre_*/*",
-                        ".vale/",
-                        "%.burp",
-                        "%.mp4",
-                        "%.mkv",
-                        "%.rar",
-                        "%.zip",
-                        "%.7z",
-                        "%.tar",
-                        "%.bz2",
-                        "%.epub",
-                        "%.flac",
-                        "%.tar.gz",
-                    },
-                    mappings = {
-                        i = {
-                            ["<C-n>"] = actions.cycle_history_next,
-                            ["<C-p>"] = actions.cycle_history_prev,
-                            ["<C-j>"] = actions.move_selection_next,
-                            ["<C-k>"] = actions.move_selection_previous,
-                            ["<C-c>"] = actions.close,
-                            ["<Down>"] = actions.move_selection_next,
-                            ["<Up>"] = actions.move_selection_previous,
-                            ["<CR>"] = actions.select_default,
-                            ["<C-x>"] = actions.select_horizontal,
-                            ["<C-v>"] = actions.select_vertical,
-                            ["<C-t>"] = actions.select_tab,
-                            ["<C-u>"] = actions.preview_scrolling_up,
-                            ["<C-d>"] = actions.preview_scrolling_down,
-                            ["<PageUp>"] = actions.results_scrolling_up,
-                            ["<PageDown>"] = actions.results_scrolling_down,
-                            ["<Tab>"] = actions.toggle_selection
-                                + actions.move_selection_worse,
-                            ["<S-Tab>"] = actions.toggle_selection
-                                + actions.move_selection_better,
-                            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                            ["<M-q>"] = actions.send_selected_to_qflist
-                                + actions.open_qflist,
-                            ["<C-l>"] = actions.complete_tag,
-                            ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-                        },
-                        n = {
-                            ["<esc>"] = actions.close,
-                            ["<CR>"] = actions.select_default,
-                            ["<C-x>"] = actions.select_horizontal,
-                            ["<C-v>"] = actions.select_vertical,
-                            ["<C-t>"] = actions.select_tab,
-                            ["<Tab>"] = actions.toggle_selection
-                                + actions.move_selection_worse,
-                            ["<S-Tab>"] = actions.toggle_selection
-                                + actions.move_selection_better,
-                            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                            ["<M-q>"] = actions.send_selected_to_qflist
-                                + actions.open_qflist,
-                            ["j"] = actions.move_selection_next,
-                            ["k"] = actions.move_selection_previous,
-                            ["H"] = actions.move_to_top,
-                            ["M"] = actions.move_to_middle,
-                            ["L"] = actions.move_to_bottom,
-                            ["<Down>"] = actions.move_selection_next,
-                            ["<Up>"] = actions.move_selection_previous,
-                            ["gg"] = actions.move_to_top,
-                            ["G"] = actions.move_to_bottom,
-                            ["<C-u>"] = actions.preview_scrolling_up,
-                            ["<C-d>"] = actions.preview_scrolling_down,
-                            ["<PageUp>"] = actions.results_scrolling_up,
-                            ["<PageDown>"] = actions.results_scrolling_down,
-                            ["?"] = actions.which_key,
-                        },
+                        preview_height = 0.8,
                     },
                 },
-                pickers = {},
-                extensions = {
-                    recent_files = {
-                        only_cwd = false, -- only files in the cwd
-                        start_files = true, -- checks if files exist before being shown in the picker
-                    },
-                },
+            },
+        })
+
+        -- EXTENSIONS
+        telescope.load_extension("recent_files")
+        telescope.load_extension("undo")
+        --[[ telescope.load_extension("harpoon") ]]
+
+        local keymaps_extensions = {
+            {
+                "<leader>tr",
+                telescope.extensions.recent_files.pick,
+                "Find recently opened file",
+            },
+            {
+                "<leader>tn",
+                telescope.extensions.notify.notify,
+                "Show log of notifications",
+            },
+        }
+
+        for _, mapping in pairs(keymaps_extensions) do
+            vim.api.nvim_set_keymap("n", mapping[1], "", {
+                noremap = true,
+                silent = true,
+                callback = mapping[2],
+                desc = mapping[3],
             })
-
-            -- KEYMAPS FOR EXTENSIONS
-            telescope.load_extension("recent_files")
-            telescope.load_extension("harpoon")
-
-            local keymaps_extensions = {
-                { "<leader>tr", telescope.extensions.recent_files.pick },
-                { "<leader>tn", telescope.extensions.notify.notify },
-            }
-
-            for _, mapping in pairs(keymaps_extensions) do
-                vim.api.nvim_set_keymap(
-                    "n",
-                    mapping[1],
-                    "",
-                    { noremap = true, silent = true, callback = mapping[2] }
-                )
-            end
-        end,
+        end
+    end,
+    keys = {
+        { "<leader>f", ":Telescope find_files<CR>", desc = "Find file" },
+        { "<leader>/", ":Telescope live_grep<CR>",  desc = "Live grep" },
+        { "<leader>u", ":Telescope undo<CR>",       desc = "Undo tree" },
     },
 }
