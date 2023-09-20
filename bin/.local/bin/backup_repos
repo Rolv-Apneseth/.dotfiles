@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+function push_dir()
+{
+    pushd "$1" || exit
+    git add . && git commit -m "$(date)" && git push
+    popd || exit
+}
+
+push_dir "$HOME"/repos/Wallpapers/
+push_dir "$HOME"/Documents/zk/
