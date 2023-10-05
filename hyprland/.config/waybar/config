@@ -12,7 +12,7 @@
         "custom/sep",
         "memory",
     ],
-    "modules-center": ["wlr/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [ 
         "tray",
         "custom/sep",
@@ -26,7 +26,7 @@
         "max-length": 60,
         "interval": 1
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
             "default": ""
