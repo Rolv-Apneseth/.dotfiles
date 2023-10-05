@@ -1,0 +1,25 @@
+[arch]
+# FONTS ---------------------------------------------------------------------------------
+font-manager
+apple-fonts
+ttf-cascadia-code-nerd
+ttf-firacode-nerd
+ttf-font-awesome
+ttf-hack-nerd
+ttf-inconsolata-go-nerd
+ttf-inconsolata-lgc-nerd
+ttf-inconsolata-nerd
+ttf-joypixels
+ttf-meslo-nerd
+ttf-weather-icons
+
+# LOGIN ---------------------------------------------------------------------------------
+sddm
+boo-sddm-git
+
+# THEME ---------------------------------------------------------------------------------
+nwg-look-bin
+juno-theme-git
+vimix-icon-theme
+bibata-cursor-theme-bin
+adwaita-qt5

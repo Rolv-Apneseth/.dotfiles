@@ -1,0 +1,211 @@
+[arch]
+archlinux-keyring
+base-devel
+gcc
+git
+lazygit
+pacman
+reflector
+pacdef
+paru-bin
+zsh
+fzf
+starship
+wezterm
+kitty
+neovim
+qt5ct
+qt6ct
+
+# APPS ----------------------------------------------------------------------------------
+gimp
+kdenlive
+masterpdfeditor-free
+obs-studio
+qbittorrent
+qemu-full
+thunar
+thunderbird
+virt-manager
+warpinator
+
+
+# BOOT ----------------------------------------------------------------------------------
+refind
+refind-theme-dreary-git
+
+# BROWSERS ------------------------------------------------------------------------------
+brave-bin
+firefox
+
+# DEVELOPMENT ---------------------------------------------------------------------------
+pup
+python-dotenv
+python-pip
+python-poetry
+
+# Utils
+android-tools
+entr # repeat command when watched files change
+git-delta # syntax-highlighting pager
+hyperfine # testing speed of commands
+namcap # pacman package analyser
+rustup
+scc # Count LOC
+scdoc # for creating man docs
+vhs # create code gifs
+
+# LSP, linting & formatters
+bash-language-server
+codelldb-bin # for debugging
+dart-sass
+eslint
+eslint_d
+flake8
+lua-language-server
+markdownlint-cli
+markdownlint-cli2
+mypy
+prettier
+pyright
+python-black
+python-isort
+rustywind
+shellcheck-bin
+shellharden
+shfmt
+stylua
+svgo
+tidy
+typescript-language-server
+
+# Node
+nodejs
+nodejs-gatsby-cli
+npm
+yarn
+
+# HARDWARE ------------------------------------------------------------------------------
+gnome-disk-utility
+gnome-multi-writer # write iso to usb devices
+openrgb-bin
+psensor
+zsa-wally-cli # for moonlander keyboard
+
+# Audio
+alsa-utils
+gst-plugin-pipewire
+pamixer
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+wireplumber
+
+# Network
+netctl
+network-manager-applet
+networkmanager
+
+# Stress testing
+gputest
+unigine-heaven
+
+# PURELY AESTHETIC ----------------------------------------------------------------------
+cowsay
+fireplace-git
+rust-lolcat-git # randomly colour stdin
+sl # steam locomotive
+
+# UTILS ---------------------------------------------------------------------------------
+catimg # display images in terminal
+dunst # notifications
+flameshot-git # screenshots
+gtt-bin # translate cli tool
+onefetch # git repo neofetch
+ouch # decompressing
+p7zip # decompressing, 7z
+ranger # file browser
+slides # terminal slides from markdown
+ventoy-bin # multiple isos on single USB stick
+xdg-ninja-git # cleanup $HOME
+zk # notes
+
+# Base
+binutils
+feh
+ffmpeg
+gawk
+i2c-tools
+imagemagick
+man-db
+moreutils
+powertop
+psutils
+sed
+stow
+sudo
+trash-cli
+tree
+vi
+wget
+which
+
+# RIIR
+bat # cat replacement
+bottom # system resources monitor
+dua-cli # du replacement
+erdtree # tree & du replacement
+eza # ls replacement
+fd # find replacement
+ripgrep
+sd # sed replacement
+speedtest-rs # internet speed test
+tealdeer # tldr, man alternative
+wthrr # weather
+zoxide # smarter cd (autojump alternative)
+
+# Rofi
+rofi
+rofi-calc
+rofi-emoji
+rofi-greenclip
+rofi-games
+
+# MUSIC ---------------------------------------------------------------------------------
+mpc
+mpd
+ncmpcpp
+tidal-hifi-bin
+
+# WAYLAND -------------------------------------------------------------------------------
+clipman # clipboard manager
+farge-git # xcolor replacement
+grim
+hyprland
+hyprprop-git
+slurp # select region in wayland compositor, needed for screenshot
+swaybg
+swww
+waybar
+wl-clip-persist-git
+xdg-desktop-portal-hyprland-git
+xsettingsd
+
+
+# OTHER ---------------------------------------------------------------------------------
+ksshaskpass
+kwallet-pam
+kwalletmanager
+polkit-kde-agent
+rsync # backups https://wiki.archlinux.org/title/rsync
+tumbler # for thumbnails in thunar
+ntfs-3g # for mounting ntfs volumes
+
+[rust]
+cargo-binstall
+cargo-info
+cargo-readme
+cargo-spellcheck
+cargo-watch

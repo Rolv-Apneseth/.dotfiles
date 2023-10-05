@@ -1,0 +1,22 @@
+[arch]
+# COMMUNICATION -------------------------------------------------------------------------
+discord_arch_electron
+
+# GRAPHICS ------------------------------------------------------------------------------
+vkbasalt
+reshade-shaders-git
+
+# LAUNCHERS -----------------------------------------------------------------------------
+gdlauncher-bin
+heroic-games-launcher-bin
+lutris
+multimc-bin
+steam
+
+# TOOLS ---------------------------------------------------------------------------------
+gamemode
+gamescope
+mangohud
+proton-ge-custom-bin
+protontricks
+wine
