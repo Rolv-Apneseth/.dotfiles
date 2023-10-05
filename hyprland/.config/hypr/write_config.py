@@ -30,17 +30,21 @@ general {
 
 decoration {
     rounding = 10
-    blur = yes
-    blur_size = 3
-    blur_passes = 1
-    blur_new_optimizations = on
 
     drop_shadow = yes
     shadow_range = 10
     shadow_render_power = 1
     shadow_offset = 5 5
     col.shadow = rgba(00000044)
-    col.shadow_inactive = rgba(00000044)}
+    col.shadow_inactive = rgba(00000044)
+
+    blur {
+        enabled = yes
+        size = 3
+        passes = 2
+        new_optimizations = true
+    }
+}
 
 animations {
     enabled = yes
@@ -59,7 +63,7 @@ master {
 misc {
     disable_hyprland_logo = true
     disable_splash_rendering = true
-    # vfr = on
+    vfr = on
     disable_autoreload = false
 }
 
