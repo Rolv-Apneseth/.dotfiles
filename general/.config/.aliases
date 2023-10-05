@@ -3,7 +3,7 @@
 # (If there's a problem look here first)
 alias grep='rg'
 alias cat='bat'
-alias ls='exa -1la --icons --color=always --group-directories-first'
+alias ls='eza -1la --icons --color=always --group-directories-first'
 
 alias cp='cp -vi'
 alias mv='mv -vi'
@@ -20,6 +20,7 @@ alias pR="paru -Rcns"
 alias pS="paru -S"
 alias update="sudo pacman --needed -Sy archlinux-keyring && paru -Syu --news"
 
+alias nvim="env TERM=wezterm nvim"
 alias n="nvim"
 alias lg="lazygit"
 alias mc="macchina"
