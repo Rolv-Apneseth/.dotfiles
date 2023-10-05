@@ -1,0 +1,12 @@
+1000
+config
+Lutris
+boolean
+struct
+structs
+JSON
+vec
+PathBuf
+$PATH
+TODO
+lib_game_detector
