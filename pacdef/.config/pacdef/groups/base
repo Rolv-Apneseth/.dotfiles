@@ -39,7 +39,7 @@ brave-bin
 firefox
 
 # DEVELOPMENT ---------------------------------------------------------------------------
-pup
+pup-bin
 python-dotenv
 python-pip
 python-poetry
@@ -127,7 +127,7 @@ onefetch # git repo neofetch
 ouch # decompressing
 p7zip # decompressing, 7z
 ranger # file browser
-slides # terminal slides from markdown
+slides-bin # terminal slides from markdown
 ventoy-bin # multiple isos on single USB stick
 xdg-ninja-git # cleanup $HOME
 zk # notes
@@ -161,7 +161,7 @@ eza # ls replacement
 fd # find replacement
 ripgrep
 sd # sed replacement
-speedtest-rs # internet speed test
+speedtest-rs-bin # internet speed test
 tealdeer # tldr, man alternative
 wthrr # weather
 zoxide # smarter cd (autojump alternative)
@@ -190,7 +190,7 @@ swaybg
 swww
 waybar
 wl-clip-persist-git
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xsettingsd
 
 
