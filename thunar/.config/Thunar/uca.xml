@@ -3,9 +3,11 @@
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open With Terminal</name>
+	<submenu></submenu>
 	<unique-id>1623153185934582-1</unique-id>
-	<command>&quot;$TERMINAL&quot; %f</command>
+	<command>$TERMINAL_DIR %f</command>
 	<description>Open the default terminal at current directory</description>
+	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
@@ -13,9 +15,11 @@
 <action>
 	<icon>media-playback-start</icon>
 	<name>Open With Media Player</name>
+	<submenu></submenu>
 	<unique-id>1650284790159409-1</unique-id>
 	<command>&quot;$MY_MEDIA_PLAYER&quot; %F</command>
 	<description>Open the file with the default media player</description>
+	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>
@@ -26,9 +30,11 @@
 <action>
 	<icon>nvim</icon>
 	<name>Open With Neovim</name>
+	<submenu></submenu>
 	<unique-id>1650284976307665-2</unique-id>
 	<command>&quot;$TERMINAL&quot; -e nvim %f</command>
 	<description>Open folder(s)/file(s) with neovim</description>
+	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 	<other-files/>
