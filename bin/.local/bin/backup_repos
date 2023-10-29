@@ -3,7 +3,7 @@
 function push_dir()
 {
     pushd "$1" || exit
-    git add . && git commit -m "$(date)" && git push
+    git pull && git add . && git commit -m "$(date)" && git push
     popd || exit
 }
 
