@@ -7,16 +7,13 @@ ratio = 4
 type = "cpu"
 [[row]]
 [[row.child]]
-ratio = 4
+ratio = 2
 type = "mem"
 [[row.child]]
-ratio = 3
-[[row.child.child]]
 type = "temp"
-[[row.child.child]]
+[[row.child]]
 type = "disk"
 [[row]]
-ratio = 2
 [[row.child]]
 type = "proc"
 
