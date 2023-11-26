@@ -87,12 +87,6 @@ return {
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
             },
-            swap_next = {
-                ["<leader>a"] = "@parameter.inner",
-            },
-            swap_previous = {
-                ["<leader>A"] = "@parameter.inner",
-            },
         },
         autopairs = { fastwrap = "<A-e>" },
     },
