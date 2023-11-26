@@ -73,7 +73,7 @@ return {
                 highlight_node_at_cursor = false,
                 ignore_injected_langs = false,
                 allow_interline_swaps = true,
-                interline_swaps_witout_separator = false,
+                interline_swaps_without_separator = false,
             },
             keys = {
                 {
