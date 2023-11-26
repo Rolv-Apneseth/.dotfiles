@@ -5,6 +5,7 @@ gcc
 git
 lazygit
 pacman
+paccache-hook
 reflector
 pacdef
 paru-bin
@@ -12,7 +13,7 @@ zsh
 fzf
 starship
 wezterm
-kitty
+kitty # Backup, default for hyprland
 neovim
 qt5ct
 qt6ct
@@ -33,6 +34,7 @@ warpinator
 # BOOT ----------------------------------------------------------------------------------
 refind
 refind-theme-dreary-git
+efibootmgr
 
 # BROWSERS ------------------------------------------------------------------------------
 brave-bin
@@ -131,12 +133,14 @@ slides-bin # terminal slides from markdown
 ventoy-bin # multiple isos on single USB stick
 xdg-ninja-git # cleanup $HOME
 zk # notes
+bind # DNS tools e.g. dig
 
 # Base
 binutils
 feh
 ffmpeg
 gawk
+grep
 i2c-tools
 imagemagick
 man-db
