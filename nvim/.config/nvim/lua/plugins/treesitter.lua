@@ -110,11 +110,6 @@ return {
         autopairs = {
             enable = true,
         },
-        -- Context based commentstring (JoosepAlviste/nvim-ts-context-commentstring)
-        context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-        },
         -- Auto-tags for html etc.
         autotag = {
             enable = true,
