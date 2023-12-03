@@ -3,7 +3,6 @@ local transparency = require("core.transparency")
 
 return {
     "Rolv-Apneseth/onedark.nvim", -- colourscheme
-    --[[ dir = "~/repos/onedark.nvim/", -- for local development ]]
     --[[ dev = true, ]]
     config = function()
         local onedark = require_plugin("onedark")
@@ -14,6 +13,9 @@ return {
         onedark.setup({
             style = "darker",
             transparent = transparency.IS_FORCING_TRANSPARENCY,
+            diagnostics = {
+                background = not transparency.IS_FORCING_TRANSPARENCY,
+            },
         })
         onedark.load()
 
