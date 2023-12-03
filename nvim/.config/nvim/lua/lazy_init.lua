@@ -28,6 +28,13 @@ require("lazy").setup(
             wrap = true, -- wrap the lines in the ui
             border = "rounded",
         },
+        dev = {
+            path = "~/repos",
+            fallback = false, -- Fallback to git when local plugin doesn't exist
+        },
+        install = {
+            missing = true, -- install missing plugins on startup
+        },
         performance = {
             rtp = {
                 -- disable some rtp plugins
