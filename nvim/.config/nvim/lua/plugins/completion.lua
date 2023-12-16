@@ -151,7 +151,6 @@ return {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "nvim_lua" },
-                { name = "crates" },
                 { name = "path" },
                 {
                     name = "buffer",
