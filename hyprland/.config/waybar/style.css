@@ -1,13 +1,14 @@
 * {
     border: none;
-    font-family: SF Pro Display, FiraCode Nerd Font Mono;
+    font-family:
+        SF Pro Display,
+        FiraCode Nerd Font Mono;
     font-size: 18px;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.75);
-    transition-property: background-color;
-    transition-duration: 0.5s;
+    background: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease-out;
     border-radius: 0px;
 }
 /*-----module groups----*/
@@ -36,6 +37,7 @@ tooltip {
     padding: 1px 5px;
     background: transparent;
     color: #4c566a;
+    transition: all 0.3s ease-out;
 }
 #workspaces button:hover {
     box-shadow: inherit;
@@ -45,7 +47,6 @@ tooltip {
 
 #workspaces button.active {
     color: rgba(255, 255, 255, 0.9);
-    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 #workspaces button.urgent {
     color: #ffbbff;
