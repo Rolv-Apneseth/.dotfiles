@@ -50,8 +50,6 @@ export ZDOTDIR="$HOME/.config/zsh"
 # zk notebooks
 export ZK_NOTEBOOK_DIR="$HOME/Documents/zk"
 
-# Fot GTK 4 Theme
-export GTK_THEME="Juno"
 # For QT Themes
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
