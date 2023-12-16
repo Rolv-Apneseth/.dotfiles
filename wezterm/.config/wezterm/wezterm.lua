@@ -20,6 +20,7 @@ for k, v in pairs({
     line_height = 1.0,
     window_background_opacity = 0.8,
     text_background_opacity = 1.0,
+    underline_position = -4,
     window_padding = {
         left = 25,
         right = 25,
