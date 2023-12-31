@@ -1,7 +1,7 @@
-@import "launcher"
+@import "games-default"
 
-
-element-icon {
-    size:       35%;
-    margin:     10px;
+textbox-prompt {
+    str:                            "";
+    font:                           "Inconsolata Nerd Font Mono 24";
+    padding:                        0px 5px 0px 5px;
 }
