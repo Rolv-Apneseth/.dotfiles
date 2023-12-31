@@ -7,6 +7,23 @@ return {
         "neovim/nvim-lspconfig",
         "williamboman/mason-lspconfig.nvim",
         "tamago324/nlsp-settings.nvim", -- language server settings defined in json
+
+        {
+            -- Here because it must be loaded before the lua lsp setup
+            "folke/neodev.nvim", -- neovim lua setup
+            ft = { "lua", "vim" },
+            opts = {
+                library = {
+                    enabled = true,              -- when not enabled, neodev will not change any settings to the LSP server
+                    runtime = true,              -- runtime path
+                    types = true,                -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+                    plugins = { "nvim-dap-ui" }, -- installed opt or start plugins in packpath
+                },
+                setup_jsonls = true,             -- configures jsonls to provide completion for project specific .luarc.json files
+                lspconfig = true,
+                pathStrict = true,
+            },
+        },
     },
     config = function()
         local mason = require_plugin("mason")
