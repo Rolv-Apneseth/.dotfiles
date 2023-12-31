@@ -44,11 +44,6 @@ return {
             return false
         end
 
-        local check_backspace = function()
-            local col = vim.fn.col(".") - 1
-            return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-        end
-
         vim.g.cmp_active = true
 
         cmp.setup({

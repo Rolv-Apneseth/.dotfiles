@@ -17,8 +17,8 @@ handlers.capabilities = cmp_nvim_lsp.default_capabilities(handlers.capabilities)
 handlers.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+        { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
         {
             name = "DiagnosticSignInfo",
             text = icons.diagnostics.Information,
@@ -26,10 +26,7 @@ handlers.setup = function()
     }
 
     for _, sign in ipairs(signs) do
-        vim.fn.sign_define(
-            sign.name,
-            { texthl = sign.name, text = sign.text, numhl = "" }
-        )
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
     end
 
     local config = {
@@ -67,12 +64,11 @@ handlers.setup = function()
         -- height = 30,
     })
 
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = "rounded",
-            -- width = 60,
-            -- height = 30,
-        })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = "rounded",
+        -- width = 60,
+        -- height = 30,
+    })
 end
 
 local function lsp_keymaps(bufnr)

@@ -29,7 +29,7 @@ return {
                 ---Add comment on the line below
                 below = "gco",
                 ---Add comment at the end of line
-                eol = "gcA",
+                eol = "gca",
             },
             --- Keybindings
             mappings = {
@@ -46,9 +46,7 @@ return {
 
                 if ctx.ctype == utils.ctype.block then
                     location = ts_utils.get_cursor_location()
-                elseif
-                    ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V
-                then
+                elseif ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V then
                     location = ts_utils.get_visual_start_location()
                 end
 

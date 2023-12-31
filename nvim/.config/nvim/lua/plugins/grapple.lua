@@ -1,5 +1,5 @@
 return {
-    "cbochs/grapple.nvim",  -- Easier navigation between important files
+    "cbochs/grapple.nvim", -- Easier navigation between important files
     opts = {
         log_level = "warn", -- "debug" | "info" | "warn" | "error"
         scope = "git",
