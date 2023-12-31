@@ -13,9 +13,6 @@ return {
             x = 0.5,
             y = 0.5,
         },
-        keybindings = {
-            ["<ESC>"] = "q",
-        },
     },
     keys = {
         {
