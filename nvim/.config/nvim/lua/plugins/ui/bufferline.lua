@@ -29,14 +29,13 @@ return {
                 offsets = { { filetype = "NvimTree", text = "", padding = 2 } },
                 show_buffer_icons = true,
                 show_buffer_close_icons = false,
-                --[[ buffer_close_icon = "", ]]
                 show_close_icon = false,
                 show_tab_indicators = false,
                 separator_style = { "", "" },
                 enforce_regular_tabs = true,
                 always_show_bufferline = true,
                 indicator = {
-                    style = "underline",
+                    style = "none", -- "icon" | "underline" | "none"
                 },
             },
             highlights = {
