@@ -104,5 +104,26 @@ return {
 
         -- Setupa alpha
         alpha.setup(dashboard.opts)
+
+        -- Use bufdelete event to open alpha when the last buffer is closed
+        local bdelete = require_plugin("bufdelete")
+        if not bdelete then
+            return
+        end
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "BDeletePost*",
+            group = vim.api.nvim_create_augroup("alpha_on_empty", { clear = true }),
+            callback = function(event)
+                local fallback_name = vim.api.nvim_buf_get_name(event.buf)
+                local fallback_ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
+                local fallback_on_empty = fallback_name == "" and fallback_ft == ""
+
+                if fallback_on_empty then
+                    vim.cmd("Alpha")
+                    vim.cmd(event.buf .. "bwipeout")
+                end
+            end,
+        })
     end,
 }
