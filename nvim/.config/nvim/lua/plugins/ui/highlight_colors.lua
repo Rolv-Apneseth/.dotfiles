@@ -1,5 +1,6 @@
 return {
     "brenoprata10/nvim-highlight-colors",
+    event = "VeryLazy",
     opts = {
         render = "background", -- "foreground" / "first_column" / "background"
         enable_named_colors = false,

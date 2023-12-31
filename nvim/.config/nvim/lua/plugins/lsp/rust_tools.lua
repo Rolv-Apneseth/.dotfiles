@@ -1,7 +1,10 @@
+local require_plugin = require("core.helpers").require_plugin
+
 return {
-    "simrat39/rust-tools.nvim", -- rust specific stuff
+    "simrat39/rust-tools.nvim", -- Rust specific stuff
+    ft = "rust",
     config = function()
-        local rt = require("rust-tools")
+        local rt = require_plugin("rust-tools")
 
         rt.setup({
 

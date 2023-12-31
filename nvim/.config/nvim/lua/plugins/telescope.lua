@@ -3,7 +3,7 @@ local icons = require("core.icons")
 
 return {
     "nvim-telescope/telescope.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
         "smartpde/telescope-recent-files",
         "debugloop/telescope-undo.nvim",

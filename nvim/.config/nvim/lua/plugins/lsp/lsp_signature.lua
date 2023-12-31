@@ -1,7 +1,8 @@
 local icons = require("core.icons")
 
 return {
-    "ray-x/lsp_signature.nvim",                       -- show function signature as you type
+    "ray-x/lsp_signature.nvim", -- show function signature as you type
+    event = "LspAttach",
     opts = {
         debug = false,                                -- set to true to enable debug logging
         verbose = false,                              -- show debug line number

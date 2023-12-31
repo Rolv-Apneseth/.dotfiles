@@ -8,6 +8,7 @@ local messages_to_be_filtered = {
 
 return {
     "rcarriga/nvim-notify", -- Pretty notifications
+    event = "VeryLazy",
     config = function()
         local notify = require_plugin("notify")
         if not notify then

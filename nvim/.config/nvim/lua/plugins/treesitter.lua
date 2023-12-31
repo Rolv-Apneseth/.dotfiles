@@ -13,6 +13,7 @@ return {
 
         {
             "windwp/nvim-autopairs", -- auto pair brackets, quotations etc.
+            event = "InsertEnter",
             opts = {
                 check_ts = true,
                 ts_opts = {
@@ -44,7 +45,7 @@ return {
                 line_numbers = true,
                 multiline_threshold = 10,
                 trim_scope = "outer", -- inner | outer
-                mode = "cursor",      -- cursor | topline
+                mode = "cursor", -- cursor | topline
                 separator = "─",
             },
         },
@@ -92,12 +93,12 @@ return {
 
     opts = {
         ensure_installed = "all", -- "all", or a list of languages
-        sync_install = false,     -- install languages synchronously (only applied to `ensure_installed`)
-        auto_install = true,      -- install missing parsers when entering buffer
-        ignore_install = {},      -- List of parsers to ignore installing
+        sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+        auto_install = true, -- install missing parsers when entering buffer
+        ignore_install = {}, -- List of parsers to ignore installing
         highlight = {
-            enable = true,        -- false will disable the whole extension
-            disable = { "" },     -- list of language that will be disabled
+            enable = true, -- false will disable the whole extension
+            disable = { "" }, -- list of language that will be disabled
             additional_vim_regex_highlighting = { "markdown" },
         },
         indent = { enable = true, disable = { "yaml", "python" } },

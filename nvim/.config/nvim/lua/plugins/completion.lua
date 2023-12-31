@@ -12,6 +12,7 @@ return {
         "rafamadriz/friendly-snippets",
         "saadparwaiz1/cmp_luasnip",
     },
+    event = "InsertEnter",
     config = function()
         local require_plugin = require("core.helpers").require_plugin
 

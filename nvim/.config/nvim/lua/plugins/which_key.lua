@@ -4,7 +4,7 @@ local icons = require("core.icons").misc
 
 return {
     "folke/which-key.nvim", -- for showing shortcuts
-    lazy = false,
+    event = "VeryLazy",
     init = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 300

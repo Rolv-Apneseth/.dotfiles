@@ -2,6 +2,7 @@ local icons = require("core.icons").gitsigns
 
 return {
     "lewis6991/gitsigns.nvim", -- Gutter git signs
+    event = "VeryLazy",
     opts = {
         signs = {
             add = {

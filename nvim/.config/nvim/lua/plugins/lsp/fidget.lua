@@ -3,6 +3,7 @@ local icons = require("core.icons")
 return {
     "j-hui/fidget.nvim", -- LSP progress animations
     tag = "legacy",
+    event = "LspAttach",
     opts = {
         window = {
             blend = 0,

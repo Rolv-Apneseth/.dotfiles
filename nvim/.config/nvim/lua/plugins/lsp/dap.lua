@@ -2,6 +2,7 @@ local require_plugin = require("core.helpers").require_plugin
 
 return {
     "mfussenegger/nvim-dap",
+    event = "LspAttach",
     dependencies = {
         "rcarriga/nvim-dap-ui",
         "theHamsta/nvim-dap-virtual-text",

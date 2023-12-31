@@ -3,6 +3,7 @@ local icons = require("core.icons")
 
 return {
     "folke/noice.nvim",
+    event = "VeryLazy",
     config = function()
         local noice = require_plugin("noice")
         local util = require_plugin("noice.util")
