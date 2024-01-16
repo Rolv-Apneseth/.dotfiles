@@ -76,7 +76,7 @@ disabled = false
 
 [python]
 symbol = " "
-format = "[$symbol$version]($style) [\\($virtualenv\\)](yellow bold)"
+format = "[$symbol$version]($style) [\\($virtualenv\\)](yellow bold) "
 style = "bold green"
 version_format = "$major.$minor"
 
