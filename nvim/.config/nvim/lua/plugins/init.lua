@@ -8,4 +8,8 @@ return {
     -- Misc
     "lambdalisue/suda.vim", -- sudo read and write for editing a file without running `sudo nvim`
     "famiu/bufdelete.nvim", -- delete buffers without changing window layout, and provides useful events for autocommands
+    {
+        "NoahTheDuke/vim-just", -- syntax highlighting for `justfile`
+        ft = { "just" },
+    },
 }

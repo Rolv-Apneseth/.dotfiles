@@ -62,6 +62,7 @@
   "telescope-undo.nvim": { "branch": "main", "commit": "d3afc1c105535a90caec092ce27a113f77ba7b84" },
   "telescope.nvim": { "branch": "master", "commit": "3466159b0fcc1876483f6f53587562628664d850" },
   "treesj": { "branch": "main", "commit": "1d6e89f4790aa04eaae38fa9460a3ee191961c96" },
+  "vim-just": { "branch": "main", "commit": "70c08fc99d532cf331ae9eaf0fcbe2cd2bbe0f57" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
   "zk-nvim": { "branch": "main", "commit": "142625638d2fad464939c6ee1775571aba6379c6" }
 }
