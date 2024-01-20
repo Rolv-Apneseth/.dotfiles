@@ -1,6 +1,7 @@
 @import "colours.rasi"
 
 configuration {
+    font:                           "RobotoMono Nerd Font Mono 18";
     show-icons:                     true;
     run {
         fallback-icon: "package";
@@ -45,7 +46,7 @@ inputbar {
 }
 
 textbox-prompt {
-    font:                           "InconsolataLGC Nerd Font Mono 20";
+    font:                           "Inconsolata Nerd Font Mono 24";
     text-color:                     @background;
     padding:                        0px 5px 0px 5px;
     horizontal-align:               0.5;
