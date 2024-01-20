@@ -4,7 +4,7 @@ preload = ["~/.config/yazi/hide_statusbar.lua"]
 [manager]
 folder_offset = [1, 0, 0, 0]
 preview_offset = [1, 1, 0, 1]
-layout = [1, 3, 3]
+ratio = [1, 3, 3]
 sort_by = "natural"
 sort_sensitive = false
 sort_reverse = false
