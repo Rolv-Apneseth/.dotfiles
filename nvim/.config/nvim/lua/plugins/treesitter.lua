@@ -68,7 +68,7 @@ return {
         },
 
         {
-            "Wansmer/sibling-swap.nvim",
+            "Wansmer/sibling-swap.nvim", -- Swap sibling treesitter nodes (e.g. move function argument to prev/next position, etc.)
             opts = {
                 use_default_keymaps = false,
                 highlight_node_at_cursor = false,
