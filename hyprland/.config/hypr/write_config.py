@@ -75,48 +75,6 @@ windowrulev2 = nofullscreenrequest, class:floating
 windowrulev2 = float, class:flameshot
 windowrulev2 = nofullscreenrequest, class:flameshot
 
-# # Firefox
-# # Picture-in-Picture
-# windowrulev2 = float,class:^(firefox)$,title:^(Picture-in-Picture)$
-# windowrulev2 = pin,class:^(firefox)$,title:^(Picture-in-Picture)$
-# windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Picture-in-Picture)$
-# # figma micro indicator
-# windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
-# windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
-# # save image
-# windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Save Image)$
-# windowrulev2 = float,class:^(firefox)$,title:^(Save Image)$
-# # save as
-# windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Save As)$
-# windowrulev2 = float,class:^(firefox)$,title:^(Save As)$
-# # file upload
-# # misc / replace file dialog
-# windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^()$
-# windowrulev2 = float,class:^(firefox)$,title:^()$
-# 
-# # Thunderbird
-# # thunderbird sending email (not writing)
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Save Message)
-# windowrulev2 = float,class:^(thunderbird)$,title:^(Save Message)
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Sending Message)
-# windowrulev2 = float,class:^(thunderbird)$,title:^(Sending Message)
-# # reminders
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:(Reminder)$
-# windowrulev2 = float,class:^(thunderbird)$,title:(Reminder)$
-# # invitations
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Invitations)
-# windowrulev2 = float,class:^(thunderbird)$,title:^(Invitations)
-# # save attachment
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Save Attachment)$
-# windowrulev2 = float,class:^(thunderbird)$,title:^(Save Attachment)$
-# # confirm deletion
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Confirm Deletion)$
-# windowrulev2 = float,class:^(thunderbird)$,title:^(Confirm Deletion)$
-# # confirm deletion
-# windowrulev2 = nofullscreenrequest,class:^(thunderbird)$,title:^(Opening)
-# windowrulev2 = float,class:^(thunderbird)$,title:^(Opening)
-
-
 # common modals
 windowrule = float,title:^(Open)$
 windowrule = float,title:^(Choose Files)$
@@ -140,7 +98,7 @@ exec-once = hyprctl setcursor "Bibata-Original-Classic" "24"
 exec-once = /usr/lib/polkit-kde-authentication-agent-1
 exec-once = waybar
 exec-once = nm-applet
-exec-once = wpaperd
+exec-once = swww init; sleep 0.1; swww_bg ~/repos/Wallpapers/main
 
 # Clipboard
 exec-once = wl-paste -t text --watch clipman store --no-persist --notify
@@ -267,8 +225,8 @@ bind = $MS, M, exec, {get_var("MY_MUSIC_NEXT")}
 bind = $M, P, exec, flameshot gui
 
 # Wallpaper
-bind = $M, B, exec, wpaperctl next-wallpaper
-bind = $MS, B, exec, wpaperctl previous-wallpaper
+bind = $M, B, exec, killall swww_bg; swww_bg ~/repos/Wallpapers/main
+# bind = $MS, B, exec, wpaperctl previous-wallpaper
 
 # Notes - zk
 bind = $M, Z, exec, [floating;dimaround;size 50% 80%;center] {get_var("TERMINAL_EXECUTE")} --class floating nvim -c 'ZkNotes'
@@ -280,7 +238,7 @@ bind = $MS, X, exec, [floating;dimaround;size 50% 80%;center] {get_var("TERMINAL
 
 # AUTO FULLSCREEN
 def get_auto_fullscreen_rule(window_class):
-    return f"windowrule = fullscreen,class:^({window_class.lower()})$"
+    return f"windowrulev2 = fullscreen,class:^({window_class.lower()})$,floating:0"
 
 
 auto_fullscreen_classes = ["firefox", "thunderbird", "google-chat-linux"]
@@ -291,13 +249,7 @@ auto_fullscreen_output = "\n".join(
 
 # STARTUP PROGRAMS
 def get_startup_program_rule_and_exec(workspace_index, var):
-    program = get_var(var)
-
-    return (
-        f"windowrule = workspace {workspace_index} silent, {program}"
-        f"\nexec-once = {program}"
-        f'\nexec = sleep 8s && hyprctl keyword windowrule "workspace unset, {program}"'
-    )
+    return f"exec-once=[workspace {workspace_index} silent] {get_var(var)}"
 
 
 startup_programs = [
@@ -317,9 +269,12 @@ startup_programs_output = "\n".join(
 )
 
 config = f"""{config}
-# Auto Fullscreen
+# Auto fullscreen
+{get_auto_fullscreen_rule(get_var("MY_WORK_COMMUNICATION"))}
+{get_auto_fullscreen_rule(get_var("MY_EMAIL_CLIENT"))}
+{get_auto_fullscreen_rule(get_var("BROWSER"))}
 
-# Startup Programs
+# Startup programs
 {startup_programs_output}
 """
 
