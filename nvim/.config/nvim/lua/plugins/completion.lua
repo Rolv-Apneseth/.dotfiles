@@ -46,6 +46,29 @@ return {
 
         vim.g.cmp_active = true
 
+        -- `/` cmdline setup.
+        cmp.setup.cmdline("/", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer" },
+            },
+        })
+
+        -- `:` cmdline setup.
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                {
+                    name = "cmdline",
+                    option = {
+                        ignore_cmds = { "Man", "!" },
+                    },
+                },
+            }),
+        })
+
         cmp.setup({
             enabled = function()
                 local buftype = vim.api.nvim_buf_get_option(0, "buftype")
