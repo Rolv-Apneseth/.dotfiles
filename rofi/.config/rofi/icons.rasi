@@ -1,0 +1,5 @@
+@import "selector.rasi"
+
+listview {
+    columns:            5;
+}
