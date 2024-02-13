@@ -119,6 +119,7 @@ binds {
 $M = SUPER
 $MS = SUPER SHIFT
 $MA = SUPER ALT
+$MC = SUPER CONTROL
 
 # Power
 bind = $MS, S, exec, poweroff --no-wall
@@ -137,8 +138,8 @@ bind = $M, G, exec, "$BROWSER" https://github.com/Rolv-Apneseth
 # Windows
 bind = $M, W, killactive,
 bind = $M, Space, fullscreen,
-bind = $M, I, resizeactive, 100 100
-bind = $MS, I, resizeactive, -100 -100
+bind = $MC, K, resizeactive, 100 100
+bind = $MC, J, resizeactive, -100 -100
 
 # Move focus
 bind = $M, L, layoutmsg, focusmaster auto
@@ -216,6 +217,8 @@ bind = $M, C, exec, {get_var("MY_CLIPBOARD")}
 bind = $MS, C, exec, {get_var("MY_CALCULATOR")}
 bind = $M, S, exec, {get_var("MY_SELECTOR_DEFAULT_SOUND_SINK")}
 bind = $M, E, exec, {get_var("MY_SELECTOR_EDIT_FILE")}
+bind = $M, I, exec, {get_var("MY_SELECTOR_ICONS")}
+bind = $MS, I, exec,{get_var("MY_SELECTOR_EMOJIS")}
 
 # Music
 bind = $M, M, exec, {get_var("MY_MUSIC_TOGGLE")}
