@@ -1,5 +1,9 @@
 @import "games-default"
 
+window {
+    fullscreen:                     true;
+}
+
 textbox-prompt {
     str:                            "";
     font:                           "Inconsolata Nerd Font Mono 24";
