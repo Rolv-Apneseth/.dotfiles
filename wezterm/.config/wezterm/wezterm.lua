@@ -30,6 +30,7 @@ for k, v in pairs({
     hide_tab_bar_if_only_one_tab = true,
     default_prog = { "/usr/bin/zsh" },
     window_close_confirmation = "NeverPrompt",
+    check_for_updates = false,
     enable_wayland = true,
     detect_password_input = false,
     keys = {
