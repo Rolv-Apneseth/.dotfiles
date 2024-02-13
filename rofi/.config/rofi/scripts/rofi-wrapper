@@ -21,7 +21,8 @@ case "$1" in
             rofi -modi "clipboard:greenclip print" -show clipboard -theme selector
         fi
         ;;
-    emojis) rofi -modi emoji -show emoji -emoji-mode copy -theme selector ;;
+    emojis) rofi -modi emoji -show emoji -emoji-mode copy -theme icons ;;
+    nerdy) rofi -modi nerdy -show nerdy -theme icons ;;
     games) rofi -modi games -show games -theme games ;;
     edit) e_rofi.zsh ;;
     sound_sink) pactl set-default-sink "$(pactl list short sinks | awk '{print $2}' | rofi -dmenu -theme selector -p "Select default sound sink")" ;;
