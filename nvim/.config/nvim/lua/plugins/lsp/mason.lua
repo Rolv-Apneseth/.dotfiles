@@ -48,6 +48,7 @@ return {
             "yamlls",
             "bashls",
             "rust_analyzer",
+            "omnisharp",
         }
 
         local settings = {
@@ -110,6 +111,11 @@ return {
             if server == "rust_analyzer" then
                 -- Handled in rust_tools.lua
                 goto continue
+            end
+
+            if server == "omnisharp" then
+                local omnisharp_opts = require("plugins.lsp.settings.omnisharp")
+                opts = vim.tbl_deep_extend("force", omnisharp_opts, opts)
             end
 
             lspconfig[server].setup(opts)
