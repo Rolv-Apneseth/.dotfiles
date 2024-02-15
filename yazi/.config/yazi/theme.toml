@@ -10,14 +10,20 @@ find_keyword = { fg = "yellow", italic = true }
 find_position = { fg = "white", italic = true }
 
 # Marker
-marker_selected = { fg = "magenta" }
-marker_copied = { fg = "lightyellow" }
-marker_cut = { fg = "lightred" }
+marker_copied   = { fg = "lightyellow" }
+marker_cut      = { fg = "lightred" }
+marker_marked   = { fg = "magenta" }
+marker_selected = { fg = "blue" }
 
 # Tab
 tab_active = { fg = "white", bg = "magenta" }
 tab_inactive = { fg = "white", bg = "darkgray" }
 tab_width = 1
+
+# Count
+count_copied   = { fg = "black", bg = "yellow" }
+count_cut      = { fg = "white", bg = "red" }
+count_selected = { fg = "white", bg = "magenta" }
 
 # Border
 border_symbol = "│"
