@@ -117,6 +117,7 @@ binds {
 }
 
 $M = SUPER
+$A = ALT
 $MS = SUPER SHIFT
 $MA = SUPER ALT
 $MC = SUPER CONTROL
@@ -138,8 +139,16 @@ bind = $M, G, exec, "$BROWSER" https://github.com/Rolv-Apneseth
 # Windows
 bind = $M, W, killactive,
 bind = $M, Space, fullscreen,
-bind = $MC, K, resizeactive, 100 100
-bind = $MC, J, resizeactive, -100 -100
+
+# Window resize submap
+bind=$A,R,submap,resize
+submap=resize
+binde=,l,resizeactive,100 0
+binde=,h,resizeactive,-100 0
+binde=,k,resizeactive,0 -100
+binde=,j,resizeactive,0 100
+bind=,escape,submap,reset
+submap=reset
 
 # Move focus
 bind = $M, L, layoutmsg, focusmaster auto
