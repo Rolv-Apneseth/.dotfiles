@@ -198,3 +198,6 @@ disabled = true
 [spack]
 symbol = "🅢 "
 disabled = true
+
+[battery]
+format = " [$symbol$percentage]($style)"
