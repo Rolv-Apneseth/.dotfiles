@@ -1,7 +1,12 @@
 # Edit file
 function e() {
-	fzf |
-		xargs --no-run-if-empty --delimiter="\n" $EDITOR
+	if [ $# -eq 0 ]; then
+		fzf |
+			xargs --no-run-if-empty --delimiter="\n" $EDITOR
+	else
+		fzf --query $1 |
+			xargs --no-run-if-empty --delimiter="\n" $EDITOR
+	fi
 }
 
 # Kill process
