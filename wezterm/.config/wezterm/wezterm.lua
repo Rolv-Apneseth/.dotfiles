@@ -28,7 +28,7 @@ for k, v in pairs({
         bottom = 15,
     },
     hide_tab_bar_if_only_one_tab = true,
-    default_prog = { "/usr/bin/zsh" },
+    default_prog = { "zsh" },
     window_close_confirmation = "NeverPrompt",
     check_for_updates = false,
     enable_wayland = true,
