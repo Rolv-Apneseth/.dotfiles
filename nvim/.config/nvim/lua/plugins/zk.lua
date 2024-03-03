@@ -2,6 +2,7 @@ return {
     "Mickael-menu/zk-nvim", -- notes
     main = "zk",
     lazy = true,
+    dev = false,
     cmd = {
         "ZkNotes",
         "ZkTags",
