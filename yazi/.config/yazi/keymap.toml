@@ -50,6 +50,7 @@ keymap = [
 	{ on = [ "r" ],         exec = "rename",                                               desc = "Rename a file or directory" },
 	{ on = [ ":" ],         exec = "shell --block",                                        desc = "Run a shell command (block the UI until the command finishes)" },
     { on = [ ";" ],         exec = "shell",                                                desc = "Run a shell command" },
+	{ on = [ "." ],         exec = "hidden toggle",                                     desc = "Toggle the visibility of hidden files" },
 	{ on = [ "s" ],         exec = "search fd",                                            desc = "Search files by name using fd" },
 	{ on = [ "S" ],         exec = "search rg",                                            desc = "Search files by content using ripgrep" },
 	{ on = [ "<C-s>" ],     exec = "search none",                                          desc = "Cancel the ongoing search" },
@@ -262,3 +263,49 @@ keymap = [
 	# Filtering
 	{ on = [ "/" ], exec = "filter", desc = "Apply a filter for the help items" },
 ]
+
+# RELATIVE MOTIONS
+[[manager.prepend_keymap]]
+on = [ "1" ]
+exec = "plugin relative-motions --args=1"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "2" ]
+exec = "plugin relative-motions --args=2"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "3" ]
+exec = "plugin relative-motions --args=3"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "4" ]
+exec = "plugin relative-motions --args=4"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "5" ]
+exec = "plugin relative-motions --args=5"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "6" ]
+exec = "plugin relative-motions --args=6"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "7" ]
+exec = "plugin relative-motions --args=7"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "8" ]
+exec = "plugin relative-motions --args=8"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "9" ]
+exec = "plugin relative-motions --args=9"
+desc = "Move in relative steps"
