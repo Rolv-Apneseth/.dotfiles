@@ -124,5 +124,5 @@
     format = ""
 
 [ignore_font_error]
-    title = "Font problem"
+    body = "No fonts contain glyphs for these codepoints:"
     format = ""
