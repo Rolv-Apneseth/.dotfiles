@@ -3,8 +3,8 @@ preload = ["~/.config/yazi/hide_statusbar.lua"]
 
 [plugin]
 prepend_previewers = [
-  { name = "*.md", exec = "glow" },
-  { mime = "audio/*", exec = "exifaudio" },
+  { name = "*.md", run = "glow" },
+  { mime = "audio/*", run = "exifaudio" },
 ]
 
 [manager]
