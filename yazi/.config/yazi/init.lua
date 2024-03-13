@@ -1,6 +1,6 @@
 PLUGINS = {
     "Reledia/glow.yazi",
-    "dedukun/relative-motions.yazi",
+    "DreamMaoMao/keyjump.yazi",
     "Sonico98/exifaudio.yazi",
     "Rolv-Apneseth/starship.yazi",
 }
@@ -48,5 +48,4 @@ for i, slug in ipairs(PLUGINS) do
 end
 
 -- SETUP/CONFIG
-require("relative-motions"):setup({ show_numbers = "none", show_motion = true })
 require("starship"):setup()
