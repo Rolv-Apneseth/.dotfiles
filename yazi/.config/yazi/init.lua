@@ -2,6 +2,7 @@ PLUGINS = {
     "Reledia/glow.yazi",
     "dedukun/relative-motions.yazi",
     "Sonico98/exifaudio.yazi",
+    "Rolv-Apneseth/starship.yazi",
 }
 
 -- UTILS
@@ -46,5 +47,6 @@ for i, slug in ipairs(PLUGINS) do
     end
 end
 
--- CONFIG
+-- SETUP/CONFIG
 require("relative-motions"):setup({ show_numbers = "none", show_motion = true })
+require("starship"):setup()
