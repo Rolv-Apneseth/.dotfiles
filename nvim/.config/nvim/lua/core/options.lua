@@ -42,6 +42,8 @@ local options = {
     foldmethod = "indent",
     foldlevelstart = 99, -- don't close folds by default when opening buffer
     iskeyword = o.iskeyword + "-", -- characters which are to be counted as 1 "word", added - for easily selecting variables e.g. foo-bar
+    spell = true, -- Spellchecking
+    spelllang = "en",
 }
 
 -- Apply options
