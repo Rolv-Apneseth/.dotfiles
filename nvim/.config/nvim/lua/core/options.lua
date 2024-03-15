@@ -44,6 +44,8 @@ local options = {
     iskeyword = o.iskeyword + "-", -- characters which are to be counted as 1 "word", added - for easily selecting variables e.g. foo-bar
     spell = true, -- Spellchecking
     spelllang = "en",
+    listchars = "tab:→ ,space:·,nbsp:␣,trail:•,eol:↵,precedes:«,extends:»",
+    list = false,
 }
 
 -- Apply options

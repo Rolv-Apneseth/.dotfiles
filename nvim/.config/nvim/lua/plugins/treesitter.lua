@@ -78,12 +78,12 @@ return {
             },
             keys = {
                 {
-                    "<leader>,",
+                    "<leader><",
                     ":lua require('sibling-swap').swap_with_left()<CR>",
                     desc = "Move node back",
                 },
                 {
-                    "<leader>.",
+                    "<leader>>",
                     ":lua require('sibling-swap').swap_with_right()<CR>",
                     desc = "Move node forward",
                 },

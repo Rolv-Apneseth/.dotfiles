@@ -101,6 +101,8 @@ return {
     whichkey = {
         -- Normal mode
         leader_n = {
+            ["<leader>"] = { "<C-^>", "Switch to recent buffer" },
+            ["."] = { "<cmd>set list!<CR>", "Toggle visibility of hidden chars" },
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
 
