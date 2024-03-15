@@ -85,7 +85,7 @@ return {
             },
             dap = {
                 adapter = require("rust-tools.dap").get_codelldb_adapter(
-                -- codelldb-bin installed from AUR
+                    -- codelldb-bin installed from AUR
                     "/usr/bin/codelldb",
                     "/usr/lib/codelldb/lldb/lib/liblldb.so"
                 ),

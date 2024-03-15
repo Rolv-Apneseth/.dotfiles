@@ -10,7 +10,7 @@ return {
         local cusor_timing =
             mini_animate.gen_timing.exponential({ -- exponential | linear | quadratic
                 duration = 100,
-                unit = "total",                   -- total | step
+                unit = "total", -- total | step
             })
 
         mini_animate.setup({

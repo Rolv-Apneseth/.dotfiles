@@ -38,7 +38,7 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Copy and paste
 keymap("v", "p", '"_dP', opts) -- override default yank paste behaviour
-keymap("n", "Y", "y$", opts)   -- make Y behave as expected
+keymap("n", "Y", "y$", opts) -- make Y behave as expected
 
 -- Keep cursor centered
 keymap("n", "n", "nzzzv", opts)
@@ -56,11 +56,11 @@ end
 -----------------------------------------------------------------------------------------
 return {
     lsp = {
-        { "gi",    "<cmd>lua vim.lsp.buf.implementation()<CR>" },
+        { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
         -- Set in ufo so it can also be used for previewing folds
         --[[ { "K",     "<cmd>lua vim.lsp.buf.hover()<CR>" }, ]]
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
-        { "gR",    "<cmd>lua vim.lsp.buf.rename()<CR>" },
+        { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
         {
             "[d",
             '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
@@ -190,11 +190,11 @@ return {
             z = {
                 name = "zk",
                 n = {
-                    "<Cmd>'<,'>ZkNewFromTitleSelection { dir = 'program' }<CR>",
+                    ":'<,'>ZkNewFromTitleSelection { dir = 'program' }<CR>",
                     "New note with current selection as title",
                 },
                 N = {
-                    "<Cmd>'<,'>ZkNewFromContentSelection { dir = 'program', title = vim.fn.input('Title: ') }<CR>",
+                    ":'<,'>ZkNewFromContentSelection { dir = 'program', title = vim.fn.input('Title: ') }<CR>",
                     "New note with current selection as content",
                 },
             },

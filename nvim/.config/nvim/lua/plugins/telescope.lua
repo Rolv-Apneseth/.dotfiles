@@ -32,7 +32,7 @@ return {
             pickers = {},
             extensions = {
                 recent_files = {
-                    only_cwd = false,   -- only files in the cwd
+                    only_cwd = false, -- only files in the cwd
                     start_files = true, -- checks if files exist before being shown in the picker
                 },
                 undo = {
@@ -75,7 +75,7 @@ return {
     end,
     keys = {
         { "<leader>f", ":Telescope find_files<CR>", desc = "Find file" },
-        { "<leader>/", ":Telescope live_grep<CR>",  desc = "Live grep" },
-        { "<leader>u", ":Telescope undo<CR>",       desc = "Undo tree" },
+        { "<leader>/", ":Telescope live_grep<CR>", desc = "Live grep" },
+        { "<leader>u", ":Telescope undo<CR>", desc = "Undo tree" },
     },
 }

@@ -17,8 +17,8 @@ handlers.capabilities = cmp_nvim_lsp.default_capabilities(handlers.capabilities)
 handlers.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
         {
             name = "DiagnosticSignInfo",
             text = icons.diagnostics.Information,
