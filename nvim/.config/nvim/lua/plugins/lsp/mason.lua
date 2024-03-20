@@ -85,7 +85,7 @@ return {
                     settings = {
                         Lua = {
                             formatting = {
-                                enable = false,
+                                enabled = false,
                             },
                             completion = {
                                 callSnippet = "Replace",
