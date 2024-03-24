@@ -2,6 +2,7 @@ PLUGINS = {
     "Reledia/glow.yazi",
     "DreamMaoMao/keyjump.yazi",
     "Sonico98/exifaudio.yazi",
+    "ndtoan96/ouch.yazi",
     "Rolv-Apneseth/starship.yazi",
 }
 PLUGINS_DIR = "/home/rolv/.config/yazi/plugins/"
