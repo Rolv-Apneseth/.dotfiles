@@ -170,7 +170,7 @@ return {
                     view = nil, -- when nil, use defaults from documentation
                     opts = {}, -- merged with defaults from documentation
                 },
-                signature = { enabled = false },
+                signature = { enabled = true },
                 message = {
                     -- Messages shown by lsp servers
                     enabled = false,
