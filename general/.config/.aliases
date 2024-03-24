@@ -24,6 +24,7 @@ alias nvim="env TERM=wezterm nvim"
 alias n="nvim"
 alias lg="lazygit"
 alias mc="macchina"
+alias js="just"
 
 # Avoid $HOME/.wget-hsts file
 alias wget=wget --hsts-file='$XDG_DATA_HOME/wget-hsts'
