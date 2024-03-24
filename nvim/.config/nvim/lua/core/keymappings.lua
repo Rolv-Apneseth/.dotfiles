@@ -24,7 +24,7 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 keymap("n", "L", ":bnext<CR>", opts)
 keymap("n", "H", ":bprevious<CR>", opts)
 
--- Indent mode persistance
+-- Indent mode persistence
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
@@ -58,7 +58,7 @@ return {
     lsp = {
         { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
         -- Set in ufo so it can also be used for previewing folds
-        --[[ { "K",     "<cmd>lua vim.lsp.buf.hover()<CR>" }, ]]
+        { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
         { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
         {
