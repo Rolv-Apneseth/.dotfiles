@@ -81,19 +81,8 @@ return {
             server = vim.split(server, "@")[1]
 
             if server == "lua_ls" then
-                lspconfig.lua_ls.setup({
-                    settings = {
-                        Lua = {
-                            formatting = {
-                                enabled = false,
-                            },
-                            completion = {
-                                callSnippet = "Replace",
-                            },
-                        },
-                    },
-                })
-                goto continue
+                local lua_opts = require("plugins.lsp.settings.lua_ls")
+                opts = vim.tbl_deep_extend("force", lua_opts, opts)
             end
 
             if server == "tsserver" then
