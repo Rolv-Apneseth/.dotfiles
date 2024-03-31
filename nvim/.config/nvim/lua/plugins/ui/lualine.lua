@@ -23,7 +23,7 @@ return {
                 "filetype",
                 {
                     function()
-                        return " " .. require("grapple").key()
+                        return " " .. require("grapple").name_or_index()
                     end,
                     cond = require("grapple").exists,
                 },
