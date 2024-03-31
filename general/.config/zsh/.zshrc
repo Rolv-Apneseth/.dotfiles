@@ -36,8 +36,8 @@ bindkey -s '^n' 'nvim^M'
 
 # HISTORY
 HISTCONTROL=ignoreboth
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 HISTFILE="$HOME/.cache/.zsh_history"
 setopt SHARE_HISTORY
 # Remove older command from the history if a duplicate is to be added.
@@ -58,7 +58,6 @@ export _ZO_ECHO=1
 # PLUGINS
 zsh_add_plugin "jeffreytse/zsh-vi-mode"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-# zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zdharma-continuum/fast-syntax-highlighting"
 
 # ALIASES
