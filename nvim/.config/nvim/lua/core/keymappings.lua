@@ -57,7 +57,6 @@ end
 return {
     lsp = {
         { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
-        -- Set in ufo so it can also be used for previewing folds
         { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
         { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
@@ -129,19 +128,6 @@ return {
                 },
                 i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
                 t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
-            },
-            c = {
-                name = "Rust tools",
-                r = { "<cmd>RustRunnables<CR>", "Runnables" },
-                d = { "<cmd>RustDebuggables<CR>", "Debuggables" },
-                c = {
-                    "<cmd>RustOpenCargo<CR>",
-                    "Open Cargo.toml",
-                },
-                p = {
-                    "<cmd>RustParentModule<CR>",
-                    "Parent module",
-                },
             },
             d = {
                 name = "Debugging",
