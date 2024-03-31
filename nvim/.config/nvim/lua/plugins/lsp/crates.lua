@@ -5,14 +5,6 @@ return {
     tag = "stable",
     ft = { "toml", "rust" },
     config = function()
-        require_plugin("crates").setup({
-            -- Code actions via null_ls
-            null_ls = {
-                enabled = true,
-                name = "crates.nvim",
-            },
-        })
-
         -- Lazily add cmp source
         local cmp = require_plugin("cmp")
         if not cmp then
