@@ -1,11 +1,11 @@
 # ON CHANGED PWD
 do_ls() {
-	emulate -L zsh
-	ls
+    emulate -L zsh
+    ls
 }
 add-zsh-hook chpwd do_ls
 
 change_last_dir() {
-	last_dir -s # Calls custom script
+    last_dir -s # Calls custom script
 }
 add-zsh-hook chpwd change_last_dir

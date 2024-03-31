@@ -24,7 +24,7 @@ _comp_options+=(globdots)
 
 # Disable Ctrl+S to freeze terminal
 stty stop undef
-# Disable paste hightlight
+# Disable paste highlight
 zle_highlight=('paste:none')
 
 # Better time keyword output
@@ -70,11 +70,11 @@ eval "$(starship init zsh)"
 macchina
 
 # Kitty Shell Integration
-if test -n "$KITTY_INSTALLATION_DIR"; then
-	export KITTY_SHELL_INTEGRATION="enabled"
-	autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-	kitty-integration
-	unfunction kitty-integration
+if test "$KITTY_INSTALLATION_DIR" != ""; then
+    export KITTY_SHELL_INTEGRATION="enabled"
+    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+    kitty-integration
+    unfunction kitty-integration
 fi
 
 # HOOKS

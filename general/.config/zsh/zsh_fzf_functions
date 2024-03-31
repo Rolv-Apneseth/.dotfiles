@@ -1,52 +1,52 @@
 # Edit file
 function e() {
-	if [ $# -eq 0 ]; then
-		fzf |
-			xargs --no-run-if-empty --delimiter="\n" $EDITOR
-	else
-		fzf --query $1 |
-			xargs --no-run-if-empty --delimiter="\n" $EDITOR
-	fi
+    if [ $# -eq 0 ]; then
+        fzf |
+        xargs --no-run-if-empty --delimiter="\n" "$EDITOR"
+    else
+        fzf --query "$1" |
+        xargs --no-run-if-empty --delimiter="\n" "$EDITOR"
+    fi
 }
 
 # Kill process
 function k() {
-	ps -f -u $UID |
-		sed 1d |
-		cut -c 10- |
-		fzf |
-		awk '{print $1}' |
-		xargs --no-run-if-empty kill -${1:-9}
+    ps -f -u "$UID" |
+    sed 1d |
+    cut -c 10- |
+    fzf |
+    awk '{print $1}' |
+    xargs --no-run-if-empty kill -"${1:-9}"
 }
 
 # PARU
 # Remove installed package with paru
 function fpr() {
-	paru -Qq |
-		fzf -q "$1" -m --preview 'paru -Qi {1}' --preview-window 'right:80%,wrap,<100(right:50%)' |
-		xargs --no-run-if-empty --open-tty paru -Rns
+    paru -Qq |
+    fzf -q "$1" -m --preview 'paru -Qi {1}' --preview-window 'right:80%,wrap,<100(right:50%)' |
+    xargs --no-run-if-empty --open-tty paru -Rns
 }
 
 # Install package from paru
 function fpi() {
-	paru -Slq |
-		fzf -q "$1" -m --preview 'paru -Si {1}' --preview-window 'right:80%,wrap,<100(right:50%)' |
-		xargs --no-run-if-empty --open-tty paru -S
+    paru -Slq |
+    fzf -q "$1" -m --preview 'paru -Si {1}' --preview-window 'right:80%,wrap,<100(right:50%)' |
+    xargs --no-run-if-empty --open-tty paru -S
 }
 
 # GIT
 # Checkout branch
 function fbr() {
-	git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)" |
-		fzf -0 --preview='git log -50 --color=always --format="%C(auto)%h %s %C(black)%C(bold)%cr" {}' |
-		xargs --no-run-if-empty git checkout
+    git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)" |
+    fzf -0 --preview='git log -50 --color=always --format="%C(auto)%h %s %C(black)%C(bold)%cr" {}' |
+    xargs --no-run-if-empty git checkout
 }
 
 # Show commits and copy to clipboard if one is selected
 function fco() {
-	git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@" |
-		fzf -0 --no-sort --reverse --tiebreak=index --no-multi \
-			--ansi --preview="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always %'" |
-		# WAYLAND, use `xclip` instead of `wl-copy` for XORG
-		xargs --no-run-if-empty --delimiter="\n" wl-copy
+    git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@" |
+    fzf -0 --no-sort --reverse --tiebreak=index --no-multi \
+        --ansi --preview="echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always %'" |
+    # WAYLAND, use `xclip` instead of `wl-copy` for XORG
+    xargs --no-run-if-empty --delimiter="\n" wl-copy
 }
