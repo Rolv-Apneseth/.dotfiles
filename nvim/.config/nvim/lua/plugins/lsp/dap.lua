@@ -4,6 +4,7 @@ return {
     "mfussenegger/nvim-dap",
     event = "LspAttach",
     dependencies = {
+        "nvim-neotest/nvim-nio",
         "rcarriga/nvim-dap-ui",
         "theHamsta/nvim-dap-virtual-text",
     },
@@ -29,7 +30,7 @@ return {
                 type = "codelldb",
                 request = "launch",
                 program = function()
-                    return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                    return vim.fn.input("Path to executable: " .. vim.fn.getcwd() .. "/" .. "file")
                 end,
                 cwd = "${workspaceFolder}",
                 stopOnEntry = false,
