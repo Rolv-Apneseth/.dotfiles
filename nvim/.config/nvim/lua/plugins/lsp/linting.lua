@@ -4,7 +4,7 @@
 local constants = require("core.constants")
 local require_plugin = require("core.helpers").require_plugin
 
-local JS_LINTERS = { "eslint_d" }
+local JS_LINTERS = { "eslint" }
 
 return {
     "mfussenegger/nvim-lint",
