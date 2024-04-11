@@ -2,9 +2,21 @@ local require_plugin = require("core.helpers").require_plugin
 
 return {
     "saecki/crates.nvim", -- For managing Cargo dependencies
-    tag = "stable",
-    ft = { "toml", "rust" },
+    event = { "BufRead Cargo.toml" },
     config = function()
+        local crates = require_plugin("crates")
+        if not crates then
+            return
+        end
+        crates.setup({
+            lsp = {
+                enabled = true,
+                actions = true,
+                completion = true,
+                hover = true,
+            },
+        })
+
         -- Lazily add cmp source
         local cmp = require_plugin("cmp")
         if not cmp then
