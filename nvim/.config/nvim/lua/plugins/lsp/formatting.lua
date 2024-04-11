@@ -68,6 +68,13 @@ return {
                     "MD013", -- line-length
                 },
             },
+            rustfmt = {
+                command = "leptosfmt",
+                args = {
+                    "--stdin",
+                    "--rustfmt",
+                },
+            },
             stylua = {
                 prepend_args = {
                     "--column-width",
