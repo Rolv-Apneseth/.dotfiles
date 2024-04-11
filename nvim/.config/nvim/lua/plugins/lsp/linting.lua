@@ -33,8 +33,6 @@ return {
             javascriptreact = JS_LINTERS,
             typescript = JS_LINTERS,
             typescriptreact = JS_LINTERS,
-            css = JS_LINTERS,
-            scss = JS_LINTERS,
             html = vim.tbl_extend("keep", { "tidy" }, JS_LINTERS),
         }
 
@@ -44,12 +42,6 @@ return {
             constants.LINE_LENGTH,
             "--ignore",
             "E203, E266, E501, W503",
-        }
-
-        -- MARKDOWNLINT
-        lint.linters.markdownlint.args = {
-            "--disable",
-            "MD013", -- line-length
         }
     end,
 }
