@@ -1,0 +1,189 @@
+matches:
+  - trigger: ";espanso"
+    replace: "Hi there!"
+  - trigger: ";np"
+    replace: "No problem"
+  - trigger: ";ty"
+    replace: "thank you"
+  - trigger: ";Ty"
+    replace: "Thank you"
+  - trigger: ";kr"
+    replace: "Kind regards,"
+  - trigger: ";lorem"
+    replace: "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua."
+
+  # DATE -------------------------------------------------------------------------------------------
+  - trigger: ";date"
+    replace: "{{out}}"
+    vars:
+      - name: out
+        type: date
+        params:
+          format: "%d/%m/%Y"
+  - trigger: ";dow"
+    replace: "{{out}}"
+    vars:
+      - name: out
+        type: date
+        params:
+          format: "%A"
+  - trigger: ";week"
+    replace: "{{out}}"
+    vars:
+      - name: out
+        type: date
+        params:
+          format: "%W"
+  - trigger: ";month"
+    replace: "{{out}}"
+    vars:
+      - name: out
+        type: date
+        params:
+          format: "%B"
+  - trigger: ";tz"
+    replace: "{{out}}"
+    vars:
+      - name: out
+        type: date
+        params:
+          format: "%Z"
+  - trigger: ";iso"
+    replace: "{{out}}"
+    vars:
+      - name: out
+        type: date
+        params:
+          format: "%Y-%m-%dT%T%z"
+
+  # IP -------------------------------------------------------------------------------------------
+  - trigger: ";ip4"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl https://api.ipify.org"
+
+  - trigger: ";ip6"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl https://api64.ipify.org"
+
+  # SYSTEM -----------------------------------------------------------------------------------------
+  - trigger: ";user"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "whoami"
+  - trigger: ";host"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "hostnamectl hostname"
+  - trigger: ";kernel"
+    replace: "Linux {{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "uname -r"
+  - trigger: ";locale"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $LANG"
+
+  # PERSONAL ---------------------------------------------------------------------------------------
+  - trigger: ";name"
+    replace: "Rolv Apneseth"
+  - trigger: ";email"
+    replace: "rolv.apneseth@gmail.com"
+  - trigger: ";web"
+    replace: "https://rolvapneseth.xyz"
+  - trigger: ";gh"
+    replace: "https://github.com/Rolv-Apneseth"
+  - trigger: ";linked"
+    replace: "https://www.linkedin.com/in/rolv-apneseth-6b47401b5"
+
+  # SYMBOLS ----------------------------------------------------------------------------------------
+  - trigger: ";copyright"
+    replace: "©"
+  # Arrows
+  - trigger: ";arrowr"
+    replace: "→"
+  - trigger: ";arrowl"
+    replace: "←"
+  - trigger: ";arrowu"
+    replace: "↑"
+  - trigger: ";arrowd"
+    replace: "↓"
+  # Currency
+  - trigger: ";eur"
+    replace: "€"
+  - trigger: ";gbp"
+    replace: "£"
+  - trigger: ";usd"
+    replace: "$"
+  - trigger: ";btc"
+    replace: "฿"
+
+  # DICE -------------------------------------------------------------------------------------------
+  - trigger: ";d2"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "1"
+            - "2"
+  - trigger: ";d3"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "1"
+            - "2"
+            - "3"
+  - trigger: ";d6"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "1"
+            - "2"
+            - "3"
+            - "4"
+            - "5"
+            - "6"
+  - trigger: ";d10"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "1"
+            - "2"
+            - "3"
+            - "4"
+            - "5"
+            - "6"
+            - "7"
+            - "8"
+            - "9"
+            - "10"
