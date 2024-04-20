@@ -140,6 +140,7 @@ bind = $M, G, exec, "$BROWSER" https://github.com/Rolv-Apneseth
 # Windows
 bind = $M, W, killactive,
 bind = $M, Space, fullscreen,
+bind = $MS, Space, layoutmsg, orientationcycle left top
 
 # Window resize submap
 bind=$A,R,submap,resize
