@@ -16,9 +16,6 @@ keymap = [
 	{ on = [ "h" ], run = [ "leave", "escape --visual --select" ], desc = "Go back to the parent directory" },
 	{ on = [ "l" ], run = [ "enter", "escape --visual --select" ], desc = "Enter the child directory" },
 
-	{ on = [ "H" ], run = "back",    desc = "Go back to the previous directory" },
-	{ on = [ "L" ], run = "forward", desc = "Go forward to the next directory" },
-
 	{ on = [ "<A-k>" ], run = "seek -5", desc = "Peek up 5 units in the preview" },
 	{ on = [ "<A-j>" ], run = "seek 5",  desc = "Peek down 5 units in the preview" },
 
@@ -54,8 +51,6 @@ keymap = [
 	{ on = [ "s" ],         run = "search fd",                                            desc = "Search files by name using fd" },
 	{ on = [ "S" ],         run = "search rg",                                            desc = "Search files by content using ripgrep" },
 	{ on = [ "<C-s>" ],     run = "search none",                                          desc = "Cancel the ongoing search" },
-	{ on = [ "z" ],         run = "plugin zoxide",                                          desc = "Jump to a directory using zoxide" },
-	{ on = [ "Z" ],         run = "plugin fzf",                                             desc = "Jump to a directory, or reveal a file using fzf" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "size" },
@@ -273,3 +268,48 @@ desc = "Keyjump (Normal mode)"
 on   = [ "I" ]
 run  = "plugin keyjump --args=keep"
 desc = "Keyjump (Keep mode)"
+
+# BOOKMARKS
+[[manager.prepend_keymap]]
+on = [ "m" ]
+run = "plugin bookmarks --args=save"
+desc = "Save current position as a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "'" ]
+run = "plugin bookmarks --args=jump"
+desc = "Jump to a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "b", "d" ]
+run = "plugin bookmarks --args=delete"
+desc = "Delete a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "b", "D" ]
+run = "plugin bookmarks --args=delete_all"
+desc = "Delete all bookmarks"
+
+# BYPASS
+[[manager.prepend_keymap]]
+on = [ "L" ]
+run = "plugin bypass --args=smart_enter"
+desc = "Skip directories with just a single sub directory"
+[[manager.prepend_keymap]]
+on = [ "H" ]
+run = "plugin bypass --args=reverse"
+desc = "Skip directories with just a single sub directory"
+
+# FG
+[[manager.prepend_keymap]]
+on   = [ "z","z" ]
+run  = "plugin zoxide"
+desc = "Jump to dir"
+[[manager.prepend_keymap]]
+on   = [ "z","f" ]
+run  = "plugin fg --args='fzf'"
+desc = "Jump to file"
+[[manager.prepend_keymap]]
+on   = [ "z","g" ]
+run  = "plugin fg"
+desc = "Jump to file (content)"

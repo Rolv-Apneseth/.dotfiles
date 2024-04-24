@@ -3,6 +3,9 @@ PLUGINS = {
     "DreamMaoMao/keyjump.yazi",
     "Sonico98/exifaudio.yazi",
     "ndtoan96/ouch.yazi",
+    "dedukun/bookmarks.yazi",
+    "DreamMaoMao/fg.yazi",
+    "Rolv-Apneseth/bypass.yazi",
     "Rolv-Apneseth/starship.yazi",
 }
 PLUGINS_DIR = "/home/rolv/.config/yazi/plugins/"
@@ -70,8 +73,19 @@ if DELETE_OLD_PLUGINS then
     pfile:close()
 end
 
--- SETUP/CONFIG
+-- PLUGIN SETUP/CONFIG
 require("starship"):setup()
+require("bookmarks"):setup({
+    notify = {
+        enable = true,
+        timeout = 1,
+        message = {
+            new = " Created bookmark '<key>'",
+            delete = "󰧌 Deleted bookmark '<key>'",
+            delete_all = "󰧌 Deleted all bookmarks",
+        },
+    },
+})
 
 -- OVERRIDE DEFAULT UI
 -- Give some extra space for footer and header + cool columns
