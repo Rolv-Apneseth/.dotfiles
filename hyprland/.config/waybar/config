@@ -6,6 +6,7 @@
     "margin-left": 0,
     "margin-right": 0,
     "modules-left": [
+        "battery",
         "pulseaudio",
         "custom/sep",
         "cpu",
@@ -35,6 +36,10 @@
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "on-click": "activate"
+    },
+    "battery": {
+        "format": "{capacity}% @ {power}W | ",
+        "format-icons": ["", "", "", "", ""],
     },
     "tray": {
         "spacing": 10
@@ -71,8 +76,8 @@
         "format": "󰍛  {percentage}%"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 {volume}%",
+        "format": "{icon} {volume}% ",
+        "format-muted": "󰝟 {volume}% ",
         "format-icons": {
             "default": ["", "", ""]
         },
