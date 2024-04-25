@@ -91,11 +91,12 @@ return {
             dashboard.button("f", "󰈞  Find file", ":Telescope find_files<CR>"),
             dashboard.button(
                 "r",
-                "  Recent",
+                "󰚸  Recent",
                 ":lua require('telescope').extensions.recent_files.pick()<CR>"
             ),
-            dashboard.button("z", "󰚸  Notes", ":ZkNotes<CR>"),
+            dashboard.button("z", "  Notes", ":ZkNotes<CR>"),
             dashboard.button("'", "  Session", ':lua require("persistence").load()<CR>'),
+            dashboard.button("l", "  Lazy", ":Lazy<CR>"),
             dashboard.button("s", "  Config", ":e $HOME/.config/nvim/<CR>"),
             dashboard.button("q", "󰅚  Quit", ":qa<CR>"),
         }
