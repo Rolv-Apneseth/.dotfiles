@@ -56,23 +56,6 @@ matches:
         params:
           format: "%Y-%m-%dT%T%z"
 
-  # IP -------------------------------------------------------------------------------------------
-  - trigger: ";ip4"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "curl https://api.ipify.org"
-
-  - trigger: ";ip6"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "curl https://api64.ipify.org"
-
   # SYSTEM -----------------------------------------------------------------------------------------
   - trigger: ";user"
     replace: "{{output}}"
@@ -136,6 +119,57 @@ matches:
     replace: "$"
   - trigger: ";btc"
     replace: "฿"
+
+  # REQUESTS / APIS --------------------------------------------------------------------------------
+  # Random name
+  - trigger: ";Rname"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl 'https://randomuser.me/api/' | jq -r '.results[0].name.first, .results[0].name.last' | sd '\n' ' '"
+  # Random email
+  - trigger: ";Remail"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl 'https://randomuser.me/api/' | jq -r '.results[0].email'"
+  # Random username
+  - trigger: ";Ruser"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl 'https://randomuser.me/api/' | jq -r '.results[0].login.username'"
+
+  # IP
+  - trigger: ";ip4"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl https://api.ipify.org"
+  - trigger: ";ip6"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl https://api64.ipify.org"
+
+  # Norwegian government pension fund value
+  - trigger: ";fund"
+    replace: "{{output}} NOK"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl 'https://www.nbim.no/LiveNavHandler/Current.ashx?key=263c30dd-d5ba-41d6-a9b1-c1fb59cf30da' | jq -r .d.liveNavList[0].values[0].Value"
 
   # DICE -------------------------------------------------------------------------------------------
   - trigger: ";d2"
