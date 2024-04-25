@@ -95,6 +95,7 @@ return {
                 ":lua require('telescope').extensions.recent_files.pick()<CR>"
             ),
             dashboard.button("z", "󰚸  Notes", ":ZkNotes<CR>"),
+            dashboard.button("'", "  Session", ':lua require("persistence").load()<CR>'),
             dashboard.button("s", "  Config", ":e $HOME/.config/nvim/<CR>"),
             dashboard.button("q", "󰅚  Quit", ":qa<CR>"),
         }
