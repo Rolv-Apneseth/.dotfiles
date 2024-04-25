@@ -105,6 +105,7 @@ return {
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
 
+            c = { name = "Rust" },
             g = {
                 name = "Git",
                 g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
