@@ -2,3 +2,5 @@
 path = "/home/rolv/repos/Wallpapers/main/"
 duration = "30m"
 sorting = "random"
+transition_time = 400
+queue_size = 20
