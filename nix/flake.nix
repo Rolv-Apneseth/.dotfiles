@@ -18,7 +18,7 @@
       inherit system;
       specialArgs = {inherit inputs;};
       modules = [
-        ./host-nix-vm.nix
+        ./host-laptop.nix
         #./auto-upgrade.nix
         ./bootloader.nix
         ./configuration.nix
