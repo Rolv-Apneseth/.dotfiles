@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   boot.kernelParams = [
-    "quiet"
+    # "quiet"
+    "debug"
     #"fbcon=nodefer"
     #"vt.global_cursor_default=0"
     #"kernel.modules_disabled=1"
@@ -8,8 +9,8 @@
     #"usbcore.autosuspend=-1"
     #"video4linux"
     #"acpi_rev_override=5"
-    "security=selinux"
+    # "security=selinux"
   ];
 
-  systemd.package = pkgs.systemd.override {withSelinux = true;};
+  # systemd.package = pkgs.systemd.override {withSelinux = true;};
 }

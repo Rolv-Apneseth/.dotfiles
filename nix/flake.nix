@@ -2,7 +2,7 @@
   description = "My NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+	nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
   };
@@ -11,21 +11,21 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
-  in {
-    nixosConfigurations.nixos-rolv = nixpkgs.lib.nixosSystem {
+  } @ inputs: let system = "x86_64-linux";
+    in  {
+    nixosConfigurations.rolv = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+	      inherit inputs;
+      };
       modules = [
         ./host-laptop.nix
         #./auto-upgrade.nix
         ./bootloader.nix
         ./configuration.nix
         ./display-manager.nix
-        #./dns.nix
+        ./networking.nix
         ./env-variables.nix
-        ./firewall.nix
         ./fonts.nix
         #./gc.nix
         ./gnome.nix

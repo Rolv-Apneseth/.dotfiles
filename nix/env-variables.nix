@@ -1,15 +1,15 @@
 {pkgs, ...}: {
   environment.variables = {
     NODEJS_PATH = "${pkgs.nodePackages_latest.nodejs}/";
-  };
-
-  environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "firefox";
-    TERMINAL = "wezterm";
+    TERMINAL = "kitty";
     TERMINAL_EXECUTE = "$TERMINAL -e";
     TERMINAL_DIR = "$TERMINAL start --cwd";
+  };
+
+  environment.sessionVariables = {
 
     # Stowed dotfiles directory
     DOTFILES = "/home/rolv/.dotfiles";

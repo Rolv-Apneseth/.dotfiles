@@ -1,6 +1,7 @@
 {pkgs, ...}: {
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
+    wayland.enable = true;
   };
   #services.greetd = {
   #  enable = true;

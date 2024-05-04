@@ -25,6 +25,14 @@
     ];
   };
 
+
+
+qt = {
+  enable = true;
+  platformTheme = "gnome";
+  style = "adwaita-dark";
+};
+
   # Override packages
   nixpkgs.config.packageOverrides = pkgs: {
     colloid-icon-theme = pkgs.colloid-icon-theme.override {colorVariants = ["teal"];};

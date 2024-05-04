@@ -16,7 +16,7 @@
   #    apparmor-profiles
   #  ];
   #};
-  services.fail2ban.enable = true;
+  # services.fail2ban.enable = true;
   #security.polkit.enable = true;
   #environment.systemPackages = with pkgs; [
   #  libsForQt5.polkit-kde-agent

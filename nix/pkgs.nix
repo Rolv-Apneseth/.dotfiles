@@ -1,6 +1,17 @@
 {pkgs, ...}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # LD fix
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+  ];
+  # NH
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/user/my-nixos-config";
+  };
 
   services.mpd.enable = true;
 
@@ -15,12 +26,15 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+	nix-output-monitor
+	nvd
     alejandra
     bat
     curl
     dunst
     eza
     firefox
+    libgcc
     gcc
     git
     gnumake

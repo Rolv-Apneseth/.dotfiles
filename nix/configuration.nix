@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  networking.hostName = "nixos-rolv";
+  networking.hostName = "rolv";
   networking.networkmanager.enable = true;
 
   # Set your time zone.

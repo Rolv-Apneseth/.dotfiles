@@ -4,7 +4,6 @@
   #];
   #services.auto-cpufreq.enable = true;
 
-  programs.dconf.enable = true;
   services.dbus.enable = true;
   services.dbus.packages = with pkgs; [
   	xfce.xfconf

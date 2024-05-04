@@ -1,13 +1,12 @@
 {pkgs, ...}: {
   boot.initrd.enable = true;
   boot.initrd.systemd.enable = true;
-  boot.initrd.kernelModules = [ "amdgpu" ];
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 10;
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
 
   boot.plymouth = {
