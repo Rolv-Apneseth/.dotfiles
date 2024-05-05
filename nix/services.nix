@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   #systemd.packages = with pkgs; [
   #  auto-cpufreq
   #];
@@ -6,8 +7,8 @@
 
   services.dbus.enable = true;
   services.dbus.packages = with pkgs; [
-  	xfce.xfconf
-  	gnome2.GConf
+    xfce.xfconf
+    gnome2.GConf
   ];
   services.fwupd.enable = true;
 }

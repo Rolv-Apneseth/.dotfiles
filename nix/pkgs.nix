@@ -1,16 +1,16 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # LD fix
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-  ];
+  programs.nix-ld.libraries = with pkgs; [ ];
   # NH
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/user/my-nixos-config";
+    flake = "/home/rolv/.dotfiles/nix/";
   };
 
   services.mpd.enable = true;
@@ -26,8 +26,8 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-	nix-output-monitor
-	nvd
+    nix-output-monitor
+    nvd
     alejandra
     bat
     curl
@@ -49,8 +49,6 @@
     rustup
     starship
     stow
-    swww
-    swww
     thunderbird
     unzip
     vim
@@ -64,6 +62,17 @@
     yazi
     zoxide
     zsh
+    nixfmt-rfc-style
+    typos
+    stylua
+    shellharden
+    beautysh
+    wpaperd
+    python3
+    lazygit
+    fzf
+    haskellPackages.greenclip
+    age
     #(waybar.overrideAttrs (oldAtrrs: {
     #	mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     #})

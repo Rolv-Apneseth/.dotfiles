@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Enable Theme
   environment.variables.GTK_THEME = "Catppuccin-Macchiato-Standard-Teal-Dark";
   environment.variables.XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
@@ -25,19 +26,17 @@
     ];
   };
 
-
-
-qt = {
-  enable = true;
-  platformTheme = "gnome";
-  style = "adwaita-dark";
-};
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 
   # Override packages
   nixpkgs.config.packageOverrides = pkgs: {
-    colloid-icon-theme = pkgs.colloid-icon-theme.override {colorVariants = ["teal"];};
+    colloid-icon-theme = pkgs.colloid-icon-theme.override { colorVariants = [ "teal" ]; };
     catppuccin-gtk = pkgs.catppuccin-gtk.override {
-      accents = ["teal"]; # You can specify multiple accents here to output multiple themes
+      accents = [ "teal" ]; # You can specify multiple accents here to output multiple themes
       size = "standard";
       variant = "macchiato";
     };

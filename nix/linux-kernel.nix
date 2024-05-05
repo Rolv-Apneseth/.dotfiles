@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   boot.kernelParams = [
-    # "quiet"
-    "debug"
+    "quiet"
+    "nosgx"
     #"fbcon=nodefer"
     #"vt.global_cursor_default=0"
     #"kernel.modules_disabled=1"

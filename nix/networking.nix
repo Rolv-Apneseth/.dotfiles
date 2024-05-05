@@ -1,19 +1,21 @@
-{...}: {
+{ pkgs, ... }:
+{
   # Enable Encrypted DNS
   networking = {
-    nameservers = ["127.0.0.1" "::1"];
-    # If using dhcpcd:
-    dhcpcd.extraConfig = "nohook resolv.conf";
+    # nameservers = ["127.0.0.1" "::1"];
+    # # If using dhcpcd:
+    # dhcpcd.extraConfig = "nohook resolv.conf";
     firewall = {
-        enable = true;
+      enable = true;
     };
     networkmanager = {
-        enable = true;
+      enable = true;
     };
   };
 
   programs.nm-applet.enable = true;
 
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
   # services.dnscrypt-proxy2 = {
   #   enable = true;
   #   settings = {

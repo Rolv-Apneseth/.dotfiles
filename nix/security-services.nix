@@ -1,8 +1,5 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   #users.users.root.hashedPassword = "!";
   #security.tpm2 = {
   #  enable = true;
@@ -17,10 +14,14 @@
   #  ];
   #};
   # services.fail2ban.enable = true;
-  #security.polkit.enable = true;
-  #environment.systemPackages = with pkgs; [
-  #  libsForQt5.polkit-kde-agent
-  #];
+
+  environment.systemPackages = with pkgs; [
+    lxqt.lxqt-policykit
+    gnome.gnome-keyring
+    gnome.seahorse
+  ];
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.wayland.enableGnomeKeyring = true;
 
   #services.clamav = {
   #  daemon.enable = true;
