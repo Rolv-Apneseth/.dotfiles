@@ -5,6 +5,7 @@ cd || exit
 export _JAVA_AWT_WM_NONREPARENTING=1
 export WLR_NO_HARDWARE_CURSORS=1
 export XCURSOR_SIZE=24
+export XCURSOR_THEME=Bibata-Original-Classic
 export MOZ_ENABLE_WAYLAND=1
 export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_TYPE=wayland
