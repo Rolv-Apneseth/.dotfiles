@@ -34,6 +34,7 @@ local options = {
     scrolloff = 10, -- visible section will move when cursor is this many lines away from the edge of the viewport
     hidden = true, -- buffer remains open in background after being closed
     incsearch = true, -- highlight search pattern in real time
+    inccommand = 'split', -- show result of commands in real time
     linebreak = true, -- breaks lines only at characters in "breakat" ( ^I!@*-+;:,./?)
     fillchars = "eob: ", -- replaces ~ symbols with white space characters at the end of buffer
     whichwrap = "<>[]hl", -- set which left->right navigations can also move cursor up or down if at end/start of line
