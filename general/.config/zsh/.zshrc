@@ -1,6 +1,19 @@
 source "$ZDOTDIR/zsh_functions"
 source "$ZDOTDIR/zsh_fzf_functions"
 
+# ZINIT
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname "$ZINIT_HOME")"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source/Load zinit
+add_file "${ZINIT_HOME}/zinit.zsh"
+
 # MISC
 # Automatically add directory to stack when using `cd`. Use the commands
 # `pushd`, `popd` and `dirs -v` to use the stack.
@@ -15,12 +28,17 @@ setopt correct
 # Enable colours
 autoload -U colors && colors
 
+# Completion styling
+eval "$(dircolors "$XDG_CONFIG_HOME"/.dircolors)"
+
 # Basic auto/tab complete:
-autoload -U compinit
+autoload -Uz compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+zinit cdreplay -q
 
 # Disable Ctrl+S to freeze terminal
 stty stop undef
@@ -30,52 +48,53 @@ zle_highlight=('paste:none')
 # Better time keyword output
 export TIMEFMT=$'%J\n\n%*Es total\n%U user cpu\n%S system cpu\n%P cpu\n%MKB max mem'
 
-# KEYBINDINGS
-bindkey -s '^s' 'dua i^M'
-bindkey -s '^n' 'nvim^M'
-
 # HISTORY
 HISTCONTROL=ignoreboth
 HISTSIZE=50000
-SAVEHIST=50000
+SAVEHIST=$HISTSIZE
 HISTFILE="$HOME/.cache/.zsh_history"
+HISTDUP=erase
+setopt APPEND_HISTORY
 setopt SHARE_HISTORY
-# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 
-# FZF
-add_file "/usr/share/fzf/completion.zsh"
-add_file "/usr/share/fzf/key-bindings.zsh"
-add_file "/usr/share/doc/fzf/examples/completion.zsh"
-add_file "/usr/share/doc/fzf/examples/key-bindings.zsh"
-add_file "~/.fzf.zsh"
-add_file "$ZDOTDIR/completion/_fnm"
+# KEYBINDINGS
+bindkey -s '^o' 'dua i^M'
 
-# ZOXIDE
+# Edit current command
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd "^F" edit-command-line
+bindkey '^x^e' edit-command-line # Also add in standard Ctrl+x Ctrl+e
+
+# INTEGRATIONS
+# fzf
+eval "$(fzf --zsh)"
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls $realpath'
+# zoxide
 eval "$(zoxide init zsh --cmd j)"
 export _ZO_ECHO=1
+# starship
+eval "$(starship init zsh)"
 
 # PLUGINS
-zsh_add_plugin "jeffreytse/zsh-vi-mode"
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zdharma-continuum/fast-syntax-highlighting"
+zinit light "Aloxaf/fzf-tab"
+zinit light "jeffreytse/zsh-vi-mode"
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "zdharma-continuum/fast-syntax-highlighting"
+
+# SNIPPETS
+zinit snippet OMZP::git
 
 # ALIASES
-# Note: some sketchy aliases are used in my .aliases file so check
-# there first when there's a problem
 add_file "$HOME/.config/.aliases"
-
-# RICE
-eval "$(starship init zsh)"
-macchina
-
-# Kitty Shell Integration
-if test "$KITTY_INSTALLATION_DIR" != ""; then
-    export KITTY_SHELL_INTEGRATION="enabled"
-    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-    kitty-integration
-    unfunction kitty-integration
-fi
 
 # HOOKS
 zsh_add_file "zsh_hooks"
+
+# RICE
+macchina
