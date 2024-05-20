@@ -9,7 +9,19 @@ return {
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "JoosepAlviste/nvim-ts-context-commentstring",
-        "windwp/nvim-ts-autotag",
+
+        {
+            -- Auto-tags for html, jsx, etc.
+            "windwp/nvim-ts-autotag",
+            opts = {
+                opts = {
+                    -- Defaults
+                    enable_close = true, -- Auto close tags
+                    enable_rename = true, -- Auto rename pairs of tags
+                    enable_close_on_slash = false, -- Auto close on trailing </
+                },
+            },
+        },
 
         {
             "windwp/nvim-autopairs", -- auto pair brackets, quotations etc.
@@ -109,10 +121,6 @@ return {
         -- EXTENSIONS
         -- Autopair brackets, strings etc. (windwp/nvim-autopairs)
         autopairs = {
-            enable = true,
-        },
-        -- Auto-tags for html etc.
-        autotag = {
             enable = true,
         },
         -- Text objects (nvim-treesitter/nvim-treesitter-textobjects)
