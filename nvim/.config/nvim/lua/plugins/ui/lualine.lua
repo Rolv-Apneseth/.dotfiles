@@ -25,7 +25,9 @@ return {
                     function()
                         return " " .. require("grapple").name_or_index()
                     end,
-                    cond = require("grapple").exists,
+                    cond = function()
+                        return package.loaded["grapple"] and require("grapple").exists()
+                    end,
                 },
             },
             lualine_c = {},
