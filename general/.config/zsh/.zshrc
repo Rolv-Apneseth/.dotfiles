@@ -80,6 +80,8 @@ eval "$(zoxide init zsh --cmd j)"
 export _ZO_ECHO=1
 # starship
 eval "$(starship init zsh)"
+# nvm
+source /usr/share/nvm/init-nvm.sh
 
 # PLUGINS
 zinit light "Aloxaf/fzf-tab"
