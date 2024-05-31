@@ -2,7 +2,7 @@ local require_plugin = require("core.helpers").require_plugin
 local icons = require("core.icons")
 
 return {
-    "williamboman/mason.nvim",
+    "williamboman/mason.nvim", -- Managing + installing LSP servers and more
     dependencies = {
         "neovim/nvim-lspconfig",
         "williamboman/mason-lspconfig.nvim",
@@ -17,7 +17,7 @@ return {
                     enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
                     runtime = true, -- runtime path
                     types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-                    plugins = { "nvim-dap-ui" }, -- installed opt or start plugins in packpath
+                    plugins = true, -- installed opt or start plugins in packpath
                 },
                 setup_jsonls = true, -- configures jsonls to provide completion for project specific .luarc.json files
                 lspconfig = true,
@@ -34,7 +34,7 @@ return {
             return
         end
 
-        local handlers = require("plugins.lsp.utils.handlers")
+        local handlers = require("plugins.code.utils.handlers")
         handlers.setup()
 
         local servers = {
@@ -81,22 +81,22 @@ return {
             server = vim.split(server, "@")[1]
 
             if server == "lua_ls" then
-                local lua_opts = require("plugins.lsp.settings.lua_ls")
+                local lua_opts = require("plugins.code.settings.lua_ls")
                 opts = vim.tbl_deep_extend("force", lua_opts, opts)
             end
 
             if server == "tsserver" then
-                local tsserver_opts = require("plugins.lsp.settings.tsserver")
+                local tsserver_opts = require("plugins.code.settings.tsserver")
                 opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
             end
 
             if server == "pyright" then
-                local pyright_opts = require("plugins.lsp.settings.pyright")
+                local pyright_opts = require("plugins.code.settings.pyright")
                 opts = vim.tbl_deep_extend("force", pyright_opts, opts)
             end
 
             if server == "emmet_ls" then
-                local emmet_ls_opts = require("plugins.lsp.settings.emmet_ls")
+                local emmet_ls_opts = require("plugins.code.settings.emmet_ls")
                 opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
             end
 
@@ -106,7 +106,7 @@ return {
             end
 
             if server == "omnisharp" then
-                local omnisharp_opts = require("plugins.lsp.settings.omnisharp")
+                local omnisharp_opts = require("plugins.code.settings.omnisharp")
                 opts = vim.tbl_deep_extend("force", omnisharp_opts, opts)
             end
 

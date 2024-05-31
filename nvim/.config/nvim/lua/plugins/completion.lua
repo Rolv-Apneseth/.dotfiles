@@ -151,7 +151,7 @@ return {
                     vim_item.kind = kind_icons[vim_item.kind]
 
                     if entry.source.name == "crates" then
-                        vim_item.kind = icons.misc.Package
+                        vim_item.kind = icons.ui.Package
                         vim_item.kind_hl_group = "CmpItemKindCrate"
                     end
 

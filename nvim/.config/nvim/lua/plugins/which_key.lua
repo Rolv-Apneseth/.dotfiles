@@ -1,6 +1,6 @@
 local require_plugin = require("core.helpers").require_plugin
 local keymaps = require("core.keymappings").whichkey
-local icons = require("core.icons").misc
+local icons = require("core.icons")
 
 return {
     "folke/which-key.nvim", -- for showing shortcuts
@@ -37,9 +37,9 @@ return {
                 },
             },
             icons = {
-                breadcrumb = icons.Next, -- symbol used in the command line area that shows your active key combo
-                separator = icons.Arrow, -- symbol used between a key and it's label
-                group = icons.Plus, -- symbol prepended to a group
+                breadcrumb = icons.misc.Next, -- symbol used in the command line area that shows your active key combo
+                separator = icons.ui.Next, -- symbol used between a key and it's label
+                group = icons.misc.Plus, -- symbol prepended to a group
             },
             popup_mappings = {
                 scroll_down = "<c-d>", -- binding to scroll down inside the popup
@@ -55,7 +55,7 @@ return {
             layout = {
                 height = { min = 4, max = 25 }, -- min and max height of the columns
                 width = { min = 20, max = 50 }, -- min and max width of the columns
-                spacing = 3, -- spacing between columns
+                spacing = 1, -- spacing between columns
                 align = "left", -- align columns left, center or right
             },
             ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label

@@ -83,7 +83,11 @@ end
 handlers.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
 
-    vim.notify(client)
+    -- Native inlay hints
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true)
+    end
+
     for _, server in pairs(servers_to_disable_formatting) do
         if client.name == server then
             client.server_capabilities.documentFormattingProvider = false

@@ -28,10 +28,9 @@ return {
             },
             server = {
                 on_attach = function(client, bufnr)
-                    -- TODO: use native inlay hints
-                    require("plugins.lsp.utils.handlers").on_attach(client, bufnr)
+                    require("plugins.code.utils.handlers").on_attach(client, bufnr)
                 end,
-                capabilities = require("plugins.lsp.utils.handlers").capabilities,
+                capabilities = require("plugins.code.utils.handlers").capabilities,
                 settings = {
                     ["rust-analyzer"] = {
                         lens = {

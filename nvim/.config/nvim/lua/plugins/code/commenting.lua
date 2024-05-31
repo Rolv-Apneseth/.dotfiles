@@ -1,6 +1,20 @@
+-- TODO: use built-in commenting (see https://github.com/numToStr/Comment.nvim/issues/453)
 return {
     {
         "numToStr/Comment.nvim", -- comment out lines
+        dependencies = {
+            {
+                "JoosepAlviste/nvim-ts-context-commentstring", -- different comment string based on context under the cursor
+                event = "VeryLazy",
+                init = function()
+                    -- Skip backwards compatibility routines
+                    vim.g.skip_ts_context_commentstring_module = true
+                end,
+                opts = {
+                    enable_autocmd = false,
+                },
+            },
+        },
         opts = {
             ---Add a space b/w comment and the line
             padding = true,
