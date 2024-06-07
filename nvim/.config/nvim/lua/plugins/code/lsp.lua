@@ -10,18 +10,27 @@ return {
 
         {
             -- Here because it must be loaded before the lua lsp setup
-            "folke/neodev.nvim", -- neovim lua setup
-            ft = { "lua", "vim" },
+            "folke/lazydev.nvim", -- LuaLS setup for editing Neovim config
+            ft = "lua",
+            dependencies = {
+                { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+                { -- optional completion source for require statements and module annotations
+                    "hrsh7th/nvim-cmp",
+                    opts = function(_, opts)
+                        opts.sources = opts.sources or {}
+                        table.insert(opts.sources, {
+                            name = "lazydev",
+                            group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+                        })
+                    end,
+                },
+            },
             opts = {
                 library = {
-                    enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
-                    runtime = true, -- runtime path
-                    types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-                    plugins = true, -- installed opt or start plugins in packpath
+                    -- See the configuration section for more details
+                    -- Load luvit types when the `vim.uv` word is found
+                    { path = "luvit-meta/library", words = { "vim%.uv" } },
                 },
-                setup_jsonls = true, -- configures jsonls to provide completion for project specific .luarc.json files
-                lspconfig = true,
-                pathStrict = true,
             },
         },
     },
