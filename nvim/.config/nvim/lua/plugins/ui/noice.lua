@@ -14,6 +14,10 @@ return {
         noice.setup({
             routes = {
                 {
+                    view = "notify",
+                    filter = { event = "msg_showmode" },
+                },
+                {
                     filter = {
                         -- Clean up some of the noise
                         any = {
@@ -225,5 +229,6 @@ return {
     requires = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
+        "hrsh7th/nvim-cmp",
     },
 }
