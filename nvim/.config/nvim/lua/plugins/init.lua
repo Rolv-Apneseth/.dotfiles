@@ -6,8 +6,14 @@ return {
     "MunifTanjim/nui.nvim", -- ui component library
 
     -- Misc
-    "lambdalisue/suda.vim", -- sudo read and write for editing a file without running `sudo nvim`
     "famiu/bufdelete.nvim", -- delete buffers without changing window layout, and provides useful events for autocommands
+    {
+        "lambdalisue/suda.vim", -- sudo read and write for editing a file without running `sudo nvim`
+        init = function()
+            -- automatically switch a buffer name when the target file is not readable or writable
+            vim.g.suda_smart_edit = 1
+        end,
+    },
     {
         "NoahTheDuke/vim-just", -- syntax highlighting for `justfile`
         ft = { "just" },
