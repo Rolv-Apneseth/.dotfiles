@@ -1,4 +1,8 @@
-#!/bin/env bash
+#!/usr/bin/env bash
+########################################################################################
+# AUTHOR: Rolv-Apneseth (https://github.com/Rolv-Apneseth)
+# LICENSE: MIT
+########################################################################################
 
 TABLE_URL="https://eu.tamrieltradecentre.com/download/PriceTable"
 ARCHIVE_LOCATION="$HOME/.cache/PriceTable.zip"

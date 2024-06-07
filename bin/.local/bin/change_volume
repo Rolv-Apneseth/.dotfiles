@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # ------------------------------------------------------------------
 # Quick script for changing volume using pactl and displaying notifications with
 # dunstify (dunst)
