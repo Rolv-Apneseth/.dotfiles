@@ -46,37 +46,7 @@ return {
 
         vim.g.cmp_active = true
 
-        -- `/` cmdline setup.
-        cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        })
-
-        -- `:` cmdline setup.
-        cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                {
-                    name = "cmdline",
-                    option = {
-                        ignore_cmds = { "Man", "!" },
-                    },
-                },
-            }),
-        })
-
         cmp.setup({
-            enabled = function()
-                local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-                if buftype == "prompt" then
-                    return false
-                end
-                return vim.g.cmp_active
-            end,
             preselect = cmp.PreselectMode.None,
             snippet = {
                 expand = function(args)
@@ -202,10 +172,6 @@ return {
             },
             window = {
                 documentation = false,
-                -- documentation = {
-                --   border = "rounded",
-                --   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-                -- },
                 completion = {
                     border = "rounded",
                     winhighlight = "NormalFloat:Normal,CursorLine:Keyword,Search:None",
