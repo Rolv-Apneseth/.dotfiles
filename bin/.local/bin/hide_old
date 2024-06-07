@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+########################################################################################
+# AUTHOR: Rolv-Apneseth (https://github.com/Rolv-Apneseth)
+# LICENSE: MIT
+########################################################################################
+
+# VARS
+TARGET="$PWD"
+OLD_DIR="$TARGET/.old"
+CUT_OFF="1week"
+
+# CHECKS
+# `fd` required
+if ! command -v fd &> /dev/null
+then
+    echo "The fd command could not be found"
+    exit 1
+fi
+
+# FUNCTIONS
+unhide_old_files () {
+    if [ ! -d "$OLD_DIR" ]; then
+      echo "No old files dir to unhide"
+      exit 1
+    fi
+
+    fd . "$OLD_DIR" --exact-depth 1 --hidden --exec mv -t "$TARGET" -- {} && rmdir "$OLD_DIR" || exit 1
+}
+
+delete_old_files () {
+    if [ ! -d "$OLD_DIR" ]; then
+      echo "No old files dir to delete"
+      exit 1
+    fi
+
+    rm -rf "$OLD_DIR" || exit 1
+}
+
+hide_old_files () {
+    if [ ! -d "$OLD_DIR" ]; then
+      mkdir "$OLD_DIR"
+    fi
+
+    fd . "$TARGET" --change-older-than "$CUT_OFF" --exact-depth 1 --hidden --exclude="$OLD_DIR" --exec mv -t "$OLD_DIR" -- {}
+}
+
+# OPTIONAL FLAGS
+while getopts ":du" opt; do
+    case $opt in
+        d) hide_old_files && delete_old_files; exit 0 ;;
+        u) unhide_old_files; exit 0 ;;
+        *) echo "Usage: hide_old [d|u]"; exit 0;
+    ;; esac
+done
+
+hide_old_files
