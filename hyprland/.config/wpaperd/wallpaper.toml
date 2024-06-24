@@ -1,6 +1,7 @@
 [default]
-path = "/home/rolv/repos/Wallpapers/main/"
-duration = "30m"
+path = "/home/rolv/repos/Wallpapers/main"
+mode = "center"
+duration = "30min"
 sorting = "random"
-transition_time = 400
-queue_size = 20
+transition-time = 400
+queue-size = 20
