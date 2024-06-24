@@ -4,22 +4,6 @@ configuration {
     show-icons:         false;
 }
 
-mainbox {
-    children:           [prompt,inputbar-box, listview];
-}
-
-prompt {
-    width:              100%;
-    padding:            30px;
-    enabled:            true;
-    text-color:         @important;
-    font:               @font-title;
-}
-
-inputbar {
-    margin:             0px;
-}
-
 listview {
     columns:            1;
 }
@@ -27,7 +11,7 @@ listview {
 element-box {
     children: [element-text];
 }
+
 element-text {
     padding: 15px;
 }
-

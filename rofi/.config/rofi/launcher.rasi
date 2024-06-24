@@ -8,6 +8,13 @@ configuration {
     }
 }
 
+prompt {
+    width:                          100%;
+    margin:                         10px 0px 0px 30px;
+    text-color:                     @important;
+    font:                           @font-title;
+}
+
 window {
     fullscreen:                     true;
     height:                         100%;
@@ -19,7 +26,7 @@ window {
 }
 
 mainbox {
-    children:                       [inputbar-box, listview];
+    children:                       [prompt, inputbar-box, listview];
     padding:                        0px 0px;
 }
 
@@ -39,7 +46,7 @@ inputbar-box {
 
 inputbar {
     children:                       [textbox-prompt, entry];
-    margin:                         50px 0px 0px 0px;
+    margin:                         0px;
     background-color:               @primary;
     border:                         4px;
     border-color:                   @primary;
