@@ -25,8 +25,12 @@ general {
 
     layout = master
     no_border_on_floating = yes
-    cursor_inactive_timeout = 0
-    no_cursor_warps = true
+}
+
+cursor {
+    no_warps = true
+    inactive_timeout = 0
+    hide_on_key_press = true
 }
 
 decoration {
