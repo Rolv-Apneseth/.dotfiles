@@ -14,6 +14,7 @@ monitor=, preferred, auto, 1
 # OPTIONS -------------------------------------------------------------------------------
 input {
     kb_layout = us
+    follow_mouse = 2
 }
 
 general {
@@ -60,7 +61,6 @@ dwindle {
 }
 
 master {
-    new_is_master = false
     inherit_fullscreen = true
     no_gaps_when_only = true
 }
