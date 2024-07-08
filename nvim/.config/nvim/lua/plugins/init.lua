@@ -18,4 +18,9 @@ return {
         "NoahTheDuke/vim-just", -- syntax highlighting for `justfile`
         ft = { "just" },
     },
+    {
+        "fymyte/rasi.vim", -- syntax highlighting for rofi `.rasi` files
+        ft = { "rasi" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
 }
