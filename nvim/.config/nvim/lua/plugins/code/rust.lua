@@ -5,17 +5,6 @@ return {
         vim.g.rustaceanvim = {
 
             tools = {
-                on_initialized = function()
-                    vim.api.nvim_create_autocmd(
-                        { "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" },
-                        {
-                            pattern = { "*.rs" },
-                            callback = function()
-                                vim.lsp.codelens.refresh()
-                            end,
-                        }
-                    )
-                end,
                 reload_workspace_from_cargo_toml = true,
                 enable_clippy = true,
                 enable_nextest = false,
