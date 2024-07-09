@@ -2,7 +2,15 @@ return {
     settings = {
         Lua = {
             completion = {
-                callSnippet = "Replace",
+                callSnippet = "Both",
+                keywordSnippet = "Both",
+            },
+            hint = {
+                enable = true,
+                arrayIndex = "Disable",
+                paramType = true,
+                setType = true,
+                paramName = "Literal",
             },
         },
     },
