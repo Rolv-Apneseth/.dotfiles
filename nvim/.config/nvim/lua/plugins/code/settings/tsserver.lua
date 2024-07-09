@@ -7,7 +7,6 @@ return {
                 includeInlayFunctionParameterTypeHints = true,
                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
                 includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = true,
             },
         },
     },
