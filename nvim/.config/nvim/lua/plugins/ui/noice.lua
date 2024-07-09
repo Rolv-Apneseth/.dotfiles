@@ -165,11 +165,11 @@ return {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
                     -- override the lsp markdown formatter with Noice
                     ["vim.lsp.util.stylize_markdown"] = false,
-                    -- override cmp documentation with Noice (needs the other options to work)
+                    -- override cmp documentation with Noice (needs the other options + `hrsh7th/nvim-cmp` to work)
                     ["cmp.entry.get_documentation"] = false,
                 },
                 hover = {
-                    enabled = true,
+                    enabled = false,
                     silent = false, -- set to true to not show a message if hover is not available
                     view = nil, -- when nil, use defaults from documentation
                     opts = {}, -- merged with defaults from documentation
