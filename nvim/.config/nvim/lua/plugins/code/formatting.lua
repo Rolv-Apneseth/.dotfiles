@@ -37,7 +37,7 @@ return {
             lua = { "stylua" },
             python = { "isort", "autopep8", "black" },
             markdown = { "markdownlint" },
-            rust = { "rustfmt" },
+            rust = { "rustfmt", "leptosfmt" },
             sh = { "shellharden", "beautysh" },
             zsh = { "shellharden", "beautysh" },
             toml = { "taplo" },
@@ -68,11 +68,9 @@ return {
                     "MD013", -- line-length
                 },
             },
-            rustfmt = {
-                command = "leptosfmt",
-                args = {
-                    "--stdin",
-                    "--rustfmt",
+            leptosfmt = {
+                prepend_args = {
+                    "--experimental-tailwind",
                 },
             },
             stylua = {
