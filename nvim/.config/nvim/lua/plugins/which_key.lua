@@ -4,6 +4,8 @@ local icons = require("core.icons")
 
 return {
     "folke/which-key.nvim", -- for showing shortcuts
+    -- TODO: update keymaps to v3
+    version = "2.1.0",
     event = "VeryLazy",
     init = function()
         vim.o.timeout = true
