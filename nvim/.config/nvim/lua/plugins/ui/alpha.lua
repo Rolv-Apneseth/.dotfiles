@@ -89,11 +89,7 @@ return {
         dashboard.section.buttons.val = {
             dashboard.button("e", "  Edit current directory", ":e .<CR>"),
             dashboard.button("f", "󰈞  Find file", ":Telescope find_files<CR>"),
-            dashboard.button(
-                "r",
-                "󰚸  Recent",
-                ":lua require('telescope').extensions.recent_files.pick()<CR>"
-            ),
+            dashboard.button("r", "󰚸  Frecent", ":Telescope frecency<CR>"),
             dashboard.button("z", "  Notes", ":ZkNotes<CR>"),
             dashboard.button("'", "  Session", ':lua require("persistence").load()<CR>'),
             dashboard.button("l", "  Lazy", ":Lazy<CR>"),
