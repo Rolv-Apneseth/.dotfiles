@@ -148,7 +148,7 @@ disabled = true
 
 [hostname]
 ssh_symbol = " "
-disabled = true
+disabled = false
 
 [java]
 symbol = " "
@@ -177,13 +177,6 @@ disabled = true
 [os]
 disabled = true
 
-[os.symbols]
-Amazon = " "
-Arch = " "
-
-[pijul_channel]
-symbol = "🪺 "
-
 [rlang]
 symbol = "󰟔 "
 disabled = true
@@ -199,6 +192,30 @@ disabled = true
 [spack]
 symbol = "🅢 "
 disabled = true
+
+[ocaml]
+symbol = " "
+disabled = true
+
+[perl]
+symbol = " "
+disabled = true
+
+[php]
+symbol = " "
+disabled = true
+
+[pijul_channel]
+symbol = " "
+disabled = true
+
+[swift]
+symbol = " "
+disabled = true
+
+[zig]
+symbol = " "
+disabled = false
 
 [battery]
 format = " [$symbol$percentage]($style)"
