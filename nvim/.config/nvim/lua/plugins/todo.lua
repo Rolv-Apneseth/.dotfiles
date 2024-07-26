@@ -25,7 +25,7 @@ return {
         },
         merge_keywords = true, -- when true, custom keywords will be merged with the defaults
         highlight = {
-            multiline = false, -- enable multine todo comments
+            multiline = true, -- enable multine todo comments
             before = "", -- "fg" or "bg" or empty
             keyword = "fg", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
             after = "fg", -- "fg" or "bg" or empty
