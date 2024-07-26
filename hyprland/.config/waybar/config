@@ -9,9 +9,7 @@
         "battery",
         "pulseaudio",
         "custom/sep",
-        "cpu",
-        "custom/sep",
-        "memory",
+        "group/hardware"
     ],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [ 
@@ -69,8 +67,42 @@
             "on-scroll-down": "shift_down"
         }
     },
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true
+        },        
+        "modules": [
+            "cpu",
+            "custom/sep",
+            "memory",
+            "custom/sep",
+            "disk",
+            "custom/sep",
+            "disk#home",
+            "custom/sep",
+            "disk#extra",
+        ]
+    },
+    "disk": {
+        "interval": 60,
+        "format": "󱛟  {percentage_used}%",
+        "path": "/",
+    },
+    "disk#home": {
+        "interval": 60,
+        "format": "󱛟  {percentage_used}%",
+        "path": "/home/rolv",
+    },
+    "disk#extra": {
+        "interval": 60,
+        "format": "󱛟  {percentage_used}%",
+        "path": "/media/main/",
+    },
     "cpu": {
-        "format": "  {usage}%"
+        "format": "  {usage}%",
+        "on-click": "missioncenter"
     },
     "memory": {
         "format": "󰍛  {percentage}%"
