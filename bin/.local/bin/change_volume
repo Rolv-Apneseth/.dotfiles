@@ -40,7 +40,7 @@ function notify_volume
 {
     volume=$(get_mute)
     get_volume_icon
-    dunstify -a "change_volume" -i audio-volume-high -r 2593 "$volume_icon $volume%" -h int:value:"$volume" -h string:hlcolor:"$bar_colour"
+    dunstify -a "change_volume" -i audio-volume-high -r 2593 "$volume_icon  $volume%" -h int:value:"$volume" -h string:hlcolor:"$bar_colour"
 }
 
 # Case insensitive match

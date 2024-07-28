@@ -39,7 +39,6 @@
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     #   %n  progress value if set without any extra characters
     format = "<b>%s</b>\n%b"
-    content_alignment = top
     alignment = left
     vertical_alignment = center
 
@@ -77,15 +76,6 @@
     # automatically after a crash.
     # startup_notification = false
 
-    # Manage dunst's desire for talking
-    # Can be one of the following values:
-    #  crit: Critical features. Dunst aborts
-    #  warn: Only non-fatal warnings
-    #  mesg: Important Messages
-    #  info: all unimportant stuff
-    # debug: all less than unimportant stuff
-    # verbosity = mesg
-
     force_xinerama = false
 
     mouse_left_click = close_current
@@ -120,7 +110,7 @@
     timeout = 5
 
 [ignore_flameshot_info_notifs]
-    title = "Flameshot Info"
+    summary = "Flameshot Info"
     format = ""
 
 [ignore_font_error]
