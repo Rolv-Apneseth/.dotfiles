@@ -5,7 +5,7 @@ return {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
     dependencies = {
-        "nvim-telescope/telescope-frecency.nvim",
+        "smartpde/telescope-recent-files",
         "debugloop/telescope-undo.nvim",
     },
     config = function()
@@ -31,6 +31,10 @@ return {
             },
             pickers = {},
             extensions = {
+                recent_files = {
+                    only_cwd = false, -- only files in the cwd
+                    start_files = true, -- checks if files exist before being shown in the picker
+                },
                 undo = {
                     use_delta = true,
                     side_by_side = true,
@@ -43,13 +47,14 @@ return {
         })
 
         -- EXTENSIONS
-        telescope.load_extension("frecency")
+        telescope.load_extension("recent_files")
         telescope.load_extension("undo")
+        --[[ telescope.load_extension("harpoon") ]]
 
         local keymaps_extensions = {
             {
                 "<leader>tr",
-                telescope.extensions.frecency.frecency,
+                telescope.extensions.recent_files.pick,
                 "Find recently opened file",
             },
             {
