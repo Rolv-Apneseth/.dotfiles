@@ -3,7 +3,7 @@
 
 local constants = require("core.constants")
 
-local JS_FORMATTERS = { { "prettierd", "prettier" }, "rustywind" }
+local JS_FORMATTERS = { "prettier", "rustywind" }
 
 return {
     "stevearc/conform.nvim",
