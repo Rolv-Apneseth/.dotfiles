@@ -1,8 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-format = '$all$line_break$status$os$container$shell$character'
 scan_timeout = 1_000
 command_timeout = 1_000
 add_newline = true
+
+[line_break]
+disabled = false
 
 [character]
 success_symbol = "[󰥭](bold green) "
