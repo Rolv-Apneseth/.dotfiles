@@ -1,12 +1,14 @@
 # Edit file
 function e() {
-    fzf --query "$1" | xargs --no-run-if-empty --delimiter="\n" "$EDITOR"
+    fzf --multi --query "$1" | xargs --no-run-if-empty --delimiter="\n" "$EDITOR"
 }
 
 # Edit file containing specific content - search interactively
 function ef() {
     rg --line-number --no-heading --smart-case '' |
-        fzf --ansi --preview="bat --highlight-line={2} --color=always --line-range {2}:-5 --line-range {2}:+50 {1}" --delimiter=":" --preview-window="up:60%" --query "$1"
+        fzf --ansi --preview="bat --highlight-line={2} --color=always --line-range {2}:-5 --line-range {2}:+50 {1}" --delimiter=":" --preview-window="up:60%" --query "$1" |
+        cut -d':' -f1 |
+        xargs --no-run-if-empty "$EDITOR"
 }
 
 # Kill process
