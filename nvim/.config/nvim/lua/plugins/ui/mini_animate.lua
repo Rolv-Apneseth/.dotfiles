@@ -7,7 +7,7 @@ return {
             return
         end
 
-        local cusor_timing =
+        local cursor_timing =
             mini_animate.gen_timing.exponential({ -- exponential | linear | quadratic
                 duration = 100,
                 unit = "total", -- total | step
@@ -16,11 +16,11 @@ return {
         mini_animate.setup({
             cursor = {
                 enable = true,
-                timing = cusor_timing,
+                timing = cursor_timing,
             },
             scroll = {
                 enable = true,
-                timing = cusor_timing,
+                timing = cursor_timing,
             },
             resize = {
                 enable = false,
