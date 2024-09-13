@@ -52,7 +52,7 @@ return {
             "html",
             "jsonls",
             "lua_ls",
-            "tsserver",
+            "ts_ls",
             "pyright",
             "yamlls",
             "bashls",
@@ -94,9 +94,9 @@ return {
                 opts = vim.tbl_deep_extend("force", lua_opts, opts)
             end
 
-            if server == "tsserver" then
-                local tsserver_opts = require("plugins.code.settings.tsserver")
-                opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+            if server == "ts_ls" then
+                local ts_ls_opts = require("plugins.code.settings.ts_ls")
+                opts = vim.tbl_deep_extend("force", ts_ls_opts, opts)
             end
 
             if server == "pyright" then
