@@ -32,14 +32,17 @@ return {
         },
 
         formatters_by_ft = {
+            -- For all file types
             --[[ ["*"] = { "typos" }, ]]
+            -- For file types that don't have other formatters configured
+            ["_"] = { "trim_whitespace" },
 
             lua = { "stylua" },
             python = { "isort", "autopep8", "black" },
             markdown = { "markdownlint" },
             rust = { "rustfmt", "leptosfmt" },
-            sh = { "shellharden", "beautysh" },
-            zsh = { "shellharden", "beautysh" },
+            sh = { "shellharden", "shfmt" },
+            zsh = { "shellharden", "shfmt" },
             toml = { "taplo" },
             just = { "just" },
             nix = { "nixfmt" },
