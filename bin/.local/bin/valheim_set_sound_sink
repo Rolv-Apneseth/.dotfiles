@@ -1,0 +1,27 @@
+#!/bin/bash
+
+SOUNDCARD=$(pactl get-default-sink)
+
+# Change Valheim launch options in Steam to something like:
+# %command% & (sleep 10; valheim_set_sound_sink)
+
+IFS=$'\n' read -rd '' -a array <<< "$(pactl list sink-inputs)"
+COUNTER=0
+
+for i in "${array[@]}"; do
+    if [[ $i == *"FMOD Ex App"* ]]; then
+        f=$COUNTER
+        for (($f - 1; f >= 0; f--)); do
+            if [[ ${array[$f]} == *"Sink Input #"* ]]; then
+                VALHEIM=$(echo "${array[$f]}" | sed 's/Sink Input #//')
+                f=0
+            fi
+        done
+    fi
+    COUNTER=$((COUNTER + 1))
+done
+
+echo "$VALHEIM" "$SOUNDCARD"
+pactl move-sink-input "$VALHEIM" "$SOUNDCARD"
+
+# CREDIT: Steam user psilimit posted the original script here: https://steamcommunity.com/app/892970/discussions/1/4038104598691161001/
