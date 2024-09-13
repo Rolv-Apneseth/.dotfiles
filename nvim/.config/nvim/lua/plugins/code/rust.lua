@@ -46,13 +46,13 @@ return {
         }
     end,
     keys = {
-        { "<leader>cr", ":RustLsp runnables<CR>", desc = "Runnables" },
-        { "<leader>cR", ":RustLsp openDocs<CR>", desc = "Open docs.rs docs" },
-        { "<leader>cd", ":RustLsp debuggables<CR>", desc = "Debuggables" },
-        { "<leader>cD", ":RustLsp renderDiagnostic<CR>", desc = "Render diagnostic" },
-        { "<leader>ce", ":RustLsp explainError<CR>", desc = "Explain error" },
-        { "<leader>cJ", ":RustLsp joinLines<CR>", desc = "Join lines" },
-        { "<leader>cc", ":RustLsp openCargo<CR>", desc = "Open Cargo.toml" },
-        { "<leader>cp", ":RustLsp parentModules<CR>", desc = "Open parent module" },
+        { "<leader>ir", ":RustLsp runnables<CR>", desc = "Runnables", ft = "rust" },
+        { "<leader>iR", ":RustLsp openDocs<CR>", desc = "Open docs.rs docs", ft = "rust" },
+        { "<leader>id", ":RustLsp debuggables<CR>", desc = "Debuggables", ft = "rust" },
+        { "<leader>iD", ":RustLsp renderDiagnostic<CR>", desc = "Render diagnostic", ft = "rust" },
+        { "<leader>ie", ":RustLsp explainError<CR>", desc = "Explain error", ft = "rust" },
+        { "<leader>iJ", ":RustLsp joinLines<CR>", desc = "Join lines", ft = "rust" },
+        { "<leader>ic", ":RustLsp openCargo<CR>", desc = "Open Cargo.toml", ft = "rust" },
+        { "<leader>ip", ":RustLsp parentModules<CR>", desc = "Open parent module", ft = "rust" },
     },
 }
