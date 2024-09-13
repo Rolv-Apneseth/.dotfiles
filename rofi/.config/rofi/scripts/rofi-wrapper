@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# requirements: rofi steam pactl rofi-calc rofi-emoji fd
+# requirements: rofi steam pactl rofi-calc rofi-emoji fd udiskie-dmenu
 # extra requirements x11: greenclip rofi-greenclip
 # extra requirements wayland: clipman
 # required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME $TERMINAL_EXECUTE $FZF_DEFAULT_COMMAND
@@ -26,5 +26,6 @@ case "$1" in
     games) rofi -modi games -show games -theme games ;;
     edit) e_rofi.zsh ;;
     sound_sink) pactl set-default-sink "$(pactl list short sinks | awk '{print $2}' | rofi -dmenu -theme selector -p "Select default sound sink")" ;;
+    udiskie) UDISKIE_DMENU_LAUNCHER="rofi" udiskie-dmenu -matching regex -dmenu -i -no-custom -multi-select -theme selector ;;
     *) echo "Usage: $0 {run,calc,clipboard,emojis,games,sound_sink,edit}" ;;
 esac
