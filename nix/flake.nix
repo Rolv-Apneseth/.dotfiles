@@ -9,7 +9,11 @@
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,11 +39,13 @@
           allowUnfree = true;
         };
       };
+      inherit (nixpkgs) lib;
+      configVars = import ./vars { inherit inputs lib; };
     in
     {
       nixosConfigurations.horus = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs system;
+          inherit inputs system configVars;
         };
         modules = [
           ./hosts/horus
@@ -64,10 +70,10 @@
         ];
       };
 
-      homeConfigurations.rolv = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${configVars.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs system;
+          inherit inputs system configVars;
         };
         modules = [ ./home/base.nix ];
       };

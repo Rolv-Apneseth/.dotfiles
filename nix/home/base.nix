@@ -1,7 +1,12 @@
-{ config, pkgs, ... }:
 {
-  home.username = "rolv";
-  home.homeDirectory = "/home/rolv";
+  config,
+  pkgs,
+  configVars,
+  ...
+}:
+{
+  home.username = configVars.username;
+  home.homeDirectory = /home/${configVars.username};
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
@@ -11,8 +16,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Rolv-Apneseth";
-    userEmail = "rolv.apneseth@gmail.com";
+    userName = configVars.git_username;
+    userEmail = configVars.git_email;
     aliases = {
       s = "status";
     };
@@ -36,7 +41,7 @@
         identitiesOnly = true;
         identityFile = [
           # "~/.ssh/id_yubikey"
-          "~/.ssh/id_manu"
+          "~/.ssh/id_main"
         ];
       };
     };
@@ -60,14 +65,14 @@
 
     gtk3 = {
       bookmarks = [
-        "file:///home/rolv/.config Config"
-        "file:///home/rolv/.dotfiles Dots"
-        "file:///home/rolv/Downloads"
-        "file:///home/rolv/Music"
-        "file:///home/rolv/Pictures"
-        "file:///home/rolv/repos Repos"
-        "file:///home/rolv/Videos"
-        "file:///home/rolv/work Work"
+        "file:///home/${configVars.username}/.config Config"
+        "file:///home/${configVars.username}/.dotfiles Dots"
+        "file:///home/${configVars.username}/Downloads"
+        "file:///home/${configVars.username}/Music"
+        "file:///home/${configVars.username}/Pictures"
+        "file:///home/${configVars.username}/repos Repos"
+        "file:///home/${configVars.username}/Videos"
+        "file:///home/${configVars.username}/work Work"
       ];
     };
   };

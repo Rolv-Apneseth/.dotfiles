@@ -1,6 +1,6 @@
 { inputs, configLib, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware.nix ];
 
   networking.hostName = "arbiter";
 

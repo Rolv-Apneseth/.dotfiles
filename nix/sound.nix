@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -10,7 +9,6 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;
-    # media-session.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
