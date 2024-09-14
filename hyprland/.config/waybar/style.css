@@ -1,3 +1,4 @@
+/* BASE */
 * {
     border: none;
     font-family:
@@ -6,12 +7,18 @@
     font-size: 18px;
 }
 
+tooltip {
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
 window#waybar {
     background: rgba(0, 0, 0, 0.8);
     transition: background-color 0.3s ease-out;
     border-radius: 0px;
 }
-/*-----module groups----*/
+
+/* GROUPS */
 .modules-right {
     background: transparent;
     margin-right: 20px;
@@ -28,11 +35,24 @@ window#waybar {
     border-radius: 0;
 }
 
-tooltip {
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.8);
+/* MODULES */
+#cpu, #pulseaudio, #network, #memory, #temperature, #battery, #tray, #clock {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right: 0.3px solid #666666;
+}
+#clock {
+    padding-right: 0;
+    border-right: unset;
+} 
+#battery {
+    padding-left: 0px;
 }
 
+/* WORKSPACES */
+#workspaces button label {
+    font-size: 14px;
+}
 #workspaces button {
     padding: 1px 5px;
     background: transparent;
@@ -44,23 +64,9 @@ tooltip {
     text-shadow: inherit;
     color: #d8dee9;
 }
-
 #workspaces button.active {
     color: rgba(255, 255, 255, 0.9);
 }
 #workspaces button.urgent {
     color: #ffbbff;
-}
-
-#custom-sep {
-    color: #666666;
-    font-size: 20px;
-}
-
-#cpu,
-#disk,
-#memory,
-#tray,
-#mode {
-    padding: 0 5px;
 }

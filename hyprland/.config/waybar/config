@@ -8,18 +8,13 @@
     "modules-left": [
         "battery",
         "pulseaudio",
-        "custom/sep",
         "group/hardware"
     ],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": [ 
+    "modules-right": [
         "tray",
-        "custom/sep",
         "clock"
     ],
-    "custom/sep": {
-        "format": " | "
-    },
     "hyprland/window": {
         "format": "  {}",
         "max-length": 60,
@@ -36,8 +31,10 @@
         "on-click": "activate"
     },
     "battery": {
-        "format": "{capacity}% @ {power}W | ",
-        "format-icons": ["", "", "", "", ""],
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-full": "󱟢  {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
     },
     "tray": {
         "spacing": 10
@@ -72,7 +69,7 @@
         "drawer": {
             "transition-duration": 300,
             "transition-left-to-right": true
-        },        
+        },
         "modules": [
             "cpu",
             "custom/sep",
@@ -101,15 +98,15 @@
         "path": "/media/main/",
     },
     "cpu": {
-        "format": "  {usage}%",
+        "format": "󰻠  {usage}%",
         "on-click": "missioncenter"
     },
     "memory": {
         "format": "󰍛  {percentage}%"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}% ",
-        "format-muted": "󰝟 {volume}% ",
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟  {volume}% ",
         "format-icons": {
             "default": ["", "", ""]
         },
