@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+"""
+Basic Python script for displaying close birthdays, by processing data from my
+personal database
+"""
+
+import os
+from datetime import date, datetime
+
+import mariadb
+
+MAXIMUM_DAYS_AWAY = 31
+
+# Grab all contacts from mariadb database
+with mariadb.connect(
+    user="root",
+    password=os.getenv("MY_MARIADB_PWD"),
+    host="localhost",
+    port=3306,
+    database="personal",
+) as conn:
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM contact WHERE date_of_birth IS NOT NULL")
+    all_contacts = cursor.fetchall()
+
+# Grab contacts that have birthdays closer than MAXIMUM_DAYS_AWAY
+today = datetime.today()
+contacts_close_bdays = list()
+for contact in all_contacts:
+    date = datetime(day=contact[3].day, month=contact[3].month, year=today.year)
+    # If date is already passed, add 1 to the year
+    if date < today:
+        date = datetime(day=contact[3].day, month=contact[3].month, year=today.year + 1)
+    days_difference = (date - today).days + 1
+
+    if days_difference < MAXIMUM_DAYS_AWAY:
+        years = today.year - contact[3].year
+        contacts_close_bdays.append((days_difference, contact[1], years, date.date()))
+
+# Sort contacts with close birthdays in ascending order
+contacts_close_bdays.sort(key=lambda x: x[0])
+for contact in contacts_close_bdays:
+    print(
+        f"{contact[1]}'s birthday is {contact[0]} day(s) away on {contact[3]}! "
+        f"They will be turning {contact[2]} years old."
+    )

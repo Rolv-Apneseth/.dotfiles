@@ -16,7 +16,13 @@
   services.mpd.enable = true;
 
   programs.thunar.enable = true;
-  services.tumbler.enable = true;
+  programs.xfconf.enable = true; # enable saving preferences
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin # archive management
+    thunar-volman # automatic volume management
+  ];
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
 
   programs.neovim = {
     enable = true;
@@ -32,6 +38,7 @@
     bat
     curl
     dunst
+    libnotify
     eza
     firefox
     libgcc
@@ -40,7 +47,6 @@
     gnumake
     hyprpicker
     kitty
-    libnotify
     macchina
     nodejs
     psi-notify
@@ -52,7 +58,6 @@
     thunderbird
     unzip
     vim
-    waybar
     wezterm
     wget
     wl-clipboard
@@ -73,9 +78,8 @@
     fzf
     haskellPackages.greenclip
     age
-    #(waybar.overrideAttrs (oldAtrrs: {
-    #	mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    #})
-    #)
+    ssh-to-age
+    sops
+    nwg-look
   ];
 }

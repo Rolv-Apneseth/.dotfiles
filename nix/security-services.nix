@@ -23,6 +23,15 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.wayland.enableGnomeKeyring = true;
 
+  # YUBIKEY
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  # security.pam.services.login.u2fAuth = true;
+
   #services.clamav = {
   #  daemon.enable = true;
   #  updater.enable = true;

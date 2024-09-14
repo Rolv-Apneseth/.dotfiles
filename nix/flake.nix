@@ -3,34 +3,56 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust-overlay.url = "github:oxalica/rust-overlay";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     hyprland.url = "github:hyprwm/Hyprland";
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    secrets = {
+      url = "git+ssh://git@gitlab.com/Rolv-Apneseth/secrets.git?ref=main&shallow=1";
+      flake = false;
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
-      nixosConfigurations.rolv = nixpkgs.lib.nixosSystem {
-        inherit system;
+      nixosConfigurations.horus = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs;
+          inherit inputs system;
         };
         modules = [
-          ./host-laptop.nix
+          ./hosts/horus
           #./auto-upgrade.nix
           ./bootloader.nix
-          ./configuration.nix
+          ./base.nix
+          ./sops.nix
           ./display-manager.nix
           ./networking.nix
           ./env-variables.nix
           ./fonts.nix
-          #./gc.nix
           ./gnome.nix
           ./hyprland.nix
-          ./linux-kernel.nix
           ./pkgs.nix
           ./rust.nix
           ./security-services.nix
@@ -40,6 +62,14 @@
           ./user.nix
           #./virtualisation.nix
         ];
+      };
+
+      homeConfigurations.rolv = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs system;
+        };
+        modules = [ ./home/base.nix ];
       };
     };
 }

@@ -1,9 +1,6 @@
 { pkgs, ... }:
 {
   # Enable Theme
-  environment.variables.GTK_THEME = "Catppuccin-Macchiato-Standard-Teal-Dark";
-  environment.variables.XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
-  environment.variables.XCURSOR_SIZE = "24";
   console = {
     earlySetup = true;
     colors = [
@@ -26,33 +23,5 @@
     ];
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
-
-  # Override packages
-  nixpkgs.config.packageOverrides = pkgs: {
-    colloid-icon-theme = pkgs.colloid-icon-theme.override { colorVariants = [ "teal" ]; };
-    catppuccin-gtk = pkgs.catppuccin-gtk.override {
-      accents = [ "teal" ]; # You can specify multiple accents here to output multiple themes
-      size = "standard";
-      variant = "macchiato";
-    };
-    discord = pkgs.discord.override {
-      withOpenASAR = true;
-      withTTS = true;
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    numix-icon-theme-circle
-    colloid-icon-theme
-    catppuccin-gtk
-    catppuccin-kvantum
-    catppuccin-cursors.macchiatoTeal
-
-    nwg-look
-  ];
+  environment.systemPackages = with pkgs; [ ];
 }

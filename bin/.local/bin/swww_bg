@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script will randomly go through the files of a directory, setting it
 # up as the wallpaper at regular intervals
@@ -8,7 +8,7 @@
 
 if [[ $# -lt 1 ]] || [[ ! -d $1 ]]; then
     echo "Usage:
-	$0 <dir containing images>"
+    $0 <dir containing images>"
     exit 1
 fi
 
@@ -24,11 +24,11 @@ INTERVAL=1800
 while true; do
     find "$1" \
         | while read -r img; do
-            echo "$((RANDOM % 1000)):$img"
-        done \
+        echo "$((RANDOM % 1000)):$img"
+    done \
         | sort -n | cut -d':' -f2- \
         | while read -r img; do
-            swww img "$img" --transition-type outer --transition-pos 1.0,0.0 --transition-fps "$SWWW_TRANSITION_FPS" --transition-step "$SWWW_TRANSITION_STEP" --transition-duration "$SWWW_TRANSITION_DURATION" --resize "$SWWW_RESIZE"
-            sleep "$INTERVAL"
-        done
+        swww img "$img" --transition-type outer --transition-pos 1.0,0.0 --transition-fps "$SWWW_TRANSITION_FPS" --transition-step "$SWWW_TRANSITION_STEP" --transition-duration "$SWWW_TRANSITION_DURATION" --resize "$SWWW_RESIZE"
+        sleep "$INTERVAL"
+    done
 done

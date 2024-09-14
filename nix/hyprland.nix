@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  system,
+  ...
+}:
 {
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
@@ -11,6 +16,17 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   programs.dconf.enable = true;
+  hardware.opengl.enable = true;
+
+  programs.waybar.enable = true;
+  programs.waybar.package = inputs.nixpkgs-wayland.packages.${system}.waybar;
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
