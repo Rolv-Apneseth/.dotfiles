@@ -3,8 +3,8 @@
     border: none;
     font-family:
         SF Pro Display,
-        FiraCode Nerd Font Mono;
-    font-size: 18px;
+        MesloLGL Nerd Font Mono;
+    font-size: 19px;
 }
 
 tooltip {
@@ -36,7 +36,15 @@ window#waybar {
 }
 
 /* MODULES */
-#cpu, #pulseaudio, #network, #memory, #temperature, #battery, #tray, #clock {
+#cpu,
+#pulseaudio,
+#network,
+#memory,
+#temperature,
+#battery,
+#tray,
+#disk,
+#clock {
     padding-right: 15px;
     padding-left: 15px;
     border-right: 0.3px solid #666666;
@@ -44,14 +52,20 @@ window#waybar {
 #clock {
     padding-right: 0;
     border-right: unset;
-} 
+}
 #battery {
     padding-left: 0px;
+}
+#cpu {
+    border-right: unset;
+}
+#memory {
+    border-left: 0.3px solid #666666;
 }
 
 /* WORKSPACES */
 #workspaces button label {
-    font-size: 14px;
+    font-size: 17px;
 }
 #workspaces button {
     padding: 1px 5px;

@@ -72,13 +72,9 @@
         },
         "modules": [
             "cpu",
-            "custom/sep",
             "memory",
-            "custom/sep",
             "disk",
-            "custom/sep",
             "disk#home",
-            "custom/sep",
             "disk#extra",
         ]
     },
