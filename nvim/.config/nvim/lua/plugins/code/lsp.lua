@@ -52,7 +52,7 @@ return {
             "html",
             "jsonls",
             "lua_ls",
-            "ts_ls",
+            "tsserver",
             "pyright",
             "yamlls",
             "bashls",
