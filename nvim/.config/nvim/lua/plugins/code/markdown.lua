@@ -45,16 +45,16 @@ return {
         },
         opts = {},
         keys = {
-            { "i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>", ft = "markdown" },
-            { "n", "o", "o<cmd>AutolistNewBullet<cr>", ft = "markdown" },
-            { "n", "O", "O<cmd>AutolistNewBulletBefore<cr>", ft = "markdown" },
-            { "n", "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>", ft = "markdown" },
+            { "<CR>", "<CR><cmd>AutolistNewBullet<cr>", ft = "markdown", mode = "i" },
+            { "o", "o<cmd>AutolistNewBullet<cr>", ft = "markdown" },
+            { "O", "O<cmd>AutolistNewBulletBefore<cr>", ft = "markdown" },
+            { "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>", ft = "markdown" },
 
             -- recalculate ordered list on edit
-            { "n", ">>", ">><cmd>AutolistRecalculate<cr>", ft = "markdown" },
-            { "n", "<<", "<<<cmd>AutolistRecalculate<cr>", ft = "markdown" },
-            { "n", "dd", "dd<cmd>AutolistRecalculate<cr>", ft = "markdown" },
-            { "v", "d", "d<cmd>AutolistRecalculate<cr>", ft = "markdown" },
+            { ">>", ">><cmd>AutolistRecalculate<cr>", ft = "markdown" },
+            { "<<", "<<<cmd>AutolistRecalculate<cr>", ft = "markdown" },
+            { "dd", "dd<cmd>AutolistRecalculate<cr>", ft = "markdown" },
+            { "d", "d<cmd>AutolistRecalculate<cr>", ft = "markdown", mode = "v" },
         },
     },
 }
