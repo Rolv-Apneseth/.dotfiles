@@ -94,7 +94,7 @@
         "path": "/media/main/",
     },
     "cpu": {
-        "format": "󰻠  {usage}%",
+        "format": "  {usage}%",
         "on-click": "missioncenter"
     },
     "memory": {
