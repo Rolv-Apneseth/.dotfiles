@@ -2,8 +2,8 @@ return {
     -- Base Dependencies
     "nvim-lua/popup.nvim", -- popup API implementation for neovim
     "nvim-lua/plenary.nvim", -- lots of useful lua functions
-    "kyazdani42/nvim-web-devicons", -- icons
-    "MunifTanjim/nui.nvim", -- ui component library
+    "nvim-tree/nvim-web-devicons", -- icons
+    "MunifTanjim/nui.nvim", -- UI component library
 
     -- Misc
     "famiu/bufdelete.nvim", -- delete buffers without changing window layout, and provides useful events for autocommands
