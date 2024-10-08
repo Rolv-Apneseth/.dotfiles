@@ -31,6 +31,7 @@ return {
                         },
                         cargo = {
                             autoReload = true,
+                            features = "all",
                         },
                         procMacro = {
                             ignored = {
