@@ -57,4 +57,25 @@ return {
             { "d", "d<cmd>AutolistRecalculate<cr>", ft = "markdown", mode = "v" },
         },
     },
+    {
+        "richardbizik/nvim-toc", -- Table of contents generation
+        ft = "markdown",
+        opts = {
+            toc_header = "Table of Contents",
+        },
+        keys = {
+            {
+                "<leader>it",
+                "<cmd>TOC<cr>",
+                ft = "markdown",
+                desc = "Generate table of contents (numbered)",
+            },
+            {
+                "<leader>il",
+                "<cmd>TOCList<cr>",
+                ft = "markdown",
+                desc = "Generate table of contents (list)",
+            },
+        },
+    },
 }
