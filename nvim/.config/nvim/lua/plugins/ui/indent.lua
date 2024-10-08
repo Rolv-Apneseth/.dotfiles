@@ -2,6 +2,8 @@
 return {
     "lukas-reineke/indent-blankline.nvim", -- for showing lines at different indentation levels
     main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
     opts = {
         enabled = true,
         scope = {

@@ -110,7 +110,7 @@ return {
             end
 
             if server == "rust_analyzer" then
-                -- Handled in rust_tools.lua
+                -- Handled in rust.lua
                 goto continue
             end
 
