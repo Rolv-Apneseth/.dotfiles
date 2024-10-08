@@ -8,18 +8,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Window navigation
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Window resize (arrow keys)
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
-
 -- Buffer navigation
 keymap("n", "L", ":bnext<CR>", opts)
 keymap("n", "H", ":bprevious<CR>", opts)
