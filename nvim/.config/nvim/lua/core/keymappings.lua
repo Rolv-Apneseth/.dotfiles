@@ -130,7 +130,6 @@ return {
             },
             t = {
                 name = "Telescope",
-                b = { "<cmd>Telescope buffers<CR>", "Buffers" },
                 C = { "<cmd>Telescope commands<CR>", "Commands" },
                 H = { "<cmd>Telescope highlights<CR>", "Highlights" },
                 M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
