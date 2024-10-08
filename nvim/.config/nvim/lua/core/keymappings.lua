@@ -93,7 +93,6 @@ return {
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
 
-            i = { name = "For filetype" },
             g = {
                 name = "Git",
                 g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
@@ -158,6 +157,10 @@ return {
                 b = "Open notes linking TO the current buffer.",
                 B = "Open notes linked BY the current buffer.",
             },
+
+            -- Descriptions only - keymaps set elsewhere
+            ["'"] = "Previous sessions",
+            i = "Filetype specific",
         },
         -- Visual mode
         leader_v = {
