@@ -44,7 +44,8 @@ window#waybar {
 #battery,
 #tray,
 #disk,
-#clock {
+#clock,
+#custom-gpu-usage {
     padding-right: 15px;
     padding-left: 15px;
     border-right: 0.3px solid #666666;
@@ -59,7 +60,7 @@ window#waybar {
 #cpu {
     border-right: unset;
 }
-#memory {
+#custom-gpu-usage {
     border-left: 0.3px solid #666666;
 }
 

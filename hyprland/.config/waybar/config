@@ -72,6 +72,7 @@
         },
         "modules": [
             "cpu",
+            "custom/gpu-usage",
             "memory",
             "disk",
             "disk#home",
@@ -98,7 +99,7 @@
         "on-click": "missioncenter"
     },
     "memory": {
-        "format": "󰍛  {percentage}%"
+        "format": "  {percentage}%"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -108,4 +109,11 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/gpu-usage": {
+        "format": "󰍛  {0}",
+        "exec": "gpu-usage-waybar --text-no-memory",
+        "return-type": "json",
+        "format-icons": "󰾲",
+        "on-click": "wezterm -e radeontop",
+    }
 }
