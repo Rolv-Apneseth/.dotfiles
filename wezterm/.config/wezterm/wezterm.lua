@@ -10,6 +10,8 @@ end
 
 for k, v in pairs({
     colors = colours,
+    animation_fps = 244,
+    max_fps = 244,
     font = wezterm.font_with_fallback({
         "Inconsolata Nerd Font Mono",
         "Noto Color Emoji",
