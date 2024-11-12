@@ -5,8 +5,8 @@
 # Requirements: dunst
 # ------------------------------------------------------------------
 
-volume_step=5
-max_volume=100
+volume_step=10
+max_volume=150
 bar_colour="#aa00ff"
 
 # Get volume from pactl
