@@ -144,14 +144,22 @@ return {
             },
             z = {
                 name = "zk",
-                o = { "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", "Open notes" },
+                o = { "<cmd>ZkNotes { sort = { 'modified' } }<cr>", "Open notes" },
                 O = {
-                    "<Cmd>ZkTags<CR>",
+                    "<cmd>ZkTags<cr>",
                     "Open notes - tags",
                 },
+                d = {
+                    "<cmd>ZkNotes { sort = { 'modified' }, tags = {'daily'} }<cr>",
+                    "Open notes - daily",
+                },
                 n = {
-                    "<Cmd>ZkNew { dir = 'program', title = vim.fn.input('Title: ') }<CR>",
+                    "<cmd>ZkNew { dir = 'program', title = vim.fn.input('Title: ') }<cr>",
                     "New note",
+                },
+                N = {
+                    "<cmd>ZkNew { dir = 'daily' }<cr>",
+                    "New daily note",
                 },
                 b = "Open notes linking TO the current buffer.",
                 B = "Open notes linked BY the current buffer.",
