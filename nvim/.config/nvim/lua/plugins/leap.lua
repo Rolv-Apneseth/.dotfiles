@@ -15,7 +15,7 @@ return {
 
     keys = {
         {
-            "s",
+            "S",
             function()
                 require("leap").leap({ target_windows = { vim.fn.win_getid() } })
             end,
