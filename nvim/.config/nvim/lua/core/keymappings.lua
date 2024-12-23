@@ -95,15 +95,17 @@ return {
 
             g = {
                 name = "Git",
-                g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+                g = { "<cmd>lua require 'snacks.lazygit'.open()<CR>", "Lazygit" },
                 j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
                 k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
                 l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
+                L = { "<cmd>lua require 'snacks.git'.blame_line()<CR>", "Blame (detailed)" },
                 d = {
                     "<cmd>Gitsigns diffthis HEAD<CR>",
                     "Diff",
                 },
                 b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+                r = { "<cmd>lua require 'snacks.gitbrowse'.open()<CR>", "Open remote" },
             },
             l = {
                 name = "LSP",

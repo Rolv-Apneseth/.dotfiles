@@ -69,11 +69,6 @@ return {
                 telescope.extensions.recent_files.pick,
                 "Find recently opened file",
             },
-            {
-                "<leader>tn",
-                telescope.extensions.notify.notify,
-                "Show log of notifications",
-            },
         }
 
         for _, mapping in pairs(keymaps_extensions) do
