@@ -189,7 +189,7 @@ return {
         -- Both normal and visual modes
         leader_nv = {
             ["q"] = { "<cmd>q<CR>", "Close window" },
-            ["Q"] = { "<cmd>q!<CR>", "Force close window" },
+            ["Q"] = { "<cmd>qa!<CR>", "Force close window" },
             ["w"] = {
                 "<cmd>Bdelete<CR>",
                 "Close current buffer",
