@@ -12,6 +12,7 @@ return {
             PERF = { icon = "󱫌", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
             TEST = { icon = "󰙨", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
             NOTE = { icon = icons.diagnostics.Information, color = "hint", alt = { "INFO" } },
+            IMPORTANT = { icon = "" },
             FIX = {
                 icon = icons.diagnostics.Error,
                 color = "error",
