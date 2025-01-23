@@ -7,9 +7,9 @@ add_newline = true
 disabled = false
 
 [character]
-success_symbol = "[󰥭](bold green) "
-error_symbol = "[󰥭](bold red) "
-vicmd_symbol = "[󰥭](bold green) "
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+vicmd_symbol = "[](bold green)"
 
 [status]
 style = 'bold red'
@@ -33,9 +33,21 @@ min_time = 1_000
 format = " took [$duration]($style)"
 
 [directory]
-truncation_symbol = ""
+format = "[$read_only]($read_only_style)[$path]($style) "
+repo_root_format = "[$read_only]($read_only_style)[$repo_root]($repo_root_style)[$path]($style) "
+style = "bold cyan"
+repo_root_style = "bold cyan"
+read_only = " "
+truncation_symbol = "…/"
 truncation_length = 5
-format = "[$path]($style) "
+
+[battery]
+format = " [$symbol$percentage]($style)"
+
+[[battery.display]]
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+threshold = 30
 
 [git_branch]
 format = "[$symbol$branch]($style)(:[$remote]($style)) "
@@ -218,6 +230,3 @@ disabled = true
 [zig]
 symbol = " "
 disabled = false
-
-[battery]
-format = " [$symbol$percentage]($style)"
