@@ -4,10 +4,11 @@ deps = [
   { use = "Sonico98/exifaudio", rev = "92366cf" },
   { use = "ndtoan96/ouch", rev = "fe6b0a6" },
   { use = "dedukun/bookmarks", rev = "748efed" },
-  # { use = "DreamMaoMao/fg", commit = "677688a" },
   { use = "Rolv-Apneseth/bypass", rev = "619500e" },
   { use = "Rolv-Apneseth/starship", rev = "f386ea3" },
   { use = "yazi-rs/plugins:chmod", rev = "06e5fe1" },
+  { use = "lpnh/fg", rev = "9bba743" },
+  # { use = "DreamMaoMao/fg", commit = "677688a" },
 ]
 
 [flavor]
