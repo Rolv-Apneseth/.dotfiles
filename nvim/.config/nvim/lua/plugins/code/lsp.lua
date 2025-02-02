@@ -58,6 +58,7 @@ return {
             "bashls",
             "rust_analyzer",
             "omnisharp",
+            "gopls",
         }
 
         local settings = {
