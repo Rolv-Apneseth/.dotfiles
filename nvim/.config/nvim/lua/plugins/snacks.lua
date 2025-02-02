@@ -178,9 +178,7 @@ return {
                 end,
             },
             sections = {
-                function()
-                    return { header = get_random_header() }
-                end,
+                { section = "header" },
                 function()
                     return {
                         file = vim.uv.cwd(),

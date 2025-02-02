@@ -65,6 +65,7 @@ local headers = {
 
 return {
     get_random_header = function()
+        math.randomseed(os.time())
         return headers[math.random(#headers)]
     end,
 }
