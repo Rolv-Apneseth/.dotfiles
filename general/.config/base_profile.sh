@@ -4,6 +4,7 @@
 export PATH="${PATH:+${PATH}}\
 :$HOME/.local/bin\
 :$HOME/.local/share/cargo/bin\
+:$HOME/.local/share/go/bin\
 :$HOME/.config/rofi/scripts"
 
 # PROGRAMS
