@@ -62,8 +62,6 @@ show = [
   "DesktopEnvironment",
   "Shell",
   "Terminal",
-  "Uptime",
-  "Packages",
   "Resolution",
   "Memory",
   "Processor",
