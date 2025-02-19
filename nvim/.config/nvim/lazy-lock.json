@@ -52,6 +52,7 @@
   "nvim-various-textobjs": { "branch": "main", "commit": "b43a13448c3c3a4fca027595f7b6fc3522758e00" },
   "nvim-web-devicons": { "branch": "master", "commit": "aafa5c187a15701a7299a392b907ec15d9a7075f" },
   "onedark.nvim": { "branch": "master", "commit": "77debe4caee906181fb6c69b0faa8e237b8116c5" },
+  "outline.nvim": { "branch": "main", "commit": "f01eae624e6170656b6fadd6d7b8717636078bd6" },
   "pendulum-nvim": { "branch": "main", "commit": "52215b158f2f482444acd1f23ea2266b29f5402a" },
   "persistence.nvim": { "branch": "main", "commit": "f6aad7dde7fcf54148ccfc5f622c6d5badd0cc3d" },
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
