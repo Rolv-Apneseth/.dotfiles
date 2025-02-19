@@ -1,15 +1,57 @@
-[plugin]
-deps = [
-  { use = "Reledia/glow", rev = "536185a" },
-  { use = "Sonico98/exifaudio", rev = "92366cf" },
-  { use = "ndtoan96/ouch", rev = "fe6b0a6" },
-  { use = "dedukun/bookmarks", rev = "748efed" },
-  { use = "Rolv-Apneseth/bypass", rev = "619500e" },
-  { use = "Rolv-Apneseth/starship", rev = "f386ea3" },
-  { use = "yazi-rs/plugins:chmod", rev = "06e5fe1" },
-  { use = "lpnh/fg", rev = "9bba743" },
-  # { use = "DreamMaoMao/fg", commit = "677688a" },
-]
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "536185a"
+hash = "52e5f5c602962e7cbf874da28f52ba45"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "92366cf"
+hash = "a8e15d3c21c02a5af41d46ed04778a02"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "fe6b0a6"
+hash = "b86c9999ec09d14d58e4242b19863cbb"
+
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "748efed"
+hash = "f8111703f9d2e6ba3548b3844d5aeaac"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/bypass"
+rev = "619500e"
+hash = ""
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "f386ea3"
+hash = ""
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "06e5fe1"
+hash = "d2487da8aaef96eff845cdc3068ade28"
+
+[[plugin.deps]]
+use = "lpnh/fg"
+rev = "9bba743"
+hash = "5c395bf9b8ef3d4701ac9bdbc963c4c1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "8945e54"
+hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "8945e54"
+hash = "513a23ac28e1eaa626f3a1bb6c8130d0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "8945e54"
+hash = "b482f4f2d3c4e0aa3f8db89a95699439"
 
 [flavor]
 deps = []

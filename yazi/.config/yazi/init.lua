@@ -20,6 +20,10 @@ end
 local starship = require_plugin("starship")
 if starship then
     starship:setup()
+
+local no_status = require_plugin("no-status")
+if no_status then
+    no_status:setup()
 end
 
 local bookmarks = require_plugin("bookmarks")

@@ -323,3 +323,15 @@ desc = "Jump to file (content)"
 on   = [ "c", "m" ]
 run  = "plugin chmod"
 desc = "Chmod on selected files"
+
+# MAX PREVIEW
+[[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin max-preview"
+desc = "Maximize or restore preview"
+
+# SMART FILTERING
+[[manager.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"
