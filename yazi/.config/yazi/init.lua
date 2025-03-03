@@ -19,7 +19,12 @@ end
 
 local starship = require_plugin("starship")
 if starship then
-    starship:setup()
+    starship:setup({
+        flags_after_prompt = false,
+        --[[ hide_flags = true, ]]
+        --[[ config_file = "/home/rolv/.config/starship_full.toml", ]]
+    })
+end
 
 local no_status = require_plugin("no-status")
 if no_status then
