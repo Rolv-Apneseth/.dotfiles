@@ -22,9 +22,8 @@ return {
         },
         keymaps = {
             show_help = "?",
-            close = { "<Esc>", "q" },
+            close = { "<Esc>", "q", "<CR>" },
             goto_location = "<CR>",
-            goto_and_close = "<CR>",
             toggle_preview = "<Space>",
             hover_symbol = "K",
             rename_symbol = "r",
