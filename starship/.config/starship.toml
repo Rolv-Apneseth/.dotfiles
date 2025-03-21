@@ -112,6 +112,10 @@ disabled = false
 symbol = " "
 disabled = true
 
+[gcloud]
+symbol = " "
+disabled = true
+
 [buf]
 symbol = " "
 disabled = true
