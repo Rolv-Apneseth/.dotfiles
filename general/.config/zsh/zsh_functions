@@ -1,5 +1,19 @@
+# Source a file, by first checking if it exists
+function add_file()
+{
+    [ -f "$1" ] && source "$1"
+}
+
+# Below functions from https://github.com/Mach-OS/Machfiles/blob/master/zsh/.config/zsh/zsh-functions
+function zsh_add_file()
+{
+    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+# RIPGREP -------------------------------------------------------------------------------------------
 # Search for a file by name using ripgrep
-function rf() {
+function rf()
+{
     if [ "$2" = "" ]; then
         rg --files | rg "$1"
     else
@@ -7,12 +21,23 @@ function rf() {
     fi
 }
 
-# Source a file, by first checking if it exists
-function add_file() {
-    [ -f "$1" ] && source "$1"
+# BACON ---------------------------------------------------------------------------------------------
+function br()
+{
+    if [[ $# -eq 1 ]]; then
+        bacon run -- --quiet --example "$1"
+    else
+        bacon run -- --quiet
+    fi
 }
 
-# Below functions from https://github.com/Mach-OS/Machfiles/blob/master/zsh/.config/zsh/zsh-functions
-function zsh_add_file() {
-    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+function bt()
+{
+    if [[ $# -eq 2 ]]; then
+        bacon test -- --test "$1" "$2" -- --no-capture
+    elif [[ $# -eq 1 ]]; then
+        bacon test -- "$1" -- --nocapture
+    else
+        bacon test -- -- --nocapture
+    fi
 }
