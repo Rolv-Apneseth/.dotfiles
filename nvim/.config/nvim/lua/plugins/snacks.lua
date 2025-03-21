@@ -192,6 +192,23 @@ return {
                 { section = "startup" },
             },
         },
+
+        -- IMAGES
+        styles = {
+            snacks_image = {
+                relative = "editor",
+                col = -1,
+            },
+        },
+        image = {
+            enabled = true,
+            doc = {
+                inline = true,
+                only_render_image_at_cursor = true,
+                float = true,
+                max_width = 60,
+            },
+        },
     },
 
     keys = {
