@@ -63,8 +63,8 @@ show = [
   "Shell",
   "Terminal",
   "Resolution",
-  "Memory",
   "Processor",
   "GPU",
+  "Memory",
   "DiskSpace",
 ]
