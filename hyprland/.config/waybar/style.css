@@ -21,7 +21,7 @@ window#waybar {
 /* GROUPS */
 .modules-right {
     background: transparent;
-    margin-right: 20px;
+    margin-right: 10px;
     border-radius: 0;
 }
 .modules-center {
@@ -31,7 +31,7 @@ window#waybar {
 }
 .modules-left {
     background: transparent;
-    margin-left: 20px;
+    margin-left: 10px;
     border-radius: 0;
 }
 

@@ -7,6 +7,7 @@
     "margin-right": 0,
     "modules-left": [
         "battery",
+        "pulseaudio#microphone",
         "pulseaudio",
         "group/hardware"
     ],
@@ -102,12 +103,22 @@
         "format": "  {percentage}%"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "󰝟  {volume}% ",
         "format-icons": {
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "change_volume toggle",
+        "tooltip-format": "{source_desc} (output) - {source_volume}%",
+    },
+    "pulseaudio#microphone": {
+        "format": "<span size='large' rise='-1500'>{format_source}</span>",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "pavucontrol -t 4",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "tooltip-format": "{source_desc} (input) - {source_volume}%",
     },
     "custom/gpu-usage": {
         "format": "󰍛  {0}",
