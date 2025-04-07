@@ -169,8 +169,8 @@ return {
                     ["cmp.entry.get_documentation"] = false,
                 },
                 hover = {
-                    enabled = false,
-                    silent = false, -- set to true to not show a message if hover is not available
+                    enabled = true,
+                    silent = true, -- set to true to not show a message if hover is not available
                     view = nil, -- when nil, use defaults from documentation
                     opts = {}, -- merged with defaults from documentation
                 },
