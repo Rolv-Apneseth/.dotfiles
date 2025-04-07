@@ -1,7 +1,7 @@
 local icons = require("core.icons")
 local keymappings = require("core.keymappings")
 local servers_to_disable_formatting = { "tsserver", "sumneko_lua" }
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local blink_cmp = require("blink.cmp")
 
 local handlers = {}
 
@@ -12,7 +12,7 @@ handlers.capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true,
 }
 
-handlers.capabilities = cmp_nvim_lsp.default_capabilities(handlers.capabilities)
+handlers.capabilities = blink_cmp.get_lsp_capabilities(handlers.capabilities)
 
 handlers.setup = function()
     local signs = {
