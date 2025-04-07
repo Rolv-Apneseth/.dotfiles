@@ -4,8 +4,6 @@
 /mnt
 /proc
 /sys
-**/home/*/.config
-**/Documents/zk
 **/.cache
 **/.frozenbyte
 **/.ftb
@@ -25,7 +23,6 @@
 **/Wallpapers
 **/node_modules
 **/registry
-**/tldr
 *.bin
 *.db
 *.efi
