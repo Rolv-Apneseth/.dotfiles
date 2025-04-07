@@ -34,10 +34,10 @@ function br()
 function bt()
 {
     if [[ $# -eq 2 ]]; then
-        bacon test -- --test "$1" "$2" -- --no-capture
+        bacon test -- --test "$1" "$2"
     elif [[ $# -eq 1 ]]; then
-        bacon test -- "$1" -- --nocapture
+        bacon test -- "$1"
     else
-        bacon test -- -- --nocapture
+        bacon test
     fi
 }
