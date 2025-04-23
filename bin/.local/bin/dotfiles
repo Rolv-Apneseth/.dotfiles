@@ -22,7 +22,6 @@ STOW_FOLDERS=(
     "tealdeer"
     "bottom"
     "mpd"
-    "ncmpcpp"
     "zk"
     "erdtree"
     "mangohud"
