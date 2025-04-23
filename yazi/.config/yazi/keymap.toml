@@ -53,6 +53,8 @@ keymap = [
     { on = [ "<C-s>" ],     run = "search none",                                            desc = "Cancel the ongoing search" },
     # { on = "z",             run = "plugin zoxide",                                          desc = "Jump to a directory using zoxide" },
 	# { on = "Z",             run = "plugin fzf",                                             desc = "Jump to a directory or reveal a file using fzf" },
+	{ on = ["z", "z"],             run = "plugin zoxide",                                             desc = "Jump to a directory or reveal a file using fzf" },
+	{ on = ["z", "f"],             run = "search rga",                                             desc = "Jump to a directory or reveal a file using fzf" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
@@ -270,53 +272,53 @@ run  = "plugin keyjump"
 desc = "Keyjump (Normal mode)"
 [[manager.prepend_keymap]]
 on   = [ "I" ]
-run  = "plugin keyjump --args=keep"
+run  = "plugin keyjump keep"
 desc = "Keyjump (Keep mode)"
 
 # BOOKMARKS
 [[manager.prepend_keymap]]
 on = [ "M" ]
-run = "plugin bookmarks --args=save"
+run = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
 
 [[manager.prepend_keymap]]
 on = [ "'" ]
-run = "plugin bookmarks --args=jump"
+run = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
 
 [[manager.prepend_keymap]]
 on = [ "b", "d" ]
-run = "plugin bookmarks --args=delete"
+run = "plugin bookmarks delete"
 desc = "Delete a bookmark"
 
 [[manager.prepend_keymap]]
 on = [ "b", "D" ]
-run = "plugin bookmarks --args=delete_all"
+run = "plugin bookmarks delete_all"
 desc = "Delete all bookmarks"
 
 # BYPASS
 [[manager.prepend_keymap]]
 on = [ "L" ]
-run = "plugin bypass --args=smart_enter"
+run = "plugin bypass smart_enter"
 desc = "Skip directories with just a single sub directory"
 [[manager.prepend_keymap]]
 on = [ "H" ]
-run = "plugin bypass --args=reverse"
+run = "plugin bypass reverse"
 desc = "Skip directories with just a single sub directory"
 
 # FG
-[[manager.prepend_keymap]]
-on   = [ "z","z" ]
-run  = "plugin zoxide"
-desc = "Jump to dir"
-[[manager.prepend_keymap]]
-on   = [ "z","f" ]
-run  = "plugin fg --args='fzf'"
-desc = "Jump to file"
-[[manager.prepend_keymap]]
-on   = [ "z","g" ]
-run  = "plugin fg"
-desc = "Jump to file (content)"
+# [[manager.prepend_keymap]]
+# on   = [ "z","z" ]
+# run  = "plugin zoxide"
+# desc = "Jump to dir"
+# [[manager.prepend_keymap]]
+# on   = [ "z","f" ]
+# run  = "plugin fg fzf"
+# desc = "Jump to file"
+# [[manager.prepend_keymap]]
+# on   = [ "z","g" ]
+# run  = "plugin fg"
+# desc = "Jump to file (content)"
 
 # CHMOD
 [[manager.prepend_keymap]]
