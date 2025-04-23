@@ -1,6 +1,6 @@
 return {
     "rolv-apneseth/tfm.nvim",
-    dev = true,
+    --[[ dev = true, ]]
     lazy = false,
     opts = {
         file_manager = "yazi",
