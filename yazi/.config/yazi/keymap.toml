@@ -53,8 +53,6 @@ keymap = [
     { on = [ "<C-s>" ],     run = "search none",                                            desc = "Cancel the ongoing search" },
     # { on = "z",             run = "plugin zoxide",                                          desc = "Jump to a directory using zoxide" },
 	# { on = "Z",             run = "plugin fzf",                                             desc = "Jump to a directory or reveal a file using fzf" },
-	{ on = ["z", "z"],             run = "plugin zoxide",                                             desc = "Jump to a directory or reveal a file using fzf" },
-	{ on = ["z", "f"],             run = "search rga",                                             desc = "Jump to a directory or reveal a file using fzf" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
@@ -307,18 +305,18 @@ run = "plugin bypass reverse"
 desc = "Skip directories with just a single sub directory"
 
 # FG
-# [[manager.prepend_keymap]]
-# on   = [ "z","z" ]
-# run  = "plugin zoxide"
-# desc = "Jump to dir"
-# [[manager.prepend_keymap]]
-# on   = [ "z","f" ]
-# run  = "plugin fg fzf"
-# desc = "Jump to file"
-# [[manager.prepend_keymap]]
-# on   = [ "z","g" ]
-# run  = "plugin fg"
-# desc = "Jump to file (content)"
+[[manager.prepend_keymap]]
+on   = [ "z","z" ]
+run  = "plugin zoxide"
+desc = "Jump to dir"
+[[manager.prepend_keymap]]
+on   = [ "z","f" ]
+run  = "plugin fzf"
+desc = "Jump to file"
+[[manager.prepend_keymap]]
+on   = [ "z","g" ]
+run  = "plugin fg"
+desc = "Jump to file (content)"
 
 # CHMOD
 [[manager.prepend_keymap]]
