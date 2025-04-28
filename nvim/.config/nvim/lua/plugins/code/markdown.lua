@@ -1,10 +1,7 @@
 return {
     {
         "jannis-baum/vivify.vim", -- Preview markdown files in the browser using `vivify`
-        ft = {
-            "markdown",
-        },
-        config = function() end,
+        lazy = true,
         keys = {
             { "<leader>ip", ":Vivify<CR>", desc = "Preview using vivify", ft = "markdown" },
         },
@@ -30,48 +27,38 @@ return {
     },
     {
         "Kicamon/markdown-table-mode.nvim", -- Format markdown tables
-        ft = "markdown",
+        lazy = true,
         opts = {
             options = {
                 insert = true, -- when typing "|"
                 insert_leave = true, -- when leaving insert
+                pad_separator_line = true, -- add space in separator line
+            },
+        },
+        keys = {
+            {
+                "<leader>it",
+                "<cmd>Mtm<cr>",
+                ft = "markdown",
+                desc = "Toggle table mode",
             },
         },
     },
     {
-        "gaoDean/autolist.nvim", -- Auto list continuation and recalculation
-        ft = {
-            "markdown",
-        },
-        opts = {},
-        keys = {
-            { "<CR>", "<CR><cmd>AutolistNewBullet<cr>", ft = "markdown", mode = "i" },
-            { "o", "o<cmd>AutolistNewBullet<cr>", ft = "markdown" },
-            { "O", "O<cmd>AutolistNewBulletBefore<cr>", ft = "markdown" },
-            { "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>", ft = "markdown" },
-
-            -- recalculate ordered list on edit
-            { ">>", ">><cmd>AutolistRecalculate<cr>", ft = "markdown" },
-            { "<<", "<<<cmd>AutolistRecalculate<cr>", ft = "markdown" },
-            { "dd", "dd<cmd>AutolistRecalculate<cr>", ft = "markdown" },
-            { "d", "d<cmd>AutolistRecalculate<cr>", ft = "markdown", mode = "v" },
-        },
-    },
-    {
         "richardbizik/nvim-toc", -- Table of contents generation
-        ft = "markdown",
+        lazy = true,
         opts = {
             toc_header = "Table of Contents",
         },
         keys = {
             {
-                "<leader>it",
+                "<leader>ic",
                 "<cmd>TOC<cr>",
                 ft = "markdown",
                 desc = "Generate table of contents (numbered)",
             },
             {
-                "<leader>il",
+                "<leader>iC",
                 "<cmd>TOCList<cr>",
                 ft = "markdown",
                 desc = "Generate table of contents (list)",
