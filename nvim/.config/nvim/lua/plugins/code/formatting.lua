@@ -1,5 +1,5 @@
 -- REQUIRED EXTERNAL BINARIES
--- prettierd/prettier stylua python-isort python-black shellharden shfmt rustup markdownlint rustywind taplo-cli just nixfmt fixjson typos gofumpt goimports-reviser
+-- prettierd/prettier stylua python-isort python-black shellharden shfmt rustup markdownlint rustywind taplo-cli just nixfmt fixjson typos gofumpt goimports-reviser sqruff
 
 local constants = require("core.constants")
 
@@ -48,6 +48,7 @@ return {
             nix = { "nixfmt" },
             json = { "fixjson" },
             go = { "gofumpt", "goimports-reviser" },
+            sql = { "sqruff" },
 
             -- 😥
             javascript = JS_FORMATTERS,
