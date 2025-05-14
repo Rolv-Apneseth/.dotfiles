@@ -297,7 +297,7 @@ desc = "Delete all bookmarks"
 # BYPASS
 [[manager.prepend_keymap]]
 on = [ "L" ]
-run = "plugin bypass smart_enter"
+run = "plugin bypass smart-enter"
 desc = "Skip directories with just a single sub directory"
 [[manager.prepend_keymap]]
 on = [ "H" ]
