@@ -5,7 +5,7 @@ return {
     opts = {
         file_manager = "yazi",
         replace_netrw = true,
-        enable_cmds = false,
+        enable_cmds = true,
         ui = {
             border = "rounded",
             height = 1,
@@ -14,9 +14,9 @@ return {
             y = 0.5,
         },
         keybindings = {
-            ["<C-v>"] = "<C-\\><C-O>:lua require('tfm').set_next_open_mode(require('tfm').OPEN_MODE.vsplit)<CR>",
-            ["<C-x>"] = "<C-\\><C-O>:lua require('tfm').set_next_open_mode(require('tfm').OPEN_MODE.split)<CR>",
-            ["<C-t>"] = "<C-\\><C-O>:lua require('tfm').set_next_open_mode(require('tfm').OPEN_MODE.tabedit)<CR>",
+            ["<C-v>"] = "<C-\\><C-O>:TfmVsplit<CR>",
+            ["<C-x>"] = "<C-\\><C-O>:TfmSplit<CR>",
+            ["<C-t>"] = "<C-\\><C-O>:TfmTabedit<CR>",
         },
     },
     keys = {
