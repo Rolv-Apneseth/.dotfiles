@@ -16,7 +16,7 @@ case "$1" in
         ;;
     clipboard)
         if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-            clipman pick --tool=CUSTOM -T'rofi -dmenu -theme selector -p "clipboard"'
+            cliphist list | rofi -dmenu -theme selector -p "clipboard" -display-columns 2 | cliphist decode | wl-copy
         else
             rofi -modi "clipboard:greenclip print" -show clipboard -theme selector
         fi
