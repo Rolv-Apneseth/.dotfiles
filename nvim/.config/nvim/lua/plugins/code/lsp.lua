@@ -78,6 +78,7 @@ return {
         mason_lspconfig.setup({
             ensure_installed = servers,
             automatic_installation = true,
+            automatic_enable = false,
         })
 
         local opts = {}
