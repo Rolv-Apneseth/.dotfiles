@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 cwd = { fg = "white" }
 
 # Hovered
@@ -10,19 +10,14 @@ find_keyword = { fg = "yellow", italic = true }
 find_position = { fg = "white", italic = true }
 
 # Marker
-marker_copied   = { fg = "lightyellow" }
-marker_cut      = { fg = "lightred" }
-marker_marked   = { fg = "magenta" }
+marker_copied = { fg = "lightyellow" }
+marker_cut = { fg = "lightred" }
+marker_marked = { fg = "magenta" }
 marker_selected = { fg = "blue" }
 
-# Tab
-tab_active = { fg = "white", bg = "magenta" }
-tab_inactive = { fg = "white", bg = "darkgray" }
-tab_width = 1
-
 # Count
-count_copied   = { fg = "black", bg = "yellow" }
-count_cut      = { fg = "white", bg = "red" }
+count_copied = { fg = "black", bg = "yellow" }
+count_cut = { fg = "white", bg = "red" }
 count_selected = { fg = "white", bg = "magenta" }
 
 # Border
@@ -54,6 +49,11 @@ permissions_r = { fg = "lightyellow" }
 permissions_w = { fg = "lightred" }
 permissions_x = { fg = "lightcyan" }
 permissions_s = { fg = "darkgray" }
+
+# Tab
+[tabs]
+active = { fg = "white", bg = "magenta" }
+inactive = { fg = "white", bg = "darkgray" }
 
 [select]
 border = { fg = "blue" }

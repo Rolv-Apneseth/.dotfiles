@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 keymap = [
 	{ on = [ "<Esc>" ], run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = [ "q" ],     run = "quit",               desc = "Exit the process" },
@@ -264,74 +264,74 @@ keymap = [
 ]
 
 # KEYJUMP
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "i" ]
 run  = "plugin keyjump"
 desc = "Keyjump (Normal mode)"
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "I" ]
 run  = "plugin keyjump keep"
 desc = "Keyjump (Keep mode)"
 
 # BOOKMARKS
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "M" ]
 run = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "'" ]
 run = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "b", "d" ]
 run = "plugin bookmarks delete"
 desc = "Delete a bookmark"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "b", "D" ]
 run = "plugin bookmarks delete_all"
 desc = "Delete all bookmarks"
 
 # BYPASS
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "L" ]
 run = "plugin bypass smart-enter"
 desc = "Skip directories with just a single sub directory"
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "H" ]
 run = "plugin bypass reverse"
 desc = "Skip directories with just a single sub directory"
 
 # FG
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "z","z" ]
 run  = "plugin zoxide"
 desc = "Jump to dir"
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "z","f" ]
 run  = "plugin fzf"
 desc = "Jump to file"
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "z","g" ]
 run  = "plugin fg"
 desc = "Jump to file (content)"
 
 # CHMOD
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "c", "m" ]
 run  = "plugin chmod"
 desc = "Chmod on selected files"
 
 # MAX PREVIEW
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "T"
 run  = "plugin max-preview"
 desc = "Maximize or restore preview"
 
 # SMART FILTERING
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
