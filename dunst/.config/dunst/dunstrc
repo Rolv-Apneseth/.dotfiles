@@ -6,7 +6,7 @@
     origin = bottom-right
 	offset = 20x20
     width = (200, 500)
-    height = (75, 200)
+    height = (75, 500)
     corner_radius = 10
     frame_width = 3
     separator_height = 3
