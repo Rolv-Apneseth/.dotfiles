@@ -12,7 +12,7 @@ case "$1" in
             copy="wl-copy"
         fi
 
-        rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | $copy" -theme calculator
+        rofi -show calc -modi calc -no-show-match -no-sort -hint-result "" -hint-welcome "" -calc-command "echo -n '{result}' | $copy" -theme calculator
         ;;
     clipboard)
         if [ "$XDG_SESSION_TYPE" == "wayland" ]; then

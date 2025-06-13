@@ -1,5 +1,23 @@
 @import "selector"
 
+mainbox {
+    children: [prompt, inputbar-box, message, listview];
+    spacing: 20px;
+}
+
+listview {
+    padding: 0 0 60px 0;
+}
+
+message {
+    margin:0;
+    expand :false;
+}
+
+textbox {
+    horizontal-align: 0.5;
+}
+
 textbox-prompt {
     str: "";
 }
