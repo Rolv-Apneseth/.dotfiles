@@ -26,6 +26,8 @@ alias lg="lazygit"
 alias mc="macchina"
 alias js="just"
 
+alias cargo-clean-all="fd 'Cargo.toml' -x cargo clean --manifest-path {}"
+
 # Avoid $HOME/.wget-hsts file
 alias wget=wget --hsts-file='$XDG_DATA_HOME/wget-hsts'
 # Avoid $HOME/.yarnrc file
