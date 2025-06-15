@@ -33,7 +33,7 @@ require("lazy").setup(
             border = "rounded",
         },
         dev = {
-            path = "~/repos",
+            path = "~/repos/__nvim/",
             fallback = false, -- Fallback to git when local plugin doesn't exist
         },
         install = {
