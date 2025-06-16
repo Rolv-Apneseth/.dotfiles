@@ -1,0 +1,53 @@
+# sync_address = "https://api.atuin.sh"
+
+dialect = "uk"
+timezone = "local"
+auto_sync = true
+sync_frequency = "2h"
+update_check = false
+style = "full"
+inline_height = 40
+max_preview_height = 4
+invert = true
+show_preview = true
+ctrl_n_shortcuts = false
+history_format = "{time}\t{duration}\t{command}"
+keymap_cursor = { emacs = "blink-block", vim_insert = "steady-bar", vim_normal = "steady-block" }
+keymap_mode = "vim-normal"
+enter_accept = true
+secrets_filter = true
+show_tabs = false
+show_help = false
+prefers_reduced_motion = false
+
+## possible values: prefix, fulltext, fuzzy, skim
+search_mode = "fuzzy"
+## possible values: "global", "host", "session", "directory", "workspace"
+filter_mode = "global"
+
+## prevent commands matching any of these regexes from being written to history.
+## Note that these regular expressions are unanchored, i.e. if they don't start
+## with ^ or end with $, they'll match anywhere in the command.
+## For details on the supported regular expression syntax, see
+## https://docs.rs/regex/latest/regex/#syntax
+# history_filter = [
+#   "^secret-cmd",
+#   "^innocuous-cmd .*--secret=.+",
+# ]
+
+## prevent commands run with cwd matching any of these regexes from being written
+## to history. Note that these regular expressions are unanchored, i.e. if they don't
+## start with ^ or end with $, they'll match anywhere in CWD.
+## For details on the supported regular expression syntax, see
+## https://docs.rs/regex/latest/regex/#syntax
+# cwd_filter = [
+#   "^/very/secret/area",
+# ]
+
+[keys]
+scroll_exits = true
+# Defaults to true. The right arrow key performs the same functionality as Tab and copies the selected line to the command line to be modified.
+accept_past_line_end = true
+
+[sync]
+records = true
