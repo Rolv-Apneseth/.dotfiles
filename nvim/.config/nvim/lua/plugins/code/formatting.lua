@@ -67,12 +67,6 @@ return {
                     constants.TAB_WIDTH,
                 },
             },
-            markdownlint = {
-                prepend_args = {
-                    "--disable",
-                    "MD013", -- line-length
-                },
-            },
             leptosfmt = {
                 prepend_args = {
                     "--experimental-tailwind",

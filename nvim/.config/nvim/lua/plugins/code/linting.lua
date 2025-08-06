@@ -43,5 +43,11 @@ return {
             "--ignore",
             "E203, E266, E501, W503",
         }
+
+        -- MARKDOWNLINT
+        lint.linters.markdownlint.args = {
+            "--disable",
+            "MD013", -- line-length
+        }
     end,
 }
