@@ -2,8 +2,10 @@
 local wezterm = require("wezterm")
 local colours = require("colours")
 
-local config = {}
+-- Setup custom hyperlink functionality
+require("hyperlinks")
 
+local config = {}
 if wezterm.config_builder then
     config = wezterm.config_builder()
 end
@@ -34,13 +36,8 @@ for k, v in pairs({
     check_for_updates = false,
     enable_wayland = true,
     detect_password_input = false,
-    keys = {
-        {
-            key = "r",
-            mods = "CMD|SHIFT",
-            action = wezterm.action.ReloadConfiguration,
-        },
-    },
+    default_workspace = "~",
+    keys = {},
 }) do
     config[k] = v
 end
