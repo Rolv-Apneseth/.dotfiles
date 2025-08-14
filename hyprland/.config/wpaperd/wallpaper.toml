@@ -5,3 +5,4 @@ duration = "30min"
 sorting = "random"
 transition-time = 400
 queue-size = 20
+recursive = false
