@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # requirements: rofi steam pactl rofi-calc rofi-emoji fd udiskie-dmenu
 # extra requirements x11: greenclip rofi-greenclip
-# extra requirements wayland: clipman
+# extra requirements wayland: clipvault
 # required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME $TERMINAL_EXECUTE $FZF_DEFAULT_COMMAND
+
+set -e
 
 case "$1" in
     run) rofi -show run -theme launcher ;;
@@ -16,7 +18,7 @@ case "$1" in
         ;;
     clipboard)
         if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-            cliphist list | rofi -dmenu -theme selector -p "clipboard" -display-columns 2 | cliphist decode | wl-copy
+            rofi -modi clipboard:clipvault_rofi -show clipboard -theme clipboard
         else
             rofi -modi "clipboard:greenclip print" -show clipboard -theme selector
         fi

@@ -1,0 +1,10 @@
+@import "selector.rasi"
+
+configuration {
+    show-icons:         true;
+}
+
+element-box {
+    children:                       [dummy, element-icon, element-text, dummy];
+    orientation:                    horizontal;
+}
