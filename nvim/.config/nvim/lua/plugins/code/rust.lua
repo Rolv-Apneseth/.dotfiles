@@ -30,6 +30,9 @@ return {
                             extraArgs = {
                                 "--all",
                                 "--",
+                                -- Follow <https://github.com/rust-lang/rust-analyzer/issues/14395> for updates
+                                "-A",
+                                "rust-analyzer::inactive_code",
                                 -- Clippy lints
                                 "-W",
                                 "clippy::all",
