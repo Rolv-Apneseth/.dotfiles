@@ -1,5 +1,25 @@
 local get_random_header = require("core.headers").get_random_header
 
+-- HACK: disable buggy animations in completion windows
+local autocmd = vim.api.nvim_create_autocmd
+local group = vim.api.nvim_create_augroup("BlinkSnacksCompat", { clear = true })
+
+autocmd("User", {
+    group = group,
+    pattern = "BlinkCmpMenuOpen",
+    callback = function()
+        vim.g.snacks_animate = false
+    end,
+})
+
+autocmd("User", {
+    group = group,
+    pattern = "BlinkCmpMenuClose",
+    callback = function()
+        vim.g.snacks_animate = true
+    end,
+})
+
 return {
     "folke/snacks.nvim",
     priority = 1000,
