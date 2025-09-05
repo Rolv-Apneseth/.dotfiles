@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# requirements: rofi steam pactl rofi-calc rofi-emoji fd udiskie-dmenu
+# requirements: rofi steam pactl rofi-calc rofi-emoji fd udiskie-dmenu rofi-games rofi-nerdy rofi-unicode
 # extra requirements x11: greenclip rofi-greenclip
 # extra requirements wayland: clipvault
 # required env variables: $ROFI_SCRIPTS_DIR $XDG_DATA_HOME $TERMINAL_EXECUTE $FZF_DEFAULT_COMMAND
@@ -25,6 +25,7 @@ case "$1" in
         ;;
     emojis) rofi -modi emoji -show emoji -emoji-mode copy -theme icons ;;
     nerdy) rofi -modi nerdy -show nerdy -theme icons ;;
+    unicode) rofi -modi unicode -show unicode -theme icons ;;
     games) rofi -modi games -show games -theme games ;;
     edit) e_rofi.zsh ;;
     sound_sink) pactl set-default-sink "$(pactl list short sinks | awk '{print $2}' | rofi -dmenu -theme selector -p "Select default sound sink")" ;;
