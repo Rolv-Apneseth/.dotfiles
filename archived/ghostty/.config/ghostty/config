@@ -1,0 +1,9 @@
+theme = main
+font-family = Inconsolata Nerd Font Mono
+font-size = 18
+window-inherit-font-size = false
+window-padding-x = 8
+window-padding-y = 4
+cursor-style = bar
+cursor-style-blink = false
+shell-integration-features = no-cursor
