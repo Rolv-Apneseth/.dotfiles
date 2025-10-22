@@ -49,5 +49,13 @@ return {
             "--disable",
             "MD013", -- line-length
         }
+
+        -- TYPOS
+        lint.linters.typos.args = {
+            "--ignore-identifiers-file",
+            "/home/rolv/.config/nvim/spell/en.utf-8.add",
+            "--format=json",
+            "--force-exclude",
+        }
     end,
 }
