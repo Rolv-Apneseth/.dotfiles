@@ -12,9 +12,9 @@ export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=/usr/bin/nvim
 export BROWSER=firefox
-export TERMINAL=wezterm
-export TERMINAL_EXECUTE="$TERMINAL -e"
-export TERMINAL_DIR="$TERMINAL start --cwd"
+export TERMINAL="wezterm start --always-new-process"
+export TERMINAL_EXECUTE="wezterm -e"
+export TERMINAL_DIR="$TERMINAL --cwd"
 
 # CUSTOM DIRS
 # Stowed dotfiles directory
