@@ -163,6 +163,7 @@ return {
                     "<cmd>ZkNew { dir = 'daily' }<cr>",
                     "New daily note",
                 },
+                t = { "<cmd>e $ZK_NOTEBOOK_DIR/todo.md<cr>", "Open todo.md" },
                 b = "Open notes linking TO the current buffer.",
                 B = "Open notes linked BY the current buffer.",
             },
