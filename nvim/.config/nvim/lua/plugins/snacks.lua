@@ -142,6 +142,12 @@ return {
                         action = ":ZkNotes",
                     },
                     {
+                        icon = "󰄲",
+                        key = "t",
+                        desc = "Todo",
+                        action = ":cd $ZK_NOTEBOOK_DIR | e todo.md",
+                    },
+                    {
                         icon = "",
                         key = "l",
                         desc = "Lazy",
