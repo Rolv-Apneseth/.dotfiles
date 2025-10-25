@@ -5,3 +5,4 @@ nvim/.config/nvim/spell/*.spl
 general/.config/zsh/plugins/
 yazi/.config/yazi/plugins/
 accels.scm
+tmp/
