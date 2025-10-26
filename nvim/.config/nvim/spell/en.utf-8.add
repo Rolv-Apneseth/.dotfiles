@@ -134,6 +134,14 @@ async
 mutexes
 unicode
 datetime
-scollbar
 popup
 keybind
+deserialize
+Deserializer
+deserializer
+deserialized
+enums
+popups
+STDIN
+scriptable
+undervolting

@@ -24,6 +24,7 @@
   "markdown-table-mode.nvim": { "branch": "main", "commit": "bb1ea9b76c1b29e15e14806fdfbb2319df5c06f1" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "7f0bf635082bb9b7d2b37766054526a6ccafdb85" },
   "mason.nvim": { "branch": "main", "commit": "7dc4facca9702f95353d5a1f87daf23d78e31c2a" },
+  "neogen": { "branch": "main", "commit": "b2e78708876f4da507839726816010a68e33fec8" },
   "nlsp-settings.nvim": { "branch": "main", "commit": "80d31152df16c3ee8711b44f8ce0eaa22d967c7c" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
