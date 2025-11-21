@@ -113,6 +113,10 @@ return {
                                 "clippy::verbose_bit_mask",
                                 "-W",
                                 "clippy::zero_sized_map_values",
+                                "-W",
+                                "clippy::must_use_candidate",
+                                "-W",
+                                "clippy::fallible_impl_from",
                             },
                         },
                         cargo = {
