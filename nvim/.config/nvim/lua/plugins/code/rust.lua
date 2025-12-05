@@ -1,149 +1,182 @@
-return {
-    "mrcjkb/rustaceanvim", -- Rust specific stuff
-    ft = "rust",
-    config = function()
-        vim.g.rustaceanvim = {
+local require_plugin = require("core.helpers").require_plugin
 
-            tools = {
-                reload_workspace_from_cargo_toml = true,
-                enable_clippy = true,
-                enable_nextest = false,
-                hover_actions = {
-                    replace_builtin_hover = false,
-                    auto_focus = false,
-                    border = "rounded",
-                    width = 60,
+return {
+    {
+        "saecki/crates.nvim", -- For managing Cargo dependencies
+        event = { "BufRead Cargo.toml" },
+        tag = "stable",
+        config = function()
+            local crates = require_plugin("crates")
+            if not crates then
+                return
+            end
+            crates.setup({
+                lsp = {
+                    enabled = true,
+                    actions = true,
+                    completion = true,
+                    hover = true,
                 },
-            },
-            server = {
-                on_attach = function(client, bufnr)
-                    require("plugins.code.utils.handlers").on_attach(client, bufnr)
-                end,
-                capabilities = require("plugins.code.utils.handlers").capabilities,
-                settings = {
-                    ["rust-analyzer"] = {
-                        lens = {
-                            enable = true,
-                        },
-                        check = {
-                            command = "clippy",
-                            extraArgs = {
-                                "--all",
-                                "--",
-                                -- Follow <https://github.com/rust-lang/rust-analyzer/issues/14395> for updates
-                                "-A",
-                                "rust-analyzer::inactive_code",
-                                -- Clippy lints
-                                "-W",
-                                "clippy::all",
-                                "-W",
-                                -- There must be a better way to do this...
-                                "clippy::cloned_instead_of_copied",
-                                "-W",
-                                "clippy::bool_to_int_with_if",
-                                "-W",
-                                "clippy::cloned_instead_of_copied",
-                                "-W",
-                                "clippy::comparison_chain",
-                                "-W",
-                                "clippy::doc_broken_link",
-                                "-W",
-                                "clippy::empty_enum",
-                                "-W",
-                                "clippy::filter_map_next",
-                                "-W",
-                                "clippy::flat_map_option",
-                                "-W",
-                                "clippy::format_push_string",
-                                "-W",
-                                "clippy::inefficient_to_string",
-                                "-W",
-                                "clippy::iter_filter_is_ok",
-                                "-W",
-                                "clippy::iter_filter_is_some",
-                                "-W",
-                                "clippy::manual_assert",
-                                "-W",
-                                "clippy::manual_instant_elapsed",
-                                "-W",
-                                "clippy::manual_is_power_of_two",
-                                "-W",
-                                "clippy::manual_is_variant_and",
-                                "-W",
-                                "clippy::manual_let_else",
-                                "-W",
-                                "clippy::manual_midpoint",
-                                "-W",
-                                "clippy::map_unwrap_or",
-                                "-W",
-                                "clippy::match_bool",
-                                "-W",
-                                "clippy::mut_mut",
-                                "-W",
-                                "clippy::needless_bitwise_bool",
-                                "-W",
-                                "clippy::non_std_lazy_statics",
-                                "-W",
-                                "clippy::option_as_ref_cloned",
-                                "-W",
-                                "clippy::option_option",
-                                "-W",
-                                "clippy::redundant_closure_for_method_calls",
-                                "-W",
-                                "clippy::same_functions_in_if_condition",
-                                "-W",
-                                "clippy::single_char_pattern",
-                                "-W",
-                                "clippy::single_match_else",
-                                "-W",
-                                "clippy::stable_sort_primitive",
-                                "-W",
-                                "clippy::str_split_at_newline",
-                                "-W",
-                                "clippy::str_to_string",
-                                "-W",
-                                "clippy::unnecessary_join",
-                                "-W",
-                                "clippy::unnecessary_literal_bound",
-                                "-W",
-                                "clippy::unnested_or_patterns",
-                                "-W",
-                                "clippy::unused_async",
-                                "-W",
-                                "clippy::verbose_bit_mask",
-                                "-W",
-                                "clippy::zero_sized_map_values",
-                                "-W",
-                                "clippy::must_use_candidate",
-                                "-W",
-                                "clippy::fallible_impl_from",
+            })
+        end,
+    },
+    {
+        "mrcjkb/rustaceanvim", -- Rust specific stuff
+        ft = "rust",
+        config = function()
+            vim.g.rustaceanvim = {
+
+                tools = {
+                    reload_workspace_from_cargo_toml = true,
+                    enable_clippy = true,
+                    enable_nextest = false,
+                    hover_actions = {
+                        replace_builtin_hover = false,
+                        auto_focus = false,
+                        border = "rounded",
+                        width = 60,
+                    },
+                },
+                server = {
+                    on_attach = function(client, bufnr)
+                        require("plugins.code.utils.handlers").on_attach(client, bufnr)
+                    end,
+                    capabilities = require("plugins.code.utils.handlers").capabilities,
+                    settings = {
+                        ["rust-analyzer"] = {
+                            lens = {
+                                enable = true,
                             },
-                        },
-                        cargo = {
-                            autoReload = true,
-                            features = "all",
-                        },
-                        procMacro = {
-                            ignored = {
-                                leptos_macro = {
-                                    -- "component",
-                                    "server",
+                            check = {
+                                command = "clippy",
+                                extraArgs = {
+                                    "--all",
+                                    "--",
+                                    -- Follow <https://github.com/rust-lang/rust-analyzer/issues/14395> for updates
+                                    "-A",
+                                    "rust-analyzer::inactive_code",
+                                    -- Clippy lints
+                                    "-W",
+                                    "clippy::all",
+                                    "-W",
+                                    -- There must be a better way to do this...
+                                    "clippy::cloned_instead_of_copied",
+                                    "-W",
+                                    "clippy::bool_to_int_with_if",
+                                    "-W",
+                                    "clippy::cloned_instead_of_copied",
+                                    "-W",
+                                    "clippy::comparison_chain",
+                                    "-W",
+                                    "clippy::doc_broken_link",
+                                    "-W",
+                                    "clippy::empty_enum",
+                                    "-W",
+                                    "clippy::filter_map_next",
+                                    "-W",
+                                    "clippy::flat_map_option",
+                                    "-W",
+                                    "clippy::format_push_string",
+                                    "-W",
+                                    "clippy::inefficient_to_string",
+                                    "-W",
+                                    "clippy::iter_filter_is_ok",
+                                    "-W",
+                                    "clippy::iter_filter_is_some",
+                                    "-W",
+                                    "clippy::manual_assert",
+                                    "-W",
+                                    "clippy::manual_instant_elapsed",
+                                    "-W",
+                                    "clippy::manual_is_power_of_two",
+                                    "-W",
+                                    "clippy::manual_is_variant_and",
+                                    "-W",
+                                    "clippy::manual_let_else",
+                                    "-W",
+                                    "clippy::manual_midpoint",
+                                    "-W",
+                                    "clippy::map_unwrap_or",
+                                    "-W",
+                                    "clippy::match_bool",
+                                    "-W",
+                                    "clippy::mut_mut",
+                                    "-W",
+                                    "clippy::needless_bitwise_bool",
+                                    "-W",
+                                    "clippy::non_std_lazy_statics",
+                                    "-W",
+                                    "clippy::option_as_ref_cloned",
+                                    "-W",
+                                    "clippy::option_option",
+                                    "-W",
+                                    "clippy::redundant_closure_for_method_calls",
+                                    "-W",
+                                    "clippy::same_functions_in_if_condition",
+                                    "-W",
+                                    "clippy::single_char_pattern",
+                                    "-W",
+                                    "clippy::single_match_else",
+                                    "-W",
+                                    "clippy::stable_sort_primitive",
+                                    "-W",
+                                    "clippy::str_split_at_newline",
+                                    "-W",
+                                    "clippy::str_to_string",
+                                    "-W",
+                                    "clippy::unnecessary_join",
+                                    "-W",
+                                    "clippy::unnecessary_literal_bound",
+                                    "-W",
+                                    "clippy::unnested_or_patterns",
+                                    "-W",
+                                    "clippy::unused_async",
+                                    "-W",
+                                    "clippy::verbose_bit_mask",
+                                    "-W",
+                                    "clippy::zero_sized_map_values",
+                                    "-W",
+                                    "clippy::must_use_candidate",
+                                    "-W",
+                                    "clippy::fallible_impl_from",
+                                },
+                            },
+                            cargo = {
+                                autoReload = true,
+                                features = "all",
+                            },
+                            procMacro = {
+                                ignored = {
+                                    leptos_macro = {
+                                        -- "component",
+                                        "server",
+                                    },
                                 },
                             },
                         },
                     },
                 },
+            }
+        end,
+        keys = {
+            { "<leader>ir", ":RustLsp runnables<CR>", desc = "Runnables", ft = "rust" },
+            { "<leader>iR", ":RustLsp openDocs<CR>", desc = "Open docs.rs docs", ft = "rust" },
+            { "<leader>id", ":RustLsp debuggables<CR>", desc = "Debuggables", ft = "rust" },
+            {
+                "<leader>iD",
+                ":RustLsp renderDiagnostic<CR>",
+                desc = "Render diagnostic",
+                ft = "rust",
             },
-        }
-    end,
-    keys = {
-        { "<leader>ir", ":RustLsp runnables<CR>", desc = "Runnables", ft = "rust" },
-        { "<leader>iR", ":RustLsp openDocs<CR>", desc = "Open docs.rs docs", ft = "rust" },
-        { "<leader>id", ":RustLsp debuggables<CR>", desc = "Debuggables", ft = "rust" },
-        { "<leader>iD", ":RustLsp renderDiagnostic<CR>", desc = "Render diagnostic", ft = "rust" },
-        { "<leader>ie", ":RustLsp explainError<CR>", desc = "Explain error", ft = "rust" },
-        { "<leader>iJ", ":RustLsp joinLines<CR>", desc = "Join lines", ft = "rust" },
-        { "<leader>ic", ":RustLsp openCargo<CR>", desc = "Open Cargo.toml", ft = "rust" },
-        { "<leader>ip", ":RustLsp parentModules<CR>", desc = "Open parent module", ft = "rust" },
+            { "<leader>ie", ":RustLsp explainError<CR>", desc = "Explain error", ft = "rust" },
+            { "<leader>iJ", ":RustLsp joinLines<CR>", desc = "Join lines", ft = "rust" },
+            { "<leader>ic", ":RustLsp openCargo<CR>", desc = "Open Cargo.toml", ft = "rust" },
+            {
+                "<leader>ip",
+                ":RustLsp parentModules<CR>",
+                desc = "Open parent module",
+                ft = "rust",
+            },
+        },
     },
 }
