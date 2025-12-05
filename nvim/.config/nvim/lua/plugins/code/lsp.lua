@@ -36,9 +36,8 @@ return {
     },
     config = function()
         local mason = require_plugin("mason")
-        local lspconfig = require_plugin("lspconfig")
         local mason_lspconfig = require_plugin("mason-lspconfig")
-        if not mason or not lspconfig or not mason_lspconfig then
+        if not mason or not mason_lspconfig then
             vim.notify("Error with mason config")
             return
         end
@@ -81,7 +80,7 @@ return {
             automatic_enable = false,
         })
 
-        local opts = {}
+        local opts = { automatic_enable = true }
 
         for _, server in pairs(servers) do
             opts = {
@@ -121,7 +120,8 @@ return {
                 opts = vim.tbl_deep_extend("force", omnisharp_opts, opts)
             end
 
-            lspconfig[server].setup(opts)
+            vim.lsp.config(server, opts)
+            vim.lsp.enable(server)
             ::continue::
         end
     end,
