@@ -26,8 +26,6 @@ return {
 
             ["<Up>"] = { "snippet_backward", "select_prev", "fallback" },
             ["<Down>"] = { "snippet_forward", "select_next", "fallback" },
-            ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
-            ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
 
             -- show with only snippets providers
             ["<C-space>"] = {
@@ -76,7 +74,9 @@ return {
 
         cmdline = {
             keymap = {
-                preset = "cmdline",
+                preset = "enter",
+                ["<Up>"] = { "select_prev", "fallback" },
+                ["<Down>"] = { "select_next", "fallback" },
             },
             completion = {
                 menu = {
@@ -86,6 +86,12 @@ return {
                     end,
                 },
                 ghost_text = { enabled = true },
+                list = {
+                    selection = {
+                        preselect = false,
+                        auto_insert = false,
+                    },
+                },
             },
         },
 
