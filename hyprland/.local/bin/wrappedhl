@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-cd || exit
-
-. "/home/rolv/.config/base_profile.sh"
-
-exec Hyprland
