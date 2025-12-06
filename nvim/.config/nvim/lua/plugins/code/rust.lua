@@ -25,7 +25,6 @@ return {
         ft = "rust",
         config = function()
             vim.g.rustaceanvim = {
-
                 tools = {
                     reload_workspace_from_cargo_toml = true,
                     enable_clippy = true,
@@ -35,6 +34,9 @@ return {
                         auto_focus = false,
                         border = "rounded",
                         width = 60,
+                    },
+                    float_win_config = {
+                        border = "rounded",
                     },
                 },
                 server = {
@@ -161,20 +163,26 @@ return {
         keys = {
             { "<leader>ir", ":RustLsp runnables<CR>", desc = "Runnables", ft = "rust" },
             { "<leader>iR", ":RustLsp openDocs<CR>", desc = "Open docs.rs docs", ft = "rust" },
-            { "<leader>id", ":RustLsp debuggables<CR>", desc = "Debuggables", ft = "rust" },
-            {
-                "<leader>iD",
-                ":RustLsp renderDiagnostic<CR>",
-                desc = "Render diagnostic",
-                ft = "rust",
-            },
+            { "<leader>iD", ":RustLsp debuggables<CR>", desc = "Debuggables", ft = "rust" },
             { "<leader>ie", ":RustLsp explainError<CR>", desc = "Explain error", ft = "rust" },
             { "<leader>iJ", ":RustLsp joinLines<CR>", desc = "Join lines", ft = "rust" },
             { "<leader>ic", ":RustLsp openCargo<CR>", desc = "Open Cargo.toml", ft = "rust" },
             {
+                "<leader>id",
+                ":RustLsp renderDiagnostic<CR>",
+                desc = "Render diagnostic",
+                ft = "rust",
+            },
+            {
                 "<leader>ip",
-                ":RustLsp parentModules<CR>",
+                ":RustLsp parentModule<CR>",
                 desc = "Open parent module",
+                ft = "rust",
+            },
+            {
+                "<leader>im",
+                ":RustLsp expandMacro<CR>",
+                desc = "Expand macro recursively",
                 ft = "rust",
             },
         },
