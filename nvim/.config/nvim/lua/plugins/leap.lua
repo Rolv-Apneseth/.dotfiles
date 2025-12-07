@@ -1,7 +1,7 @@
 local require_plugin = require("core.helpers").require_plugin
 
 return {
-    "ggandor/leap.nvim", -- for easier navigation around a file
+    "https://codeberg.org/andyg/leap.nvim", -- for easier navigation around a file
 
     config = function()
         local leap = require_plugin("leap")
