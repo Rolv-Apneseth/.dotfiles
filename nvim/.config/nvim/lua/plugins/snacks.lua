@@ -58,7 +58,15 @@ return {
         gitbrowse = { enabled = true },
 
         -- Better `vim.ui.input`
-        input = { enabled = false },
+        input = {
+            enabled = true,
+            icon = " ",
+            icon_hl = "SnacksInputIcon",
+            icon_pos = "left",
+            prompt_pos = "title",
+            win = { style = "input" },
+            expand = true,
+        },
 
         -- Integration for `lazygit`
         lazygit = {
