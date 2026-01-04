@@ -1,5 +1,5 @@
 -- REQUIRED EXTERNAL BINARIES
--- eslint_d markdownlint flake8 typos
+-- eslint markdownlint flake8 typos tidy tombi zsh
 
 local constants = require("core.constants")
 local require_plugin = require("core.helpers").require_plugin
@@ -27,6 +27,7 @@ return {
             markdown = { "markdownlint" },
             python = { "flake8" },
             zsh = { "zsh" },
+            toml = { "tombi" },
 
             -- 😥
             javascript = JS_LINTERS,
