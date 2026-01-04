@@ -26,7 +26,7 @@ return {
         },
         merge_keywords = true, -- when true, custom keywords will be merged with the defaults
         highlight = {
-            multiline = true, -- enable multine todo comments
+            multiline = true, -- enable multi-line todo comments
             before = "", -- "fg" or "bg" or empty
             keyword = "fg", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
             after = "fg", -- "fg" or "bg" or empty
@@ -57,7 +57,7 @@ return {
     keys = {
         {
             "<leader>;",
-            ":TodoTelescope<CR>",
+            "<cmd>lua Snacks.picker.todo_comments()<CR>",
             desc = "Todo comments",
         },
     },

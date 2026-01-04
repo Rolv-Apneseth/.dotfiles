@@ -44,7 +44,6 @@ end
 -----------------------------------------------------------------------------------------
 return {
     lsp = {
-        { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
         { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
         { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
         { "gR", "<cmd>lua vim.lsp.buf.rename()<CR>" },
@@ -61,10 +60,11 @@ return {
             '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
         },
         { "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>" },
-        -- Telescope
-        { "gr", "<cmd>Telescope lsp_references<CR>" },
-        { "gd", "<cmd>Telescope lsp_definitions<CR>" },
-        { "gD", "<cmd>Telescope diagnostics<CR>" },
+        -- Snacks picker
+        { "gr", ":lua Snacks.picker.lsp_references()<CR>" },
+        { "gi", ":lua Snacks.picker.lsp_implementations()<CR>" },
+        { "gd", ":lua Snacks.picker.lsp_definitions()<CR>" },
+        { "gs", ":lua Snacks.picker.lsp_symbols()<CR>" },
     },
     treesitter = {
         text_object = {
@@ -95,17 +95,22 @@ return {
 
             g = {
                 name = "Git",
-                g = { "<cmd>lua require 'snacks.lazygit'.open()<CR>", "Lazygit" },
                 j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
                 k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
                 l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-                L = { "<cmd>lua require 'snacks.git'.blame_line()<CR>", "Blame (detailed)" },
+
+                -- Snacks
+                L = { "<cmd>lua Snacks.git.blame_line()<CR>", "Blame (detailed)" },
+                g = { "<cmd>lua Snacks.lazygit.open()<CR>", "Lazygit" },
+                G = {
+                    "<cmd>lua Snacks.picker.git_log()<CR>",
+                    "Log",
+                },
+                --[[ s = { "<cmd>lua Snacks.picker.git_status()<CR>", "Git status" }, ]]
                 d = {
-                    "<cmd>Gitsigns diffthis HEAD<CR>",
+                    "<cmd>lua Snacks.picker.git_diff()<CR>",
                     "Diff",
                 },
-                b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-                r = { "<cmd>lua require 'snacks.gitbrowse'.open()<CR>", "Open remote" },
             },
             l = {
                 name = "LSP",
@@ -113,11 +118,11 @@ return {
                 f = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format" },
                 l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
                 d = {
-                    "<cmd>Telescope diagnostics<CR>",
+                    "<cmd>lua Snacks.picker.diagnostics()<CR>",
                     "Diagnostics",
                 },
-                i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
-                t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
+                i = { "<cmd>lua Snacks.picker.lsp_implementations()<CR>", "Implementations" },
+                t = { "<cmd>lua Snacks.picker.treesitter()<CR>", "Treesitter" },
             },
             d = {
                 name = "Debugging",
@@ -131,18 +136,18 @@ return {
                 U = { '<cmd>lua require("dapui").close()<CR>', "Close UI" },
             },
             t = {
-                name = "Telescope",
-                C = { "<cmd>Telescope commands<CR>", "Commands" },
-                H = { "<cmd>Telescope highlights<CR>", "Highlights" },
-                M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
-                m = { "<cmd>Telescope reloader<CR>", "Module reloader" },
-                R = { "<cmd>Telescope registers<CR>", "Registers" },
-                c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
-                h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
-                k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-                g = { "<cmd>Telescope git_files<CR>", "Open changed file" },
-                s = { "<cmd>Telescope spell_suggest<CR>", "Suggest spelling" },
-                F = { "<cmd>Telescope filetypes<CR>", "Available filetypes" },
+                name = "Pickers",
+                c = { "<cmd>lua Snacks.picker.commands()<CR>", "Commands" },
+                C = { "<cmd>lua Snacks.picker.colorschemes()<CR>", "Colorscheme" },
+                m = { "<cmd>lua Snacks.picker.marks()<CR>", "Marks" },
+                l = { "<cmd>lua Snacks.picker.lazy()<CR>", "Lazy plugin specs" },
+                M = { "<cmd>lua Snacks.picker.man()<CR>", "Man Pages" },
+                R = { "<cmd>lua Snacks.picker.registers()<CR>", "Registers" },
+                h = { "<cmd>lua Snacks.picker.help()<CR>", "Find Help" },
+                H = { "<cmd>lua Snacks.picker.highlights()<CR>", "Highlights" },
+                s = { "<cmd>lua Snacks.picker.spelling()<CR>", "Suggest spelling" },
+                a = { "<cmd>lua Snacks.picker.autocmds()<CR>", "Autocmds" },
+                A = { "<cmd>lua Snacks.picker.command_history()<CR>", "Command History" },
             },
             z = {
                 name = "zk",

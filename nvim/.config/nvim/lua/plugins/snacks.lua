@@ -1,4 +1,5 @@
 local get_random_header = require("core.headers").get_random_header
+local icons = require("core.icons")
 
 -- HACK: disable buggy animations in completion windows
 local autocmd = vim.api.nvim_create_autocmd
@@ -135,13 +136,7 @@ return {
                         icon = "󰈞",
                         key = "f",
                         desc = "Find file",
-                        action = ":Telescope find_files",
-                    },
-                    {
-                        icon = "󰚸",
-                        key = "r",
-                        desc = "Recent files",
-                        action = ":lua require('telescope').extensions.recent_files.pick()",
+                        action = ":lua Snacks.picker.smart({hidden = true})",
                     },
                     {
                         icon = "󱨋",
@@ -243,13 +238,96 @@ return {
                 max_width = 60,
             },
         },
+
+        -- PICKER
+        picker = {
+            prompt = icons.ui.ChevronRight .. " ",
+            sources = {},
+            focus = "input",
+            show_delay = 5000,
+            limit_live = 10000,
+            layout = {
+                cycle = true,
+                --- Use the default layout or vertical if the window is too narrow
+                preset = function()
+                    return vim.o.columns >= 120 and "default" or "vertical"
+                end,
+            },
+            ---@class snacks.picker.matcher.Config
+            matcher = {
+                fuzzy = true, -- use fuzzy matching
+                smartcase = true, -- use smartcase
+                ignorecase = true, -- use ignorecase
+                sort_empty = false, -- sort results when the search string is empty
+                filename_bonus = true, -- give bonus for matching file names (last part of the path)
+                file_pos = false, -- support patterns like `file:line:col` and `file:line`
+                -- the bonusses below, possibly require string concatenation and path normalization,
+                -- so this can have a performance impact for large lists and increase memory usage
+                cwd_bonus = true, -- give bonus for matching files in the cwd
+                frecency = true, -- frecency bonus
+                history_bonus = true, -- give more weight to chronological order
+            },
+            sort = {
+                -- default sort is by score, text length and index
+                fields = { "score:desc", "#text", "idx" },
+            },
+            ui_select = true, -- replace `vim.ui.select` with the snacks picker
+            ---@class snacks.picker.jump.Config
+            jump = {
+                jumplist = true, -- save the current position in the jumplist
+                tagstack = false, -- save the current position in the tagstack
+                reuse_win = false, -- reuse an existing window if the buffer is already open
+                close = true, -- close the picker when jumping/editing to a location (defaults to true)
+                match = false, -- jump to the first match position. (useful for `lines`)
+            },
+            toggles = {
+                follow = "f",
+                hidden = "h",
+                ignored = "i",
+                modified = "m",
+                regex = { icon = "R", value = false },
+            },
+            win = {
+                -- preview window
+                preview = {
+                    keys = {
+                        ["<Esc>"] = "cancel",
+                        ["q"] = "cancel",
+                        ["i"] = "focus_input",
+                        ["<a-w>"] = "cycle_win",
+                    },
+                },
+            },
+        },
     },
 
     keys = {
         {
             "<leader>n",
-            ":lua require 'snacks.notifier'.show_history()<CR>",
-            desc = "Notification history",
+            ":lua Snacks.picker.notifications()<CR>",
+            desc = "Notifications",
+        },
+
+        -- PICKER KEYBINDS
+        {
+            "<leader>f",
+            ":lua Snacks.picker.smart({hidden = true})<CR>",
+            desc = "Find file",
+        },
+        {
+            "<leader>/",
+            ":lua Snacks.picker.grep({cmd = 'rg', hidden = true})<CR>",
+            desc = "Live grep",
+        },
+        {
+            "<leader>u",
+            ":lua Snacks.picker.undo()<CR>",
+            desc = "Undo history",
+        },
+        {
+            "<leader>b",
+            ":lua Snacks.picker.buffers({ win = { input = { keys = { ['d'] = { 'bufdelete', mode = { 'n', 'i' } }}}}})<CR>",
+            desc = "Buffers",
         },
     },
 }
