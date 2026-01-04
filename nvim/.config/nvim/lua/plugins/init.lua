@@ -23,11 +23,4 @@ return {
         ft = { "rasi" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
-    {
-        "mei28/luminate.nvim", -- Highlight yanked, pasted and undone/redone
-        event = { "VeryLazy" },
-        opts = {
-            duration = 100, -- Duration of the highlight in milliseconds
-        },
-    },
 }
