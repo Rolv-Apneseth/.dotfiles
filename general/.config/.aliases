@@ -19,7 +19,7 @@ alias se='sudoedit'
 alias p="paru"
 alias pR="paru -Rcns"
 alias pS="paru -S"
-alias update="sudo pacman --needed -Sy archlinux-keyring && paru -Syu --news"
+alias update="archnews --unread || sudo pacman --needed -Sy archlinux-keyring && paru -Syu"
 
 alias nvim="env TERM=wezterm nvim"
 alias n="nvim"
