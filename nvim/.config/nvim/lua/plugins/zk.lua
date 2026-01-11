@@ -11,7 +11,7 @@ return {
         "ZkNewFromContentSelection",
     },
     opts = {
-        picker = "telescope",
+        picker = "snacks_picker",
         lsp = {
             config = {
                 cmd = { "zk", "lsp" },
