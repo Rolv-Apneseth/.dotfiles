@@ -315,7 +315,7 @@ run  = "plugin fzf"
 desc = "Jump to file"
 [[mgr.prepend_keymap]]
 on   = [ "z","g" ]
-run  = "plugin fg"
+run  = "plugin fg rg"
 desc = "Jump to file (content)"
 
 # CHMOD
