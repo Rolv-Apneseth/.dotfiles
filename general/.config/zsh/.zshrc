@@ -94,6 +94,11 @@ zinit snippet OMZP::git
 # ALIASES
 add_file "$HOME/.config/.aliases"
 
+# WORK
+if [ -f ~/work/.zshrc ]; then
+    source ~/work/.zshrc
+fi
+
 # HOOKS
 zsh_add_file "zsh_hooks"
 
