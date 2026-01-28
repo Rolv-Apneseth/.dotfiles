@@ -1,62 +1,62 @@
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "536185a"
-hash = "52e5f5c602962e7cbf874da28f52ba45"
+rev = "bd3eaa5"
+hash = "bd1587913f026fa2e3b68ab39e465bb7"
 
 [[plugin.deps]]
 use = "Sonico98/exifaudio"
-rev = "92366cf"
-hash = "a8e15d3c21c02a5af41d46ed04778a02"
+rev = "4506f9d"
+hash = "4761fffb60a12d37096c34a356380cdf"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "fe6b0a6"
-hash = "b86c9999ec09d14d58e4242b19863cbb"
+rev = "594b8a2"
+hash = "c9e628fc0312d198db22ae2fa74883b"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
-rev = "748efed"
-hash = "f8111703f9d2e6ba3548b3844d5aeaac"
+rev = "9ef1254"
+hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/bypass"
-rev = "619500e"
-hash = ""
+rev = "c1e5fcf"
+hash = "208e77480824f62558a5b037c8569d61"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "f386ea3"
-hash = ""
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "06e5fe1"
-hash = "d2487da8aaef96eff845cdc3068ade28"
+rev = "57f1863"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
 use = "lpnh/fg"
-rev = "9bba743"
-hash = "5c395bf9b8ef3d4701ac9bdbc963c4c1"
+rev = "aa88cd4"
+hash = "8b0e87c3176e0d44f79a8656f79f0fa"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "8945e54"
-hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
+rev = "57f1863"
+hash = "99aa06d3014798d86001c324468d497f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "8945e54"
-hash = "513a23ac28e1eaa626f3a1bb6c8130d0"
+rev = "57f1863"
+hash = "3e023d31f29201efdac2a6ae35fedb78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "8945e54"
-hash = "b482f4f2d3c4e0aa3f8db89a95699439"
+rev = "57f1863"
+hash = "407d19bc4fb46eff5fa8ff8337644847"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "63f9650"
-hash = "c255054d6a70754db6cb96b97ad1ccd7"
+rev = "57f1863"
+hash = "daf9e3d12688cf855fce665839efcd6d"
 
 [flavor]
 deps = []
