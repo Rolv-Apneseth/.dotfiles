@@ -169,8 +169,8 @@ return {
                     "New daily note",
                 },
                 t = { "<cmd>e $ZK_NOTEBOOK_DIR/todo.md<cr>", "Open todo.md" },
-                b = "Open notes linking TO the current buffer.",
-                B = "Open notes linked BY the current buffer.",
+                b = { "<cmd>ZkBacklinks<cr>", "Open notes linking TO the current buffer." },
+                B = { "<Cmd>ZkLinks<CR>", "Open notes linked BY the current buffer." },
             },
 
             -- Descriptions only - keymaps set elsewhere
