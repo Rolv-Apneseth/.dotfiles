@@ -33,16 +33,11 @@
     },
     "battery": {
         "interval": 30,
-        "states": {
-          "warning": 10,
-          "critical": 5
-        },
         "format-time": "{H}:{m}",
         "format": "{icon}  {capacity}%",
-        "format-charging": "󰂄  {capacity}% @ {power:2.0f}W",
-        "format-full": "󱟢  {capacity}%",
-        "format-not-charging": "󰂃 {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
     },
     "tray": {
         "spacing": 10
