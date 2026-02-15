@@ -3,8 +3,10 @@
     border: none;
     font-family:
         SF Pro Display,
-        MesloLGL Nerd Font Mono;
-    font-size: 19px;
+        Inconsolata Nerd Font Mono,
+        Roboto Nerd Font Mono;
+    font-size: 20px;
+    color: #ddd;
 }
 
 tooltip {
