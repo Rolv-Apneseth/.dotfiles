@@ -1,8 +1,6 @@
 #!/bin/env sh
 # SKETCHY -------------------------------------------------------------------------------
 # (If there's a problem look here first)
-alias grep='rg --hyperlink-format=kitty'
-alias cat='bat'
 alias ls='eza -1la --icons --color=always --group-directories-first --hyperlink'
 alias delta="delta --hyperlinks --hyperlinks-file-link-format='file://{path}#{line}'"
 
@@ -12,7 +10,6 @@ alias df='df -h'
 alias yeet='rm -vrf'
 alias rm='rm -v'
 
-alias s='sudo'
 alias se='sudoedit'
 
 # TOOLS ---------------------------------------------------------------------------------
