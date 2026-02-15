@@ -38,6 +38,7 @@ for k, v in pairs({
     enable_wayland = true,
     detect_password_input = false,
     default_workspace = "~",
+    default_cursor_style = "SteadyBlock",
     keys = {},
 }) do
     config[k] = v
