@@ -67,14 +67,6 @@ return {
         { "gs", ":lua Snacks.picker.lsp_symbols()<CR>" },
     },
     treesitter = {
-        text_object = {
-            select = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-            },
-        },
         autopairs = { fastwrap = "<A-e>" },
     },
     surround = {
