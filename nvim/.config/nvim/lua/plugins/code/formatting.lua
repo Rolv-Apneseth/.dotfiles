@@ -1,5 +1,5 @@
 -- REQUIRED EXTERNAL BINARIES
--- prettierd/prettier stylua python-isort python-black shellharden shfmt rustup markdownlint rustywind taplo-cli just nixfmt fixjson typos gofumpt goimports-reviser sqruff
+-- prettierd/prettier stylua python-isort python-black shellharden shfmt rustup rustywind just nixfmt fixjson typos gofumpt goimports-reviser sqruff taplo
 
 local constants = require("core.constants")
 
@@ -41,8 +41,8 @@ return {
             python = { "isort", "autopep8", "black" },
             markdown = { "rumdl" },
             rust = { "rustfmt", "leptosfmt" },
-            sh = { "shellharden", "shfmt" },
-            zsh = { "shellharden", "shfmt" },
+            sh = { "shfmt" },
+            zsh = { "shfmt" },
             toml = { "taplo" },
             just = { "just" },
             nix = { "nixfmt" },
