@@ -36,6 +36,7 @@ return {
             typescript = JS_LINTERS,
             typescriptreact = JS_LINTERS,
             html = vim.tbl_extend("keep", { "tidy" }, JS_LINTERS),
+            sql = { "sqruff" },
         }
 
         -- FLAKE8
