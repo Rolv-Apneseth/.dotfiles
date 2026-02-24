@@ -39,7 +39,7 @@ return {
 
             lua = { "stylua" },
             python = { "isort", "autopep8", "black" },
-            markdown = { "markdownlint" },
+            markdown = { "rumdl" },
             rust = { "rustfmt", "leptosfmt" },
             sh = { "shellharden", "shfmt" },
             zsh = { "shellharden", "shfmt" },
@@ -90,6 +90,12 @@ return {
                     "--case-indent",
                     "--space-redirects",
                     "--func-next-line",
+                },
+            },
+            rumdl = {
+                prepend_args = {
+                    "--config",
+                    "/home/rolv/.config/rumdl/config.toml",
                 },
             },
         },

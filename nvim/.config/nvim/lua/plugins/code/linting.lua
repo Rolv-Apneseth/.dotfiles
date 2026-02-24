@@ -8,6 +8,7 @@ local JS_LINTERS = { "eslint" }
 
 return {
     "mfussenegger/nvim-lint",
+    --[[ dev = true, ]]
     init = function() end,
     config = function()
         local lint = require_plugin("lint")
@@ -24,7 +25,7 @@ return {
         })
 
         lint.linters_by_ft = {
-            markdown = { "markdownlint" },
+            markdown = { "rumdl" },
             python = { "flake8" },
             zsh = { "zsh" },
             toml = { "tombi" },
@@ -45,10 +46,17 @@ return {
             "E203, E266, E501, W503",
         }
 
-        -- MARKDOWNLINT
-        lint.linters.markdownlint.args = {
-            "--disable",
-            "MD013", -- line-length
+        -- RUMDL
+        lint.linters.rumdl.args = {
+            "check",
+            "--stdin-filename",
+            function()
+                return vim.api.nvim_buf_get_name(0)
+            end,
+            "--output=json",
+            -- Custom config
+            "--config=/home/rolv/.config/rumdl/config.toml",
+            "-",
         }
 
         -- TYPOS
