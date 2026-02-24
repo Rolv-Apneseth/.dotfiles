@@ -1,0 +1,9 @@
+[global]
+cache_dir = "/tmp/rumdl-cache"
+disable = [
+    # Relative link checking
+    "MD057",
+    # Long lines
+    "MD013"
+]
+
