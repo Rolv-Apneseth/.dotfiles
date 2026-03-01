@@ -48,9 +48,8 @@ end
 -- TOGGLE TERM
 local toggle_terminal = wezterm.plugin.require("https://github.com/zsh-sage/toggle_terminal.wez")
 toggle_terminal.apply_to_config(config, {
-    zoom = {
-        auto_zoom_toggle_terminal = true,
-    },
+    size = { Percent = 80 }, -- Size of the split pane
+    direction = "Down",
 })
 
 return config
