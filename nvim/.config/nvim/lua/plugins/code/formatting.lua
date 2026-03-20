@@ -89,7 +89,6 @@ return {
                     "--binary-next-line",
                     "--case-indent",
                     "--space-redirects",
-                    "--func-next-line",
                 },
             },
             rumdl = {
