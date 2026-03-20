@@ -1,6 +1,7 @@
 local c = {
     fg = "#FFFFFF",
     bg = "#000000",
+    selection_bg = "#3b3f4c",
     colour0 = "#000000",
     colour1 = "#D90404",
     colour2 = "#29CC00",
@@ -36,7 +37,7 @@ return {
     -- the foreground color of selected text
     selection_fg = c.fg,
     -- the background color of selected text
-    selection_bg = c.colour13,
+    selection_bg = c.selection_bg,
     -- The color of the scrollbar "thumb"; the portion that represents the current viewport
     scrollbar_thumb = c.colour8,
     -- The color of the split lines between panes
