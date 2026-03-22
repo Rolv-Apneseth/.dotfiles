@@ -19,9 +19,6 @@ add_file "${ZINIT_HOME}/zinit.zsh"
 # `pushd`, `popd` and `dirs -v` to use the stack.
 setopt auto_pushd
 
-# If argument is unknown but is name of a directory, cd into it
-setopt autocd
-
 # Enable colours
 autoload -U colors && colors
 
