@@ -22,9 +22,6 @@ setopt auto_pushd
 # If argument is unknown but is name of a directory, cd into it
 setopt autocd
 
-# Try to correct spelling of mistyped commands
-setopt correct
-
 # Enable colours
 autoload -U colors && colors
 
