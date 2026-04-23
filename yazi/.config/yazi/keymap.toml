@@ -13,8 +13,8 @@ keymap = [
 	{ on = [ "<C-u>" ], run = "arrow -50%",  desc = "Move cursor up half page" },
 	{ on = [ "<C-d>" ], run = "arrow 50%",   desc = "Move cursor down half page" },
 
-	{ on = [ "h" ], run = [ "leave", "escape --visual --select" ], desc = "Go back to the parent directory" },
-	{ on = [ "l" ], run = [ "enter", "escape --visual --select" ], desc = "Enter the child directory" },
+	{ on = [ "h" ], run = [ "leave" ], desc = "Go back to the parent directory" },
+	{ on = [ "l" ], run = [ "enter" ], desc = "Enter the child directory" },
 
 	{ on = [ "<A-k>" ], run = "seek -5", desc = "Peek up 5 units in the preview" },
 	{ on = [ "<A-j>" ], run = "seek 5",  desc = "Peek down 5 units in the preview" },
