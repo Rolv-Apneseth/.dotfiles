@@ -69,14 +69,6 @@ return {
     treesitter = {
         autopairs = { fastwrap = "<A-e>" },
     },
-    surround = {
-        normal = "m",
-        normal_line = "M",
-        visual = "m",
-        visual_line = "M",
-        delete = "ds",
-        change = "cs",
-    },
     whichkey = {
         -- Normal mode
         leader_n = {
