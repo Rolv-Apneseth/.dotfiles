@@ -1,54 +1,59 @@
+#:schema https://yazi-rs.github.io/schemas/theme.json
+
 [mgr]
 cwd = { fg = "white" }
-
 # Hovered
-hovered = { fg = "white", bg = "magenta" }
-preview_hovered = { fg = "magenta", underline = true }
-
+# hovered = { fg = "white", bg = "magenta" }
+# preview_hovered = { fg = "magenta", underline = true }
 # Find
 find_keyword = { fg = "yellow", italic = true }
 find_position = { fg = "white", italic = true }
-
 # Marker
 marker_copied = { fg = "lightyellow" }
 marker_cut = { fg = "lightred" }
 marker_marked = { fg = "magenta" }
 marker_selected = { fg = "blue" }
-
 # Count
 count_copied = { fg = "black", bg = "yellow" }
 count_cut = { fg = "white", bg = "red" }
 count_selected = { fg = "white", bg = "magenta" }
-
 # Border
 border_symbol = "│"
 border_style = { fg = "white" }
 
+symlink_target = { italic = true }
 # Offset
-folder_offset = [1, 0, 1, 0]
-preview_offset = [1, 1, 1, 1]
+# folder_offset = [1, 0, 1, 0]
+# preview_offset = [1, 1, 1, 1]
 
 [status]
-separator_open = ""
-separator_close = ""
-separator_style = { fg = "magenta", bg = "reset" }
-
-# Mode
-mode_normal = { fg = "white", bg = "magenta", bold = true }
-mode_select = { fg = "white", bg = "magenta", bold = true }
-mode_unset = { fg = "white", bg = "magenta", bold = true }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Progress
 progress_label = { bold = true }
 progress_normal = { fg = "white" }
 progress_error = { fg = "red" }
-
 # Permissions
-permissions_t = { fg = "lightgreen" }
-permissions_r = { fg = "lightyellow" }
-permissions_w = { fg = "lightred" }
-permissions_x = { fg = "lightcyan" }
-permissions_s = { fg = "darkgray" }
+perm_sep = { fg = "darkgray" }
+perm_type = { fg = "lightgreen" }
+perm_read = { fg = "lightyellow" }
+perm_write = { fg = "lightred" }
+perm_exec = { fg = "lightcyan" }
+
+[mode]
+normal_main = { fg = "white", bg = "magenta", bold = true }
+normal_alt = { fg = "blue", bg = "gray", bold = true }
+select_main = { fg = "white", bg = "magenta", bold = true }
+select_alt = { fg = "red", bg = "gray" }
+unset_main = { fg = "white", bg = "magenta", bold = true }
+unset_alt = { fg = "red", bg = "gray" }
+
+[indicator]
+parent = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
 
 # Tab
 [tabs]
@@ -70,7 +75,6 @@ selected = { reversed = true }
 border = { fg = "blue" }
 active = { bg = "darkgray" }
 inactive = {}
-
 icon_file = ""
 icon_folder = ""
 icon_command = ""
@@ -90,21 +94,18 @@ separator_style = { fg = "darkgray" }
 
 [help]
 on = { fg = "magenta" }
-exec = { fg = "cyan" }
+run = { fg = "cyan" }
 desc = { fg = "gray" }
 hovered = { bg = "darkgray", bold = true }
 footer = { fg = "black", bg = "white" }
 
 [filetype]
-
 rules = [
   # Images
   { mime = "image/*", fg = "cyan" },
-
   # Videos
   { mime = "video/*", fg = "yellow" },
   { mime = "audio/*", fg = "yellow" },
-
   # Archives
   { mime = "application/zip", fg = "magenta" },
   { mime = "application/gzip", fg = "magenta" },
@@ -114,156 +115,138 @@ rules = [
   { mime = "application/x-7z-compressed", fg = "magenta" },
   { mime = "application/x-rar", fg = "magenta" },
   { mime = "application/xz", fg = "magenta" },
-
   # Documents
   { mime = "application/doc", fg = "green" },
   { mime = "application/pdf", fg = "green" },
   { mime = "application/rtf", fg = "green" },
   { mime = "application/vnd.*", fg = "green" },
-
   # Fallback
-  { name = "*/", fg = "blue" },
+  { url = "*/", fg = "blue" },
 ]
 
-[icons]
+[icon]
+# globs = {}
 
-"Desktop/" = ""
-"Documents/" = ""
-"Downloads/" = "󰇚"
-"Library/" = ""
-"Music/" = ""
-"Pictures/" = ""
-"Videos/" = ""
-"Games/" = "󰖺"
-"repos/" = ""
-".config/" = ""
-"work/" = ""
-
-# Git
-".git/" = ""
-".gitignore" = ""
-".gitmodules" = ""
-".gitattributes" = ""
-
-# Config files
-".zshenv" = ""
-"zsh_*" = ""
-".*profile" = ""
-".*rc" = ""
-"*.conf" = ""
-"*.env" = ""
-"*.toml" = ""
-"*.ini" = ""
-
-# Text
-"*.txt" = ""
-"*.md" = ""
-"*.rst" = ""
-COPYING = "󰿃"
-LICENSE = "󰿃"
-
-# Archives
-"*.zip" = ""
-"*.tar" = ""
-"*.gz" = ""
-"*.7z" = ""
-"*.bz2" = ""
-"*.xz" = ""
-
-# Documents
-"*.csv" = ""
-"*.doc" = ""
-"*.doct" = ""
-"*.docx" = ""
-"*.dot" = ""
-"*.ods" = ""
-"*.ots" = ""
-"*.pdf" = ""
-"*.pom" = ""
-"*.pot" = ""
-"*.ppm" = ""
-"*.pps" = ""
-"*.ppt" = ""
-"*.potx" = ""
-"*.ppmx" = ""
-"*.ppsx" = ""
-"*.pptx" = ""
-"*.xlc" = ""
-"*.xlm" = ""
-"*.xls" = ""
-"*.xlt" = ""
-"*.xlsm" = ""
-"*.xlsx" = ""
-
-# Audio
-"*.mp3" = ""
-"*.flac" = ""
-"*.wav" = ""
-"*.aac" = ""
-"*.ogg" = ""
-"*.m4a" = ""
-"*.mp2" = ""
-
-# Movies
-"*.mp4" = ""
-"*.mkv" = ""
-"*.avi" = ""
-"*.mov" = ""
-"*.webm" = ""
-
-# Images
-"*.jpg" = ""
-"*.jpeg" = ""
-"*.png" = ""
-"*.gif" = ""
-"*.webp" = ""
-"*.avif" = ""
-"*.bmp" = ""
-"*.ico" = ""
-"*.svg" = ""
-"*.xcf" = ""
-"*.HEIC" = ""
-
-# Programming
-"*.c" = ""
-"*.cpp" = ""
-"*.h" = ""
-"*.hpp" = ""
-"*.rs" = ""
-"*.go" = ""
-"*.py" = ""
-"*.js" = ""
-"*.ts" = ""
-"*.tsx" = ""
-"*.jsx" = ""
-"*.rb" = ""
-"*.php" = ""
-"*.java" = ""
-"*.sh" = ""
-"*.fish" = ""
-"*.swift" = ""
-"*.vim" = ""
-"*.lua" = ""
-"*.html" = ""
-"*.css" = ""
-"*.scss" = ""
-"*.json" = ""
-"*.yml" = ""
-"*.yaml" = ""
-"*.lock" = ""
-"*.nix" = ""
-Containerfile = "󰡨"
-Dockerfile = "󰡨"
-"node_modules/" = "󰎙"
-"src/" = ""
-"build/" = "󱌢"
-"target/" = "󱌢"
-
-# Misc
-"*.bin" = ""
-"*.exe" = ""
-"*.pkg" = ""
-
-# Default
-"*" = ""
-"*/" = ""
+dirs = [
+  { name = "Desktop", text = "" },
+  { name = "Documents", text = "" },
+  { name = "Downloads", text = "󰇚" },
+  { name = "Library", text = "" },
+  { name = "Music", text = "" },
+  { name = "Pictures", text = "" },
+  { name = "Videos", text = "" },
+  { name = "Games", text = "󰖺" },
+  { name = "repos", text = "" },
+  { name = ".config", text = "" },
+  { name = "work", text = "" },
+  { name = ".git", text = "" },
+  { name = "node_modules", text = "󰎙" },
+  { name = "src", text = "" },
+  { name = "build", text = "󱌢" },
+  { name = "target", text = "󱌢" },
+]
+files = [
+  { name = ".zshenv", text = "" },
+  { name = "Containerfile", text = "󰡨" },
+  { name = "Dockerfile", text = "󰡨" },
+  { name = ".gitignore", text = "" },
+  { name = ".gitmodules", text = "" },
+  { name = ".gitattributes", text = "" },
+]
+globs = [
+  { url = "zsh_*", text = "" },
+  { url = ".*profile", text = "" },
+  { url = ".*rc", text = "" },
+  { url = "COPYING", text = "󰿃" },
+  { url = "LICENSE", text = "󰿃" },
+]
+exts = [
+  { name = "conf", text = "" },
+  { name = "env", text = "" },
+  { name = "ini", text = "" },
+  { name = "txt", text = "" },
+  { name = "md", text = "" },
+  { name = "rst", text = "" },
+  { name = "zip", text = "" },
+  { name = "tar", text = "" },
+  { name = "gz", text = "" },
+  { name = "7z", text = "" },
+  { name = "bz2", text = "" },
+  { name = "xz", text = "" },
+  { name = "csv", text = "" },
+  { name = "doc", text = "" },
+  { name = "doct", text = "" },
+  { name = "docx", text = "" },
+  { name = "dot", text = "" },
+  { name = "ods", text = "" },
+  { name = "ots", text = "" },
+  { name = "pdf", text = "" },
+  { name = "pom", text = "" },
+  { name = "pot", text = "" },
+  { name = "ppm", text = "" },
+  { name = "pps", text = "" },
+  { name = "ppt", text = "" },
+  { name = "potx", text = "" },
+  { name = "ppmx", text = "" },
+  { name = "ppsx", text = "" },
+  { name = "pptx", text = "" },
+  { name = "xlc", text = "" },
+  { name = "xlm", text = "" },
+  { name = "xls", text = "" },
+  { name = "xlt", text = "" },
+  { name = "xlsm", text = "" },
+  { name = "xlsx", text = "" },
+  { name = "mp3", text = "" },
+  { name = "flac", text = "" },
+  { name = "wav", text = "" },
+  { name = "aac", text = "" },
+  { name = "ogg", text = "" },
+  { name = "m4a", text = "" },
+  { name = "mp2", text = "" },
+  { name = "mp4", text = "" },
+  { name = "mkv", text = "" },
+  { name = "avi", text = "" },
+  { name = "mov", text = "" },
+  { name = "webm", text = "" },
+  { name = "jpg", text = "" },
+  { name = "jpeg", text = "" },
+  { name = "png", text = "" },
+  { name = "gif", text = "" },
+  { name = "webp", text = "" },
+  { name = "avif", text = "" },
+  { name = "bmp", text = "" },
+  { name = "ico", text = "" },
+  { name = "svg", text = "" },
+  { name = "xcf", text = "" },
+  { name = "HEIC", text = "" },
+  { name = "c", text = "" },
+  { name = "cpp", text = "" },
+  { name = "h", text = "" },
+  { name = "hpp", text = "" },
+  { name = "rs", text = "" },
+  { name = "go", text = "" },
+  { name = "py", text = "" },
+  { name = "js", text = "" },
+  { name = "ts", text = "" },
+  { name = "tsx", text = "" },
+  { name = "jsx", text = "" },
+  { name = "rb", text = "" },
+  { name = "php", text = "" },
+  { name = "java", text = "" },
+  { name = "sh", text = "" },
+  { name = "fish", text = "" },
+  { name = "swift", text = "" },
+  { name = "vim", text = "" },
+  { name = "lua", text = "" },
+  { name = "html", text = "" },
+  { name = "css", text = "" },
+  { name = "scss", text = "" },
+  { name = "json", text = "" },
+  { name = "yml", text = "" },
+  { name = "yaml", text = "" },
+  { name = "lock", text = "" },
+  { name = "nix", text = "" },
+  { name = "bin", text = "" },
+  { name = "exe", text = "" },
+  { name = "pkg", text = "" },
+]

@@ -1,17 +1,7 @@
 [[plugin.deps]]
-use = "Reledia/glow"
-rev = "bd3eaa5"
-hash = "bd1587913f026fa2e3b68ab39e465bb7"
-
-[[plugin.deps]]
 use = "Sonico98/exifaudio"
 rev = "4506f9d"
 hash = "4761fffb60a12d37096c34a356380cdf"
-
-[[plugin.deps]]
-use = "ndtoan96/ouch"
-rev = "594b8a2"
-hash = "c9e628fc0312d198db22ae2fa74883b"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
