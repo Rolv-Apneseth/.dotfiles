@@ -25,3 +25,11 @@ auto_cmd("BufEnter", {
     command = "set formatoptions=tcrnj",
     group = group_general_settings,
 })
+
+-- Highlight yanked text
+auto_cmd("TextYankPost", {
+    desc = "Highlight when yanking text",
+    callback = function()
+        vim.hl.on_yank()
+    end,
+})
