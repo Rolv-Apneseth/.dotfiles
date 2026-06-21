@@ -79,6 +79,7 @@ return {
             ["."] = { "<cmd>set list!<CR>", "Toggle visibility of hidden chars" },
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
+            ["X"] = { "<cmd>!chmod +x %<CR>", "Make current file executable" },
 
             g = {
                 name = "Git",
