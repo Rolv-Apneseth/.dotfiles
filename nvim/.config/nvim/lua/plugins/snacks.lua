@@ -51,12 +51,12 @@ return {
         bufdelete = { enabled = false },
 
         -- Debug utils
-        debug = { enabled = true },
+        debug = { enabled = false },
 
         -- Git utils (including blame line - used in `keymappings.lua`)
         git = { enabled = true },
         -- Open the current file, branch, commit, or repo in a browser (e.g. GitHub, GitLab, Bitbucket)
-        gitbrowse = { enabled = true },
+        gitbrowse = { enabled = false },
 
         -- Better `vim.ui.input`
         input = {
@@ -162,14 +162,6 @@ return {
                         key = "c",
                         desc = "Config",
                         action = ":cd $HOME/.config/nvim | e .",
-                    },
-                    {
-                        icon = "",
-                        key = "g",
-                        desc = "Browse repo",
-                        action = function()
-                            Snacks.gitbrowse()
-                        end,
                     },
                     -- SUPPORTS `persistence.nvim`
                     {
@@ -302,12 +294,6 @@ return {
     },
 
     keys = {
-        {
-            "<leader>n",
-            ":lua Snacks.picker.notifications()<CR>",
-            desc = "Notifications",
-        },
-
         -- PICKER KEYBINDS
         {
             "<leader>f",
