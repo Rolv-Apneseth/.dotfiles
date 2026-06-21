@@ -31,7 +31,10 @@ keymap("n", "Y", "y$", opts) -- make Y behave as expected
 -- Keep cursor centered
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
-keymap("n", "J", "mzJ`z", opts)
+
+keymap("n", "J", "mzJ`z", opts) -- Keep cursor at start of line when joining lines
+
+keymap("n", "<Esc>", ":nohl<CR>", { silent = true }) -- Clear search highlights
 
 -- Undo break points
 local undo_breakpoint_chars = ",.!?/"
