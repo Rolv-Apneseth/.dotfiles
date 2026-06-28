@@ -50,3 +50,4 @@ o.spell = true -- Spellchecking
 o.spelllang = "en"
 o.listchars = "tab:→ ,space:·,nbsp:␣,trail:•,eol:↵,precedes:«,extends:»"
 o.list = false
+o.winborder = "rounded"
