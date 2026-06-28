@@ -97,6 +97,11 @@ return {
                     "/home/rolv/.config/rumdl/config.toml",
                 },
             },
+            rustfmt = {
+                prepend_args = {
+                    "+nightly",
+                },
+            },
         },
     },
 }
