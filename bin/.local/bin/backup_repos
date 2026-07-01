@@ -2,7 +2,7 @@
 
 function push_dir() {
     pushd "$1" || exit
-    git pull --rebase && git add . && git commit -m "$(date)" && git push
+    git pull --rebase --autostash && git add . && git commit -m "$(date)" && git push
     popd || exit
 }
 
