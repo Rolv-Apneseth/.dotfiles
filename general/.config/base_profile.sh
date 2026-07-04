@@ -50,3 +50,6 @@ export FZF_CTRL_T_COMMAND="fd --absolute-path --hidden --type directory --ignore
 export FZF_CTRL_T_OPTS="--preview='erd --hidden --no-git --layout=inverted --level 2 --color=force {}'"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS"
+
+# LESS AS MANPAGER
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
