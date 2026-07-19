@@ -64,7 +64,7 @@
     sticky_history = no
     history_length = 20
 
-    dmenu = /usr/bin/rofi -dmenu dunst:
+    dmenu = /usr/bin/rofi -theme launcher -display-columns 1 -display-column-separator '[(]' -dmenu dunst
     browser = /usr/bin/xdg-open
     always_run_script = true
     title = Dunst
@@ -80,7 +80,7 @@
 
     mouse_left_click = close_current
     mouse_middle_click = close_all
-    mouse_right_click = do_action
+    mouse_right_click = context
 
 	frame_color = "#111111AA"
     separator_color = frame
