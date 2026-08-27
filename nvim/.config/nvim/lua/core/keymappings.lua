@@ -80,6 +80,10 @@ return {
             ["s"] = { "<cmd>w<CR>", "Format then save" },
             ["S"] = { "<cmd>noa w<CR>", "Save without formatting" },
             ["X"] = { "<cmd>!chmod +x %<CR>", "Make current file executable" },
+            ["D"] = {
+                "<cmd>lua vim.fn.setreg('d', os.date('%a %Y-%m-%d'), 'c')<CR>\"dp",
+                "Insert current date",
+            },
 
             g = {
                 name = "Git",
