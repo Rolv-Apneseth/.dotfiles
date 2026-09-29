@@ -94,11 +94,11 @@ return {
                 -- Snacks
                 L = { "<cmd>lua Snacks.git.blame_line()<CR>", "Blame (detailed)" },
                 g = { "<cmd>lua Snacks.lazygit.open()<CR>", "Lazygit" },
-                G = {
-                    "<cmd>lua Snacks.picker.git_log()<CR>",
-                    "Log",
+                h = { "<cmd>lua Snacks.lazygit.log_file()<CR>", "Lazygit log (file)" },
+                H = {
+                    "<cmd>lua Snacks.lazygit.log()<CR>",
+                    "Lazygit log (all)",
                 },
-                --[[ s = { "<cmd>lua Snacks.picker.git_status()<CR>", "Git status" }, ]]
                 d = {
                     "<cmd>lua Snacks.picker.git_diff()<CR>",
                     "Diff",
