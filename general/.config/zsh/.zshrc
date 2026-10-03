@@ -82,9 +82,6 @@ zinit light "zsh-users/zsh-autosuggestions"
 zinit light "zdharma-continuum/fast-syntax-highlighting"
 zinit load "atuinsh/atuin"
 
-# SNIPPETS
-zinit snippet OMZP::git
-
 # ALIASES
 add_file "$HOME/.config/.aliases"
 
