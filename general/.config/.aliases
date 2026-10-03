@@ -1,7 +1,7 @@
 #!/bin/env sh
 # SKETCHY -------------------------------------------------------------------------------
 # (If there's a problem look here first)
-alias ls='eza -1la --icons --color=always --group-directories-first --hyperlink'
+alias ls='eza -1la --icons --group-directories-first --color=auto --hyperlink=auto'
 alias delta="delta --hyperlinks --hyperlinks-file-link-format='file://{path}#{line}'"
 
 alias cp='cp -vi'
