@@ -56,8 +56,8 @@ return {
             "yamlls",
             "bashls",
             "rust_analyzer",
-            "omnisharp",
             "gopls",
+            --[[ "crates", ]]
         }
 
         local settings = {
@@ -75,8 +75,6 @@ return {
 
         mason.setup(settings)
         mason_lspconfig.setup({
-            ensure_installed = servers,
-            automatic_installation = true,
             automatic_enable = false,
         })
 
@@ -118,6 +116,11 @@ return {
             if server == "omnisharp" then
                 local omnisharp_opts = require("plugins.code.settings.omnisharp")
                 opts = vim.tbl_deep_extend("force", omnisharp_opts, opts)
+            end
+
+            if server == "crates" then
+                local crates_opts = require("plugins.code.settings.crates")
+                opts = vim.tbl_deep_extend("force", crates_opts, opts)
             end
 
             vim.lsp.config(server, opts)
