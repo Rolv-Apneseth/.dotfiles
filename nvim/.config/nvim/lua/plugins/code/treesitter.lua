@@ -1,35 +1,56 @@
-local keymaps = require("core.keymappings").treesitter
-local keymaps_autopairs = keymaps.autopairs
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
-        opts = {
-            ensure_installed = "all", -- "all", or a list of languages
-            sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-            auto_install = true, -- install missing parsers when entering buffer
-            ignore_install = {}, -- List of parsers to ignore installing
-            highlight = {
-                enable = true, -- false will disable the whole extension
-                disable = { "" }, -- list of language that will be disabled
-                additional_vim_regex_highlighting = { "markdown" },
-            },
-            indent = { enable = true, disable = { "yaml", "python" } },
-            hijack_directories = {
-                enable = true,
-                auto_open = true,
-            },
-            -- EXTENSIONS
-            -- Autopair brackets, strings etc. (windwp/nvim-autopairs)
-            autopairs = {
-                enable = true,
-            },
-        },
-    },
+        -- Auto install parser for current file type and enable treesitter
+        -- See: https://github.com/nvim-treesitter/nvim-treesitter/discussions/8546#discussioncomment-16441482
+        config = function()
+            local nvim_treesitter = require("nvim-treesitter")
 
-    "JoosepAlviste/nvim-ts-context-commentstring",
+            local function is_parser_installed(lang)
+                local installed = nvim_treesitter.get_installed()
+                return vim.tbl_contains(installed, lang)
+            end
+
+            local function is_parser_available(lang)
+                local available = nvim_treesitter.get_available()
+                return vim.tbl_contains(available, lang)
+            end
+
+            local function start_treesitter(buf, lang)
+                if not vim.treesitter.language.add(lang) then
+                    vim.notify(
+                        "Cannot load treesitter parser for language " .. lang,
+                        vim.log.levels.WARN
+                    )
+                    return
+                end
+                vim.treesitter.start(buf)
+                vim.bo[buf].syntax = "ON"
+                if vim.treesitter.query.get(lang, "indents") then
+                    vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end
+            end
+
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function(ev)
+                    local lang = vim.treesitter.language.get_lang(ev.match)
+                    if not lang then
+                        return
+                    end
+                    local buf = ev.buf
+                    if is_parser_installed(lang) then
+                        start_treesitter(buf, lang)
+                    elseif is_parser_available(lang) then
+                        nvim_treesitter.install({ lang }):await(function()
+                            start_treesitter(buf, lang)
+                        end)
+                    end
+                end,
+            })
+        end,
+    },
 
     {
         -- Auto-tags for html, jsx, etc.
@@ -55,17 +76,6 @@ return {
                 java = false,
             },
             disable_filetype = { "TelescopePrompt", "spectre_panel" },
-            fast_wrap = {
-                map = keymaps_autopairs.fastwrap,
-                chars = { "{", "[", "(", '"', "'" },
-                pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
-                offset = 0, -- Offset from pattern match
-                end_key = "$",
-                keys = "qwertyuiopzxcvbnmasdfghjkl",
-                check_comma = true,
-                highlight = "PmenuSel",
-                highlight_grey = "LineNr",
-            },
         },
     },
 
@@ -85,7 +95,6 @@ return {
 
     {
         "Wansmer/treesj", -- Join / split blocks of code
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
         opts = {
             use_default_keymaps = false,
             check_syntax_error = true,

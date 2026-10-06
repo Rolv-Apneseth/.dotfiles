@@ -69,9 +69,6 @@ return {
         { "gd", ":lua Snacks.picker.lsp_definitions()<CR>" },
         { "gs", ":lua Snacks.picker.lsp_symbols()<CR>" },
     },
-    treesitter = {
-        autopairs = { fastwrap = "<A-e>" },
-    },
     whichkey = {
         -- Normal mode
         leader_n = {
